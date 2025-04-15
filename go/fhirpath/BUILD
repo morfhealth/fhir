@@ -10,6 +10,6 @@ go_library(
     importpath = "github.com/google/fhir/go/fhirpath",
     deps = [
         "//go/fhirpath/gen",
-        "@com_github_antrl4_go_antlr//:go_default_library",
+        "@com_github_antlr4_go_antlr_v4//:antlr",
     ],
 )

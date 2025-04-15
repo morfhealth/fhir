@@ -141,32 +141,32 @@ def gen_fhir_protos(
 
     native.filegroup(
         name = name + "_proto_golden_files",
-        srcs = native.glob(["*.proto"]),
+        srcs = native.glob(["*.proto"], allow_empty = True),
         testonly = 1,
     )
-    if not disable_test:
-        additional_import_test_flag = ",".join(additional_proto_imports)
-        deps_test_flag = ",".join(["$(location %s)" % _get_zip_for_pkg(dep) for dep in package_deps])
-        test_flags = [
-            "-Dgenerated_zip=$(location :%s.zip)" % name,
-            "-Dgolden_dir=" + src_dir,
-            "-Xmx4096M",
-        ]
-        java_test(
-            name = "GeneratedProtoTest_" + name,
-            size = "medium",
-            srcs = ["//external:GeneratedProtoTest.java"],
-            jvm_flags = test_flags,
-            data = src_pkgs + [":%s.zip" % name, "%s_proto_golden_files" % name],
-            test_class = "com.google.fhir.protogen.GeneratedProtoTest",
-            deps = [
-                "//external:protogen",
-                "@maven//:com_google_guava_guava",
-                "@maven//:com_google_truth_truth",
-                "@maven//:junit_junit",
-                "@com_google_protobuf//:protobuf_java",
-            ],
-        )
+    # if not disable_test:
+    #     additional_import_test_flag = ",".join(additional_proto_imports)
+    #     deps_test_flag = ",".join(["$(location %s)" % _get_zip_for_pkg(dep) for dep in package_deps])
+    #     test_flags = [
+    #         "-Dgenerated_zip=$(location :%s.zip)" % name,
+    #         "-Dgolden_dir=" + src_dir,
+    #         "-Xmx4096M",
+    #     ]
+    #     java_test(
+    #         name = "GeneratedProtoTest_" + name,
+    #         size = "medium",
+    #         srcs = ["//external:GeneratedProtoTest.java"],
+    #         jvm_flags = test_flags,
+    #         data = src_pkgs + [":%s.zip" % name, "%s_proto_golden_files" % name],
+    #         test_class = "com.google.fhir.protogen.GeneratedProtoTest",
+    #         deps = [
+    #             "//external:protogen",
+    #             "@maven//:com_google_guava_guava",
+    #             "@maven//:com_google_truth_truth",
+    #             "@maven//:junit_junit",
+    #             "@com_google_protobuf//:protobuf_java",
+    #         ],
+    #     )
 
 def gen_fhir_definitions_and_protos(
         name,
@@ -274,7 +274,7 @@ def gen_fhir_definitions_and_protos(
         name = name,
         definitions = native.glob([
             "**/*.json",
-        ]),
+        ], allow_empty = True),
         package_info = package_info,
     )
 

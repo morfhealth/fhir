@@ -1,1 +1,13 @@
+common:macos --platform_mappings=platform_mapping
+common:macos --repo_env=BAZEL_NO_APPLE_CPP_TOOLCHAIN=1
+common --incompatible_strict_action_env=true
+common --incompatible_disallow_empty_glob=false
+
+build --symlink_prefix=.dist/
 build --cxxopt=-std=c++17
+build --java_language_version=11 --java_runtime_version=remotejdk_11 --tool_java_language_version=11 --tool_java_runtime_version=remotejdk_11
+build --noexperimental_check_external_repository_files
+build --reuse_sandbox_directories
+build --nolegacy_external_runfiles
+fetch --noexperimental_check_external_repository_files
+query --noexperimental_check_external_repository_files

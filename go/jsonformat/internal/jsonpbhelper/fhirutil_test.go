@@ -47,6 +47,7 @@ import (
 	d3pb "github.com/google/fhir/go/proto/google/fhir/proto/stu3/datatypes_go_proto"
 	e3pb "github.com/google/fhir/go/proto/google/fhir/proto/stu3/fhirproto_extensions_go_proto"
 	r3pb "github.com/google/fhir/go/proto/google/fhir/proto/stu3/resources_go_proto"
+	c5pb "github.com/google/fhir/go/proto/google/fhir/proto/r5/core/codes_go_proto"
 )
 
 func TestIsPrimitiveType(t *testing.T) {

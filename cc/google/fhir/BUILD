@@ -531,7 +531,7 @@ cc_test(
         "@com_google_absl//absl/strings",
         "@com_google_absl//absl/strings:str_format",
         "@com_google_googletest//:gtest_main",
-        "@libarchive",
+        "@libarchive//libarchive:libarchive",
     ],
 )
 
@@ -616,7 +616,7 @@ cc_library(
         "@com_google_absl//absl/strings",
         "@com_google_absl//absl/strings:str_format",
         "@com_google_absl//absl/time",
-        "@libarchive",
+        "@libarchive//libarchive:libarchive",
     ],
 )
 
@@ -685,7 +685,7 @@ cc_test(
         "@com_google_absl//absl/strings",
         "@com_google_absl//absl/time",
         "@com_google_googletest//:gtest_main",
-        "@libarchive",
+        "@libarchive//libarchive:libarchive",
     ],
 )
 
