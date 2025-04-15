@@ -30,11 +30,9 @@ bazel_dep(name = "rules_jvm_external", version = "6.6", dev_dependency = True)
 # Non bzl-modularized dependencies #
 ####################################
 
-non_module_dependencies = use_extension("//:extensions.bzl", "non_module_dependencies")
-use_repo(non_module_dependencies, "hl7.fhir.r4.core_4.0.1")
-use_repo(non_module_dependencies, "hl7.fhir.r5.core_5.0.0")
-
 maven = use_extension("@rules_jvm_external//:extensions.bzl", "maven")
+use_repo(maven, "maven")
+
 maven.install(
     artifacts = [
         "com.beust:jcommander:1.72",
@@ -64,7 +62,10 @@ maven.install(
         "https://repo1.maven.org/maven2",
     ],
 )
-use_repo(maven, "maven")
+
+non_module_dependencies = use_extension("//:extensions.bzl", "non_module_dependencies")
+use_repo(non_module_dependencies, "hl7.fhir.r4.core_4.0.1")
+use_repo(non_module_dependencies, "hl7.fhir.r5.core_5.0.0")
 
 #########################
 #  Golang dependencies  #
