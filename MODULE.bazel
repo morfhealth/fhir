@@ -1,6 +1,7 @@
 module(
     name = "com_google_fhir",
     repo_name = "com_google_fhir",
+    version = "0.8.0",
 )
 
 bazel_dep(name = "rules_cc", version = "0.1.1")
