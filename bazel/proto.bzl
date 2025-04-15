@@ -2,7 +2,7 @@
 """
 
 load("@io_bazel_rules_go//proto:def.bzl", "go_proto_library")
-load("@rules_cc//cc:defs.bzl", "cc_proto_library")
+load("@com_google_protobuf//bazel:cc_proto_library.bzl", "cc_proto_library")
 load("@rules_proto//proto:defs.bzl", "proto_library")
 
 WELL_KNOWN_PROTOS = ["descriptor_proto", "any_proto"]
