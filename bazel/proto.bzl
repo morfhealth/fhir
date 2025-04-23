@@ -2,6 +2,8 @@
 """
 
 load("@io_bazel_rules_go//proto:def.bzl", "go_proto_library")
+load("@aspect_rules_js//js:defs.bzl", "js_library")
+load("@com_github_buildbuddy_io_protoc_gen_protobufjs//:rules.bzl", "protoc_gen_protobufjs")
 load("@com_google_protobuf//bazel:cc_proto_library.bzl", "cc_proto_library")
 load("@rules_proto//proto:defs.bzl", "proto_library")
 
@@ -10,6 +12,42 @@ GO_WELL_KNOWN_PROTOS = {
     "descriptor_proto": "@org_golang_google_protobuf//types/descriptorpb:go_default_library",
     "any_proto": "@org_golang_google_protobuf//types/known/anypb:go_default_library",
 }
+
+TS_WELL_KNOWN_PROTOS = {
+    "descriptor_proto": "//proto:descriptor_ts_proto",
+    "any_proto": "//proto:any_ts_proto",
+}
+
+def ts_proto_library(name, proto, deps = [], **kwargs):
+    """Generates .js and .d.ts files from a proto_library target.
+
+    Args:
+        name: name of generated js_library target, also used to name the .js/.d.ts output
+        proto: label of a single proto_library target to generate code for
+        deps: deps for *directly* imported protos only; must be other ts_proto_library targets
+        **kwargs: passed through to the underlying rules
+    """
+
+    protoc_gen_protobufjs(
+        name = name + "__gen_protobufjs",
+        out = name,
+        proto = proto,
+        deps = [dep + "__gen_protobufjs" for dep in deps],
+        **kwargs
+    )
+
+    js_library(
+        name = name,
+        srcs = [":" + name + "__gen_protobufjs"],
+        deps = [
+            "//:node_modules/@types/long",
+            "//:node_modules/@types/protobufjs",
+            "//:node_modules/long",
+            "//:node_modules/protobufjs",
+        ] + deps,
+        **kwargs
+    )
+
 
 def fhir_proto_library(proto_library_prefix, srcs = [], proto_deps = [], **kwargs):
     """Generates proto_library target, as well as {cc,java,go}_proto_library targets.
@@ -20,6 +58,7 @@ def fhir_proto_library(proto_library_prefix, srcs = [], proto_deps = [], **kwarg
       proto_deps: Deps by the proto_library.
       **kwargs: varargs. Passed through to proto rules.
     """
+    ts_deps = []
     cc_deps = []
     go_deps = []
     has_well_known_dep = False
@@ -27,18 +66,26 @@ def fhir_proto_library(proto_library_prefix, srcs = [], proto_deps = [], **kwarg
         tokens = x.split(":")
         if len(tokens) == 2 and tokens[1] in WELL_KNOWN_PROTOS:
             go_deps.append(GO_WELL_KNOWN_PROTOS[tokens[1]])
+            ts_deps.append(TS_WELL_KNOWN_PROTOS[tokens[1]])
             if not has_well_known_dep:
                 cc_deps.append(tokens[0] + ":cc_wkt_protos")
                 has_well_known_dep = True
         elif x.endswith("_proto"):
             cc_deps.append(x[:-6] + "_cc_proto")
             go_deps.append(x[:-6] + "_go_proto")
+            ts_deps.append(x[:-6] + "_ts_proto")
 
     proto_library(
         name = proto_library_prefix + "_proto",
         srcs = srcs,
         deps = proto_deps,
         **kwargs
+    )
+
+    ts_proto_library(
+        name = proto_library_prefix + "_ts_proto",
+        proto = ":" + proto_library_prefix + "_proto",
+        deps = ts_deps,
     )
 
     cc_proto_library(

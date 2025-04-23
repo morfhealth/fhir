@@ -1,4 +1,4 @@
-load("@bazel_tools//tools/build_defs/repo:http.bzl", "http_file")
+load("@bazel_tools//tools/build_defs/repo:http.bzl", "http_archive", "http_file")
 
 def workspace_dependencies():
     """External non-bazel dependencies"""
@@ -15,4 +15,11 @@ def workspace_dependencies():
         downloaded_file_path = "hl7.fhir.r5.core@5.0.0.tgz",
         sha256 = "74b27cd1bfce9e80eaceac431edf230b0945a443564fbf5512f82e5fa50a80d4",
         url = "https://hl7.org/fhir/R5/hl7.fhir.r5.core.tgz",
+    )
+
+    http_archive(
+        name = "com_github_buildbuddy_io_protoc_gen_protobufjs",
+        sha256 = "c930a02ddf44d93a2c3caca4eda3c7029b2bebb2899f047cae36e81a724c343d",
+        strip_prefix = "protoc-gen-protobufjs-0.0.3",
+        urls = ["https://github.com/morfhealth/protoc-gen-protobufjs/archive/v0.0.3.tar.gz"],
     )

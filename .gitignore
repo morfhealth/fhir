@@ -1,3 +1,4 @@
 # Ignore the bazel symlinks
 /bazel-*
 /.dist/
+/node_modules/
