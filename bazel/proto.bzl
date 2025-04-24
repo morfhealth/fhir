@@ -18,7 +18,7 @@ TS_WELL_KNOWN_PROTOS = {
     "any_proto": "//proto:any_ts_proto",
 }
 
-def ts_proto_library(name, proto, deps = [], **kwargs):
+def fhir_wrapped_ts_proto_library(name, proto, deps = [], **kwargs):
     """Generates .js and .d.ts files from a proto_library target.
 
     Args:
@@ -82,7 +82,7 @@ def fhir_proto_library(proto_library_prefix, srcs = [], proto_deps = [], **kwarg
         **kwargs
     )
 
-    ts_proto_library(
+    fhir_wrapped_ts_proto_library(
         name = proto_library_prefix + "_ts_proto",
         proto = ":" + proto_library_prefix + "_proto",
         deps = ts_deps,
