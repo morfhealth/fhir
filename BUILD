@@ -1,5 +1,5 @@
 load("@bazel_gazelle//:def.bzl", "gazelle")
-load("@npm//:defs.bzl", "npm_link_all_packages")
+load("@fhir_npm//:defs.bzl", "npm_link_all_packages")
 
 exports_files(["LICENSE"])
 
