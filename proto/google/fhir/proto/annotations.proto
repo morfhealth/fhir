@@ -20,6 +20,8 @@ syntax = "proto3";
 package google.fhir.proto;
 
 import "google/protobuf/descriptor.proto";
+import "google/protobuf/empty.proto";
+import "google/protobuf/struct.proto";
 
 option java_outer_classname = "Annotations";
 option java_package = "com.google.fhir.proto";
@@ -196,6 +198,18 @@ extend google.protobuf.FieldOptions {
 
   // Indicates the base FHIR resource type a ReferenceId field points to.
   string referenced_fhir_type = 239446062;
+  
+  // Morf-specific description of the field.
+  string field_description = 50030;
+  
+  // Morf-specific example of the field.
+  google.protobuf.Value field_example = 50031;
+
+  // Morf-specific object_type of the field.
+  google.protobuf.Empty object_type_field = 50032;
+  
+  // Morf-specific unique object instance ID of the object.
+  google.protobuf.Empty unique_object_instance_field = 50034;
 }
 
 extend google.protobuf.OneofOptions {

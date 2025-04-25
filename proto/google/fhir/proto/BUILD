@@ -8,6 +8,8 @@ fhir_proto_library(
     srcs = ["annotations.proto"],
     proto_deps = [
         "@com_google_protobuf//:descriptor_proto",
+        "@com_google_protobuf//:struct_proto",
+        "@com_google_protobuf//:empty_proto",
     ],
     proto_library_prefix = "annotations",
 )

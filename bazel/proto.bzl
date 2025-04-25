@@ -7,15 +7,25 @@ load("@com_github_buildbuddy_io_protoc_gen_protobufjs//:rules.bzl", "protoc_gen_
 load("@com_google_protobuf//bazel:cc_proto_library.bzl", "cc_proto_library")
 load("@rules_proto//proto:defs.bzl", "proto_library")
 
-WELL_KNOWN_PROTOS = ["descriptor_proto", "any_proto"]
+WELL_KNOWN_PROTOS = [
+    "descriptor_proto",
+    "any_proto",
+    "empty_proto",
+    "struct_proto",
+]
+
 GO_WELL_KNOWN_PROTOS = {
     "descriptor_proto": "@org_golang_google_protobuf//types/descriptorpb:go_default_library",
     "any_proto": "@org_golang_google_protobuf//types/known/anypb:go_default_library",
+    "empty_proto": "@org_golang_google_protobuf//types/known/emptypb:go_default_library",
+    "struct_proto": "@org_golang_google_protobuf//types/known/structpb:go_default_library",
 }
 
 TS_WELL_KNOWN_PROTOS = {
     "descriptor_proto": "//proto:descriptor_ts_proto",
     "any_proto": "//proto:any_ts_proto",
+    "empty_proto": "//proto:empty_ts_proto",
+    "struct_proto": "//proto:struct_ts_proto",
 }
 
 def fhir_wrapped_ts_proto_library(name, proto, deps = [], **kwargs):
