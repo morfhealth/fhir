@@ -867,7 +867,12 @@ message Distance {
   repeated Extension extension = 2;
 
   // Numerical value (with implicit precision)
-  Decimal value = 3;
+  Decimal value = 3 [
+    (.google.fhir.proto.field_description) = "Numerical value (with implicit precision)",
+    (.google.fhir.proto.field_example) = {
+      string_value: "100"
+    }
+  ];
 
   // < | <= | >= | > - how to understand the value
   message ComparatorCode {
@@ -886,7 +891,12 @@ message Distance {
   ComparatorCode comparator = 4;
 
   // Unit representation
-  String unit = 5;
+  String unit = 5 [
+    (.google.fhir.proto.field_description) = "Unit representation",
+    (.google.fhir.proto.field_example) = {
+      string_value: "mi"
+    }
+  ];
 
   // System that defines coded unit form
   Uri system = 6;
@@ -913,17 +923,32 @@ message Dosage {
   repeated Extension modifier_extension = 3;
 
   // The order of the dosage instructions
-  Integer sequence = 4;
+  Integer sequence = 4 [
+    (.google.fhir.proto.field_description) = "The order of the dosage instructions",
+    (.google.fhir.proto.field_example) = {
+      number_value: 1
+    }
+  ];
 
   // Free text dosage instructions e.g. SIG
-  String text = 5;
+  String text = 5 [
+    (.google.fhir.proto.field_description) = "Free text dosage instructions e.g. SIG",
+    (.google.fhir.proto.field_example) = {
+      string_value: "1 tablet orally daily"
+    }
+  ];
 
   // Supplemental instruction or warnings to the patient - e.g. "with meals",
   // "may cause drowsiness"
   repeated CodeableConcept additional_instruction = 6;
 
   // Patient or consumer oriented instructions
-  String patient_instruction = 7;
+  String patient_instruction = 7 [
+    (.google.fhir.proto.field_description) = "Patient or consumer oriented instructions",
+    (.google.fhir.proto.field_example) = {
+      string_value: "Take 1 tablet by mouth once per day"
+    }
+  ];
 
   // When medication should be administered
   Timing timing = 8;
@@ -1990,13 +2015,18 @@ message Identifier {
   CodeableConcept type = 4;
 
   // The namespace for the identifier value
-  Uri system = 5;
+  Uri system = 5 [
+    (.google.fhir.proto.field_description) = "The namespace for the identifier value",
+    (.google.fhir.proto.field_example) = {
+      string_value: "http://morf.health/fhir/r4/identifier_types/healthie"
+    }
+  ];
 
   // The value that is unique
   String value = 6 [
     (.google.fhir.proto.field_description) = "The value that is unique",
     (.google.fhir.proto.field_example) = {
-      string_value: "81a8b491-69c3-453e-a1df-8645540267df"
+      string_value: "6321523"
     }
   ];
 
@@ -2178,7 +2208,12 @@ message Money {
   repeated Extension extension = 2;
 
   // Numerical value (with implicit precision)
-  Decimal value = 3;
+  Decimal value = 3 [
+    (.google.fhir.proto.field_description) = "Numerical value (with implicit precision)",
+    (.google.fhir.proto.field_example) = {
+      string_value: "50"
+    }
+  ];
 
   // ISO 4217 Currency Code
   message CurrencyCode {
@@ -2196,7 +2231,12 @@ message Money {
     repeated Extension extension = 3;
 
     // This valueset is not enumerable, and so is represented as a string.
-    string value = 4;
+    string value = 4 [
+      (.google.fhir.proto.field_description) = "ISO currency code",
+      (.google.fhir.proto.field_example) = {
+        string_value: "USD"
+      }
+    ];
   }
   CurrencyCode currency = 4;
 }
@@ -2223,7 +2263,12 @@ message MoneyQuantity {
   repeated Extension extension = 2;
 
   // Numerical value (with implicit precision)
-  Decimal value = 3;
+  Decimal value = 3 [
+    (.google.fhir.proto.field_description) = "Numerical value (with implicit precision)",
+    (.google.fhir.proto.field_example) = {
+      string_value: "50"
+    }
+  ];
 
   // < | <= | >= | > - how to understand the value
   message ComparatorCode {
@@ -2242,7 +2287,12 @@ message MoneyQuantity {
   ComparatorCode comparator = 4;
 
   // Unit representation
-  String unit = 5;
+  String unit = 5 [
+    (.google.fhir.proto.field_description) = "Unit representation",
+    (.google.fhir.proto.field_example) = {
+      string_value: "USD"
+    }
+  ];
 
   // System that defines coded unit form
   Uri system = 6;
@@ -3259,13 +3309,23 @@ message SimpleQuantity {
   repeated Extension extension = 2;
 
   // Numerical value (with implicit precision)
-  Decimal value = 3;
+  Decimal value = 3 [
+    (.google.fhir.proto.field_description) = "Numerical value (with implicit precision)",
+    (.google.fhir.proto.field_example) = {
+      string_value: "100"
+    }
+  ];
 
   // Quantity.comparator not present on profile.
   reserved 4;
 
   // Unit representation
-  String unit = 5;
+  String unit = 5 [
+    (.google.fhir.proto.field_description) = "Unit representation",
+    (.google.fhir.proto.field_example) = {
+      string_value: "g"
+    }
+  ];
 
   // System that defines coded unit form
   Uri system = 6;
