@@ -66,7 +66,12 @@ message Patient {
   repeated Identifier identifier = 10;
 
   // Whether this patient's record is in active use
-  Boolean active = 11;
+  Boolean active = 11 [
+    (.google.fhir.proto.field_description) = "Whether this patient's record is in active use",
+    (.google.fhir.proto.field_example) = {
+      bool_value: true
+    }
+  ];
 
   // A name associated with the patient
   repeated HumanName name = 12;
@@ -91,15 +96,30 @@ message Patient {
   GenderCode gender = 14;
 
   // The date of birth for the individual
-  Date birth_date = 15;
+  Date birth_date = 15 [
+    (.google.fhir.proto.field_description) = "The date of birth for the individual",
+    (.google.fhir.proto.field_example) = {
+      string_value: "1990-01-02"
+    }
+  ];
 
   // Indicates if the individual is deceased or not
   message DeceasedX {
     option (.google.fhir.proto.is_choice_type) = true;
 
     oneof choice {
-      Boolean boolean = 1;
-      DateTime date_time = 2;
+      Boolean boolean = 1 [
+        (.google.fhir.proto.field_description) = "Indicates if the individual is deceased or not",
+        (.google.fhir.proto.field_example) = {
+          bool_value: true
+        }
+      ];
+      DateTime date_time = 2 [
+        (.google.fhir.proto.field_description) = "The date of death for the individual",
+        (.google.fhir.proto.field_example) = {
+          string_value: "2021-01-01T00:00:00Z"
+        }
+      ];
     }
   }
   DeceasedX deceased = 16;
@@ -115,8 +135,18 @@ message Patient {
     option (.google.fhir.proto.is_choice_type) = true;
 
     oneof choice {
-      Boolean boolean = 1;
-      Integer integer = 2;
+      Boolean boolean = 1 [
+        (.google.fhir.proto.field_description) = "Whether patient is part of a multiple birth",
+        (.google.fhir.proto.field_example) = {
+          bool_value: true
+        }
+      ];
+      Integer integer = 2 [
+        (.google.fhir.proto.field_description) = "The birth number of the sequence of children born at the same time",
+        (.google.fhir.proto.field_example) = {
+          number_value: 1
+        }
+      ];
     }
   }
   MultipleBirthX multiple_birth = 19;
@@ -191,11 +221,18 @@ message Patient {
 
     // The language which can be used to communicate with the patient about his
     // or her health
-    CodeableConcept language = 4
-        [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
+    CodeableConcept language = 4 [
+      (.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR,
+      (.google.fhir.proto.field_description) = "Language"
+    ];
 
     // Language preference indicator
-    Boolean preferred = 5;
+    Boolean preferred = 5 [
+      (.google.fhir.proto.field_description) = "Language preference indicator",
+      (.google.fhir.proto.field_example) = {
+        bool_value: true
+      }
+    ];
   }
   repeated Communication communication = 22;
 
