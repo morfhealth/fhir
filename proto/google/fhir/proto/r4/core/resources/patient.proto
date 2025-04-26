@@ -35,7 +35,12 @@ message Patient {
       "http://hl7.org/fhir/StructureDefinition/Patient";
 
   // Logical id of this artifact
-  Id id = 1;
+  Id id = 1 [
+    (.google.fhir.proto.field_description) = "Logical id of this Patient",
+    (.google.fhir.proto.field_example) = {
+      string_value: "636c5cd8-ad62-48d6-b9f2-fe44d442a9fd"
+    }
+  ];
 
   // Metadata about the resource
   Meta meta = 2;

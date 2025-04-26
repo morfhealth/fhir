@@ -38,7 +38,12 @@ message Task {
       "lastModified.exists().not() or authoredOn.exists().not() or lastModified >= authoredOn";
 
   // Logical id of this artifact
-  Id id = 1;
+  Id id = 1 [
+    (.google.fhir.proto.field_description) = "Logical id of this Task",
+    (.google.fhir.proto.field_example) = {
+      string_value: "636c5cd8-ad62-48d6-b9f2-fe44d442a9fd"
+    }
+  ];
 
   // Metadata about the resource
   Meta meta = 2;
@@ -146,7 +151,12 @@ message Task {
   CodeableConcept code = 21;
 
   // Human-readable explanation of task
-  String description = 22;
+  String description = 22 [
+    (.google.fhir.proto.field_description) = "Human-readable explanation of task",
+    (.google.fhir.proto.field_example) = {
+      string_value: "This is a task to be performed"
+    }
+  ];
 
   // What task is acting on
   Reference focus = 23 [(.google.fhir.proto.valid_reference_type) = "Resource"];
@@ -165,10 +175,20 @@ message Task {
   Period execution_period = 26;
 
   // Task Creation Date
-  DateTime authored_on = 27;
+  DateTime authored_on = 27 [
+    (.google.fhir.proto.field_description) = "Task Creation Datetime",
+    (.google.fhir.proto.field_example) = {
+      string_value: "2021-01-01T00:00:00Z"
+    }
+  ];
 
   // Task Last Modified Date
-  DateTime last_modified = 28;
+  DateTime last_modified = 28 [
+    (.google.fhir.proto.field_description) = "Task Last Modified Datetime",
+    (.google.fhir.proto.field_example) = {
+      string_value: "2021-01-01T00:00:00Z"
+    }
+  ];
 
   // Who is asking for task to be done
   Reference requester = 29 [
