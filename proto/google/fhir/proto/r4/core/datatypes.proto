@@ -156,7 +156,12 @@ message Age {
   repeated Extension extension = 2;
 
   // Numerical value (with implicit precision)
-  Decimal value = 3;
+  Decimal value = 3 [
+    (.google.fhir.proto.field_description) = "Numerical value for age (in the given units) (with implicit precision)",
+    (.google.fhir.proto.field_example) = {
+      string_value: "25"
+    }
+  ];
 
   // < | <= | >= | > - how to understand the value
   message ComparatorCode {
@@ -175,7 +180,12 @@ message Age {
   ComparatorCode comparator = 4;
 
   // Unit representation
-  String unit = 5;
+  String unit = 5 [
+    (.google.fhir.proto.field_description) = "Unit representation",
+    (.google.fhir.proto.field_example) = {
+      string_value: "Year"
+    }
+  ];
 
   // System that defines coded unit form
   Uri system = 6;
@@ -441,7 +451,12 @@ message ContactDetail {
   repeated Extension extension = 2;
 
   // Name of an individual to contact
-  String name = 3;
+  String name = 3 [
+    (.google.fhir.proto.field_description) = "Name of an individual to contact",
+    (.google.fhir.proto.field_example) = {
+      string_value: "John Smith"
+    }
+  ];
 
   // Contact details for individual or organization
   repeated ContactPoint telecom = 4;
@@ -480,7 +495,12 @@ message ContactPoint {
   SystemCode system = 3;
 
   // The actual contact point details
-  String value = 4;
+  String value = 4 [
+    (.google.fhir.proto.field_description) = "The actual contact point details",
+    (.google.fhir.proto.field_example) = {
+      string_value: "+1555121234"
+    }
+  ];
 
   // home | work | temp | old | mobile - purpose of this contact point
   message UseCode {
@@ -496,10 +516,20 @@ message ContactPoint {
 
     repeated Extension extension = 3;
   }
-  UseCode use = 5;
+  UseCode use = 5 [
+    (.google.fhir.proto.field_description) = "Purpose of this contact point, e.g. home, work, temp, old, mobile",
+    (.google.fhir.proto.field_example) = {
+      string_value: "work"
+    }
+  ];
 
   // Specify preferred order of use (1 = highest)
-  PositiveInt rank = 6;
+  PositiveInt rank = 6 [
+    (.google.fhir.proto.field_description) = "Ranked preference for order of use (1 = highest)",
+    (.google.fhir.proto.field_example) = {
+      number_value: 1
+    }
+  ];
 
   // Time period when the contact point was/is in use
   Period period = 7;
@@ -1856,22 +1886,52 @@ message HumanName {
 
     repeated Extension extension = 3;
   }
-  UseCode use = 3;
+  UseCode use = 3 [
+    (.google.fhir.proto.field_description) = "Human name semantic type",
+    (.google.fhir.proto.field_example) = {
+      string_value: "official"
+    }
+  ];
 
   // Text representation of the full name
-  String text = 4;
+  String text = 4 [
+    (.google.fhir.proto.field_description) = "Text representation of the full name",
+    (.google.fhir.proto.field_example) = {
+      string_value: "John Smith"
+    }
+  ];
 
   // Family name (often called 'Surname')
-  String family = 5;
+  String family = 5 [
+    (.google.fhir.proto.field_description) = "Family name (often called 'Surname')",
+    (.google.fhir.proto.field_example) = {
+      string_value: "Smith"
+    }
+  ];
 
   // Given names (not always 'first'). Includes middle names
-  repeated String given = 6;
+  repeated String given = 6 [
+    (.google.fhir.proto.field_description) = "Given names (not always 'first'). Includes middle names",
+    (.google.fhir.proto.field_example) = {
+      string_value: "John"
+    }
+  ];
 
   // Parts that come before the name
-  repeated String prefix = 7;
+  repeated String prefix = 7 [
+    (.google.fhir.proto.field_description) = "Parts that come before the name",
+    (.google.fhir.proto.field_example) = {
+      string_value: "Mr."
+    }
+  ];
 
   // Parts that come after the name
-  repeated String suffix = 8;
+  repeated String suffix = 8 [
+    (.google.fhir.proto.field_description) = "Parts that come after the name",
+    (.google.fhir.proto.field_example) = {
+      string_value: "Jr."
+    }
+  ];
 
   // Time period when name was/is in use
   Period period = 9;
@@ -1933,7 +1993,12 @@ message Identifier {
   Uri system = 5;
 
   // The value that is unique
-  String value = 6;
+  String value = 6 [
+    (.google.fhir.proto.field_description) = "The value that is unique",
+    (.google.fhir.proto.field_example) = {
+      string_value: "81a8b491-69c3-453e-a1df-8645540267df"
+    }
+  ];
 
   // Time period when id is/was valid for use
   Period period = 7;
@@ -2326,10 +2391,20 @@ message Period {
   repeated Extension extension = 2;
 
   // Starting time with inclusive boundary
-  DateTime start = 3;
+  DateTime start = 3 [
+    (.google.fhir.proto.field_description) = "Starting time with inclusive boundary",
+    (.google.fhir.proto.field_example) = {
+      string_value: "2021-01-01T00:00:00Z"
+    }
+  ];
 
   // End time with inclusive boundary, if not ongoing
-  DateTime end = 4;
+  DateTime end = 4 [
+    (.google.fhir.proto.field_description) = "End time with inclusive boundary, if not ongoing",
+    (.google.fhir.proto.field_example) = {
+      string_value: "2021-01-01T00:00:00Z"
+    }
+  ];
 }
 
 // Auto-generated from StructureDefinition for Population.
@@ -2525,7 +2600,12 @@ message Quantity {
   repeated Extension extension = 2;
 
   // Numerical value (with implicit precision)
-  Decimal value = 3;
+  Decimal value = 3 [
+    (.google.fhir.proto.field_description) = "Numerical value (with implicit precision)",
+    (.google.fhir.proto.field_example) = {
+      string_value: "100"
+    }
+  ];
 
   // < | <= | >= | > - how to understand the value
   message ComparatorCode {
@@ -2544,10 +2624,20 @@ message Quantity {
   ComparatorCode comparator = 4;
 
   // Unit representation
-  String unit = 5;
+  String unit = 5 [
+    (.google.fhir.proto.field_description) = "Unit representation",
+    (.google.fhir.proto.field_example) = {
+      string_value: "mg"
+    }
+  ];
 
   // System that defines coded unit form
-  Uri system = 6;
+  Uri system = 6 [
+    (.google.fhir.proto.field_description) = "System that defines coded unit form",
+    (.google.fhir.proto.field_example) = {
+      string_value: "http://unitsofmeasure.org"
+    }
+  ];
 
   // Coded form of the unit
   Code code = 7;
