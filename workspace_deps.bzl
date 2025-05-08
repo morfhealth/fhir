@@ -23,3 +23,10 @@ def workspace_dependencies():
         strip_prefix = "protoc-gen-protobufjs-0.0.3",
         urls = ["https://github.com/morfhealth/protoc-gen-protobufjs/archive/v0.0.3.tar.gz"],
     )
+
+    http_archive(
+        name = "com_github_buildbuddy_io_protoc_gen_protobufjs_2",
+        sha256 = "c0eca85eef366a259d37cd4310dacc3d72b4eba54025c4a3a6473037c860f716",
+        strip_prefix = "protoc-gen-protobufjs-0.0.9",
+        urls = ["https://github.com/morfhealth/protoc-gen-protobufjs/archive/v0.0.9.tar.gz"],
+    )

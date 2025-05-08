@@ -72,6 +72,7 @@ non_module_dependencies = use_extension("//:extensions.bzl", "non_module_depende
 use_repo(non_module_dependencies, "hl7.fhir.r4.core_4.0.1")
 use_repo(non_module_dependencies, "hl7.fhir.r5.core_5.0.0")
 use_repo(non_module_dependencies, "com_github_buildbuddy_io_protoc_gen_protobufjs")
+use_repo(non_module_dependencies, "com_github_buildbuddy_io_protoc_gen_protobufjs_2")
 
 #########################
 #   Node dependencies   #
