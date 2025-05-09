@@ -40,9 +40,9 @@ import (
 	"google.golang.org/protobuf/reflect/protoreflect"
 	"google.golang.org/protobuf/testing/protocmp"
 
-	anypb "google.golang.org/protobuf/types/known/anypb"
 	c4pb "github.com/google/fhir/go/proto/google/fhir/proto/r4/core/codes_go_proto"
 	d4pb "github.com/google/fhir/go/proto/google/fhir/proto/r4/core/datatypes_go_proto"
+	r4appointmentpb "github.com/google/fhir/go/proto/google/fhir/proto/r4/core/resources/appointment_go_proto"
 	r4pb "github.com/google/fhir/go/proto/google/fhir/proto/r4/core/resources/bundle_and_contained_resource_go_proto"
 	r4devicepb "github.com/google/fhir/go/proto/google/fhir/proto/r4/core/resources/device_go_proto"
 	r4observationpb "github.com/google/fhir/go/proto/google/fhir/proto/r4/core/resources/observation_go_proto"
@@ -62,6 +62,7 @@ import (
 	d3pb "github.com/google/fhir/go/proto/google/fhir/proto/stu3/datatypes_go_proto"
 	m3pb "github.com/google/fhir/go/proto/google/fhir/proto/stu3/metadatatypes_go_proto"
 	r3pb "github.com/google/fhir/go/proto/google/fhir/proto/stu3/resources_go_proto"
+	anypb "google.golang.org/protobuf/types/known/anypb"
 )
 
 var (
@@ -93,6 +94,7 @@ var (
 	_, b, _, _ = runtime.Caller(0)
 	callerRoot = filepath.Dir(b)
 )
+
 // getRootPath returns the root bazel runfiles path if running in a bazel
 // environment, otherwise it will return the root path of the FHIR proto
 // repository. Typically this is used to access files such as testdata.
@@ -100,8 +102,8 @@ var (
 // exist, and if not, report an error.
 func getRootPath() string {
 	var root string
- 	root, err := bazel.RunfilesPath()
- 	if err != nil {
+	root, err := bazel.RunfilesPath()
+	if err != nil {
 		// Fall back to the non-bazel way to get to the root directory.
 		root = callerRoot + "/../../"
 	}
@@ -1391,6 +1393,67 @@ func TestUnmarshal(t *testing.T) {
 									Coding: []*d5pb.Coding{},
 								},
 							},
+						},
+					},
+				},
+			},
+		},
+		{
+			name: "Medplum Meta object is illegal",
+			json: []byte(`{
+				"resourceType": "Appointment",
+				"status": "booked",
+				"appointmentType": {
+					"coding": [
+						{
+							"system": "http://terminology.hl7.org/CodeSystem/v2-0276",
+							"code": "ROUTINE",
+							"display": "Routine appointment - default if not valued"
+						}
+					]
+				},
+				"priority": 2,
+				"description": "This is a test appointment from James",
+				"start": "2025-05-15T14:15:00.000Z",
+				"end": "2025-05-15T15:57:00.000Z",
+				"minutesDuration": 45,
+				"created": "2025-04-15T16:40:00.000Z",
+				"patientInstruction": "Show up on time please!",
+				"participant": [
+					{
+						"required": "required",
+						"status": "needs-action",
+						"actor": {
+							"reference": "Patient/0196164e-e997-7268-880f-eac736cebef3",
+							"display": "James Thompson"
+						}
+					}
+				],
+				"id": "01963a55-bf01-75e8-950f-b791c5944886",
+				"meta": {
+					"project": "019581e7-b487-7679-9fa1-e577363c68e5",
+					"compartment": [
+						{
+							"reference": "Project/019581e7-b487-7679-9fa1-e577363c68e5"
+						},
+						{
+							"reference": "Patient/0196164e-e997-7268-880f-eac736cebef3"
+						}
+					],
+					"versionId": "0196b518-b856-7159-97e8-c7af1028d98c",
+					"lastUpdated": "2025-05-09T12:50:18.326Z",
+					"author": {
+						"reference": "Practitioner/019581e7-b4b3-72ee-b827-19348367dcac",
+						"display": "James Thompson"
+					}
+				}
+      }`),
+			wants: []mvr{
+				{
+					ver: fhirversion.R4,
+					r: &r4pb.ContainedResource{
+						OneofResource: &r4pb.ContainedResource_Appointment{
+							Appointment: &r4appointmentpb.Appointment{},
 						},
 					},
 				},

@@ -75,6 +75,7 @@ go_test(
         "//go/jsonformat/internal/jsonpbhelper",
         "//proto/google/fhir/proto/r4/core:codes_go_proto",
         "//proto/google/fhir/proto/r4/core:datatypes_go_proto",
+        "//proto/google/fhir/proto/r4/core/resources:appointment_go_proto",
         "//proto/google/fhir/proto/r4/core/resources:binary_go_proto",
         "//proto/google/fhir/proto/r4/core/resources:bundle_and_contained_resource_go_proto",
         "//proto/google/fhir/proto/r4/core/resources:code_system_go_proto",

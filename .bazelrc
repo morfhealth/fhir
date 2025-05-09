@@ -11,3 +11,5 @@ build --reuse_sandbox_directories
 build --nolegacy_external_runfiles
 fetch --noexperimental_check_external_repository_files
 query --noexperimental_check_external_repository_files
+test --test_output=errors
+test --test_summary=detailed

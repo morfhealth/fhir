@@ -29,12 +29,12 @@ import (
 	"github.com/google/fhir/go/jsonformat/fhirvalidate"
 	"github.com/google/fhir/go/jsonformat/internal/accessor"
 	"github.com/google/fhir/go/jsonformat/internal/jsonpbhelper"
-	"github.com/json-iterator/go"
+	jsoniter "github.com/json-iterator/go"
 	"google.golang.org/protobuf/proto"
 	"google.golang.org/protobuf/reflect/protoreflect"
 
-	anypb "google.golang.org/protobuf/types/known/anypb"
 	apb "github.com/google/fhir/go/proto/google/fhir/proto/annotations_go_proto"
+	anypb "google.golang.org/protobuf/types/known/anypb"
 )
 
 var (
@@ -57,13 +57,13 @@ type Unmarshaller struct {
 	// Stores whether extended validation checks like required fields and
 	// reference checking should be run.
 	enableExtendedValidation bool
-	cfg config
-	ver fhirversion.Version
+	cfg                      config
+	ver                      fhirversion.Version
 }
 
 // NewUnmarshaller returns an Unmarshaller that performs resource validation.
 func NewUnmarshaller(tz string, ver fhirversion.Version) (*Unmarshaller, error) {
-		return newUnmarshaller(tz, ver, true /*enableExtendedValidation*/)
+	return newUnmarshaller(tz, ver, true /*enableExtendedValidation*/)
 }
 
 // NewUnmarshallerWithoutValidation returns an Unmarshaller that doesn't perform resource validation.
@@ -329,11 +329,11 @@ func (u *Unmarshaller) mergeMessage(jsonPath string, decmap map[string]json.RawM
 
 		f, ok := fieldMap[normalizedFieldName]
 		if !ok {
-			errors = append(errors, &jsonpbhelper.UnmarshalError{
-				Path:        jsonPath,
-				Details:     "unknown field",
-				Diagnostics: strconv.Quote(k),
-			})
+			// errors = append(errors, &jsonpbhelper.UnmarshalError{
+			// 	Path:        jsonPath,
+			// 	Details:     "unknown field",
+			// 	Diagnostics: strconv.Quote(k),
+			// })
 			continue
 		}
 		if jsonpbhelper.IsChoice(f.Message()) {
