@@ -27,8 +27,8 @@ import (
 	"google.golang.org/protobuf/proto"
 	"google.golang.org/protobuf/reflect/protoreflect"
 
-	anypb "google.golang.org/protobuf/types/known/anypb"
 	apb "github.com/google/fhir/go/proto/google/fhir/proto/annotations_go_proto"
+	anypb "google.golang.org/protobuf/types/known/anypb"
 )
 
 // jsonFormat is the format in which the marshaller will represent the FHIR
@@ -211,6 +211,56 @@ func (m *Marshaller) MarshalResource(r proto.Message) ([]byte, error) {
 		return nil, err
 	}
 	return m.render(data)
+}
+
+// MarshalResourceAsRawMap returns the resource message as a JSON object, instead of marshalling the JSON data to a []byte.
+// This can be useful if you need to modify the marshalled JSON data without needing to re-decode it.
+func (m *Marshaller) MarshalResourceAsRawMap(r proto.Message) (map[string]interface{}, error) {
+	data, err := m.marshalResource(r.ProtoReflect())
+	if err != nil {
+		return nil, err
+	}
+	output := map[string]interface{}{}
+	for k, v := range data {
+		if v != nil {
+			output[k] = convertIsJSONToInterface(v)
+		}
+	}
+	return output, nil
+}
+
+// ConvertIsJSONToInterface recursively converts an IsJSON value to its corresponding Go interface value.
+func convertIsJSONToInterface(v jsonpbhelper.IsJSON) interface{} {
+	switch vv := v.(type) {
+	case jsonpbhelper.JSONObject:
+		result := make(map[string]interface{})
+		for k, val := range vv {
+			if val != nil {
+				result[k] = convertIsJSONToInterface(val)
+			}
+		}
+		return result
+	case jsonpbhelper.JSONArray:
+		result := make([]interface{}, len(vv))
+		for i, val := range vv {
+			if val != nil {
+				result[i] = convertIsJSONToInterface(val)
+			}
+		}
+		return result
+	case jsonpbhelper.JSONString:
+		return string(vv)
+	case jsonpbhelper.JSONRawValue:
+		// For raw values, we need to unmarshal them to get the actual type
+		var result interface{}
+		if err := json.Unmarshal(vv, &result); err != nil {
+			// If unmarshal fails, return the raw bytes as a string
+			return string(vv)
+		}
+		return result
+	default:
+		return v
+	}
 }
 
 // Marshal returns JSON serialization of a ContainedResource protobuf message.
@@ -738,7 +788,7 @@ func (m *Marshaller) marshalMessageToMap(pb protoreflect.Message) (jsonpbhelper.
 	if err != nil {
 		return nil, err
 	}
-	if m.jsonFormat != formatPure && !jsonpbhelper.IsResourceType(pb.Descriptor()) && !jsonpbhelper.IsChoice(pb.Descriptor()){
+	if m.jsonFormat != formatPure && !jsonpbhelper.IsResourceType(pb.Descriptor()) && !jsonpbhelper.IsChoice(pb.Descriptor()) {
 		// Omit FHIR element ID fields for analytics json.
 		// See https://github.com/rbrush/sql-on-fhir/blob/master/sql-on-fhir.md#id-fields-omitted.
 		delete(decmap, "id")
