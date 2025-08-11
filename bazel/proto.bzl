@@ -30,10 +30,10 @@ TS_WELL_KNOWN_PROTOS = {
 }
 
 TS_WELL_KNOWN_PROTOS_2 = {
-    "descriptor_proto": "//proto:descriptor_ts_proto_2",
-    "any_proto": "//proto:any_ts_proto_2",
-    "empty_proto": "//proto:empty_ts_proto_2",
-    "struct_proto": "//proto:struct_ts_proto_2",
+    "descriptor_proto": "//proto:descriptor_ts_proto_v2",
+    "any_proto": "//proto:any_ts_proto_v2",
+    "empty_proto": "//proto:empty_ts_proto_v2",
+    "struct_proto": "//proto:struct_ts_proto_v2",
 }
 
 def fhir_wrapped_ts_proto_library(name, proto, deps = [], **kwargs):
@@ -123,7 +123,7 @@ def fhir_proto_library(proto_library_prefix, srcs = [], proto_deps = [], **kwarg
             cc_deps.append(x[:-6] + "_cc_proto")
             go_deps.append(x[:-6] + "_go_proto")
             ts_deps.append(x[:-6] + "_ts_proto")
-            ts_deps_2.append(x[:-6] + "_ts_proto_2")
+            ts_deps_2.append(x[:-6] + "_ts_proto_v2")
 
     proto_library(
         name = proto_library_prefix + "_proto",
@@ -139,7 +139,7 @@ def fhir_proto_library(proto_library_prefix, srcs = [], proto_deps = [], **kwarg
     )
 
     fhir_wrapped_ts_proto_library_2(
-        name = proto_library_prefix + "_ts_proto_2",
+        name = proto_library_prefix + "_ts_proto_v2",
         proto = ":" + proto_library_prefix + "_proto",
         deps = ts_deps_2,
     )
