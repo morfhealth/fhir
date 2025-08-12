@@ -32,10 +32,8 @@ option (.google.fhir.proto.fhir_version) = R4;
 // http://hl7.org/fhir/StructureDefinition/diagnosticreport-genetics
 message DiagnosticReportGenetics {
   option (.google.fhir.proto.structure_definition_kind) = KIND_RESOURCE;
-  option (.google.fhir.proto.fhir_profile_base) =
-      "http://hl7.org/fhir/StructureDefinition/DiagnosticReport";
-  option (.google.fhir.proto.fhir_structure_definition_url) =
-      "http://hl7.org/fhir/StructureDefinition/diagnosticreport-genetics";
+  option (.google.fhir.proto.fhir_profile_base) = "http://hl7.org/fhir/StructureDefinition/DiagnosticReport";
+  option (.google.fhir.proto.fhir_structure_definition_url) = "http://hl7.org/fhir/StructureDefinition/diagnosticreport-genetics";
   option (.google.fhir.proto.search_parameter) = {
     name: "assessed-condition"
     type: REFERENCE
@@ -165,10 +163,8 @@ message DiagnosticReportGenetics {
   // registered | partial | preliminary | final +
   message StatusCode {
     option (.google.fhir.proto.structure_definition_kind) = KIND_PRIMITIVE_TYPE;
-    option (.google.fhir.proto.fhir_valueset_url) =
-        "http://hl7.org/fhir/ValueSet/diagnostic-report-status";
-    option (.google.fhir.proto.fhir_profile_base) =
-        "http://hl7.org/fhir/StructureDefinition/code";
+    option (.google.fhir.proto.fhir_valueset_url) = "http://hl7.org/fhir/ValueSet/diagnostic-report-status";
+    option (.google.fhir.proto.fhir_profile_base) = "http://hl7.org/fhir/StructureDefinition/code";
 
     DiagnosticReportStatusCode.Value value = 1;
 
@@ -176,15 +172,13 @@ message DiagnosticReportGenetics {
 
     repeated Extension extension = 3;
   }
-  StatusCode status = 12
-      [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
+  StatusCode status = 12 [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
 
   // Service category
   repeated CodeableConcept category = 13;
 
   // Name/Code for this diagnostic report
-  CodeableConcept code = 14
-      [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
+  CodeableConcept code = 14 [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
 
   // The subject of the report - usually, but not always, the patient
   Reference subject = 15 [
@@ -195,8 +189,7 @@ message DiagnosticReportGenetics {
   ];
 
   // Health care event when test ordered
-  Reference encounter = 16
-      [(.google.fhir.proto.valid_reference_type) = "Encounter"];
+  Reference encounter = 16 [(.google.fhir.proto.valid_reference_type) = "Encounter"];
 
   // Clinically relevant time/time-period for report
   message EffectiveX {
@@ -229,16 +222,13 @@ message DiagnosticReportGenetics {
   ];
 
   // Specimens this report is based on
-  repeated Reference specimen = 21
-      [(.google.fhir.proto.valid_reference_type) = "Specimen"];
+  repeated Reference specimen = 21 [(.google.fhir.proto.valid_reference_type) = "Specimen"];
 
   // Observations
-  repeated Reference result = 22
-      [(.google.fhir.proto.valid_reference_type) = "Observation"];
+  repeated Reference result = 22 [(.google.fhir.proto.valid_reference_type) = "Observation"];
 
   // Reference to full details of imaging associated with the diagnostic report
-  repeated Reference imaging_study = 23
-      [(.google.fhir.proto.valid_reference_type) = "ImagingStudy"];
+  repeated Reference imaging_study = 23 [(.google.fhir.proto.valid_reference_type) = "ImagingStudy"];
 
   // Key images associated with this report
   message Media {
@@ -273,29 +263,25 @@ message DiagnosticReportGenetics {
 
   // AssessedCondition
   repeated Reference assessed_condition = 28 [
-    (.google.fhir.proto.fhir_inlined_extension_url) =
-        "http://hl7.org/fhir/StructureDefinition/DiagnosticReport-geneticsAssessedCondition",
+    (.google.fhir.proto.fhir_inlined_extension_url) = "http://hl7.org/fhir/StructureDefinition/DiagnosticReport-geneticsAssessedCondition",
     json_name = "AssessedCondition"
   ];
 
   // FamilyHistory
   repeated Reference family_member_history = 29 [
-    (.google.fhir.proto.fhir_inlined_extension_url) =
-        "http://hl7.org/fhir/StructureDefinition/DiagnosticReport-geneticsFamilyMemberHistory",
+    (.google.fhir.proto.fhir_inlined_extension_url) = "http://hl7.org/fhir/StructureDefinition/DiagnosticReport-geneticsFamilyMemberHistory",
     json_name = "FamilyMemberHistory"
   ];
 
   // Analysis
   repeated DiagnosticReportAnalysis analysis = 30 [
-    (.google.fhir.proto.fhir_inlined_extension_url) =
-        "http://hl7.org/fhir/StructureDefinition/DiagnosticReport-geneticsAnalysis",
+    (.google.fhir.proto.fhir_inlined_extension_url) = "http://hl7.org/fhir/StructureDefinition/DiagnosticReport-geneticsAnalysis",
     json_name = "Analysis"
   ];
 
   // References
   repeated DiagnosticReportReferences references = 31 [
-    (.google.fhir.proto.fhir_inlined_extension_url) =
-        "http://hl7.org/fhir/StructureDefinition/DiagnosticReport-geneticsReferences",
+    (.google.fhir.proto.fhir_inlined_extension_url) = "http://hl7.org/fhir/StructureDefinition/DiagnosticReport-geneticsReferences",
     json_name = "References"
   ];
 }

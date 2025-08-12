@@ -21,20 +21,18 @@ import "proto/google/fhir/proto/annotations.proto";
 import "proto/google/fhir/proto/r5/core/codes.proto";
 import "proto/google/fhir/proto/r5/core/datatypes.proto";
 
+option go_package = "github.com/google/fhir/go/proto/google/fhir/proto/r5/core/resources/ingredient_go_proto";
 option java_multiple_files = true;
 option java_package = "com.google.fhir.r5.core";
 option (.google.fhir.proto.fhir_version) = R5;
-option go_package = "github.com/google/fhir/go/proto/google/fhir/proto/r5/core/resources/ingredient_go_proto";
 
 // Auto-generated from StructureDefinition for Ingredient.
 // An ingredient of a manufactured item or pharmaceutical product.
 // See http://hl7.org/fhir/StructureDefinition/Ingredient
 message Ingredient {
   option (.google.fhir.proto.structure_definition_kind) = KIND_RESOURCE;
-  option (.google.fhir.proto.fhir_structure_definition_url) =
-      "http://hl7.org/fhir/StructureDefinition/Ingredient";
-  option (.google.fhir.proto.fhir_path_message_constraint) =
-      "Ingredient.where(allergenicIndicator=true).count() + Ingredient.substance.code.reference.count()  < 2";
+  option (.google.fhir.proto.fhir_structure_definition_url) = "http://hl7.org/fhir/StructureDefinition/Ingredient";
+  option (.google.fhir.proto.fhir_path_message_constraint) = "Ingredient.where(allergenicIndicator=true).count() + Ingredient.substance.code.reference.count()  < 2";
 
   // Logical id of this artifact
   Id id = 1;
@@ -70,10 +68,8 @@ message Ingredient {
   // draft | active | retired | unknown
   message StatusCode {
     option (.google.fhir.proto.structure_definition_kind) = KIND_PRIMITIVE_TYPE;
-    option (.google.fhir.proto.fhir_valueset_url) =
-        "http://hl7.org/fhir/ValueSet/publication-status";
-    option (.google.fhir.proto.fhir_profile_base) =
-        "http://hl7.org/fhir/StructureDefinition/code";
+    option (.google.fhir.proto.fhir_valueset_url) = "http://hl7.org/fhir/ValueSet/publication-status";
+    option (.google.fhir.proto.fhir_profile_base) = "http://hl7.org/fhir/StructureDefinition/code";
 
     PublicationStatusCode.Value value = 1;
 
@@ -81,21 +77,18 @@ message Ingredient {
 
     repeated Extension extension = 3;
   }
-  StatusCode status = 11
-      [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
+  StatusCode status = 11 [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
 
   // The product which this ingredient is a constituent part of
   repeated Reference for_value = 12 [
     (.google.fhir.proto.valid_reference_type) = "MedicinalProductDefinition",
-    (.google.fhir.proto.valid_reference_type) =
-        "AdministrableProductDefinition",
+    (.google.fhir.proto.valid_reference_type) = "AdministrableProductDefinition",
     (.google.fhir.proto.valid_reference_type) = "ManufacturedItemDefinition",
     json_name = "for"
   ];
 
   // Purpose of the ingredient within the product, e.g. active, inactive
-  CodeableConcept role = 13
-      [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
+  CodeableConcept role = 13 [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
 
   // Precise action within the drug product, e.g. antioxidant, alkalizing agent
   repeated CodeableConcept function = 14;
@@ -124,12 +117,9 @@ message Ingredient {
 
     // allowed | possible | actual
     message RoleCode {
-      option (.google.fhir.proto.structure_definition_kind) =
-          KIND_PRIMITIVE_TYPE;
-      option (.google.fhir.proto.fhir_valueset_url) =
-          "http://hl7.org/fhir/ValueSet/ingredient-manufacturer-role";
-      option (.google.fhir.proto.fhir_profile_base) =
-          "http://hl7.org/fhir/StructureDefinition/code";
+      option (.google.fhir.proto.structure_definition_kind) = KIND_PRIMITIVE_TYPE;
+      option (.google.fhir.proto.fhir_valueset_url) = "http://hl7.org/fhir/ValueSet/ingredient-manufacturer-role";
+      option (.google.fhir.proto.fhir_profile_base) = "http://hl7.org/fhir/StructureDefinition/code";
 
       IngredientManufacturerRoleCode.Value value = 1;
 
@@ -159,8 +149,7 @@ message Ingredient {
     repeated Extension modifier_extension = 3;
 
     // A code or full resource that represents the ingredient substance
-    CodeableReference code = 4
-        [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
+    CodeableReference code = 4 [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
 
     // The quantity of substance, per presentation, or per volume or mass, and
     // type of quantity
@@ -231,8 +220,7 @@ message Ingredient {
         repeated Extension modifier_extension = 3;
 
         // Relevant reference substance
-        CodeableReference substance = 4
-            [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
+        CodeableReference substance = 4 [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
 
         // Strength expressed in terms of a reference substance
         message StrengthX {
@@ -244,8 +232,7 @@ message Ingredient {
             Quantity quantity = 3;
           }
         }
-        StrengthX strength = 5
-            [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
+        StrengthX strength = 5 [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
 
         // When strength is measured at a particular point or distance
         String measurement_point = 6;
@@ -257,6 +244,5 @@ message Ingredient {
     }
     repeated Strength strength = 5;
   }
-  Substance substance = 19
-      [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
+  Substance substance = 19 [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
 }

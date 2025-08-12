@@ -21,18 +21,17 @@ import "proto/google/fhir/proto/annotations.proto";
 import "proto/google/fhir/proto/r4/core/codes.proto";
 import "proto/google/fhir/proto/r4/core/datatypes.proto";
 
+option go_package = "github.com/google/fhir/go/proto/google/fhir/proto/r4/core/resources/document_manifest_go_proto";
 option java_multiple_files = true;
 option java_package = "com.google.fhir.r4.core";
 option (.google.fhir.proto.fhir_version) = R4;
-option go_package = "github.com/google/fhir/go/proto/google/fhir/proto/r4/core/resources/document_manifest_go_proto";
 
 // Auto-generated from StructureDefinition for DocumentManifest.
 // A list that defines a set of documents.
 // See http://hl7.org/fhir/StructureDefinition/DocumentManifest
 message DocumentManifest {
   option (.google.fhir.proto.structure_definition_kind) = KIND_RESOURCE;
-  option (.google.fhir.proto.fhir_structure_definition_url) =
-      "http://hl7.org/fhir/StructureDefinition/DocumentManifest";
+  option (.google.fhir.proto.fhir_structure_definition_url) = "http://hl7.org/fhir/StructureDefinition/DocumentManifest";
 
   // Logical id of this artifact
   Id id = 1;
@@ -71,10 +70,8 @@ message DocumentManifest {
   // current | superseded | entered-in-error
   message StatusCode {
     option (.google.fhir.proto.structure_definition_kind) = KIND_PRIMITIVE_TYPE;
-    option (.google.fhir.proto.fhir_valueset_url) =
-        "http://hl7.org/fhir/ValueSet/document-reference-status";
-    option (.google.fhir.proto.fhir_profile_base) =
-        "http://hl7.org/fhir/StructureDefinition/code";
+    option (.google.fhir.proto.fhir_valueset_url) = "http://hl7.org/fhir/ValueSet/document-reference-status";
+    option (.google.fhir.proto.fhir_profile_base) = "http://hl7.org/fhir/StructureDefinition/code";
 
     DocumentReferenceStatusCode.Value value = 1;
 
@@ -82,8 +79,7 @@ message DocumentManifest {
 
     repeated Extension extension = 3;
   }
-  StatusCode status = 12
-      [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
+  StatusCode status = 12 [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
 
   // Kind of document set
   CodeableConcept type = 13;

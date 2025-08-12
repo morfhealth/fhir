@@ -20,10 +20,10 @@ import "proto/google/fhir/proto/annotations.proto";
 import "proto/google/fhir/proto/stu3/codes.proto";
 import "proto/google/fhir/proto/stu3/datatypes.proto";
 
+option go_package = "github.com/google/fhir/go/proto/google/fhir/proto/stu3/metadatatypes_go_proto";
 option java_multiple_files = true;
 option java_package = "com.google.fhir.stu3.proto";
 option (.google.fhir.proto.fhir_version) = STU3;
-option go_package = "github.com/google/fhir/go/proto/google/fhir/proto/stu3/metadatatypes_go_proto";
 
 // Auto-generated from StructureDefinition for BackboneElement, last updated
 // 2017-04-19T07:44:43.294+10:00. Base for elements defined inside a resource.
@@ -31,8 +31,7 @@ option go_package = "github.com/google/fhir/go/proto/google/fhir/proto/stu3/meta
 message BackboneElement {
   option (.google.fhir.proto.structure_definition_kind) = KIND_COMPLEX_TYPE;
   option (.google.fhir.proto.is_abstract_type) = true;
-  option (.google.fhir.proto.fhir_structure_definition_url) =
-      "http://hl7.org/fhir/StructureDefinition/BackboneElement";
+  option (.google.fhir.proto.fhir_structure_definition_url) = "http://hl7.org/fhir/StructureDefinition/BackboneElement";
 
   // xml:id (or equivalent in JSON)
   String id = 1;
@@ -49,8 +48,7 @@ message BackboneElement {
 // http://hl7.org/fhir/StructureDefinition/ContactDetail
 message ContactDetail {
   option (.google.fhir.proto.structure_definition_kind) = KIND_COMPLEX_TYPE;
-  option (.google.fhir.proto.fhir_structure_definition_url) =
-      "http://hl7.org/fhir/StructureDefinition/ContactDetail";
+  option (.google.fhir.proto.fhir_structure_definition_url) = "http://hl7.org/fhir/StructureDefinition/ContactDetail";
 
   // xml:id (or equivalent in JSON)
   String id = 1;
@@ -70,8 +68,7 @@ message ContactDetail {
 // http://hl7.org/fhir/StructureDefinition/Contributor
 message Contributor {
   option (.google.fhir.proto.structure_definition_kind) = KIND_COMPLEX_TYPE;
-  option (.google.fhir.proto.fhir_structure_definition_url) =
-      "http://hl7.org/fhir/StructureDefinition/Contributor";
+  option (.google.fhir.proto.fhir_structure_definition_url) = "http://hl7.org/fhir/StructureDefinition/Contributor";
 
   // xml:id (or equivalent in JSON)
   String id = 1;
@@ -80,12 +77,10 @@ message Contributor {
   repeated Extension extension = 2;
 
   // author | editor | reviewer | endorser
-  ContributorTypeCode type = 3
-      [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
+  ContributorTypeCode type = 3 [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
 
   // Who contributed the content
-  String name = 4
-      [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
+  String name = 4 [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
 
   // Contact details of the contributor
   repeated ContactDetail contact = 5;
@@ -96,8 +91,7 @@ message Contributor {
 // http://hl7.org/fhir/StructureDefinition/DataRequirement
 message DataRequirement {
   option (.google.fhir.proto.structure_definition_kind) = KIND_COMPLEX_TYPE;
-  option (.google.fhir.proto.fhir_structure_definition_url) =
-      "http://hl7.org/fhir/StructureDefinition/DataRequirement";
+  option (.google.fhir.proto.fhir_structure_definition_url) = "http://hl7.org/fhir/StructureDefinition/DataRequirement";
 
   // xml:id (or equivalent in JSON)
   String id = 1;
@@ -106,8 +100,7 @@ message DataRequirement {
   repeated Extension extension = 2;
 
   // The type of the required data
-  FHIRAllTypesCode type = 3
-      [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
+  FHIRAllTypesCode type = 3 [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
 
   // The profile of the required data
   repeated Uri profile = 4;
@@ -125,8 +118,7 @@ message DataRequirement {
     repeated Extension extension = 2;
 
     // The code-valued attribute of the filter
-    String path = 3
-        [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
+    String path = 3 [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
 
     // Valueset for the filter
     message ValueSet {
@@ -134,8 +126,7 @@ message DataRequirement {
 
       oneof value_set {
         String string_value = 1 [json_name = "string"];
-        Reference reference = 2
-            [(.google.fhir.proto.valid_reference_type) = "ValueSet"];
+        Reference reference = 2 [(.google.fhir.proto.valid_reference_type) = "ValueSet"];
       }
     }
     ValueSet value_set = 4;
@@ -160,8 +151,7 @@ message DataRequirement {
     repeated Extension extension = 2;
 
     // The date-valued attribute of the filter
-    String path = 3
-        [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
+    String path = 3 [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
 
     // The value of the filter, as a Period, DateTime, or Duration value
     message Value {
@@ -184,8 +174,7 @@ message DataRequirement {
 message Element {
   option (.google.fhir.proto.structure_definition_kind) = KIND_COMPLEX_TYPE;
   option (.google.fhir.proto.is_abstract_type) = true;
-  option (.google.fhir.proto.fhir_structure_definition_url) =
-      "http://hl7.org/fhir/StructureDefinition/Element";
+  option (.google.fhir.proto.fhir_structure_definition_url) = "http://hl7.org/fhir/StructureDefinition/Element";
 
   // xml:id (or equivalent in JSON)
   String id = 1;
@@ -199,8 +188,7 @@ message Element {
 // extension. See http://hl7.org/fhir/StructureDefinition/ElementDefinition
 message ElementDefinition {
   option (.google.fhir.proto.structure_definition_kind) = KIND_COMPLEX_TYPE;
-  option (.google.fhir.proto.fhir_structure_definition_url) =
-      "http://hl7.org/fhir/StructureDefinition/ElementDefinition";
+  option (.google.fhir.proto.fhir_structure_definition_url) = "http://hl7.org/fhir/StructureDefinition/ElementDefinition";
 
   // xml:id (or equivalent in JSON)
   String id = 1;
@@ -209,8 +197,7 @@ message ElementDefinition {
   repeated Extension extension = 2;
 
   // Path of the element in the hierarchy of elements
-  String path = 3
-      [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
+  String path = 3 [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
 
   // xmlAttr | xmlText | typeAttr | cdaText | xhtml
   repeated PropertyRepresentationCode representation = 4;
@@ -241,12 +228,10 @@ message ElementDefinition {
       repeated Extension extension = 2;
 
       // value | exists | pattern | type | profile
-      DiscriminatorTypeCode type = 3
-          [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
+      DiscriminatorTypeCode type = 3 [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
 
       // Path to element value
-      String path = 4
-          [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
+      String path = 4 [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
     }
     repeated Discriminator discriminator = 3;
 
@@ -257,11 +242,9 @@ message ElementDefinition {
     Boolean ordered = 5;
 
     // closed | open | openAtEnd
-    SlicingRulesCode rules = 6
-        [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
+    SlicingRulesCode rules = 6 [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
   }
-  Slicing slicing = 8 [(.google.fhir.proto.fhir_path_constraint) =
-                           "discriminator.exists() or description.exists()"];
+  Slicing slicing = 8 [(.google.fhir.proto.fhir_path_constraint) = "discriminator.exists() or description.exists()"];
 
   // Concise definition for space-constrained presentation
   String short = 9;
@@ -282,8 +265,7 @@ message ElementDefinition {
   UnsignedInt min = 14;
 
   // Maximum Cardinality (a number or *)
-  String max = 15 [(.google.fhir.proto.fhir_path_constraint) =
-                       "empty() or ($this = '*') or (toInteger() >= 0)"];
+  String max = 15 [(.google.fhir.proto.fhir_path_constraint) = "empty() or ($this = '*') or (toInteger() >= 0)"];
 
   // Base definition information for tools
   message Base {
@@ -294,16 +276,13 @@ message ElementDefinition {
     repeated Extension extension = 2;
 
     // Path that identifies the base element
-    String path = 3
-        [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
+    String path = 3 [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
 
     // Min cardinality of the base element
-    UnsignedInt min = 4
-        [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
+    UnsignedInt min = 4 [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
 
     // Max cardinality of the base element
-    String max = 5
-        [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
+    String max = 5 [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
   }
   Base base = 16;
 
@@ -319,8 +298,7 @@ message ElementDefinition {
     repeated Extension extension = 2;
 
     // Data type or Resource (reference to definition)
-    Uri code = 3
-        [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
+    Uri code = 3 [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
 
     // Profile (StructureDefinition) to apply (or IG)
     Uri profile = 4;
@@ -334,9 +312,7 @@ message ElementDefinition {
     // either | independent | specific
     ReferenceVersionRulesCode versioning = 7;
   }
-  repeated TypeRef type = 18
-      [(.google.fhir.proto.fhir_path_constraint) =
-           "aggregation.empty() or (code = 'Reference')"];
+  repeated TypeRef type = 18 [(.google.fhir.proto.fhir_path_constraint) = "aggregation.empty() or (code = 'Reference')"];
 
   // Specified value if missing from instance
   message DefaultValue {
@@ -494,8 +470,7 @@ message ElementDefinition {
     repeated Extension extension = 2;
 
     // Describes the purpose of this example
-    String label = 3
-        [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
+    String label = 3 [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
 
     // Value of Example (one of allowed types)
     message Value {
@@ -542,8 +517,7 @@ message ElementDefinition {
         Meta meta = 38;
       }
     }
-    Value value = 4
-        [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
+    Value value = 4 [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
   }
   repeated Example example = 24;
 
@@ -604,16 +578,13 @@ message ElementDefinition {
     String requirements = 4;
 
     // error | warning
-    ConstraintSeverityCode severity = 5
-        [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
+    ConstraintSeverityCode severity = 5 [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
 
     // Human description of constraint
-    String human = 6
-        [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
+    String human = 6 [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
 
     // FHIRPath expression of constraint
-    String expression = 7
-        [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
+    String expression = 7 [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
 
     // XPath expression of constraint
     String xpath = 8;
@@ -641,8 +612,7 @@ message ElementDefinition {
     repeated Extension extension = 2;
 
     // required | extensible | preferred | example
-    BindingStrengthCode strength = 3
-        [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
+    BindingStrengthCode strength = 3 [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
 
     // Human explanation of the value set
     String description = 4;
@@ -653,17 +623,14 @@ message ElementDefinition {
 
       oneof value_set {
         Uri uri = 1;
-        Reference reference = 2
-            [(.google.fhir.proto.valid_reference_type) = "ValueSet"];
+        Reference reference = 2 [(.google.fhir.proto.valid_reference_type) = "ValueSet"];
       }
     }
     ValueSet value_set = 5;
   }
   ElementDefinitionBinding binding = 33 [
-    (.google.fhir.proto.fhir_path_constraint) =
-        "valueSet.exists() or description.exists()",
-    (.google.fhir.proto.fhir_path_constraint) =
-        "valueSet.is(uri).not() or valueSet.as(uri).startsWith('http:') or valueSet.as(uri).startsWith('https') or valueSet.as(uri).startsWith('urn:')"
+    (.google.fhir.proto.fhir_path_constraint) = "valueSet.exists() or description.exists()",
+    (.google.fhir.proto.fhir_path_constraint) = "valueSet.is(uri).not() or valueSet.as(uri).startsWith('http:') or valueSet.as(uri).startsWith('https') or valueSet.as(uri).startsWith('urn:')"
   ];
 
   // Map element to another set of definitions
@@ -675,15 +642,13 @@ message ElementDefinition {
     repeated Extension extension = 2;
 
     // Reference to mapping declaration
-    Id identity = 3
-        [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
+    Id identity = 3 [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
 
     // Computable language of mapping
     MimeTypeCode language = 4;
 
     // Details of the mapping
-    String map = 5
-        [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
+    String map = 5 [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
 
     // Comments about the mapping or its use
     String comment = 6;
@@ -696,8 +661,7 @@ message ElementDefinition {
 // images. See http://hl7.org/fhir/StructureDefinition/Narrative
 message Narrative {
   option (.google.fhir.proto.structure_definition_kind) = KIND_COMPLEX_TYPE;
-  option (.google.fhir.proto.fhir_structure_definition_url) =
-      "http://hl7.org/fhir/StructureDefinition/Narrative";
+  option (.google.fhir.proto.fhir_structure_definition_url) = "http://hl7.org/fhir/StructureDefinition/Narrative";
 
   // xml:id (or equivalent in JSON)
   String id = 1;
@@ -706,8 +670,7 @@ message Narrative {
   repeated Extension extension = 2;
 
   // generated | extensions | additional | empty
-  NarrativeStatusCode status = 3
-      [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
+  NarrativeStatusCode status = 3 [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
 
   // Limited xhtml content
   Xhtml div = 4 [
@@ -722,8 +685,7 @@ message Narrative {
 // http://hl7.org/fhir/StructureDefinition/ParameterDefinition
 message ParameterDefinition {
   option (.google.fhir.proto.structure_definition_kind) = KIND_COMPLEX_TYPE;
-  option (.google.fhir.proto.fhir_structure_definition_url) =
-      "http://hl7.org/fhir/StructureDefinition/ParameterDefinition";
+  option (.google.fhir.proto.fhir_structure_definition_url) = "http://hl7.org/fhir/StructureDefinition/ParameterDefinition";
 
   // xml:id (or equivalent in JSON)
   String id = 1;
@@ -735,8 +697,7 @@ message ParameterDefinition {
   Code name = 3;
 
   // in | out
-  OperationParameterUseCode use = 4
-      [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
+  OperationParameterUseCode use = 4 [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
 
   // Minimum cardinality
   Integer min = 5;
@@ -748,12 +709,10 @@ message ParameterDefinition {
   String documentation = 7;
 
   // What type of value
-  FHIRAllTypesCode type = 8
-      [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
+  FHIRAllTypesCode type = 8 [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
 
   // What profile the value is expected to be
-  Reference profile = 9
-      [(.google.fhir.proto.valid_reference_type) = "StructureDefinition"];
+  Reference profile = 9 [(.google.fhir.proto.valid_reference_type) = "StructureDefinition"];
 }
 
 // Auto-generated from StructureDefinition for RelatedArtifact, last updated
@@ -761,8 +720,7 @@ message ParameterDefinition {
 // See http://hl7.org/fhir/StructureDefinition/RelatedArtifact
 message RelatedArtifact {
   option (.google.fhir.proto.structure_definition_kind) = KIND_COMPLEX_TYPE;
-  option (.google.fhir.proto.fhir_structure_definition_url) =
-      "http://hl7.org/fhir/StructureDefinition/RelatedArtifact";
+  option (.google.fhir.proto.fhir_structure_definition_url) = "http://hl7.org/fhir/StructureDefinition/RelatedArtifact";
 
   // xml:id (or equivalent in JSON)
   String id = 1;
@@ -772,8 +730,7 @@ message RelatedArtifact {
 
   // documentation | justification | citation | predecessor | successor |
   // derived-from | depends-on | composed-of
-  RelatedArtifactTypeCode type = 3
-      [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
+  RelatedArtifactTypeCode type = 3 [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
 
   // Brief description of the related artifact
   String display = 4;
@@ -788,8 +745,7 @@ message RelatedArtifact {
   Attachment document = 7;
 
   // What resource is being referenced
-  Reference resource = 8
-      [(.google.fhir.proto.valid_reference_type) = "Resource"];
+  Reference resource = 8 [(.google.fhir.proto.valid_reference_type) = "Resource"];
 }
 
 // Auto-generated from StructureDefinition for TriggerDefinition, last updated
@@ -797,8 +753,7 @@ message RelatedArtifact {
 // http://hl7.org/fhir/StructureDefinition/TriggerDefinition
 message TriggerDefinition {
   option (.google.fhir.proto.structure_definition_kind) = KIND_COMPLEX_TYPE;
-  option (.google.fhir.proto.fhir_structure_definition_url) =
-      "http://hl7.org/fhir/StructureDefinition/TriggerDefinition";
+  option (.google.fhir.proto.fhir_structure_definition_url) = "http://hl7.org/fhir/StructureDefinition/TriggerDefinition";
 
   // xml:id (or equivalent in JSON)
   String id = 1;
@@ -808,8 +763,7 @@ message TriggerDefinition {
 
   // named-event | periodic | data-added | data-modified | data-removed |
   // data-accessed | data-access-ended
-  TriggerTypeCode type = 3
-      [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
+  TriggerTypeCode type = 3 [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
 
   // Triggering event name
   String event_name = 4;
@@ -820,8 +774,7 @@ message TriggerDefinition {
 
     oneof event_timing {
       Timing timing = 1;
-      Reference reference = 2
-          [(.google.fhir.proto.valid_reference_type) = "Schedule"];
+      Reference reference = 2 [(.google.fhir.proto.valid_reference_type) = "Schedule"];
       Date date = 3;
       DateTime date_time = 4;
     }
@@ -838,8 +791,7 @@ message TriggerDefinition {
 // http://hl7.org/fhir/StructureDefinition/UsageContext
 message UsageContext {
   option (.google.fhir.proto.structure_definition_kind) = KIND_COMPLEX_TYPE;
-  option (.google.fhir.proto.fhir_structure_definition_url) =
-      "http://hl7.org/fhir/StructureDefinition/UsageContext";
+  option (.google.fhir.proto.fhir_structure_definition_url) = "http://hl7.org/fhir/StructureDefinition/UsageContext";
 
   // xml:id (or equivalent in JSON)
   String id = 1;
@@ -848,8 +800,7 @@ message UsageContext {
   repeated Extension extension = 2;
 
   // Type of context being specified
-  Coding code = 3
-      [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
+  Coding code = 3 [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
 
   // Value that defines the context
   message Value {
@@ -861,6 +812,5 @@ message UsageContext {
       Range range = 3;
     }
   }
-  Value value = 4
-      [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
+  Value value = 4 [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
 }

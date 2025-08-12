@@ -21,18 +21,17 @@ import "proto/google/fhir/proto/annotations.proto";
 import "proto/google/fhir/proto/r4/core/codes.proto";
 import "proto/google/fhir/proto/r4/core/datatypes.proto";
 
+option go_package = "github.com/google/fhir/go/proto/google/fhir/proto/r4/core/resources/encounter_go_proto";
 option java_multiple_files = true;
 option java_package = "com.google.fhir.r4.core";
 option (.google.fhir.proto.fhir_version) = R4;
-option go_package = "github.com/google/fhir/go/proto/google/fhir/proto/r4/core/resources/encounter_go_proto";
 
 // Auto-generated from StructureDefinition for Encounter.
 // An interaction during which services are provided to the patient.
 // See http://hl7.org/fhir/StructureDefinition/Encounter
 message Encounter {
   option (.google.fhir.proto.structure_definition_kind) = KIND_RESOURCE;
-  option (.google.fhir.proto.fhir_structure_definition_url) =
-      "http://hl7.org/fhir/StructureDefinition/Encounter";
+  option (.google.fhir.proto.fhir_structure_definition_url) = "http://hl7.org/fhir/StructureDefinition/Encounter";
 
   // Logical id of this artifact
   Id id = 1;
@@ -69,10 +68,8 @@ message Encounter {
   // +
   message StatusCode {
     option (.google.fhir.proto.structure_definition_kind) = KIND_PRIMITIVE_TYPE;
-    option (.google.fhir.proto.fhir_valueset_url) =
-        "http://hl7.org/fhir/ValueSet/encounter-status";
-    option (.google.fhir.proto.fhir_profile_base) =
-        "http://hl7.org/fhir/StructureDefinition/code";
+    option (.google.fhir.proto.fhir_valueset_url) = "http://hl7.org/fhir/ValueSet/encounter-status";
+    option (.google.fhir.proto.fhir_profile_base) = "http://hl7.org/fhir/StructureDefinition/code";
 
     EncounterStatusCode.Value value = 1;
 
@@ -80,8 +77,7 @@ message Encounter {
 
     repeated Extension extension = 3;
   }
-  StatusCode status = 11
-      [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
+  StatusCode status = 11 [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
 
   // List of past encounter statuses
   message StatusHistory {
@@ -97,12 +93,9 @@ message Encounter {
     // planned | arrived | triaged | in-progress | onleave | finished |
     // cancelled +
     message StatusCode {
-      option (.google.fhir.proto.structure_definition_kind) =
-          KIND_PRIMITIVE_TYPE;
-      option (.google.fhir.proto.fhir_valueset_url) =
-          "http://hl7.org/fhir/ValueSet/encounter-status";
-      option (.google.fhir.proto.fhir_profile_base) =
-          "http://hl7.org/fhir/StructureDefinition/code";
+      option (.google.fhir.proto.structure_definition_kind) = KIND_PRIMITIVE_TYPE;
+      option (.google.fhir.proto.fhir_valueset_url) = "http://hl7.org/fhir/ValueSet/encounter-status";
+      option (.google.fhir.proto.fhir_profile_base) = "http://hl7.org/fhir/StructureDefinition/code";
 
       EncounterStatusCode.Value value = 1;
 
@@ -110,12 +103,10 @@ message Encounter {
 
       repeated Extension extension = 3;
     }
-    StatusCode status = 4
-        [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
+    StatusCode status = 4 [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
 
     // The time that the episode was in the specified status
-    Period period = 5
-        [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
+    Period period = 5 [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
   }
   repeated StatusHistory status_history = 12;
 
@@ -143,8 +134,7 @@ message Encounter {
     ];
 
     // The time that the episode was in the specified class
-    Period period = 5
-        [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
+    Period period = 5 [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
   }
   repeated ClassHistory class_history = 14;
 
@@ -164,12 +154,10 @@ message Encounter {
   ];
 
   // Episode(s) of care that this encounter should be recorded against
-  repeated Reference episode_of_care = 19
-      [(.google.fhir.proto.valid_reference_type) = "EpisodeOfCare"];
+  repeated Reference episode_of_care = 19 [(.google.fhir.proto.valid_reference_type) = "EpisodeOfCare"];
 
   // The ServiceRequest that initiated this encounter
-  repeated Reference based_on = 20
-      [(.google.fhir.proto.valid_reference_type) = "ServiceRequest"];
+  repeated Reference based_on = 20 [(.google.fhir.proto.valid_reference_type) = "ServiceRequest"];
 
   // List of participants involved in the encounter
   message Participant {
@@ -198,8 +186,7 @@ message Encounter {
   repeated Participant participant = 21;
 
   // The appointment that scheduled this encounter
-  repeated Reference appointment = 22
-      [(.google.fhir.proto.valid_reference_type) = "Appointment"];
+  repeated Reference appointment = 22 [(.google.fhir.proto.valid_reference_type) = "Appointment"];
 
   // The start and end time of the encounter
   Period period = 23;
@@ -246,8 +233,7 @@ message Encounter {
   repeated Diagnosis diagnosis = 27;
 
   // The set of accounts that may be used for billing for this Encounter
-  repeated Reference account = 28
-      [(.google.fhir.proto.valid_reference_type) = "Account"];
+  repeated Reference account = 28 [(.google.fhir.proto.valid_reference_type) = "Account"];
 
   // Details about the admission to a healthcare service
   message Hospitalization {
@@ -315,12 +301,9 @@ message Encounter {
 
     // planned | active | reserved | completed
     message StatusCode {
-      option (.google.fhir.proto.structure_definition_kind) =
-          KIND_PRIMITIVE_TYPE;
-      option (.google.fhir.proto.fhir_valueset_url) =
-          "http://hl7.org/fhir/ValueSet/encounter-location-status";
-      option (.google.fhir.proto.fhir_profile_base) =
-          "http://hl7.org/fhir/StructureDefinition/code";
+      option (.google.fhir.proto.structure_definition_kind) = KIND_PRIMITIVE_TYPE;
+      option (.google.fhir.proto.fhir_valueset_url) = "http://hl7.org/fhir/ValueSet/encounter-location-status";
+      option (.google.fhir.proto.fhir_profile_base) = "http://hl7.org/fhir/StructureDefinition/code";
 
       EncounterLocationStatusCode.Value value = 1;
 
@@ -340,10 +323,8 @@ message Encounter {
   repeated Location location = 30;
 
   // The organization (facility) responsible for this encounter
-  Reference service_provider = 31
-      [(.google.fhir.proto.valid_reference_type) = "Organization"];
+  Reference service_provider = 31 [(.google.fhir.proto.valid_reference_type) = "Organization"];
 
   // Another Encounter this encounter is part of
-  Reference part_of = 32
-      [(.google.fhir.proto.valid_reference_type) = "Encounter"];
+  Reference part_of = 32 [(.google.fhir.proto.valid_reference_type) = "Encounter"];
 }

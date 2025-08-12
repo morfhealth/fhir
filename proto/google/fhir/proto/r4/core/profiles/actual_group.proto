@@ -30,12 +30,9 @@ option (.google.fhir.proto.fhir_version) = R4;
 // See http://hl7.org/fhir/StructureDefinition/actualgroup
 message ActualGroup {
   option (.google.fhir.proto.structure_definition_kind) = KIND_RESOURCE;
-  option (.google.fhir.proto.fhir_profile_base) =
-      "http://hl7.org/fhir/StructureDefinition/Group";
-  option (.google.fhir.proto.fhir_structure_definition_url) =
-      "http://hl7.org/fhir/StructureDefinition/actualgroup";
-  option (.google.fhir.proto.fhir_path_message_constraint) =
-      "member.empty() or (actual = true)";
+  option (.google.fhir.proto.fhir_profile_base) = "http://hl7.org/fhir/StructureDefinition/Group";
+  option (.google.fhir.proto.fhir_structure_definition_url) = "http://hl7.org/fhir/StructureDefinition/actualgroup";
+  option (.google.fhir.proto.fhir_path_message_constraint) = "member.empty() or (actual = true)";
   option (.google.fhir.proto.search_parameter) = {
     name: "actual"
     type: TOKEN
@@ -124,10 +121,8 @@ message ActualGroup {
   // person | animal | practitioner | device | medication | substance
   message TypeCode {
     option (.google.fhir.proto.structure_definition_kind) = KIND_PRIMITIVE_TYPE;
-    option (.google.fhir.proto.fhir_valueset_url) =
-        "http://hl7.org/fhir/ValueSet/group-type";
-    option (.google.fhir.proto.fhir_profile_base) =
-        "http://hl7.org/fhir/StructureDefinition/code";
+    option (.google.fhir.proto.fhir_valueset_url) = "http://hl7.org/fhir/ValueSet/group-type";
+    option (.google.fhir.proto.fhir_profile_base) = "http://hl7.org/fhir/StructureDefinition/code";
 
     GroupTypeCode.Value value = 1;
 
@@ -135,12 +130,10 @@ message ActualGroup {
 
     repeated Extension extension = 3;
   }
-  TypeCode type = 12
-      [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
+  TypeCode type = 12 [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
 
   // Descriptive or actual
-  Boolean actual = 13
-      [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
+  Boolean actual = 13 [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
 
   // Kind of Group members
   CodeableConcept code = 14;

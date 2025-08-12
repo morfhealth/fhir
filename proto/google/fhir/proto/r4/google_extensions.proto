@@ -28,21 +28,17 @@ option (.google.fhir.proto.fhir_version) = R4;
 // See https://g.co/fhir/StructureDefinition/base64Binary-separatorStride
 message Base64BinarySeparatorStride {
   option (.google.fhir.proto.structure_definition_kind) = KIND_COMPLEX_TYPE;
-  option (.google.fhir.proto.fhir_profile_base) =
-      "http://hl7.org/fhir/StructureDefinition/Extension";
-  option (.google.fhir.proto.fhir_structure_definition_url) =
-      "https://g.co/fhir/StructureDefinition/base64Binary-separatorStride";
+  option (.google.fhir.proto.fhir_profile_base) = "http://hl7.org/fhir/StructureDefinition/Extension";
+  option (.google.fhir.proto.fhir_structure_definition_url) = "https://g.co/fhir/StructureDefinition/base64Binary-separatorStride";
 
   // Unique id for inter-element referencing
   core.String id = 1;
 
   // The separator, usually a sequence of spaces.
-  core.String separator = 4
-      [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
+  core.String separator = 4 [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
 
   // The stride.
-  core.PositiveInt stride = 5
-      [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
+  core.PositiveInt stride = 5 [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
 }
 
 // Auto-generated from StructureDefinition for EventLabel.
@@ -50,10 +46,8 @@ message Base64BinarySeparatorStride {
 // See https://g.co/fhir/StructureDefinition/eventLabel
 message EventLabel {
   option (.google.fhir.proto.structure_definition_kind) = KIND_COMPLEX_TYPE;
-  option (.google.fhir.proto.fhir_profile_base) =
-      "http://hl7.org/fhir/StructureDefinition/Extension";
-  option (.google.fhir.proto.fhir_structure_definition_url) =
-      "https://g.co/fhir/StructureDefinition/eventLabel";
+  option (.google.fhir.proto.fhir_profile_base) = "http://hl7.org/fhir/StructureDefinition/Extension";
+  option (.google.fhir.proto.fhir_structure_definition_url) = "https://g.co/fhir/StructureDefinition/eventLabel";
 
   // Unique id for inter-element referencing
   core.String id = 1;
@@ -62,12 +56,10 @@ message EventLabel {
   repeated core.Extension extension = 2;
 
   // The patient associated with this label
-  core.Reference patient = 4
-      [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
+  core.Reference patient = 4 [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
 
   // The type of label, part of the prediction task definition
-  core.Coding type = 5
-      [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
+  core.Coding type = 5 [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
 
   // Time associated with the label event, if available
   core.DateTime event_time = 6;
@@ -87,8 +79,7 @@ message EventLabel {
     reserved 3;
 
     // Class name in multi-class prediction tasks, e.g. code "780.60" for icd9
-    core.Coding class_name = 4
-        [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
+    core.Coding class_name = 4 [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
 
     // The value of the label
     message ClassValueX {
@@ -102,8 +93,7 @@ message EventLabel {
         core.DateTime date_time = 5;
       }
     }
-    ClassValueX class_value = 5
-        [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
+    ClassValueX class_value = 5 [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
   }
   repeated Label label = 8;
 }
@@ -113,21 +103,17 @@ message EventLabel {
 // See https://g.co/fhir/StructureDefinition/eventTrigger
 message EventTrigger {
   option (.google.fhir.proto.structure_definition_kind) = KIND_COMPLEX_TYPE;
-  option (.google.fhir.proto.fhir_profile_base) =
-      "http://hl7.org/fhir/StructureDefinition/Extension";
-  option (.google.fhir.proto.fhir_structure_definition_url) =
-      "https://g.co/fhir/StructureDefinition/eventTrigger";
+  option (.google.fhir.proto.fhir_profile_base) = "http://hl7.org/fhir/StructureDefinition/Extension";
+  option (.google.fhir.proto.fhir_structure_definition_url) = "https://g.co/fhir/StructureDefinition/eventTrigger";
 
   // Unique id for inter-element referencing
   core.String id = 1;
 
   // The type of trigger, part of the prediction task definition.
-  core.Coding type = 4
-      [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
+  core.Coding type = 4 [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
 
   // Prediction event time, more recent data will be elided.
-  core.DateTime event_time = 5
-      [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
+  core.DateTime event_time = 5 [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
 
   // Resource that owns this trigger.
   core.Reference source = 6;
@@ -138,10 +124,8 @@ message EventTrigger {
 // See https://g.co/fhir/medicalrecords/OperationOutcomeSubject
 message OperationOutcomeSubject {
   option (.google.fhir.proto.structure_definition_kind) = KIND_COMPLEX_TYPE;
-  option (.google.fhir.proto.fhir_profile_base) =
-      "http://hl7.org/fhir/StructureDefinition/Extension";
-  option (.google.fhir.proto.fhir_structure_definition_url) =
-      "https://g.co/fhir/medicalrecords/OperationOutcomeSubject";
+  option (.google.fhir.proto.fhir_profile_base) = "http://hl7.org/fhir/StructureDefinition/Extension";
+  option (.google.fhir.proto.fhir_structure_definition_url) = "https://g.co/fhir/medicalrecords/OperationOutcomeSubject";
 
   // Unique id for inter-element referencing
   core.String id = 1;
@@ -155,10 +139,8 @@ message OperationOutcomeSubject {
 // See https://g.co/fhir/StructureDefinition/primitiveHasNoValue
 message PrimitiveHasNoValue {
   option (.google.fhir.proto.structure_definition_kind) = KIND_COMPLEX_TYPE;
-  option (.google.fhir.proto.fhir_profile_base) =
-      "http://hl7.org/fhir/StructureDefinition/Extension";
-  option (.google.fhir.proto.fhir_structure_definition_url) =
-      "https://g.co/fhir/StructureDefinition/primitiveHasNoValue";
+  option (.google.fhir.proto.fhir_profile_base) = "http://hl7.org/fhir/StructureDefinition/Extension";
+  option (.google.fhir.proto.fhir_structure_definition_url) = "https://g.co/fhir/StructureDefinition/primitiveHasNoValue";
 
   // Unique id for inter-element referencing
   core.String id = 1;

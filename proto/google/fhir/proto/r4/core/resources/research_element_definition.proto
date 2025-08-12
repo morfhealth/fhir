@@ -21,20 +21,18 @@ import "proto/google/fhir/proto/annotations.proto";
 import "proto/google/fhir/proto/r4/core/codes.proto";
 import "proto/google/fhir/proto/r4/core/datatypes.proto";
 
+option go_package = "github.com/google/fhir/go/proto/google/fhir/proto/r4/core/resources/research_element_definition_go_proto";
 option java_multiple_files = true;
 option java_package = "com.google.fhir.r4.core";
 option (.google.fhir.proto.fhir_version) = R4;
-option go_package = "github.com/google/fhir/go/proto/google/fhir/proto/r4/core/resources/research_element_definition_go_proto";
 
 // Auto-generated from StructureDefinition for ResearchElementDefinition.
 // A population, intervention, or exposure definition.
 // See http://hl7.org/fhir/StructureDefinition/ResearchElementDefinition
 message ResearchElementDefinition {
   option (.google.fhir.proto.structure_definition_kind) = KIND_RESOURCE;
-  option (.google.fhir.proto.fhir_structure_definition_url) =
-      "http://hl7.org/fhir/StructureDefinition/ResearchElementDefinition";
-  option (.google.fhir.proto.fhir_path_message_warning_constraint) =
-      "name.matches('[A-Z]([A-Za-z0-9_]){0,254}')";
+  option (.google.fhir.proto.fhir_structure_definition_url) = "http://hl7.org/fhir/StructureDefinition/ResearchElementDefinition";
+  option (.google.fhir.proto.fhir_path_message_warning_constraint) = "name.matches('[A-Z]([A-Za-z0-9_]){0,254}')";
 
   // Logical id of this artifact
   Id id = 1;
@@ -89,10 +87,8 @@ message ResearchElementDefinition {
   // draft | active | retired | unknown
   message StatusCode {
     option (.google.fhir.proto.structure_definition_kind) = KIND_PRIMITIVE_TYPE;
-    option (.google.fhir.proto.fhir_valueset_url) =
-        "http://hl7.org/fhir/ValueSet/publication-status";
-    option (.google.fhir.proto.fhir_profile_base) =
-        "http://hl7.org/fhir/StructureDefinition/code";
+    option (.google.fhir.proto.fhir_valueset_url) = "http://hl7.org/fhir/ValueSet/publication-status";
+    option (.google.fhir.proto.fhir_profile_base) = "http://hl7.org/fhir/StructureDefinition/code";
 
     PublicationStatusCode.Value value = 1;
 
@@ -100,8 +96,7 @@ message ResearchElementDefinition {
 
     repeated Extension extension = 3;
   }
-  StatusCode status = 17
-      [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
+  StatusCode status = 17 [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
 
   // For testing purposes, not real usage
   Boolean experimental = 18;
@@ -112,8 +107,7 @@ message ResearchElementDefinition {
 
     oneof choice {
       CodeableConcept codeable_concept = 1;
-      Reference reference = 2
-          [(.google.fhir.proto.valid_reference_type) = "Group"];
+      Reference reference = 2 [(.google.fhir.proto.valid_reference_type) = "Group"];
     }
   }
   SubjectX subject = 19;
@@ -182,10 +176,8 @@ message ResearchElementDefinition {
   // population | exposure | outcome
   message TypeCode {
     option (.google.fhir.proto.structure_definition_kind) = KIND_PRIMITIVE_TYPE;
-    option (.google.fhir.proto.fhir_valueset_url) =
-        "http://hl7.org/fhir/ValueSet/research-element-type";
-    option (.google.fhir.proto.fhir_profile_base) =
-        "http://hl7.org/fhir/StructureDefinition/code";
+    option (.google.fhir.proto.fhir_valueset_url) = "http://hl7.org/fhir/ValueSet/research-element-type";
+    option (.google.fhir.proto.fhir_profile_base) = "http://hl7.org/fhir/StructureDefinition/code";
 
     ResearchElementTypeCode.Value value = 1;
 
@@ -193,16 +185,13 @@ message ResearchElementDefinition {
 
     repeated Extension extension = 3;
   }
-  TypeCode type = 40
-      [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
+  TypeCode type = 40 [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
 
   // dichotomous | continuous | descriptive
   message VariableTypeCode {
     option (.google.fhir.proto.structure_definition_kind) = KIND_PRIMITIVE_TYPE;
-    option (.google.fhir.proto.fhir_valueset_url) =
-        "http://hl7.org/fhir/ValueSet/variable-type";
-    option (.google.fhir.proto.fhir_profile_base) =
-        "http://hl7.org/fhir/StructureDefinition/code";
+    option (.google.fhir.proto.fhir_valueset_url) = "http://hl7.org/fhir/ValueSet/variable-type";
+    option (.google.fhir.proto.fhir_profile_base) = "http://hl7.org/fhir/StructureDefinition/code";
 
     EvidenceVariableTypeCode.Value value = 1;
 
@@ -234,8 +223,7 @@ message ResearchElementDefinition {
         DataRequirement data_requirement = 4;
       }
     }
-    DefinitionX definition = 4
-        [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
+    DefinitionX definition = 4 [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
 
     // What code/value pairs define members?
     repeated UsageContext usage_context = 5;
@@ -268,12 +256,9 @@ message ResearchElementDefinition {
     // mean | median | mean-of-mean | mean-of-median | median-of-mean |
     // median-of-median
     message StudyEffectiveGroupMeasureCode {
-      option (.google.fhir.proto.structure_definition_kind) =
-          KIND_PRIMITIVE_TYPE;
-      option (.google.fhir.proto.fhir_valueset_url) =
-          "http://hl7.org/fhir/ValueSet/group-measure";
-      option (.google.fhir.proto.fhir_profile_base) =
-          "http://hl7.org/fhir/StructureDefinition/code";
+      option (.google.fhir.proto.structure_definition_kind) = KIND_PRIMITIVE_TYPE;
+      option (.google.fhir.proto.fhir_valueset_url) = "http://hl7.org/fhir/ValueSet/group-measure";
+      option (.google.fhir.proto.fhir_profile_base) = "http://hl7.org/fhir/StructureDefinition/code";
 
       GroupMeasureCode.Value value = 1;
 
@@ -305,12 +290,9 @@ message ResearchElementDefinition {
     // mean | median | mean-of-mean | mean-of-median | median-of-mean |
     // median-of-median
     message ParticipantEffectiveGroupMeasureCode {
-      option (.google.fhir.proto.structure_definition_kind) =
-          KIND_PRIMITIVE_TYPE;
-      option (.google.fhir.proto.fhir_valueset_url) =
-          "http://hl7.org/fhir/ValueSet/group-measure";
-      option (.google.fhir.proto.fhir_profile_base) =
-          "http://hl7.org/fhir/StructureDefinition/code";
+      option (.google.fhir.proto.structure_definition_kind) = KIND_PRIMITIVE_TYPE;
+      option (.google.fhir.proto.fhir_valueset_url) = "http://hl7.org/fhir/ValueSet/group-measure";
+      option (.google.fhir.proto.fhir_profile_base) = "http://hl7.org/fhir/StructureDefinition/code";
 
       GroupMeasureCode.Value value = 1;
 
@@ -318,9 +300,7 @@ message ResearchElementDefinition {
 
       repeated Extension extension = 3;
     }
-    ParticipantEffectiveGroupMeasureCode participant_effective_group_measure =
-        15;
+    ParticipantEffectiveGroupMeasureCode participant_effective_group_measure = 15;
   }
-  repeated Characteristic characteristic = 42
-      [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
+  repeated Characteristic characteristic = 42 [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
 }

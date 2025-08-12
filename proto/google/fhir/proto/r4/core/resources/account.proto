@@ -21,18 +21,17 @@ import "proto/google/fhir/proto/annotations.proto";
 import "proto/google/fhir/proto/r4/core/codes.proto";
 import "proto/google/fhir/proto/r4/core/datatypes.proto";
 
+option go_package = "github.com/google/fhir/go/proto/google/fhir/proto/r4/core/resources/account_go_proto";
 option java_multiple_files = true;
 option java_package = "com.google.fhir.r4.core";
 option (.google.fhir.proto.fhir_version) = R4;
-option go_package = "github.com/google/fhir/go/proto/google/fhir/proto/r4/core/resources/account_go_proto";
 
 // Auto-generated from StructureDefinition for Account.
 // Tracks balance, charges, for patient or cost center.
 // See http://hl7.org/fhir/StructureDefinition/Account
 message Account {
   option (.google.fhir.proto.structure_definition_kind) = KIND_RESOURCE;
-  option (.google.fhir.proto.fhir_structure_definition_url) =
-      "http://hl7.org/fhir/StructureDefinition/Account";
+  option (.google.fhir.proto.fhir_structure_definition_url) = "http://hl7.org/fhir/StructureDefinition/Account";
 
   // Logical id of this artifact
   Id id = 1;
@@ -68,10 +67,8 @@ message Account {
   // active | inactive | entered-in-error | on-hold | unknown
   message StatusCode {
     option (.google.fhir.proto.structure_definition_kind) = KIND_PRIMITIVE_TYPE;
-    option (.google.fhir.proto.fhir_valueset_url) =
-        "http://hl7.org/fhir/ValueSet/account-status";
-    option (.google.fhir.proto.fhir_profile_base) =
-        "http://hl7.org/fhir/StructureDefinition/code";
+    option (.google.fhir.proto.fhir_valueset_url) = "http://hl7.org/fhir/ValueSet/account-status";
+    option (.google.fhir.proto.fhir_profile_base) = "http://hl7.org/fhir/StructureDefinition/code";
 
     AccountStatusCode.Value value = 1;
 
@@ -79,8 +76,7 @@ message Account {
 
     repeated Extension extension = 3;
   }
-  StatusCode status = 11
-      [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
+  StatusCode status = 11 [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
 
   // E.g. patient, expense, depreciation
   CodeableConcept type = 12;
@@ -127,8 +123,7 @@ message Account {
   repeated Coverage coverage = 16;
 
   // Entity managing the Account
-  Reference owner = 17
-      [(.google.fhir.proto.valid_reference_type) = "Organization"];
+  Reference owner = 17 [(.google.fhir.proto.valid_reference_type) = "Organization"];
 
   // Explanation of purpose/use
   String description = 18;
@@ -161,6 +156,5 @@ message Account {
   repeated Guarantor guarantor = 19;
 
   // Reference to a parent Account
-  Reference part_of = 20
-      [(.google.fhir.proto.valid_reference_type) = "Account"];
+  Reference part_of = 20 [(.google.fhir.proto.valid_reference_type) = "Account"];
 }

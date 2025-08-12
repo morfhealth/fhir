@@ -32,10 +32,8 @@ option (.google.fhir.proto.fhir_version) = R4;
 // http://hl7.org/fhir/StructureDefinition/hlaresult
 message ProfileForHLAGenotypingResults {
   option (.google.fhir.proto.structure_definition_kind) = KIND_RESOURCE;
-  option (.google.fhir.proto.fhir_profile_base) =
-      "http://hl7.org/fhir/StructureDefinition/DiagnosticReport";
-  option (.google.fhir.proto.fhir_structure_definition_url) =
-      "http://hl7.org/fhir/StructureDefinition/hlaresult";
+  option (.google.fhir.proto.fhir_profile_base) = "http://hl7.org/fhir/StructureDefinition/DiagnosticReport";
+  option (.google.fhir.proto.fhir_structure_definition_url) = "http://hl7.org/fhir/StructureDefinition/hlaresult";
   option (.google.fhir.proto.search_parameter) = {
     name: "assessed-condition"
     type: REFERENCE
@@ -165,10 +163,8 @@ message ProfileForHLAGenotypingResults {
   // registered | partial | preliminary | final +
   message StatusCode {
     option (.google.fhir.proto.structure_definition_kind) = KIND_PRIMITIVE_TYPE;
-    option (.google.fhir.proto.fhir_valueset_url) =
-        "http://hl7.org/fhir/ValueSet/diagnostic-report-status";
-    option (.google.fhir.proto.fhir_profile_base) =
-        "http://hl7.org/fhir/StructureDefinition/code";
+    option (.google.fhir.proto.fhir_valueset_url) = "http://hl7.org/fhir/ValueSet/diagnostic-report-status";
+    option (.google.fhir.proto.fhir_profile_base) = "http://hl7.org/fhir/StructureDefinition/code";
 
     DiagnosticReportStatusCode.Value value = 1;
 
@@ -176,15 +172,13 @@ message ProfileForHLAGenotypingResults {
 
     repeated Extension extension = 3;
   }
-  StatusCode status = 12
-      [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
+  StatusCode status = 12 [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
 
   // Service category
   repeated CodeableConcept category = 13;
 
   // Name/Code for this diagnostic report
-  CodeableConcept code = 14
-      [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
+  CodeableConcept code = 14 [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
 
   // The subject of the report - usually, but not always, the patient
   Reference subject = 15 [
@@ -195,8 +189,7 @@ message ProfileForHLAGenotypingResults {
   ];
 
   // Health care event when test ordered
-  Reference encounter = 16
-      [(.google.fhir.proto.valid_reference_type) = "Encounter"];
+  Reference encounter = 16 [(.google.fhir.proto.valid_reference_type) = "Encounter"];
 
   // Clinically relevant time/time-period for report
   message EffectiveX {
@@ -229,16 +222,13 @@ message ProfileForHLAGenotypingResults {
   ];
 
   // Specimens this report is based on
-  repeated Reference specimen = 21
-      [(.google.fhir.proto.valid_reference_type) = "Specimen"];
+  repeated Reference specimen = 21 [(.google.fhir.proto.valid_reference_type) = "Specimen"];
 
   // Observations
-  repeated Reference result = 22
-      [(.google.fhir.proto.valid_reference_type) = "Observation"];
+  repeated Reference result = 22 [(.google.fhir.proto.valid_reference_type) = "Observation"];
 
   // Reference to full details of imaging associated with the diagnostic report
-  repeated Reference imaging_study = 23
-      [(.google.fhir.proto.valid_reference_type) = "ImagingStudy"];
+  repeated Reference imaging_study = 23 [(.google.fhir.proto.valid_reference_type) = "ImagingStudy"];
 
   // Key images associated with this report
   message Media {
@@ -272,27 +262,15 @@ message ProfileForHLAGenotypingResults {
   repeated Attachment presented_form = 27;
 
   // Allele Database
-  CodeableConcept allele_database = 28 [
-    (.google.fhir.proto.fhir_inlined_extension_url) =
-        "http://hl7.org/fhir/StructureDefinition/hla-genotyping-results-allele-database"
-  ];
+  CodeableConcept allele_database = 28 [(.google.fhir.proto.fhir_inlined_extension_url) = "http://hl7.org/fhir/StructureDefinition/hla-genotyping-results-allele-database"];
 
   // Glstring
-  DiagnosticReportGlstring glstring = 29 [
-    (.google.fhir.proto.fhir_inlined_extension_url) =
-        "http://hl7.org/fhir/StructureDefinition/hla-genotyping-results-glstring"
-  ];
+  DiagnosticReportGlstring glstring = 29 [(.google.fhir.proto.fhir_inlined_extension_url) = "http://hl7.org/fhir/StructureDefinition/hla-genotyping-results-glstring"];
 
   // Haploid
-  repeated DiagnosticReportHaploid haploid = 30 [
-    (.google.fhir.proto.fhir_inlined_extension_url) =
-        "http://hl7.org/fhir/StructureDefinition/hla-genotyping-results-haploid"
-  ];
+  repeated DiagnosticReportHaploid haploid = 30 [(.google.fhir.proto.fhir_inlined_extension_url) = "http://hl7.org/fhir/StructureDefinition/hla-genotyping-results-haploid"];
 
   // The platform, methodology and software applied at the time of the
   // genotyping
-  CodeableConcept method = 31 [
-    (.google.fhir.proto.fhir_inlined_extension_url) =
-        "http://hl7.org/fhir/StructureDefinition/hla-genotyping-results-method"
-  ];
+  CodeableConcept method = 31 [(.google.fhir.proto.fhir_inlined_extension_url) = "http://hl7.org/fhir/StructureDefinition/hla-genotyping-results-method"];
 }

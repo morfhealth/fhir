@@ -177,52 +177,34 @@ import "proto/google/fhir/proto/r5/core/resources/value_set.proto";
 import "proto/google/fhir/proto/r5/core/resources/verification_result.proto";
 import "proto/google/fhir/proto/r5/core/resources/vision_prescription.proto";
 
+option go_package = "github.com/google/fhir/go/proto/google/fhir/proto/r5/core/resources/bundle_and_contained_resource_go_proto";
 option java_multiple_files = true;
 option java_package = "com.google.fhir.r5.core";
 option (.google.fhir.proto.fhir_version) = R5;
-option go_package = "github.com/google/fhir/go/proto/google/fhir/proto/r5/core/resources/bundle_and_contained_resource_go_proto";
 
 // Auto-generated from StructureDefinition for Bundle.
 // Contains a collection of resources.
 // See http://hl7.org/fhir/StructureDefinition/Bundle
 message Bundle {
   option (.google.fhir.proto.structure_definition_kind) = KIND_RESOURCE;
-  option (.google.fhir.proto.fhir_structure_definition_url) =
-      "http://hl7.org/fhir/StructureDefinition/Bundle";
-  option (.google.fhir.proto.fhir_path_message_constraint) =
-      "total.empty() or (type = 'searchset') or (type = 'history')";
-  option (.google.fhir.proto.fhir_path_message_constraint) =
-      "(type = 'searchset') or entry.search.empty()";
-  option (.google.fhir.proto.fhir_path_message_constraint) =
-      "(type = 'history') or entry.where(fullUrl.exists()).select(fullUrl&iif(resource.meta.versionId.exists(), resource.meta.versionId, '')).isDistinct()";
-  option (.google.fhir.proto.fhir_path_message_constraint) =
-      "type = 'document' implies (identifier.system.exists() and identifier.value.exists())";
-  option (.google.fhir.proto.fhir_path_message_constraint) =
-      "type = 'document' implies (timestamp.hasValue())";
-  option (.google.fhir.proto.fhir_path_message_constraint) =
-      "type = 'document' implies entry.first().resource.is(Composition)";
-  option (.google.fhir.proto.fhir_path_message_constraint) =
-      "type = 'message' implies entry.first().resource.is(MessageHeader)";
-  option (.google.fhir.proto.fhir_path_message_constraint) =
-      "type = 'subscription-notification' implies entry.first().resource.is(SubscriptionStatus)";
-  option (.google.fhir.proto.fhir_path_message_constraint) =
-      "type = 'history' implies entry.request.method != 'PATCH'";
-  option (.google.fhir.proto.fhir_path_message_constraint) =
-      "type='transaction' or type='transaction-response' or type='batch' or type='batch-response' or entry.all(fullUrl.exists() or request.method='POST')";
-  option (.google.fhir.proto.fhir_path_message_constraint) =
-      "issues.exists() implies (issues.issue.severity = 'information' or issues.issue.severity = 'warning')";
-  option (.google.fhir.proto.fhir_path_message_constraint) =
-      "type = 'document' implies issues.empty()";
-  option (.google.fhir.proto.fhir_path_message_constraint) =
-      "type = 'searchset' implies link.where(relation = 'self' and url.exists()).exists()";
-  option (.google.fhir.proto.fhir_path_message_constraint) =
-      "type in ('document' | 'message' | 'searchset' | 'collection') implies entry.all(resource.exists() and request.empty() and response.empty())";
-  option (.google.fhir.proto.fhir_path_message_constraint) =
-      "type = 'history' implies entry.all(request.exists() and response.exists() and ((request.method in ('POST' | 'PATCH' | 'PUT')) = resource.exists()))";
-  option (.google.fhir.proto.fhir_path_message_constraint) =
-      "type in ('transaction' | 'batch') implies entry.all(request.method.exists() and ((request.method in ('POST' | 'PATCH' | 'PUT')) = resource.exists()))";
-  option (.google.fhir.proto.fhir_path_message_constraint) =
-      "type in ('transaction-response' | 'batch-response') implies entry.all(response.exists())";
+  option (.google.fhir.proto.fhir_structure_definition_url) = "http://hl7.org/fhir/StructureDefinition/Bundle";
+  option (.google.fhir.proto.fhir_path_message_constraint) = "total.empty() or (type = 'searchset') or (type = 'history')";
+  option (.google.fhir.proto.fhir_path_message_constraint) = "(type = 'searchset') or entry.search.empty()";
+  option (.google.fhir.proto.fhir_path_message_constraint) = "(type = 'history') or entry.where(fullUrl.exists()).select(fullUrl&iif(resource.meta.versionId.exists(), resource.meta.versionId, '')).isDistinct()";
+  option (.google.fhir.proto.fhir_path_message_constraint) = "type = 'document' implies (identifier.system.exists() and identifier.value.exists())";
+  option (.google.fhir.proto.fhir_path_message_constraint) = "type = 'document' implies (timestamp.hasValue())";
+  option (.google.fhir.proto.fhir_path_message_constraint) = "type = 'document' implies entry.first().resource.is(Composition)";
+  option (.google.fhir.proto.fhir_path_message_constraint) = "type = 'message' implies entry.first().resource.is(MessageHeader)";
+  option (.google.fhir.proto.fhir_path_message_constraint) = "type = 'subscription-notification' implies entry.first().resource.is(SubscriptionStatus)";
+  option (.google.fhir.proto.fhir_path_message_constraint) = "type = 'history' implies entry.request.method != 'PATCH'";
+  option (.google.fhir.proto.fhir_path_message_constraint) = "type='transaction' or type='transaction-response' or type='batch' or type='batch-response' or entry.all(fullUrl.exists() or request.method='POST')";
+  option (.google.fhir.proto.fhir_path_message_constraint) = "issues.exists() implies (issues.issue.severity = 'information' or issues.issue.severity = 'warning')";
+  option (.google.fhir.proto.fhir_path_message_constraint) = "type = 'document' implies issues.empty()";
+  option (.google.fhir.proto.fhir_path_message_constraint) = "type = 'searchset' implies link.where(relation = 'self' and url.exists()).exists()";
+  option (.google.fhir.proto.fhir_path_message_constraint) = "type in ('document' | 'message' | 'searchset' | 'collection') implies entry.all(resource.exists() and request.empty() and response.empty())";
+  option (.google.fhir.proto.fhir_path_message_constraint) = "type = 'history' implies entry.all(request.exists() and response.exists() and ((request.method in ('POST' | 'PATCH' | 'PUT')) = resource.exists()))";
+  option (.google.fhir.proto.fhir_path_message_constraint) = "type in ('transaction' | 'batch') implies entry.all(request.method.exists() and ((request.method in ('POST' | 'PATCH' | 'PUT')) = resource.exists()))";
+  option (.google.fhir.proto.fhir_path_message_constraint) = "type in ('transaction-response' | 'batch-response') implies entry.all(response.exists())";
 
   // Logical id of this artifact
   Id id = 1;
@@ -244,10 +226,8 @@ message Bundle {
   // subscription-notification
   message TypeCode {
     option (.google.fhir.proto.structure_definition_kind) = KIND_PRIMITIVE_TYPE;
-    option (.google.fhir.proto.fhir_valueset_url) =
-        "http://hl7.org/fhir/ValueSet/bundle-type";
-    option (.google.fhir.proto.fhir_profile_base) =
-        "http://hl7.org/fhir/StructureDefinition/code";
+    option (.google.fhir.proto.fhir_valueset_url) = "http://hl7.org/fhir/ValueSet/bundle-type";
+    option (.google.fhir.proto.fhir_profile_base) = "http://hl7.org/fhir/StructureDefinition/code";
 
     BundleTypeCode.Value value = 1;
 
@@ -255,8 +235,7 @@ message Bundle {
 
     repeated Extension extension = 3;
   }
-  TypeCode type = 6
-      [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
+  TypeCode type = 6 [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
 
   // When the bundle was assembled
   Instant timestamp = 7;
@@ -278,12 +257,9 @@ message Bundle {
     // See
     // http://www.iana.org/assignments/link-relations/link-relations.xhtml#link-relations-1
     message RelationCode {
-      option (.google.fhir.proto.structure_definition_kind) =
-          KIND_PRIMITIVE_TYPE;
-      option (.google.fhir.proto.fhir_valueset_url) =
-          "http://hl7.org/fhir/ValueSet/iana-link-relations";
-      option (.google.fhir.proto.fhir_profile_base) =
-          "http://hl7.org/fhir/StructureDefinition/code";
+      option (.google.fhir.proto.structure_definition_kind) = KIND_PRIMITIVE_TYPE;
+      option (.google.fhir.proto.fhir_valueset_url) = "http://hl7.org/fhir/ValueSet/iana-link-relations";
+      option (.google.fhir.proto.fhir_profile_base) = "http://hl7.org/fhir/StructureDefinition/code";
 
       LinkRelationTypesCode.Value value = 1;
 
@@ -291,21 +267,17 @@ message Bundle {
 
       repeated Extension extension = 3;
     }
-    RelationCode relation = 6
-        [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
+    RelationCode relation = 6 [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
 
     // Reference details for the link
-    Uri url = 5
-        [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
+    Uri url = 5 [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
   }
   repeated Link link = 9;
 
   // Entry in the bundle - will have a resource or information
   message Entry {
-    option (.google.fhir.proto.fhir_path_message_constraint) =
-        "resource.exists() or request.exists() or response.exists()";
-    option (.google.fhir.proto.fhir_path_message_constraint) =
-        "fullUrl.exists() implies fullUrl.contains('/_history/').not()";
+    option (.google.fhir.proto.fhir_path_message_constraint) = "resource.exists() or request.exists() or response.exists()";
+    option (.google.fhir.proto.fhir_path_message_constraint) = "fullUrl.exists() implies fullUrl.contains('/_history/').not()";
 
     // Unique id for inter-element referencing
     String id = 1;
@@ -339,12 +311,9 @@ message Bundle {
 
       // match | include - why this is in the result set
       message ModeCode {
-        option (.google.fhir.proto.structure_definition_kind) =
-            KIND_PRIMITIVE_TYPE;
-        option (.google.fhir.proto.fhir_valueset_url) =
-            "http://hl7.org/fhir/ValueSet/search-entry-mode";
-        option (.google.fhir.proto.fhir_profile_base) =
-            "http://hl7.org/fhir/StructureDefinition/code";
+        option (.google.fhir.proto.structure_definition_kind) = KIND_PRIMITIVE_TYPE;
+        option (.google.fhir.proto.fhir_valueset_url) = "http://hl7.org/fhir/ValueSet/search-entry-mode";
+        option (.google.fhir.proto.fhir_profile_base) = "http://hl7.org/fhir/StructureDefinition/code";
 
         SearchEntryModeCode.Value value = 1;
 
@@ -372,12 +341,9 @@ message Bundle {
 
       // GET | HEAD | POST | PUT | DELETE | PATCH
       message MethodCode {
-        option (.google.fhir.proto.structure_definition_kind) =
-            KIND_PRIMITIVE_TYPE;
-        option (.google.fhir.proto.fhir_valueset_url) =
-            "http://hl7.org/fhir/ValueSet/http-verb";
-        option (.google.fhir.proto.fhir_profile_base) =
-            "http://hl7.org/fhir/StructureDefinition/code";
+        option (.google.fhir.proto.structure_definition_kind) = KIND_PRIMITIVE_TYPE;
+        option (.google.fhir.proto.fhir_valueset_url) = "http://hl7.org/fhir/ValueSet/http-verb";
+        option (.google.fhir.proto.fhir_profile_base) = "http://hl7.org/fhir/StructureDefinition/code";
 
         HTTPVerbCode.Value value = 1;
 
@@ -385,12 +351,10 @@ message Bundle {
 
         repeated Extension extension = 3;
       }
-      MethodCode method = 4
-          [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
+      MethodCode method = 4 [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
 
       // URL for HTTP equivalent of this entry
-      Uri url = 5
-          [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
+      Uri url = 5 [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
 
       // For managing cache validation
       String if_none_match = 6;
@@ -418,8 +382,7 @@ message Bundle {
       repeated Extension modifier_extension = 3;
 
       // Status response code (text optional)
-      String status = 4
-          [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
+      String status = 4 [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
 
       // The location (if the operation returns a location)
       Uri location = 5;
@@ -459,8 +422,7 @@ message ContainedResource {
     Basic basic = 5011;
     Binary binary = 5012;
     BiologicallyDerivedProduct biologically_derived_product = 5013;
-    BiologicallyDerivedProductDispense biologically_derived_product_dispense =
-        5014;
+    BiologicallyDerivedProductDispense biologically_derived_product_dispense = 5014;
     BodyStructure body_structure = 5015;
     Bundle bundle = 5016;
     CapabilityStatement capability_statement = 5017;

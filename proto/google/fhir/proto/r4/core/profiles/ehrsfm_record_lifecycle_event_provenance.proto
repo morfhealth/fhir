@@ -30,10 +30,8 @@ option (.google.fhir.proto.fhir_version) = R4;
 // http://hl7.org/fhir/StructureDefinition/ehrsrle-provenance
 message EHRSFMRecordLifecycleEventProvenance {
   option (.google.fhir.proto.structure_definition_kind) = KIND_RESOURCE;
-  option (.google.fhir.proto.fhir_profile_base) =
-      "http://hl7.org/fhir/StructureDefinition/Provenance";
-  option (.google.fhir.proto.fhir_structure_definition_url) =
-      "http://hl7.org/fhir/StructureDefinition/ehrsrle-provenance";
+  option (.google.fhir.proto.fhir_profile_base) = "http://hl7.org/fhir/StructureDefinition/Provenance";
+  option (.google.fhir.proto.fhir_structure_definition_url) = "http://hl7.org/fhir/StructureDefinition/ehrsrle-provenance";
   option (.google.fhir.proto.search_parameter) = {
     name: "agent"
     type: REFERENCE
@@ -131,15 +129,13 @@ message EHRSFMRecordLifecycleEventProvenance {
   OccurredX occurred = 11;
 
   // When the activity was recorded / updated
-  Instant recorded = 12
-      [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
+  Instant recorded = 12 [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
 
   // Policy or plan the activity was defined by
   repeated Uri policy = 13;
 
   // Where the activity occurred, if relevant
-  Reference location = 14
-      [(.google.fhir.proto.valid_reference_type) = "Location"];
+  Reference location = 14 [(.google.fhir.proto.valid_reference_type) = "Location"];
 
   // Reason the activity is occurring
   repeated CodeableConcept reason = 15;
@@ -185,8 +181,7 @@ message EHRSFMRecordLifecycleEventProvenance {
       (.google.fhir.proto.valid_reference_type) = "Organization"
     ];
   }
-  repeated Agent agent = 17
-      [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
+  repeated Agent agent = 17 [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
 
   // An entity used in this activity
   message Entity {
@@ -201,12 +196,9 @@ message EHRSFMRecordLifecycleEventProvenance {
 
     // derivation | revision | quotation | source | removal
     message RoleCode {
-      option (.google.fhir.proto.structure_definition_kind) =
-          KIND_PRIMITIVE_TYPE;
-      option (.google.fhir.proto.fhir_valueset_url) =
-          "http://hl7.org/fhir/ValueSet/provenance-entity-role";
-      option (.google.fhir.proto.fhir_profile_base) =
-          "http://hl7.org/fhir/StructureDefinition/code";
+      option (.google.fhir.proto.structure_definition_kind) = KIND_PRIMITIVE_TYPE;
+      option (.google.fhir.proto.fhir_valueset_url) = "http://hl7.org/fhir/ValueSet/provenance-entity-role";
+      option (.google.fhir.proto.fhir_profile_base) = "http://hl7.org/fhir/StructureDefinition/code";
 
       ProvenanceEntityRoleCode.Value value = 1;
 
@@ -214,8 +206,7 @@ message EHRSFMRecordLifecycleEventProvenance {
 
       repeated Extension extension = 3;
     }
-    RoleCode role = 4
-        [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
+    RoleCode role = 4 [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
 
     // Identity of entity
     Reference what = 5 [

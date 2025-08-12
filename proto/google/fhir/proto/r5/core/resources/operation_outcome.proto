@@ -21,18 +21,17 @@ import "proto/google/fhir/proto/annotations.proto";
 import "proto/google/fhir/proto/r5/core/codes.proto";
 import "proto/google/fhir/proto/r5/core/datatypes.proto";
 
+option go_package = "github.com/google/fhir/go/proto/google/fhir/proto/r5/core/resources/operation_outcome_go_proto";
 option java_multiple_files = true;
 option java_package = "com.google.fhir.r5.core";
 option (.google.fhir.proto.fhir_version) = R5;
-option go_package = "github.com/google/fhir/go/proto/google/fhir/proto/r5/core/resources/operation_outcome_go_proto";
 
 // Auto-generated from StructureDefinition for OperationOutcome.
 // Information about the success/failure of an action.
 // See http://hl7.org/fhir/StructureDefinition/OperationOutcome
 message OperationOutcome {
   option (.google.fhir.proto.structure_definition_kind) = KIND_RESOURCE;
-  option (.google.fhir.proto.fhir_structure_definition_url) =
-      "http://hl7.org/fhir/StructureDefinition/OperationOutcome";
+  option (.google.fhir.proto.fhir_structure_definition_url) = "http://hl7.org/fhir/StructureDefinition/OperationOutcome";
 
   // Logical id of this artifact
   Id id = 1;
@@ -75,12 +74,9 @@ message OperationOutcome {
 
     // fatal | error | warning | information | success
     message SeverityCode {
-      option (.google.fhir.proto.structure_definition_kind) =
-          KIND_PRIMITIVE_TYPE;
-      option (.google.fhir.proto.fhir_valueset_url) =
-          "http://hl7.org/fhir/ValueSet/issue-severity";
-      option (.google.fhir.proto.fhir_profile_base) =
-          "http://hl7.org/fhir/StructureDefinition/code";
+      option (.google.fhir.proto.structure_definition_kind) = KIND_PRIMITIVE_TYPE;
+      option (.google.fhir.proto.fhir_valueset_url) = "http://hl7.org/fhir/ValueSet/issue-severity";
+      option (.google.fhir.proto.fhir_profile_base) = "http://hl7.org/fhir/StructureDefinition/code";
 
       IssueSeverityCode.Value value = 1;
 
@@ -88,17 +84,13 @@ message OperationOutcome {
 
       repeated Extension extension = 3;
     }
-    SeverityCode severity = 4
-        [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
+    SeverityCode severity = 4 [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
 
     // Error or warning code
     message CodeType {
-      option (.google.fhir.proto.structure_definition_kind) =
-          KIND_PRIMITIVE_TYPE;
-      option (.google.fhir.proto.fhir_valueset_url) =
-          "http://hl7.org/fhir/ValueSet/issue-type";
-      option (.google.fhir.proto.fhir_profile_base) =
-          "http://hl7.org/fhir/StructureDefinition/code";
+      option (.google.fhir.proto.structure_definition_kind) = KIND_PRIMITIVE_TYPE;
+      option (.google.fhir.proto.fhir_valueset_url) = "http://hl7.org/fhir/ValueSet/issue-type";
+      option (.google.fhir.proto.fhir_profile_base) = "http://hl7.org/fhir/StructureDefinition/code";
 
       IssueTypeCode.Value value = 1;
 
@@ -106,8 +98,7 @@ message OperationOutcome {
 
       repeated Extension extension = 3;
     }
-    CodeType code = 5
-        [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
+    CodeType code = 5 [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
 
     // Additional details about the error
     CodeableConcept details = 6;
@@ -121,6 +112,5 @@ message OperationOutcome {
     // FHIRPath of element(s) related to issue
     repeated String expression = 9;
   }
-  repeated Issue issue = 10
-      [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
+  repeated Issue issue = 10 [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
 }

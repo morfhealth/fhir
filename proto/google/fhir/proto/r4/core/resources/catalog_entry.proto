@@ -21,18 +21,17 @@ import "proto/google/fhir/proto/annotations.proto";
 import "proto/google/fhir/proto/r4/core/codes.proto";
 import "proto/google/fhir/proto/r4/core/datatypes.proto";
 
+option go_package = "github.com/google/fhir/go/proto/google/fhir/proto/r4/core/resources/catalog_entry_go_proto";
 option java_multiple_files = true;
 option java_package = "com.google.fhir.r4.core";
 option (.google.fhir.proto.fhir_version) = R4;
-option go_package = "github.com/google/fhir/go/proto/google/fhir/proto/r4/core/resources/catalog_entry_go_proto";
 
 // Auto-generated from StructureDefinition for CatalogEntry.
 // An entry in a catalog.
 // See http://hl7.org/fhir/StructureDefinition/CatalogEntry
 message CatalogEntry {
   option (.google.fhir.proto.structure_definition_kind) = KIND_RESOURCE;
-  option (.google.fhir.proto.fhir_structure_definition_url) =
-      "http://hl7.org/fhir/StructureDefinition/CatalogEntry";
+  option (.google.fhir.proto.fhir_structure_definition_url) = "http://hl7.org/fhir/StructureDefinition/CatalogEntry";
 
   // Logical id of this artifact
   Id id = 1;
@@ -69,8 +68,7 @@ message CatalogEntry {
   CodeableConcept type = 11;
 
   // Whether the entry represents an orderable item
-  Boolean orderable = 12
-      [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
+  Boolean orderable = 12 [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
 
   // The item that is being defined
   Reference referenced_item = 13 [
@@ -98,10 +96,8 @@ message CatalogEntry {
   // draft | active | retired | unknown
   message StatusCode {
     option (.google.fhir.proto.structure_definition_kind) = KIND_PRIMITIVE_TYPE;
-    option (.google.fhir.proto.fhir_valueset_url) =
-        "http://hl7.org/fhir/ValueSet/publication-status";
-    option (.google.fhir.proto.fhir_profile_base) =
-        "http://hl7.org/fhir/StructureDefinition/code";
+    option (.google.fhir.proto.fhir_valueset_url) = "http://hl7.org/fhir/ValueSet/publication-status";
+    option (.google.fhir.proto.fhir_profile_base) = "http://hl7.org/fhir/StructureDefinition/code";
 
     PublicationStatusCode.Value value = 1;
 
@@ -139,12 +135,9 @@ message CatalogEntry {
 
     // triggers | is-replaced-by
     message RelationtypeCode {
-      option (.google.fhir.proto.structure_definition_kind) =
-          KIND_PRIMITIVE_TYPE;
-      option (.google.fhir.proto.fhir_valueset_url) =
-          "http://hl7.org/fhir/ValueSet/relation-type";
-      option (.google.fhir.proto.fhir_profile_base) =
-          "http://hl7.org/fhir/StructureDefinition/code";
+      option (.google.fhir.proto.structure_definition_kind) = KIND_PRIMITIVE_TYPE;
+      option (.google.fhir.proto.fhir_valueset_url) = "http://hl7.org/fhir/ValueSet/relation-type";
+      option (.google.fhir.proto.fhir_profile_base) = "http://hl7.org/fhir/StructureDefinition/code";
 
       CatalogEntryRelationTypeCode.Value value = 1;
 
@@ -152,8 +145,7 @@ message CatalogEntry {
 
       repeated Extension extension = 3;
     }
-    RelationtypeCode relationtype = 4
-        [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
+    RelationtypeCode relationtype = 4 [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
 
     // The reference to the related item
     Reference item = 5 [

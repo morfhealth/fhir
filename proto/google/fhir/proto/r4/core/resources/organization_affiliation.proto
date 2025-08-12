@@ -20,10 +20,10 @@ import "google/protobuf/any.proto";
 import "proto/google/fhir/proto/annotations.proto";
 import "proto/google/fhir/proto/r4/core/datatypes.proto";
 
+option go_package = "github.com/google/fhir/go/proto/google/fhir/proto/r4/core/resources/organization_affiliation_go_proto";
 option java_multiple_files = true;
 option java_package = "com.google.fhir.r4.core";
 option (.google.fhir.proto.fhir_version) = R4;
-option go_package = "github.com/google/fhir/go/proto/google/fhir/proto/r4/core/resources/organization_affiliation_go_proto";
 
 // Auto-generated from StructureDefinition for OrganizationAffiliation.
 // Defines an affiliation/assotiation/relationship between 2 distinct
@@ -31,8 +31,7 @@ option go_package = "github.com/google/fhir/go/proto/google/fhir/proto/r4/core/r
 // See http://hl7.org/fhir/StructureDefinition/OrganizationAffiliation
 message OrganizationAffiliation {
   option (.google.fhir.proto.structure_definition_kind) = KIND_RESOURCE;
-  option (.google.fhir.proto.fhir_structure_definition_url) =
-      "http://hl7.org/fhir/StructureDefinition/OrganizationAffiliation";
+  option (.google.fhir.proto.fhir_structure_definition_url) = "http://hl7.org/fhir/StructureDefinition/OrganizationAffiliation";
 
   // Logical id of this artifact
   Id id = 1;
@@ -73,19 +72,16 @@ message OrganizationAffiliation {
   Period period = 12;
 
   // Organization where the role is available
-  Reference organization = 13
-      [(.google.fhir.proto.valid_reference_type) = "Organization"];
+  Reference organization = 13 [(.google.fhir.proto.valid_reference_type) = "Organization"];
 
   // Organization that provides/performs the role (e.g. providing services or is
   // a member of)
-  Reference participating_organization = 14
-      [(.google.fhir.proto.valid_reference_type) = "Organization"];
+  Reference participating_organization = 14 [(.google.fhir.proto.valid_reference_type) = "Organization"];
 
   // Health insurance provider network in which the participatingOrganization
   // provides the role's services (if defined) at the indicated locations (if
   // defined)
-  repeated Reference network = 15
-      [(.google.fhir.proto.valid_reference_type) = "Organization"];
+  repeated Reference network = 15 [(.google.fhir.proto.valid_reference_type) = "Organization"];
 
   // Definition of the role the participatingOrganization plays
   repeated CodeableConcept code = 16;
@@ -95,18 +91,15 @@ message OrganizationAffiliation {
   repeated CodeableConcept specialty = 17;
 
   // The location(s) at which the role occurs
-  repeated Reference location = 18
-      [(.google.fhir.proto.valid_reference_type) = "Location"];
+  repeated Reference location = 18 [(.google.fhir.proto.valid_reference_type) = "Location"];
 
   // Healthcare services provided through the role
-  repeated Reference healthcare_service = 19
-      [(.google.fhir.proto.valid_reference_type) = "HealthcareService"];
+  repeated Reference healthcare_service = 19 [(.google.fhir.proto.valid_reference_type) = "HealthcareService"];
 
   // Contact details at the participatingOrganization relevant to this
   // Affiliation
   repeated ContactPoint telecom = 20;
 
   // Technical endpoints providing access to services operated for this role
-  repeated Reference endpoint = 21
-      [(.google.fhir.proto.valid_reference_type) = "Endpoint"];
+  repeated Reference endpoint = 21 [(.google.fhir.proto.valid_reference_type) = "Endpoint"];
 }

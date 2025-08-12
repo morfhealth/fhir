@@ -19,19 +19,17 @@ package google.fhir.stu3.fhirproto;
 import "proto/google/fhir/proto/annotations.proto";
 import "proto/google/fhir/proto/stu3/datatypes.proto";
 
+option go_package = "github.com/google/fhir/go/proto/google/fhir/proto/stu3/fhirproto_extensions_go_proto";
 option java_multiple_files = true;
 option java_package = "com.google.fhir.stu3.fhirproto";
 option (.google.fhir.proto.fhir_version) = STU3;
-option go_package = "github.com/google/fhir/go/proto/google/fhir/proto/stu3/fhirproto_extensions_go_proto";
 
 // Whether or not the primitive is missing a value.
 // See https://g.co/fhir/StructureDefinition/primitiveHasNoValue
 message PrimitiveHasNoValue {
   option (.google.fhir.proto.structure_definition_kind) = KIND_COMPLEX_TYPE;
-  option (.google.fhir.proto.fhir_profile_base) =
-      "http://hl7.org/fhir/StructureDefinition/Extension";
-  option (.google.fhir.proto.fhir_structure_definition_url) =
-      "https://g.co/fhir/StructureDefinition/primitiveHasNoValue";
+  option (.google.fhir.proto.fhir_profile_base) = "http://hl7.org/fhir/StructureDefinition/Extension";
+  option (.google.fhir.proto.fhir_structure_definition_url) = "https://g.co/fhir/StructureDefinition/primitiveHasNoValue";
 
   // xml:id (or equivalent in JSON)
   proto.String id = 1;
@@ -44,10 +42,8 @@ message PrimitiveHasNoValue {
 // See https://g.co/fhir/StructureDefinition/base64Binary-separatorStride
 message Base64BinarySeparatorStride {
   option (.google.fhir.proto.structure_definition_kind) = KIND_COMPLEX_TYPE;
-  option (.google.fhir.proto.fhir_profile_base) =
-      "http://hl7.org/fhir/StructureDefinition/Extension";
-  option (.google.fhir.proto.fhir_structure_definition_url) =
-      "https://g.co/fhir/StructureDefinition/base64Binary-separatorStride";
+  option (.google.fhir.proto.fhir_profile_base) = "http://hl7.org/fhir/StructureDefinition/Extension";
+  option (.google.fhir.proto.fhir_structure_definition_url) = "https://g.co/fhir/StructureDefinition/base64Binary-separatorStride";
 
   // xml:id (or equivalent in JSON)
   proto.String id = 1;
@@ -55,14 +51,12 @@ message Base64BinarySeparatorStride {
   // The separator, usually a sequence of spaces.
   proto.String separator = 4 [
     (.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR,
-    (.google.fhir.proto.fhir_path_constraint) =
-        "extension.exists() != value.exists()"
+    (.google.fhir.proto.fhir_path_constraint) = "extension.exists() != value.exists()"
   ];
 
   // The stride.
   proto.PositiveInt stride = 5 [
     (.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR,
-    (.google.fhir.proto.fhir_path_constraint) =
-        "extension.exists() != value.exists()"
+    (.google.fhir.proto.fhir_path_constraint) = "extension.exists() != value.exists()"
   ];
 }

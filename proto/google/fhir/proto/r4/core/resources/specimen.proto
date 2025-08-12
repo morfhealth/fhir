@@ -21,18 +21,17 @@ import "proto/google/fhir/proto/annotations.proto";
 import "proto/google/fhir/proto/r4/core/codes.proto";
 import "proto/google/fhir/proto/r4/core/datatypes.proto";
 
+option go_package = "github.com/google/fhir/go/proto/google/fhir/proto/r4/core/resources/specimen_go_proto";
 option java_multiple_files = true;
 option java_package = "com.google.fhir.r4.core";
 option (.google.fhir.proto.fhir_version) = R4;
-option go_package = "github.com/google/fhir/go/proto/google/fhir/proto/r4/core/resources/specimen_go_proto";
 
 // Auto-generated from StructureDefinition for Specimen.
 // Sample for analysis.
 // See http://hl7.org/fhir/StructureDefinition/Specimen
 message Specimen {
   option (.google.fhir.proto.structure_definition_kind) = KIND_RESOURCE;
-  option (.google.fhir.proto.fhir_structure_definition_url) =
-      "http://hl7.org/fhir/StructureDefinition/Specimen";
+  option (.google.fhir.proto.fhir_structure_definition_url) = "http://hl7.org/fhir/StructureDefinition/Specimen";
 
   // Logical id of this artifact
   Id id = 1;
@@ -71,10 +70,8 @@ message Specimen {
   // available | unavailable | unsatisfactory | entered-in-error
   message StatusCode {
     option (.google.fhir.proto.structure_definition_kind) = KIND_PRIMITIVE_TYPE;
-    option (.google.fhir.proto.fhir_valueset_url) =
-        "http://hl7.org/fhir/ValueSet/specimen-status";
-    option (.google.fhir.proto.fhir_profile_base) =
-        "http://hl7.org/fhir/StructureDefinition/code";
+    option (.google.fhir.proto.fhir_valueset_url) = "http://hl7.org/fhir/ValueSet/specimen-status";
+    option (.google.fhir.proto.fhir_profile_base) = "http://hl7.org/fhir/StructureDefinition/code";
 
     SpecimenStatusCode.Value value = 1;
 
@@ -102,12 +99,10 @@ message Specimen {
   DateTime received_time = 15;
 
   // Specimen from which this specimen originated
-  repeated Reference parent = 16
-      [(.google.fhir.proto.valid_reference_type) = "Specimen"];
+  repeated Reference parent = 16 [(.google.fhir.proto.valid_reference_type) = "Specimen"];
 
   // Why the specimen was collected
-  repeated Reference request = 17
-      [(.google.fhir.proto.valid_reference_type) = "ServiceRequest"];
+  repeated Reference request = 17 [(.google.fhir.proto.valid_reference_type) = "ServiceRequest"];
 
   // Collection details
   message Collection {
@@ -180,8 +175,7 @@ message Specimen {
     CodeableConcept procedure = 5;
 
     // Material used in the processing step
-    repeated Reference additive = 6
-        [(.google.fhir.proto.valid_reference_type) = "Substance"];
+    repeated Reference additive = 6 [(.google.fhir.proto.valid_reference_type) = "Substance"];
 
     // Date and time of specimen processing
     message TimeX {
@@ -228,8 +222,7 @@ message Specimen {
 
       oneof choice {
         CodeableConcept codeable_concept = 1;
-        Reference reference = 2
-            [(.google.fhir.proto.valid_reference_type) = "Substance"];
+        Reference reference = 2 [(.google.fhir.proto.valid_reference_type) = "Substance"];
       }
     }
     AdditiveX additive = 9;

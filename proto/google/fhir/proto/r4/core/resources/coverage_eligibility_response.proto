@@ -21,18 +21,17 @@ import "proto/google/fhir/proto/annotations.proto";
 import "proto/google/fhir/proto/r4/core/codes.proto";
 import "proto/google/fhir/proto/r4/core/datatypes.proto";
 
+option go_package = "github.com/google/fhir/go/proto/google/fhir/proto/r4/core/resources/coverage_eligibility_response_go_proto";
 option java_multiple_files = true;
 option java_package = "com.google.fhir.r4.core";
 option (.google.fhir.proto.fhir_version) = R4;
-option go_package = "github.com/google/fhir/go/proto/google/fhir/proto/r4/core/resources/coverage_eligibility_response_go_proto";
 
 // Auto-generated from StructureDefinition for CoverageEligibilityResponse.
 // CoverageEligibilityResponse resource.
 // See http://hl7.org/fhir/StructureDefinition/CoverageEligibilityResponse
 message CoverageEligibilityResponse {
   option (.google.fhir.proto.structure_definition_kind) = KIND_RESOURCE;
-  option (.google.fhir.proto.fhir_structure_definition_url) =
-      "http://hl7.org/fhir/StructureDefinition/CoverageEligibilityResponse";
+  option (.google.fhir.proto.fhir_structure_definition_url) = "http://hl7.org/fhir/StructureDefinition/CoverageEligibilityResponse";
 
   // Logical id of this artifact
   Id id = 1;
@@ -68,10 +67,8 @@ message CoverageEligibilityResponse {
   // active | cancelled | draft | entered-in-error
   message StatusCode {
     option (.google.fhir.proto.structure_definition_kind) = KIND_PRIMITIVE_TYPE;
-    option (.google.fhir.proto.fhir_valueset_url) =
-        "http://hl7.org/fhir/ValueSet/fm-status";
-    option (.google.fhir.proto.fhir_profile_base) =
-        "http://hl7.org/fhir/StructureDefinition/code";
+    option (.google.fhir.proto.fhir_valueset_url) = "http://hl7.org/fhir/ValueSet/fm-status";
+    option (.google.fhir.proto.fhir_profile_base) = "http://hl7.org/fhir/StructureDefinition/code";
 
     FinancialResourceStatusCode.Value value = 1;
 
@@ -79,16 +76,13 @@ message CoverageEligibilityResponse {
 
     repeated Extension extension = 3;
   }
-  StatusCode status = 11
-      [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
+  StatusCode status = 11 [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
 
   // auth-requirements | benefits | discovery | validation
   message PurposeCode {
     option (.google.fhir.proto.structure_definition_kind) = KIND_PRIMITIVE_TYPE;
-    option (.google.fhir.proto.fhir_valueset_url) =
-        "http://hl7.org/fhir/ValueSet/eligibilityresponse-purpose";
-    option (.google.fhir.proto.fhir_profile_base) =
-        "http://hl7.org/fhir/StructureDefinition/code";
+    option (.google.fhir.proto.fhir_valueset_url) = "http://hl7.org/fhir/ValueSet/eligibilityresponse-purpose";
+    option (.google.fhir.proto.fhir_profile_base) = "http://hl7.org/fhir/StructureDefinition/code";
 
     EligibilityResponsePurposeCode.Value value = 1;
 
@@ -96,8 +90,7 @@ message CoverageEligibilityResponse {
 
     repeated Extension extension = 3;
   }
-  repeated PurposeCode purpose = 12
-      [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
+  repeated PurposeCode purpose = 12 [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
 
   // Intended recipient of products and services
   Reference patient = 13 [
@@ -117,8 +110,7 @@ message CoverageEligibilityResponse {
   ServicedX serviced = 14;
 
   // Response creation date
-  DateTime created = 15
-      [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
+  DateTime created = 15 [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
 
   // Party responsible for the request
   Reference requestor = 16 [
@@ -136,10 +128,8 @@ message CoverageEligibilityResponse {
   // queued | complete | error | partial
   message OutcomeCode {
     option (.google.fhir.proto.structure_definition_kind) = KIND_PRIMITIVE_TYPE;
-    option (.google.fhir.proto.fhir_valueset_url) =
-        "http://hl7.org/fhir/ValueSet/remittance-outcome";
-    option (.google.fhir.proto.fhir_profile_base) =
-        "http://hl7.org/fhir/StructureDefinition/code";
+    option (.google.fhir.proto.fhir_valueset_url) = "http://hl7.org/fhir/ValueSet/remittance-outcome";
+    option (.google.fhir.proto.fhir_profile_base) = "http://hl7.org/fhir/StructureDefinition/code";
 
     ClaimProcessingCode.Value value = 1;
 
@@ -147,8 +137,7 @@ message CoverageEligibilityResponse {
 
     repeated Extension extension = 3;
   }
-  OutcomeCode outcome = 18
-      [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
+  OutcomeCode outcome = 18 [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
 
   // Disposition Message
   String disposition = 19;
@@ -184,8 +173,7 @@ message CoverageEligibilityResponse {
 
     // Benefits and authorization details
     message Items {
-      option (.google.fhir.proto.fhir_path_message_constraint) =
-          "category.exists() xor productOrService.exists()";
+      option (.google.fhir.proto.fhir_path_message_constraint) = "category.exists() xor productOrService.exists()";
 
       // Unique id for inter-element referencing
       String id = 1;
@@ -241,8 +229,7 @@ message CoverageEligibilityResponse {
         repeated Extension modifier_extension = 3;
 
         // Benefit classification
-        CodeableConcept type = 4
-            [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
+        CodeableConcept type = 4 [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
 
         // Benefits allowed
         message AllowedX {
@@ -301,8 +288,7 @@ message CoverageEligibilityResponse {
     repeated Extension modifier_extension = 3;
 
     // Error code detailing processing issues
-    CodeableConcept code = 4
-        [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
+    CodeableConcept code = 4 [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
   }
   repeated Errors error = 24;
 }

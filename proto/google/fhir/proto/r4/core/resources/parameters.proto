@@ -20,18 +20,17 @@ import "google/protobuf/any.proto";
 import "proto/google/fhir/proto/annotations.proto";
 import "proto/google/fhir/proto/r4/core/datatypes.proto";
 
+option go_package = "github.com/google/fhir/go/proto/google/fhir/proto/r4/core/resources/parameters_go_proto";
 option java_multiple_files = true;
 option java_package = "com.google.fhir.r4.core";
 option (.google.fhir.proto.fhir_version) = R4;
-option go_package = "github.com/google/fhir/go/proto/google/fhir/proto/r4/core/resources/parameters_go_proto";
 
 // Auto-generated from StructureDefinition for Parameters.
 // Operation Request or Response.
 // See http://hl7.org/fhir/StructureDefinition/Parameters
 message Parameters {
   option (.google.fhir.proto.structure_definition_kind) = KIND_RESOURCE;
-  option (.google.fhir.proto.fhir_structure_definition_url) =
-      "http://hl7.org/fhir/StructureDefinition/Parameters";
+  option (.google.fhir.proto.fhir_structure_definition_url) = "http://hl7.org/fhir/StructureDefinition/Parameters";
 
   // Logical id of this artifact
   Id id = 1;
@@ -47,8 +46,7 @@ message Parameters {
 
   // Operation Parameter
   message Parameter {
-    option (.google.fhir.proto.fhir_path_message_constraint) =
-        "(part.exists() and value.empty() and resource.empty()) or (part.empty() and (value.exists() xor resource.exists()))";
+    option (.google.fhir.proto.fhir_path_message_constraint) = "(part.exists() and value.empty() and resource.empty()) or (part.empty() and (value.exists() xor resource.exists()))";
 
     // Unique id for inter-element referencing
     String id = 1;
@@ -60,8 +58,7 @@ message Parameters {
     repeated Extension modifier_extension = 3;
 
     // Name from the definition
-    String name = 4
-        [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
+    String name = 4 [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
 
     // If parameter is a data type
     message ValueX {

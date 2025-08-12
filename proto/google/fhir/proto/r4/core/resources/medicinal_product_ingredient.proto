@@ -20,18 +20,17 @@ import "google/protobuf/any.proto";
 import "proto/google/fhir/proto/annotations.proto";
 import "proto/google/fhir/proto/r4/core/datatypes.proto";
 
+option go_package = "github.com/google/fhir/go/proto/google/fhir/proto/r4/core/resources/medicinal_product_ingredient_go_proto";
 option java_multiple_files = true;
 option java_package = "com.google.fhir.r4.core";
 option (.google.fhir.proto.fhir_version) = R4;
-option go_package = "github.com/google/fhir/go/proto/google/fhir/proto/r4/core/resources/medicinal_product_ingredient_go_proto";
 
 // Auto-generated from StructureDefinition for MedicinalProductIngredient.
 // An ingredient of a manufactured item or pharmaceutical product.
 // See http://hl7.org/fhir/StructureDefinition/MedicinalProductIngredient
 message MedicinalProductIngredient {
   option (.google.fhir.proto.structure_definition_kind) = KIND_RESOURCE;
-  option (.google.fhir.proto.fhir_structure_definition_url) =
-      "http://hl7.org/fhir/StructureDefinition/MedicinalProductIngredient";
+  option (.google.fhir.proto.fhir_structure_definition_url) = "http://hl7.org/fhir/StructureDefinition/MedicinalProductIngredient";
 
   // Logical id of this artifact
   Id id = 1;
@@ -65,15 +64,13 @@ message MedicinalProductIngredient {
   Identifier identifier = 10;
 
   // Ingredient role e.g. Active ingredient, excipient
-  CodeableConcept role = 11
-      [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
+  CodeableConcept role = 11 [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
 
   // If the ingredient is a known or suspected allergen
   Boolean allergenic_indicator = 12;
 
   // Manufacturer of this Ingredient
-  repeated Reference manufacturer = 13
-      [(.google.fhir.proto.valid_reference_type) = "Organization"];
+  repeated Reference manufacturer = 13 [(.google.fhir.proto.valid_reference_type) = "Organization"];
 
   // A specified substance that comprises this ingredient
   message SpecifiedSubstance {
@@ -87,12 +84,10 @@ message MedicinalProductIngredient {
     repeated Extension modifier_extension = 3;
 
     // The specified substance
-    CodeableConcept code = 4
-        [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
+    CodeableConcept code = 4 [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
 
     // The group of specified substance, e.g. group 1 to 4
-    CodeableConcept group = 5
-        [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
+    CodeableConcept group = 5 [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
 
     // Confidentiality level of the specified substance as the ingredient
     CodeableConcept confidentiality = 6;
@@ -111,8 +106,7 @@ message MedicinalProductIngredient {
 
       // The quantity of substance in the unit of presentation, or in the volume
       // (or mass) of the single pharmaceutical product or manufactured item
-      Ratio presentation = 4
-          [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
+      Ratio presentation = 4 [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
 
       // A lower limit for the quantity of substance in the unit of
       // presentation. For use when there is a range of strengths, this is the
@@ -148,8 +142,7 @@ message MedicinalProductIngredient {
         CodeableConcept substance = 4;
 
         // Strength expressed in terms of a reference substance
-        Ratio strength = 5
-            [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
+        Ratio strength = 5 [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
 
         // Strength expressed in terms of a reference substance
         Ratio strength_low_limit = 6;
@@ -178,8 +171,7 @@ message MedicinalProductIngredient {
     repeated Extension modifier_extension = 3;
 
     // The ingredient substance
-    CodeableConcept code = 4
-        [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
+    CodeableConcept code = 4 [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
 
     // Quantity of the substance or specified substance present in the
     // manufactured item or pharmaceutical product

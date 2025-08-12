@@ -21,22 +21,19 @@ import "proto/google/fhir/proto/annotations.proto";
 import "proto/google/fhir/proto/r4/core/codes.proto";
 import "proto/google/fhir/proto/r4/core/datatypes.proto";
 
+option go_package = "github.com/google/fhir/go/proto/google/fhir/proto/r4/core/resources/code_system_go_proto";
 option java_multiple_files = true;
 option java_package = "com.google.fhir.r4.core";
 option (.google.fhir.proto.fhir_version) = R4;
-option go_package = "github.com/google/fhir/go/proto/google/fhir/proto/r4/core/resources/code_system_go_proto";
 
 // Auto-generated from StructureDefinition for CodeSystem.
 // Declares the existence of and describes a code system or code system
 // supplement. See http://hl7.org/fhir/StructureDefinition/CodeSystem
 message CodeSystem {
   option (.google.fhir.proto.structure_definition_kind) = KIND_RESOURCE;
-  option (.google.fhir.proto.fhir_structure_definition_url) =
-      "http://hl7.org/fhir/StructureDefinition/CodeSystem";
-  option (.google.fhir.proto.fhir_path_message_constraint) =
-      "concept.code.combine($this.descendants().concept.code).isDistinct()";
-  option (.google.fhir.proto.fhir_path_message_warning_constraint) =
-      "name.matches('[A-Z]([A-Za-z0-9_]){0,254}')";
+  option (.google.fhir.proto.fhir_structure_definition_url) = "http://hl7.org/fhir/StructureDefinition/CodeSystem";
+  option (.google.fhir.proto.fhir_path_message_constraint) = "concept.code.combine($this.descendants().concept.code).isDistinct()";
+  option (.google.fhir.proto.fhir_path_message_warning_constraint) = "name.matches('[A-Z]([A-Za-z0-9_]){0,254}')";
 
   // Logical id of this artifact
   Id id = 1;
@@ -85,10 +82,8 @@ message CodeSystem {
   // draft | active | retired | unknown
   message StatusCode {
     option (.google.fhir.proto.structure_definition_kind) = KIND_PRIMITIVE_TYPE;
-    option (.google.fhir.proto.fhir_valueset_url) =
-        "http://hl7.org/fhir/ValueSet/publication-status";
-    option (.google.fhir.proto.fhir_profile_base) =
-        "http://hl7.org/fhir/StructureDefinition/code";
+    option (.google.fhir.proto.fhir_valueset_url) = "http://hl7.org/fhir/ValueSet/publication-status";
+    option (.google.fhir.proto.fhir_profile_base) = "http://hl7.org/fhir/StructureDefinition/code";
 
     PublicationStatusCode.Value value = 1;
 
@@ -96,8 +91,7 @@ message CodeSystem {
 
     repeated Extension extension = 3;
   }
-  StatusCode status = 15
-      [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
+  StatusCode status = 15 [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
 
   // For testing purposes, not real usage
   Boolean experimental = 16;
@@ -135,10 +129,8 @@ message CodeSystem {
   // grouped-by | is-a | part-of | classified-with
   message HierarchyMeaningCode {
     option (.google.fhir.proto.structure_definition_kind) = KIND_PRIMITIVE_TYPE;
-    option (.google.fhir.proto.fhir_valueset_url) =
-        "http://hl7.org/fhir/ValueSet/codesystem-hierarchy-meaning";
-    option (.google.fhir.proto.fhir_profile_base) =
-        "http://hl7.org/fhir/StructureDefinition/code";
+    option (.google.fhir.proto.fhir_valueset_url) = "http://hl7.org/fhir/ValueSet/codesystem-hierarchy-meaning";
+    option (.google.fhir.proto.fhir_profile_base) = "http://hl7.org/fhir/StructureDefinition/code";
 
     CodeSystemHierarchyMeaningCode.Value value = 1;
 
@@ -157,10 +149,8 @@ message CodeSystem {
   // not-present | example | fragment | complete | supplement
   message ContentCode {
     option (.google.fhir.proto.structure_definition_kind) = KIND_PRIMITIVE_TYPE;
-    option (.google.fhir.proto.fhir_valueset_url) =
-        "http://hl7.org/fhir/ValueSet/codesystem-content-mode";
-    option (.google.fhir.proto.fhir_profile_base) =
-        "http://hl7.org/fhir/StructureDefinition/code";
+    option (.google.fhir.proto.fhir_valueset_url) = "http://hl7.org/fhir/ValueSet/codesystem-content-mode";
+    option (.google.fhir.proto.fhir_profile_base) = "http://hl7.org/fhir/StructureDefinition/code";
 
     CodeSystemContentModeCode.Value value = 1;
 
@@ -168,8 +158,7 @@ message CodeSystem {
 
     repeated Extension extension = 3;
   }
-  ContentCode content = 30
-      [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
+  ContentCode content = 30 [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
 
   // Canonical URL of Code System this adds designations and properties to
   Canonical supplements = 31;
@@ -189,8 +178,7 @@ message CodeSystem {
     repeated Extension modifier_extension = 3;
 
     // Code that identifies the filter
-    Code code = 4
-        [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
+    Code code = 4 [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
 
     // How or why the filter is used
     String description = 5;
@@ -198,12 +186,9 @@ message CodeSystem {
     // = | is-a | descendent-of | is-not-a | regex | in | not-in | generalizes |
     // exists
     message OperatorCode {
-      option (.google.fhir.proto.structure_definition_kind) =
-          KIND_PRIMITIVE_TYPE;
-      option (.google.fhir.proto.fhir_valueset_url) =
-          "http://hl7.org/fhir/ValueSet/filter-operator";
-      option (.google.fhir.proto.fhir_profile_base) =
-          "http://hl7.org/fhir/StructureDefinition/code";
+      option (.google.fhir.proto.structure_definition_kind) = KIND_PRIMITIVE_TYPE;
+      option (.google.fhir.proto.fhir_valueset_url) = "http://hl7.org/fhir/ValueSet/filter-operator";
+      option (.google.fhir.proto.fhir_profile_base) = "http://hl7.org/fhir/StructureDefinition/code";
 
       FilterOperatorCode.Value value = 1;
 
@@ -211,12 +196,10 @@ message CodeSystem {
 
       repeated Extension extension = 3;
     }
-    repeated OperatorCode operator = 6
-        [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
+    repeated OperatorCode operator = 6 [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
 
     // What to use for the value
-    String value = 7
-        [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
+    String value = 7 [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
   }
   repeated Filter filter = 33;
 
@@ -233,8 +216,7 @@ message CodeSystem {
 
     // Identifies the property on the concepts, and when referred to in
     // operations
-    Code code = 4
-        [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
+    Code code = 4 [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
 
     // Formal identifier for the property
     Uri uri = 5;
@@ -244,12 +226,9 @@ message CodeSystem {
 
     // code | Coding | string | integer | boolean | dateTime | decimal
     message TypeCode {
-      option (.google.fhir.proto.structure_definition_kind) =
-          KIND_PRIMITIVE_TYPE;
-      option (.google.fhir.proto.fhir_valueset_url) =
-          "http://hl7.org/fhir/ValueSet/concept-property-type";
-      option (.google.fhir.proto.fhir_profile_base) =
-          "http://hl7.org/fhir/StructureDefinition/code";
+      option (.google.fhir.proto.structure_definition_kind) = KIND_PRIMITIVE_TYPE;
+      option (.google.fhir.proto.fhir_valueset_url) = "http://hl7.org/fhir/ValueSet/concept-property-type";
+      option (.google.fhir.proto.fhir_profile_base) = "http://hl7.org/fhir/StructureDefinition/code";
 
       PropertyTypeCode.Value value = 1;
 
@@ -257,8 +236,7 @@ message CodeSystem {
 
       repeated Extension extension = 3;
     }
-    TypeCode type = 7
-        [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
+    TypeCode type = 7 [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
   }
   repeated Property property = 34;
 
@@ -274,8 +252,7 @@ message CodeSystem {
     repeated Extension modifier_extension = 3;
 
     // Code that identifies concept
-    Code code = 4
-        [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
+    Code code = 4 [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
 
     // Text to display to the user
     String display = 5;
@@ -301,8 +278,7 @@ message CodeSystem {
       Coding use = 5;
 
       // The text value for this designation
-      String value = 6
-          [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
+      String value = 6 [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
     }
     repeated Designation designation = 7;
 
@@ -318,8 +294,7 @@ message CodeSystem {
       repeated Extension modifier_extension = 3;
 
       // Reference to CodeSystem.property.code
-      Code code = 4
-          [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
+      Code code = 4 [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
 
       // Value of the property for this concept
       message ValueX {
@@ -335,8 +310,7 @@ message CodeSystem {
           Decimal decimal = 7;
         }
       }
-      ValueX value = 5
-          [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
+      ValueX value = 5 [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
     }
     repeated ConceptProperty property = 8;
 

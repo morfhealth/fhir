@@ -21,10 +21,10 @@ import "proto/google/fhir/proto/annotations.proto";
 import "proto/google/fhir/proto/r4/core/codes.proto";
 import "proto/google/fhir/proto/r4/core/datatypes.proto";
 
+option go_package = "github.com/google/fhir/go/proto/google/fhir/proto/r4/core/resources/appointment_go_proto";
 option java_multiple_files = true;
 option java_package = "com.google.fhir.r4.core";
 option (.google.fhir.proto.fhir_version) = R4;
-option go_package = "github.com/google/fhir/go/proto/google/fhir/proto/r4/core/resources/appointment_go_proto";
 
 // Auto-generated from StructureDefinition for Appointment.
 // A booking of a healthcare event among patient(s), practitioner(s), related
@@ -32,12 +32,9 @@ option go_package = "github.com/google/fhir/go/proto/google/fhir/proto/r4/core/r
 // or more Encounter(s). See http://hl7.org/fhir/StructureDefinition/Appointment
 message Appointment {
   option (.google.fhir.proto.structure_definition_kind) = KIND_RESOURCE;
-  option (.google.fhir.proto.fhir_structure_definition_url) =
-      "http://hl7.org/fhir/StructureDefinition/Appointment";
-  option (.google.fhir.proto.fhir_path_message_constraint) =
-      "start.exists() = end.exists()";
-  option (.google.fhir.proto.fhir_path_message_constraint) =
-      "(start.exists() and end.exists()) or (status in ('proposed' | 'cancelled' | 'waitlist'))";
+  option (.google.fhir.proto.fhir_structure_definition_url) = "http://hl7.org/fhir/StructureDefinition/Appointment";
+  option (.google.fhir.proto.fhir_path_message_constraint) = "start.exists() = end.exists()";
+  option (.google.fhir.proto.fhir_path_message_constraint) = "(start.exists() and end.exists()) or (status in ('proposed' | 'cancelled' | 'waitlist'))";
 
   // Logical id of this artifact
   Id id = 1;
@@ -74,10 +71,8 @@ message Appointment {
   // entered-in-error | checked-in | waitlist
   message StatusCode {
     option (.google.fhir.proto.structure_definition_kind) = KIND_PRIMITIVE_TYPE;
-    option (.google.fhir.proto.fhir_valueset_url) =
-        "http://hl7.org/fhir/ValueSet/appointmentstatus";
-    option (.google.fhir.proto.fhir_profile_base) =
-        "http://hl7.org/fhir/StructureDefinition/code";
+    option (.google.fhir.proto.fhir_valueset_url) = "http://hl7.org/fhir/ValueSet/appointmentstatus";
+    option (.google.fhir.proto.fhir_profile_base) = "http://hl7.org/fhir/StructureDefinition/code";
 
     AppointmentStatusCode.Value value = 1;
 
@@ -85,8 +80,7 @@ message Appointment {
 
     repeated Extension extension = 3;
   }
-  StatusCode status = 11
-      [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
+  StatusCode status = 11 [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
 
   // The coded reason for the appointment being cancelled
   CodeableConcept cancelation_reason = 12;
@@ -124,8 +118,7 @@ message Appointment {
   String description = 20;
 
   // Additional information to support the appointment
-  repeated Reference supporting_information = 21
-      [(.google.fhir.proto.valid_reference_type) = "Resource"];
+  repeated Reference supporting_information = 21 [(.google.fhir.proto.valid_reference_type) = "Resource"];
 
   // When appointment is to take place
   Instant start = 22;
@@ -137,8 +130,7 @@ message Appointment {
   PositiveInt minutes_duration = 24;
 
   // The slots that this appointment is filling
-  repeated Reference slot = 25
-      [(.google.fhir.proto.valid_reference_type) = "Slot"];
+  repeated Reference slot = 25 [(.google.fhir.proto.valid_reference_type) = "Slot"];
 
   // The date that this appointment was initially created
   DateTime created = 26;
@@ -150,13 +142,11 @@ message Appointment {
   String patient_instruction = 28;
 
   // The service request this appointment is allocated to assess
-  repeated Reference based_on = 29
-      [(.google.fhir.proto.valid_reference_type) = "ServiceRequest"];
+  repeated Reference based_on = 29 [(.google.fhir.proto.valid_reference_type) = "ServiceRequest"];
 
   // Participants involved in appointment
   message Participant {
-    option (.google.fhir.proto.fhir_path_message_constraint) =
-        "type.exists() or actor.exists()";
+    option (.google.fhir.proto.fhir_path_message_constraint) = "type.exists() or actor.exists()";
 
     // Unique id for inter-element referencing
     String id = 1;
@@ -183,12 +173,9 @@ message Appointment {
 
     // required | optional | information-only
     message RequiredCode {
-      option (.google.fhir.proto.structure_definition_kind) =
-          KIND_PRIMITIVE_TYPE;
-      option (.google.fhir.proto.fhir_valueset_url) =
-          "http://hl7.org/fhir/ValueSet/participantrequired";
-      option (.google.fhir.proto.fhir_profile_base) =
-          "http://hl7.org/fhir/StructureDefinition/code";
+      option (.google.fhir.proto.structure_definition_kind) = KIND_PRIMITIVE_TYPE;
+      option (.google.fhir.proto.fhir_valueset_url) = "http://hl7.org/fhir/ValueSet/participantrequired";
+      option (.google.fhir.proto.fhir_profile_base) = "http://hl7.org/fhir/StructureDefinition/code";
 
       ParticipantRequiredCode.Value value = 1;
 
@@ -200,12 +187,9 @@ message Appointment {
 
     // accepted | declined | tentative | needs-action
     message StatusCode {
-      option (.google.fhir.proto.structure_definition_kind) =
-          KIND_PRIMITIVE_TYPE;
-      option (.google.fhir.proto.fhir_valueset_url) =
-          "http://hl7.org/fhir/ValueSet/participationstatus";
-      option (.google.fhir.proto.fhir_profile_base) =
-          "http://hl7.org/fhir/StructureDefinition/code";
+      option (.google.fhir.proto.structure_definition_kind) = KIND_PRIMITIVE_TYPE;
+      option (.google.fhir.proto.fhir_valueset_url) = "http://hl7.org/fhir/ValueSet/participationstatus";
+      option (.google.fhir.proto.fhir_profile_base) = "http://hl7.org/fhir/StructureDefinition/code";
 
       ParticipationStatusCode.Value value = 1;
 
@@ -213,14 +197,12 @@ message Appointment {
 
       repeated Extension extension = 3;
     }
-    StatusCode status = 7
-        [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
+    StatusCode status = 7 [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
 
     // Participation period of the actor
     Period period = 8;
   }
-  repeated Participant participant = 30
-      [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
+  repeated Participant participant = 30 [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
 
   // Potential date/time interval(s) requested to allocate the appointment
   // within

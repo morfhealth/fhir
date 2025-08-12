@@ -30,14 +30,10 @@ option (.google.fhir.proto.fhir_version) = R4;
 // supplement. See http://hl7.org/fhir/StructureDefinition/shareablecodesystem
 message ShareableCodeSystem {
   option (.google.fhir.proto.structure_definition_kind) = KIND_RESOURCE;
-  option (.google.fhir.proto.fhir_profile_base) =
-      "http://hl7.org/fhir/StructureDefinition/CodeSystem";
-  option (.google.fhir.proto.fhir_structure_definition_url) =
-      "http://hl7.org/fhir/StructureDefinition/shareablecodesystem";
-  option (.google.fhir.proto.fhir_path_message_constraint) =
-      "concept.code.combine($this.descendants().concept.code).isDistinct()";
-  option (.google.fhir.proto.fhir_path_message_warning_constraint) =
-      "name.matches('[A-Z]([A-Za-z0-9_]){0,254}')";
+  option (.google.fhir.proto.fhir_profile_base) = "http://hl7.org/fhir/StructureDefinition/CodeSystem";
+  option (.google.fhir.proto.fhir_structure_definition_url) = "http://hl7.org/fhir/StructureDefinition/shareablecodesystem";
+  option (.google.fhir.proto.fhir_path_message_constraint) = "concept.code.combine($this.descendants().concept.code).isDistinct()";
+  option (.google.fhir.proto.fhir_path_message_warning_constraint) = "name.matches('[A-Z]([A-Za-z0-9_]){0,254}')";
   option (.google.fhir.proto.search_parameter) = {
     name: "code"
     type: TOKEN
@@ -175,12 +171,10 @@ message ShareableCodeSystem {
   repeated Identifier identifier = 11;
 
   // Business version of the code system (Coding.version)
-  String version = 12
-      [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
+  String version = 12 [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
 
   // Name for this code system (computer friendly)
-  String name = 13
-      [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
+  String name = 13 [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
 
   // Name for this code system (human friendly)
   String title = 14;
@@ -188,10 +182,8 @@ message ShareableCodeSystem {
   // draft | active | retired | unknown
   message StatusCode {
     option (.google.fhir.proto.structure_definition_kind) = KIND_PRIMITIVE_TYPE;
-    option (.google.fhir.proto.fhir_valueset_url) =
-        "http://hl7.org/fhir/ValueSet/publication-status";
-    option (.google.fhir.proto.fhir_profile_base) =
-        "http://hl7.org/fhir/StructureDefinition/code";
+    option (.google.fhir.proto.fhir_valueset_url) = "http://hl7.org/fhir/ValueSet/publication-status";
+    option (.google.fhir.proto.fhir_profile_base) = "http://hl7.org/fhir/StructureDefinition/code";
 
     PublicationStatusCode.Value value = 1;
 
@@ -199,26 +191,22 @@ message ShareableCodeSystem {
 
     repeated Extension extension = 3;
   }
-  StatusCode status = 15
-      [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
+  StatusCode status = 15 [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
 
   // For testing purposes, not real usage
-  Boolean experimental = 16
-      [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
+  Boolean experimental = 16 [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
 
   // Date last changed
   DateTime date = 17;
 
   // Name of the publisher (organization or individual)
-  String publisher = 18
-      [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
+  String publisher = 18 [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
 
   // Contact details for the publisher
   repeated ContactDetail contact = 19;
 
   // Natural language description of the code system
-  Markdown description = 20
-      [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
+  Markdown description = 20 [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
 
   // The context that the content is intended to support
   repeated UsageContext use_context = 21;
@@ -241,10 +229,8 @@ message ShareableCodeSystem {
   // grouped-by | is-a | part-of | classified-with
   message HierarchyMeaningCode {
     option (.google.fhir.proto.structure_definition_kind) = KIND_PRIMITIVE_TYPE;
-    option (.google.fhir.proto.fhir_valueset_url) =
-        "http://hl7.org/fhir/ValueSet/codesystem-hierarchy-meaning";
-    option (.google.fhir.proto.fhir_profile_base) =
-        "http://hl7.org/fhir/StructureDefinition/code";
+    option (.google.fhir.proto.fhir_valueset_url) = "http://hl7.org/fhir/ValueSet/codesystem-hierarchy-meaning";
+    option (.google.fhir.proto.fhir_profile_base) = "http://hl7.org/fhir/StructureDefinition/code";
 
     CodeSystemHierarchyMeaningCode.Value value = 1;
 
@@ -263,10 +249,8 @@ message ShareableCodeSystem {
   // not-present | example | fragment | complete | supplement
   message ContentCode {
     option (.google.fhir.proto.structure_definition_kind) = KIND_PRIMITIVE_TYPE;
-    option (.google.fhir.proto.fhir_valueset_url) =
-        "http://hl7.org/fhir/ValueSet/codesystem-content-mode";
-    option (.google.fhir.proto.fhir_profile_base) =
-        "http://hl7.org/fhir/StructureDefinition/code";
+    option (.google.fhir.proto.fhir_valueset_url) = "http://hl7.org/fhir/ValueSet/codesystem-content-mode";
+    option (.google.fhir.proto.fhir_profile_base) = "http://hl7.org/fhir/StructureDefinition/code";
 
     CodeSystemContentModeCode.Value value = 1;
 
@@ -274,8 +258,7 @@ message ShareableCodeSystem {
 
     repeated Extension extension = 3;
   }
-  ContentCode content = 30
-      [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
+  ContentCode content = 30 [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
 
   // Canonical URL of Code System this adds designations and properties to
   Canonical supplements = 31;
@@ -295,8 +278,7 @@ message ShareableCodeSystem {
     repeated Extension modifier_extension = 3;
 
     // Code that identifies the filter
-    Code code = 4
-        [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
+    Code code = 4 [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
 
     // How or why the filter is used
     String description = 5;
@@ -304,12 +286,9 @@ message ShareableCodeSystem {
     // = | is-a | descendent-of | is-not-a | regex | in | not-in | generalizes |
     // exists
     message OperatorCode {
-      option (.google.fhir.proto.structure_definition_kind) =
-          KIND_PRIMITIVE_TYPE;
-      option (.google.fhir.proto.fhir_valueset_url) =
-          "http://hl7.org/fhir/ValueSet/filter-operator";
-      option (.google.fhir.proto.fhir_profile_base) =
-          "http://hl7.org/fhir/StructureDefinition/code";
+      option (.google.fhir.proto.structure_definition_kind) = KIND_PRIMITIVE_TYPE;
+      option (.google.fhir.proto.fhir_valueset_url) = "http://hl7.org/fhir/ValueSet/filter-operator";
+      option (.google.fhir.proto.fhir_profile_base) = "http://hl7.org/fhir/StructureDefinition/code";
 
       FilterOperatorCode.Value value = 1;
 
@@ -317,12 +296,10 @@ message ShareableCodeSystem {
 
       repeated Extension extension = 3;
     }
-    repeated OperatorCode operator = 6
-        [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
+    repeated OperatorCode operator = 6 [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
 
     // What to use for the value
-    String value = 7
-        [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
+    String value = 7 [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
   }
   repeated Filter filter = 33;
 
@@ -339,8 +316,7 @@ message ShareableCodeSystem {
 
     // Identifies the property on the concepts, and when referred to in
     // operations
-    Code code = 4
-        [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
+    Code code = 4 [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
 
     // Formal identifier for the property
     Uri uri = 5;
@@ -350,12 +326,9 @@ message ShareableCodeSystem {
 
     // code | Coding | string | integer | boolean | dateTime | decimal
     message TypeCode {
-      option (.google.fhir.proto.structure_definition_kind) =
-          KIND_PRIMITIVE_TYPE;
-      option (.google.fhir.proto.fhir_valueset_url) =
-          "http://hl7.org/fhir/ValueSet/concept-property-type";
-      option (.google.fhir.proto.fhir_profile_base) =
-          "http://hl7.org/fhir/StructureDefinition/code";
+      option (.google.fhir.proto.structure_definition_kind) = KIND_PRIMITIVE_TYPE;
+      option (.google.fhir.proto.fhir_valueset_url) = "http://hl7.org/fhir/ValueSet/concept-property-type";
+      option (.google.fhir.proto.fhir_profile_base) = "http://hl7.org/fhir/StructureDefinition/code";
 
       PropertyTypeCode.Value value = 1;
 
@@ -363,8 +336,7 @@ message ShareableCodeSystem {
 
       repeated Extension extension = 3;
     }
-    TypeCode type = 7
-        [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
+    TypeCode type = 7 [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
   }
   repeated Property property = 34;
 
@@ -380,8 +352,7 @@ message ShareableCodeSystem {
     repeated Extension modifier_extension = 3;
 
     // Code that identifies concept
-    Code code = 4
-        [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
+    Code code = 4 [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
 
     // Text to display to the user
     String display = 5;
@@ -407,8 +378,7 @@ message ShareableCodeSystem {
       Coding use = 5;
 
       // The text value for this designation
-      String value = 6
-          [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
+      String value = 6 [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
     }
     repeated Designation designation = 7;
 
@@ -424,8 +394,7 @@ message ShareableCodeSystem {
       repeated Extension modifier_extension = 3;
 
       // Reference to CodeSystem.property.code
-      Code code = 4
-          [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
+      Code code = 4 [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
 
       // Value of the property for this concept
       message ValueX {
@@ -441,14 +410,12 @@ message ShareableCodeSystem {
           Decimal decimal = 7;
         }
       }
-      ValueX value = 5
-          [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
+      ValueX value = 5 [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
     }
     repeated ConceptProperty property = 8;
 
     // Child Concepts (is-a/contains/categorizes)
     repeated ConceptDefinition concept = 9;
   }
-  repeated ConceptDefinition concept = 35
-      [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
+  repeated ConceptDefinition concept = 35 [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
 }

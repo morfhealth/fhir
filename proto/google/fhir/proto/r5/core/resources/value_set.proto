@@ -21,20 +21,18 @@ import "proto/google/fhir/proto/annotations.proto";
 import "proto/google/fhir/proto/r5/core/codes.proto";
 import "proto/google/fhir/proto/r5/core/datatypes.proto";
 
+option go_package = "github.com/google/fhir/go/proto/google/fhir/proto/r5/core/resources/value_set_go_proto";
 option java_multiple_files = true;
 option java_package = "com.google.fhir.r5.core";
 option (.google.fhir.proto.fhir_version) = R5;
-option go_package = "github.com/google/fhir/go/proto/google/fhir/proto/r5/core/resources/value_set_go_proto";
 
 // Auto-generated from StructureDefinition for ValueSet.
 // A set of codes drawn from one or more code systems.
 // See http://hl7.org/fhir/StructureDefinition/ValueSet
 message ValueSet {
   option (.google.fhir.proto.structure_definition_kind) = KIND_RESOURCE;
-  option (.google.fhir.proto.fhir_structure_definition_url) =
-      "http://hl7.org/fhir/StructureDefinition/ValueSet";
-  option (.google.fhir.proto.fhir_path_message_warning_constraint) =
-      "name.exists() implies name.matches('^[A-Z]([A-Za-z0-9_]){1,254}$')";
+  option (.google.fhir.proto.fhir_structure_definition_url) = "http://hl7.org/fhir/StructureDefinition/ValueSet";
+  option (.google.fhir.proto.fhir_path_message_warning_constraint) = "name.exists() implies name.matches('^[A-Z]([A-Za-z0-9_]){1,254}$')";
 
   // Logical id of this artifact
   Id id = 1;
@@ -66,8 +64,7 @@ message ValueSet {
 
   // Canonical identifier for this value set, represented as a URI (globally
   // unique)
-  Uri url = 10 [(.google.fhir.proto.fhir_path_warning_constraint) =
-                    "exists() implies matches('^[^|# ]+$')"];
+  Uri url = 10 [(.google.fhir.proto.fhir_path_warning_constraint) = "exists() implies matches('^[^|# ]+$')"];
 
   // Additional identifier for the value set (business identifier)
   repeated Identifier identifier = 11;
@@ -95,10 +92,8 @@ message ValueSet {
   // draft | active | retired | unknown
   message StatusCode {
     option (.google.fhir.proto.structure_definition_kind) = KIND_PRIMITIVE_TYPE;
-    option (.google.fhir.proto.fhir_valueset_url) =
-        "http://hl7.org/fhir/ValueSet/publication-status";
-    option (.google.fhir.proto.fhir_profile_base) =
-        "http://hl7.org/fhir/StructureDefinition/code";
+    option (.google.fhir.proto.fhir_valueset_url) = "http://hl7.org/fhir/ValueSet/publication-status";
+    option (.google.fhir.proto.fhir_profile_base) = "http://hl7.org/fhir/StructureDefinition/code";
 
     PublicationStatusCode.Value value = 1;
 
@@ -106,8 +101,7 @@ message ValueSet {
 
     repeated Extension extension = 3;
   }
-  StatusCode status = 15
-      [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
+  StatusCode status = 15 [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
 
   // For testing purposes, not real usage
   Boolean experimental = 16;
@@ -189,12 +183,9 @@ message ValueSet {
 
     // Include one or more codes from a code system or other value set(s)
     message ConceptSet {
-      option (.google.fhir.proto.fhir_path_message_constraint) =
-          "valueSet.exists() or system.exists()";
-      option (.google.fhir.proto.fhir_path_message_constraint) =
-          "(concept.exists() or filter.exists()) implies system.exists()";
-      option (.google.fhir.proto.fhir_path_message_constraint) =
-          "concept.empty() or filter.empty()";
+      option (.google.fhir.proto.fhir_path_message_constraint) = "valueSet.exists() or system.exists()";
+      option (.google.fhir.proto.fhir_path_message_constraint) = "(concept.exists() or filter.exists()) implies system.exists()";
+      option (.google.fhir.proto.fhir_path_message_constraint) = "concept.empty() or filter.empty()";
 
       // Unique id for inter-element referencing
       String id = 1;
@@ -223,16 +214,14 @@ message ValueSet {
         repeated Extension modifier_extension = 3;
 
         // Code or expression from system
-        Code code = 4
-            [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
+        Code code = 4 [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
 
         // Text to display for this code for this value set in this valueset
         String display = 5;
 
         // Additional representations for this concept
         message Designation {
-          option (.google.fhir.proto.fhir_path_message_constraint) =
-              "additionalUse.exists() implies use.exists()";
+          option (.google.fhir.proto.fhir_path_message_constraint) = "additionalUse.exists() implies use.exists()";
 
           // Unique id for inter-element referencing
           String id = 1;
@@ -253,8 +242,7 @@ message ValueSet {
           repeated Coding additional_use = 7;
 
           // The text value for this designation
-          String value = 6
-              [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
+          String value = 6 [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
         }
         repeated Designation designation = 6;
       }
@@ -272,18 +260,14 @@ message ValueSet {
         repeated Extension modifier_extension = 3;
 
         // A property/filter defined by the code system
-        Code property = 4
-            [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
+        Code property = 4 [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
 
         // = | is-a | descendent-of | is-not-a | regex | in | not-in |
         // generalizes | child-of | descendent-leaf | exists
         message OpCode {
-          option (.google.fhir.proto.structure_definition_kind) =
-              KIND_PRIMITIVE_TYPE;
-          option (.google.fhir.proto.fhir_valueset_url) =
-              "http://hl7.org/fhir/ValueSet/filter-operator";
-          option (.google.fhir.proto.fhir_profile_base) =
-              "http://hl7.org/fhir/StructureDefinition/code";
+          option (.google.fhir.proto.structure_definition_kind) = KIND_PRIMITIVE_TYPE;
+          option (.google.fhir.proto.fhir_valueset_url) = "http://hl7.org/fhir/ValueSet/filter-operator";
+          option (.google.fhir.proto.fhir_profile_base) = "http://hl7.org/fhir/StructureDefinition/code";
 
           FilterOperatorCode.Value value = 1;
 
@@ -291,12 +275,10 @@ message ValueSet {
 
           repeated Extension extension = 3;
         }
-        OpCode op = 5
-            [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
+        OpCode op = 5 [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
 
         // Code from the system, or regex criteria, or boolean value for exists
-        String value = 6
-            [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
+        String value = 6 [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
       }
       repeated Filter filter = 7;
 
@@ -307,8 +289,7 @@ message ValueSet {
       // value set
       String copyright = 9;
     }
-    repeated ConceptSet include = 6
-        [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
+    repeated ConceptSet include = 6 [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
 
     // Explicitly exclude codes from a code system or other value sets
     repeated ConceptSet exclude = 7;
@@ -336,8 +317,7 @@ message ValueSet {
     Uri next = 10;
 
     // Time ValueSet expansion happened
-    DateTime timestamp = 5
-        [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
+    DateTime timestamp = 5 [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
 
     // Total number of codes in the expansion
     Integer total = 6;
@@ -357,8 +337,7 @@ message ValueSet {
       repeated Extension modifier_extension = 3;
 
       // Name as assigned by the client or server
-      String name = 4
-          [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
+      String name = 4 [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
 
       // Value of the named parameter
       message ValueX {
@@ -391,8 +370,7 @@ message ValueSet {
 
       // Identifies the property on the concepts, and when referred to in
       // operations
-      Code code = 4
-          [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
+      Code code = 4 [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
 
       // Formal identifier for the property
       Uri uri = 5;
@@ -401,12 +379,9 @@ message ValueSet {
 
     // Codes in the value set
     message Contains {
-      option (.google.fhir.proto.fhir_path_message_constraint) =
-          "code.exists() or display.exists()";
-      option (.google.fhir.proto.fhir_path_message_constraint) =
-          "code.exists() or abstract = true";
-      option (.google.fhir.proto.fhir_path_message_constraint) =
-          "code.empty() or system.exists()";
+      option (.google.fhir.proto.fhir_path_message_constraint) = "code.exists() or display.exists()";
+      option (.google.fhir.proto.fhir_path_message_constraint) = "code.exists() or abstract = true";
+      option (.google.fhir.proto.fhir_path_message_constraint) = "code.empty() or system.exists()";
 
       // Unique id for inter-element referencing
       String id = 1;
@@ -450,8 +425,7 @@ message ValueSet {
         repeated Extension modifier_extension = 3;
 
         // Reference to ValueSet.expansion.property.code
-        Code code = 4
-            [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
+        Code code = 4 [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
 
         // Value of the property for this concept
         message ValueX {
@@ -467,8 +441,7 @@ message ValueSet {
             Decimal decimal = 7;
           }
         }
-        ValueX value = 5
-            [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
+        ValueX value = 5 [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
 
         // SubProperty value for the concept
         message ConceptSubProperty {
@@ -482,8 +455,7 @@ message ValueSet {
           repeated Extension modifier_extension = 3;
 
           // Reference to ValueSet.expansion.property.code
-          Code code = 4
-              [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
+          Code code = 4 [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
 
           // Value of the subproperty for this concept
           message ValueX {
@@ -499,8 +471,7 @@ message ValueSet {
               Decimal decimal = 7;
             }
           }
-          ValueX value = 5
-              [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
+          ValueX value = 5 [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
         }
         repeated ConceptSubProperty sub_property = 6;
       }

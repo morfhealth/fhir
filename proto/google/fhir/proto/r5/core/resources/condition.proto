@@ -20,22 +20,19 @@ import "google/protobuf/any.proto";
 import "proto/google/fhir/proto/annotations.proto";
 import "proto/google/fhir/proto/r5/core/datatypes.proto";
 
+option go_package = "github.com/google/fhir/go/proto/google/fhir/proto/r5/core/resources/condition_go_proto";
 option java_multiple_files = true;
 option java_package = "com.google.fhir.r5.core";
 option (.google.fhir.proto.fhir_version) = R5;
-option go_package = "github.com/google/fhir/go/proto/google/fhir/proto/r5/core/resources/condition_go_proto";
 
 // Auto-generated from StructureDefinition for Condition.
 // Detailed information about conditions, problems or diagnoses.
 // See http://hl7.org/fhir/StructureDefinition/Condition
 message Condition {
   option (.google.fhir.proto.structure_definition_kind) = KIND_RESOURCE;
-  option (.google.fhir.proto.fhir_structure_definition_url) =
-      "http://hl7.org/fhir/StructureDefinition/Condition";
-  option (.google.fhir.proto.fhir_path_message_constraint) =
-      "abatement.exists() implies (clinicalStatus.coding.where(system='http://terminology.hl7.org/CodeSystem/condition-clinical' and (code='inactive' or code='resolved' or code='remission')).exists())";
-  option (.google.fhir.proto.fhir_path_message_warning_constraint) =
-      "category.coding.where(system='http://terminology.hl7.org/CodeSystem/condition-category' and code='problem-list-item').exists() implies clinicalStatus.coding.where(system='http://terminology.hl7.org/CodeSystem/condition-clinical' and code='unknown').exists().not()";
+  option (.google.fhir.proto.fhir_structure_definition_url) = "http://hl7.org/fhir/StructureDefinition/Condition";
+  option (.google.fhir.proto.fhir_path_message_constraint) = "abatement.exists() implies (clinicalStatus.coding.where(system='http://terminology.hl7.org/CodeSystem/condition-clinical' and (code='inactive' or code='resolved' or code='remission')).exists())";
+  option (.google.fhir.proto.fhir_path_message_warning_constraint) = "category.coding.where(system='http://terminology.hl7.org/CodeSystem/condition-category' and code='problem-list-item').exists() implies clinicalStatus.coding.where(system='http://terminology.hl7.org/CodeSystem/condition-clinical' and code='unknown').exists().not()";
 
   // Logical id of this artifact
   Id id = 1;
@@ -69,8 +66,7 @@ message Condition {
   repeated Identifier identifier = 10;
 
   // active | recurrence | relapse | inactive | remission | resolved | unknown
-  CodeableConcept clinical_status = 11
-      [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
+  CodeableConcept clinical_status = 11 [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
 
   // unconfirmed | provisional | differential | confirmed | refuted |
   // entered-in-error
@@ -96,8 +92,7 @@ message Condition {
   ];
 
   // The Encounter during which this Condition was created
-  Reference encounter = 18
-      [(.google.fhir.proto.valid_reference_type) = "Encounter"];
+  Reference encounter = 18 [(.google.fhir.proto.valid_reference_type) = "Encounter"];
 
   // Estimated or actual date,  date-time, or age
   message OnsetX {
@@ -161,8 +156,7 @@ message Condition {
 
   // Stage/grade, usually assessed formally
   message Stage {
-    option (.google.fhir.proto.fhir_path_message_constraint) =
-        "summary.exists() or assessment.exists()";
+    option (.google.fhir.proto.fhir_path_message_constraint) = "summary.exists() or assessment.exists()";
 
     // Unique id for inter-element referencing
     String id = 1;

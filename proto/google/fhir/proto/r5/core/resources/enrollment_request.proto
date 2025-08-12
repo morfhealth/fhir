@@ -21,18 +21,17 @@ import "proto/google/fhir/proto/annotations.proto";
 import "proto/google/fhir/proto/r5/core/codes.proto";
 import "proto/google/fhir/proto/r5/core/datatypes.proto";
 
+option go_package = "github.com/google/fhir/go/proto/google/fhir/proto/r5/core/resources/enrollment_request_go_proto";
 option java_multiple_files = true;
 option java_package = "com.google.fhir.r5.core";
 option (.google.fhir.proto.fhir_version) = R5;
-option go_package = "github.com/google/fhir/go/proto/google/fhir/proto/r5/core/resources/enrollment_request_go_proto";
 
 // Auto-generated from StructureDefinition for EnrollmentRequest.
 // Enroll in coverage.
 // See http://hl7.org/fhir/StructureDefinition/EnrollmentRequest
 message EnrollmentRequest {
   option (.google.fhir.proto.structure_definition_kind) = KIND_RESOURCE;
-  option (.google.fhir.proto.fhir_structure_definition_url) =
-      "http://hl7.org/fhir/StructureDefinition/EnrollmentRequest";
+  option (.google.fhir.proto.fhir_structure_definition_url) = "http://hl7.org/fhir/StructureDefinition/EnrollmentRequest";
 
   // Logical id of this artifact
   Id id = 1;
@@ -68,10 +67,8 @@ message EnrollmentRequest {
   // active | cancelled | draft | entered-in-error
   message StatusCode {
     option (.google.fhir.proto.structure_definition_kind) = KIND_PRIMITIVE_TYPE;
-    option (.google.fhir.proto.fhir_valueset_url) =
-        "http://hl7.org/fhir/ValueSet/fm-status";
-    option (.google.fhir.proto.fhir_profile_base) =
-        "http://hl7.org/fhir/StructureDefinition/code";
+    option (.google.fhir.proto.fhir_valueset_url) = "http://hl7.org/fhir/ValueSet/fm-status";
+    option (.google.fhir.proto.fhir_profile_base) = "http://hl7.org/fhir/StructureDefinition/code";
 
     FinancialResourceStatusCode.Value value = 1;
 
@@ -85,8 +82,7 @@ message EnrollmentRequest {
   DateTime created = 12;
 
   // Target
-  Reference insurer = 13
-      [(.google.fhir.proto.valid_reference_type) = "Organization"];
+  Reference insurer = 13 [(.google.fhir.proto.valid_reference_type) = "Organization"];
 
   // Responsible practitioner
   Reference provider = 14 [
@@ -96,10 +92,8 @@ message EnrollmentRequest {
   ];
 
   // The subject to be enrolled
-  Reference candidate = 15
-      [(.google.fhir.proto.valid_reference_type) = "Patient"];
+  Reference candidate = 15 [(.google.fhir.proto.valid_reference_type) = "Patient"];
 
   // Insurance information
-  Reference coverage = 16
-      [(.google.fhir.proto.valid_reference_type) = "Coverage"];
+  Reference coverage = 16 [(.google.fhir.proto.valid_reference_type) = "Coverage"];
 }

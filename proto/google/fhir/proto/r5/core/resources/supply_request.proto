@@ -21,18 +21,17 @@ import "proto/google/fhir/proto/annotations.proto";
 import "proto/google/fhir/proto/r5/core/codes.proto";
 import "proto/google/fhir/proto/r5/core/datatypes.proto";
 
+option go_package = "github.com/google/fhir/go/proto/google/fhir/proto/r5/core/resources/supply_request_go_proto";
 option java_multiple_files = true;
 option java_package = "com.google.fhir.r5.core";
 option (.google.fhir.proto.fhir_version) = R5;
-option go_package = "github.com/google/fhir/go/proto/google/fhir/proto/r5/core/resources/supply_request_go_proto";
 
 // Auto-generated from StructureDefinition for SupplyRequest.
 // Request for a medication, substance or device.
 // See http://hl7.org/fhir/StructureDefinition/SupplyRequest
 message SupplyRequest {
   option (.google.fhir.proto.structure_definition_kind) = KIND_RESOURCE;
-  option (.google.fhir.proto.fhir_structure_definition_url) =
-      "http://hl7.org/fhir/StructureDefinition/SupplyRequest";
+  option (.google.fhir.proto.fhir_structure_definition_url) = "http://hl7.org/fhir/StructureDefinition/SupplyRequest";
 
   // Logical id of this artifact
   Id id = 1;
@@ -68,10 +67,8 @@ message SupplyRequest {
   // draft | active | suspended +
   message StatusCode {
     option (.google.fhir.proto.structure_definition_kind) = KIND_PRIMITIVE_TYPE;
-    option (.google.fhir.proto.fhir_valueset_url) =
-        "http://hl7.org/fhir/ValueSet/supplyrequest-status";
-    option (.google.fhir.proto.fhir_profile_base) =
-        "http://hl7.org/fhir/StructureDefinition/code";
+    option (.google.fhir.proto.fhir_valueset_url) = "http://hl7.org/fhir/ValueSet/supplyrequest-status";
+    option (.google.fhir.proto.fhir_profile_base) = "http://hl7.org/fhir/StructureDefinition/code";
 
     SupplyRequestStatusCode.Value value = 1;
 
@@ -82,8 +79,7 @@ message SupplyRequest {
   StatusCode status = 11;
 
   // What other request is fulfilled by this supply request
-  repeated Reference based_on = 25
-      [(.google.fhir.proto.valid_reference_type) = "Resource"];
+  repeated Reference based_on = 25 [(.google.fhir.proto.valid_reference_type) = "Resource"];
 
   // The kind of supply (central, non-stock, etc.)
   CodeableConcept category = 12;
@@ -91,10 +87,8 @@ message SupplyRequest {
   // routine | urgent | asap | stat
   message PriorityCode {
     option (.google.fhir.proto.structure_definition_kind) = KIND_PRIMITIVE_TYPE;
-    option (.google.fhir.proto.fhir_valueset_url) =
-        "http://hl7.org/fhir/ValueSet/request-priority";
-    option (.google.fhir.proto.fhir_profile_base) =
-        "http://hl7.org/fhir/StructureDefinition/code";
+    option (.google.fhir.proto.fhir_valueset_url) = "http://hl7.org/fhir/ValueSet/request-priority";
+    option (.google.fhir.proto.fhir_profile_base) = "http://hl7.org/fhir/StructureDefinition/code";
 
     RequestPriorityCode.Value value = 1;
 
@@ -105,16 +99,13 @@ message SupplyRequest {
   PriorityCode priority = 13;
 
   // The patient for who the supply request is for
-  Reference deliver_for = 26
-      [(.google.fhir.proto.valid_reference_type) = "Patient"];
+  Reference deliver_for = 26 [(.google.fhir.proto.valid_reference_type) = "Patient"];
 
   // Medication, Substance, or Device requested to be supplied
-  CodeableReference item = 27
-      [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
+  CodeableReference item = 27 [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
 
   // The requested amount of the item indicated
-  Quantity quantity = 15
-      [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
+  Quantity quantity = 15 [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
 
   // Ordered item details
   message Parameter {

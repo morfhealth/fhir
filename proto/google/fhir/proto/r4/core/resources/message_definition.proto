@@ -21,20 +21,18 @@ import "proto/google/fhir/proto/annotations.proto";
 import "proto/google/fhir/proto/r4/core/codes.proto";
 import "proto/google/fhir/proto/r4/core/datatypes.proto";
 
+option go_package = "github.com/google/fhir/go/proto/google/fhir/proto/r4/core/resources/message_definition_go_proto";
 option java_multiple_files = true;
 option java_package = "com.google.fhir.r4.core";
 option (.google.fhir.proto.fhir_version) = R4;
-option go_package = "github.com/google/fhir/go/proto/google/fhir/proto/r4/core/resources/message_definition_go_proto";
 
 // Auto-generated from StructureDefinition for MessageDefinition.
 // A resource that defines a type of message that can be exchanged between
 // systems. See http://hl7.org/fhir/StructureDefinition/MessageDefinition
 message MessageDefinition {
   option (.google.fhir.proto.structure_definition_kind) = KIND_RESOURCE;
-  option (.google.fhir.proto.fhir_structure_definition_url) =
-      "http://hl7.org/fhir/StructureDefinition/MessageDefinition";
-  option (.google.fhir.proto.fhir_path_message_warning_constraint) =
-      "name.matches('[A-Z]([A-Za-z0-9_]){0,254}')";
+  option (.google.fhir.proto.fhir_structure_definition_url) = "http://hl7.org/fhir/StructureDefinition/MessageDefinition";
+  option (.google.fhir.proto.fhir_path_message_warning_constraint) = "name.matches('[A-Z]([A-Za-z0-9_]){0,254}')";
 
   // Logical id of this artifact
   Id id = 1;
@@ -85,10 +83,8 @@ message MessageDefinition {
   // draft | active | retired | unknown
   message StatusCode {
     option (.google.fhir.proto.structure_definition_kind) = KIND_PRIMITIVE_TYPE;
-    option (.google.fhir.proto.fhir_valueset_url) =
-        "http://hl7.org/fhir/ValueSet/publication-status";
-    option (.google.fhir.proto.fhir_profile_base) =
-        "http://hl7.org/fhir/StructureDefinition/code";
+    option (.google.fhir.proto.fhir_valueset_url) = "http://hl7.org/fhir/ValueSet/publication-status";
+    option (.google.fhir.proto.fhir_profile_base) = "http://hl7.org/fhir/StructureDefinition/code";
 
     PublicationStatusCode.Value value = 1;
 
@@ -96,15 +92,13 @@ message MessageDefinition {
 
     repeated Extension extension = 3;
   }
-  StatusCode status = 16
-      [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
+  StatusCode status = 16 [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
 
   // For testing purposes, not real usage
   Boolean experimental = 17;
 
   // Date last changed
-  DateTime date = 18
-      [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
+  DateTime date = 18 [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
 
   // Name of the publisher (organization or individual)
   String publisher = 19;
@@ -142,16 +136,13 @@ message MessageDefinition {
       Uri uri = 2;
     }
   }
-  EventX event = 28
-      [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
+  EventX event = 28 [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
 
   // consequence | currency | notification
   message CategoryCode {
     option (.google.fhir.proto.structure_definition_kind) = KIND_PRIMITIVE_TYPE;
-    option (.google.fhir.proto.fhir_valueset_url) =
-        "http://hl7.org/fhir/ValueSet/message-significance-category";
-    option (.google.fhir.proto.fhir_profile_base) =
-        "http://hl7.org/fhir/StructureDefinition/code";
+    option (.google.fhir.proto.fhir_valueset_url) = "http://hl7.org/fhir/ValueSet/message-significance-category";
+    option (.google.fhir.proto.fhir_profile_base) = "http://hl7.org/fhir/StructureDefinition/code";
 
     MessageSignificanceCategoryCode.Value value = 1;
 
@@ -163,8 +154,7 @@ message MessageDefinition {
 
   // Resource(s) that are the subject of the event
   message Focus {
-    option (.google.fhir.proto.fhir_path_message_constraint) =
-        "max='*' or (max.toInteger() > 0)";
+    option (.google.fhir.proto.fhir_path_message_constraint) = "max='*' or (max.toInteger() > 0)";
 
     // Unique id for inter-element referencing
     String id = 1;
@@ -177,12 +167,9 @@ message MessageDefinition {
 
     // Type of resource
     message CodeType {
-      option (.google.fhir.proto.structure_definition_kind) =
-          KIND_PRIMITIVE_TYPE;
-      option (.google.fhir.proto.fhir_valueset_url) =
-          "http://hl7.org/fhir/ValueSet/resource-types";
-      option (.google.fhir.proto.fhir_profile_base) =
-          "http://hl7.org/fhir/StructureDefinition/code";
+      option (.google.fhir.proto.structure_definition_kind) = KIND_PRIMITIVE_TYPE;
+      option (.google.fhir.proto.fhir_valueset_url) = "http://hl7.org/fhir/ValueSet/resource-types";
+      option (.google.fhir.proto.fhir_profile_base) = "http://hl7.org/fhir/StructureDefinition/code";
 
       ResourceTypeCode.Value value = 1;
 
@@ -190,15 +177,13 @@ message MessageDefinition {
 
       repeated Extension extension = 3;
     }
-    CodeType code = 4
-        [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
+    CodeType code = 4 [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
 
     // Profile that must be adhered to by focus
     Canonical profile = 5;
 
     // Minimum number of focuses of this type
-    UnsignedInt min = 6
-        [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
+    UnsignedInt min = 6 [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
 
     // Maximum number of focuses of this type
     String max = 7;
@@ -208,10 +193,8 @@ message MessageDefinition {
   // always | on-error | never | on-success
   message ResponseRequiredCode {
     option (.google.fhir.proto.structure_definition_kind) = KIND_PRIMITIVE_TYPE;
-    option (.google.fhir.proto.fhir_valueset_url) =
-        "http://hl7.org/fhir/ValueSet/messageheader-response-request";
-    option (.google.fhir.proto.fhir_profile_base) =
-        "http://hl7.org/fhir/StructureDefinition/code";
+    option (.google.fhir.proto.fhir_valueset_url) = "http://hl7.org/fhir/ValueSet/messageheader-response-request";
+    option (.google.fhir.proto.fhir_profile_base) = "http://hl7.org/fhir/StructureDefinition/code";
 
     MessageheaderResponseRequestCode.Value value = 1;
 
@@ -233,8 +216,7 @@ message MessageDefinition {
     repeated Extension modifier_extension = 3;
 
     // Reference to allowed message definition response
-    Canonical message = 4
-        [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
+    Canonical message = 4 [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
 
     // When should this response be used
     Markdown situation = 5;

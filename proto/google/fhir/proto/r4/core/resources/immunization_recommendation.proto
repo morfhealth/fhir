@@ -20,18 +20,17 @@ import "google/protobuf/any.proto";
 import "proto/google/fhir/proto/annotations.proto";
 import "proto/google/fhir/proto/r4/core/datatypes.proto";
 
+option go_package = "github.com/google/fhir/go/proto/google/fhir/proto/r4/core/resources/immunization_recommendation_go_proto";
 option java_multiple_files = true;
 option java_package = "com.google.fhir.r4.core";
 option (.google.fhir.proto.fhir_version) = R4;
-option go_package = "github.com/google/fhir/go/proto/google/fhir/proto/r4/core/resources/immunization_recommendation_go_proto";
 
 // Auto-generated from StructureDefinition for ImmunizationRecommendation.
 // Guidance or advice relating to an immunization.
 // See http://hl7.org/fhir/StructureDefinition/ImmunizationRecommendation
 message ImmunizationRecommendation {
   option (.google.fhir.proto.structure_definition_kind) = KIND_RESOURCE;
-  option (.google.fhir.proto.fhir_structure_definition_url) =
-      "http://hl7.org/fhir/StructureDefinition/ImmunizationRecommendation";
+  option (.google.fhir.proto.fhir_structure_definition_url) = "http://hl7.org/fhir/StructureDefinition/ImmunizationRecommendation";
 
   // Logical id of this artifact
   Id id = 1;
@@ -71,17 +70,14 @@ message ImmunizationRecommendation {
   ];
 
   // Date recommendation(s) created
-  DateTime date = 12
-      [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
+  DateTime date = 12 [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
 
   // Who is responsible for protocol
-  Reference authority = 13
-      [(.google.fhir.proto.valid_reference_type) = "Organization"];
+  Reference authority = 13 [(.google.fhir.proto.valid_reference_type) = "Organization"];
 
   // Vaccine administration recommendations
   message Recommendation {
-    option (.google.fhir.proto.fhir_path_message_constraint) =
-        "vaccineCode.exists() or targetDisease.exists()";
+    option (.google.fhir.proto.fhir_path_message_constraint) = "vaccineCode.exists() or targetDisease.exists()";
 
     // Unique id for inter-element referencing
     String id = 1;
@@ -102,8 +98,7 @@ message ImmunizationRecommendation {
     repeated CodeableConcept contraindicated_vaccine_code = 6;
 
     // Vaccine recommendation status
-    CodeableConcept forecast_status = 7
-        [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
+    CodeableConcept forecast_status = 7 [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
 
     // Vaccine administration status reason
     repeated CodeableConcept forecast_reason = 8;
@@ -120,12 +115,10 @@ message ImmunizationRecommendation {
       repeated Extension modifier_extension = 3;
 
       // Type of date
-      CodeableConcept code = 4
-          [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
+      CodeableConcept code = 4 [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
 
       // Recommended date
-      DateTime value = 5
-          [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
+      DateTime value = 5 [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
     }
     repeated DateCriterion date_criterion = 9;
 
@@ -164,9 +157,7 @@ message ImmunizationRecommendation {
     ];
 
     // Patient observations supporting recommendation
-    repeated Reference supporting_patient_information = 15
-        [(.google.fhir.proto.valid_reference_type) = "Resource"];
+    repeated Reference supporting_patient_information = 15 [(.google.fhir.proto.valid_reference_type) = "Resource"];
   }
-  repeated Recommendation recommendation = 14
-      [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
+  repeated Recommendation recommendation = 14 [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
 }

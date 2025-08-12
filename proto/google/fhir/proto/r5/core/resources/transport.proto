@@ -22,18 +22,17 @@ import "proto/google/fhir/proto/r5/core/codes.proto";
 import "proto/google/fhir/proto/r5/core/datatypes.proto";
 import "proto/google/fhir/proto/r5/core/valuesets.proto";
 
+option go_package = "github.com/google/fhir/go/proto/google/fhir/proto/r5/core/resources/transport_go_proto";
 option java_multiple_files = true;
 option java_package = "com.google.fhir.r5.core";
 option (.google.fhir.proto.fhir_version) = R5;
-option go_package = "github.com/google/fhir/go/proto/google/fhir/proto/r5/core/resources/transport_go_proto";
 
 // Auto-generated from StructureDefinition for Transport.
 // Delivery of item.
 // See http://hl7.org/fhir/StructureDefinition/Transport
 message Transport {
   option (.google.fhir.proto.structure_definition_kind) = KIND_RESOURCE;
-  option (.google.fhir.proto.fhir_structure_definition_url) =
-      "http://hl7.org/fhir/StructureDefinition/Transport";
+  option (.google.fhir.proto.fhir_structure_definition_url) = "http://hl7.org/fhir/StructureDefinition/Transport";
 
   // Logical id of this artifact
   Id id = 1;
@@ -73,24 +72,20 @@ message Transport {
   Uri instantiates_uri = 12;
 
   // Request fulfilled by this transport
-  repeated Reference based_on = 13
-      [(.google.fhir.proto.valid_reference_type) = "Resource"];
+  repeated Reference based_on = 13 [(.google.fhir.proto.valid_reference_type) = "Resource"];
 
   // Requisition or grouper id
   Identifier group_identifier = 14;
 
   // Part of referenced event
-  repeated Reference part_of = 15
-      [(.google.fhir.proto.valid_reference_type) = "Transport"];
+  repeated Reference part_of = 15 [(.google.fhir.proto.valid_reference_type) = "Transport"];
 
   // in-progress | completed | abandoned | cancelled | planned |
   // entered-in-error
   message StatusCode {
     option (.google.fhir.proto.structure_definition_kind) = KIND_PRIMITIVE_TYPE;
-    option (.google.fhir.proto.fhir_valueset_url) =
-        "http://hl7.org/fhir/ValueSet/transport-status";
-    option (.google.fhir.proto.fhir_profile_base) =
-        "http://hl7.org/fhir/StructureDefinition/code";
+    option (.google.fhir.proto.fhir_valueset_url) = "http://hl7.org/fhir/ValueSet/transport-status";
+    option (.google.fhir.proto.fhir_profile_base) = "http://hl7.org/fhir/StructureDefinition/code";
 
     TransportStatusCode.Value value = 1;
 
@@ -107,10 +102,8 @@ message Transport {
   // filler-order | instance-order | option
   message IntentCode {
     option (.google.fhir.proto.structure_definition_kind) = KIND_PRIMITIVE_TYPE;
-    option (.google.fhir.proto.fhir_valueset_url) =
-        "http://hl7.org/fhir/ValueSet/transport-intent";
-    option (.google.fhir.proto.fhir_profile_base) =
-        "http://hl7.org/fhir/StructureDefinition/code";
+    option (.google.fhir.proto.fhir_valueset_url) = "http://hl7.org/fhir/ValueSet/transport-intent";
+    option (.google.fhir.proto.fhir_profile_base) = "http://hl7.org/fhir/StructureDefinition/code";
 
     TransportIntentValueSet.Value value = 1;
 
@@ -118,16 +111,13 @@ message Transport {
 
     repeated Extension extension = 3;
   }
-  IntentCode intent = 18
-      [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
+  IntentCode intent = 18 [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
 
   // routine | urgent | asap | stat
   message PriorityCode {
     option (.google.fhir.proto.structure_definition_kind) = KIND_PRIMITIVE_TYPE;
-    option (.google.fhir.proto.fhir_valueset_url) =
-        "http://hl7.org/fhir/ValueSet/request-priority";
-    option (.google.fhir.proto.fhir_profile_base) =
-        "http://hl7.org/fhir/StructureDefinition/code";
+    option (.google.fhir.proto.fhir_valueset_url) = "http://hl7.org/fhir/ValueSet/request-priority";
+    option (.google.fhir.proto.fhir_profile_base) = "http://hl7.org/fhir/StructureDefinition/code";
 
     RequestPriorityCode.Value value = 1;
 
@@ -153,8 +143,7 @@ message Transport {
   ];
 
   // Healthcare event during which this transport originated
-  Reference encounter = 24
-      [(.google.fhir.proto.valid_reference_type) = "Encounter"];
+  Reference encounter = 24 [(.google.fhir.proto.valid_reference_type) = "Encounter"];
 
   // Completion time of the event (the occurrence)
   DateTime completion_time = 25;
@@ -191,8 +180,7 @@ message Transport {
   ];
 
   // Where transport occurs
-  Reference location = 31
-      [(.google.fhir.proto.valid_reference_type) = "Location"];
+  Reference location = 31 [(.google.fhir.proto.valid_reference_type) = "Location"];
 
   // Associated insurance coverage
   repeated Reference insurance = 32 [
@@ -204,8 +192,7 @@ message Transport {
   repeated Annotation note = 33;
 
   // Key events in history of the Transport
-  repeated Reference relevant_history = 34
-      [(.google.fhir.proto.valid_reference_type) = "Provenance"];
+  repeated Reference relevant_history = 34 [(.google.fhir.proto.valid_reference_type) = "Provenance"];
 
   // Constraints on fulfillment transports
   message Restriction {
@@ -248,8 +235,7 @@ message Transport {
     repeated Extension modifier_extension = 3;
 
     // Label for the input
-    CodeableConcept type = 4
-        [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
+    CodeableConcept type = 4 [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
 
     // Content to use in performing the transport
     message ValueX {
@@ -312,8 +298,7 @@ message Transport {
         Meta meta = 54;
       }
     }
-    ValueX value = 5
-        [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
+    ValueX value = 5 [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
   }
   repeated Parameter input = 36;
 
@@ -329,8 +314,7 @@ message Transport {
     repeated Extension modifier_extension = 3;
 
     // Label for output
-    CodeableConcept type = 4
-        [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
+    CodeableConcept type = 4 [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
 
     // Result of output
     message ValueX {
@@ -393,8 +377,7 @@ message Transport {
         Meta meta = 54;
       }
     }
-    ValueX value = 5
-        [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
+    ValueX value = 5 [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
   }
   repeated Output output = 37;
 
@@ -414,6 +397,5 @@ message Transport {
   CodeableReference reason = 40;
 
   // Parent (or preceding) transport
-  Reference history = 41
-      [(.google.fhir.proto.valid_reference_type) = "Transport"];
+  Reference history = 41 [(.google.fhir.proto.valid_reference_type) = "Transport"];
 }

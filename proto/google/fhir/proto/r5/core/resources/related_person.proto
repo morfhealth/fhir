@@ -21,18 +21,17 @@ import "proto/google/fhir/proto/annotations.proto";
 import "proto/google/fhir/proto/r5/core/codes.proto";
 import "proto/google/fhir/proto/r5/core/datatypes.proto";
 
+option go_package = "github.com/google/fhir/go/proto/google/fhir/proto/r5/core/resources/related_person_go_proto";
 option java_multiple_files = true;
 option java_package = "com.google.fhir.r5.core";
 option (.google.fhir.proto.fhir_version) = R5;
-option go_package = "github.com/google/fhir/go/proto/google/fhir/proto/r5/core/resources/related_person_go_proto";
 
 // Auto-generated from StructureDefinition for RelatedPerson.
 // A person that is related to a patient, but who is not a direct target of
 // care. See http://hl7.org/fhir/StructureDefinition/RelatedPerson
 message RelatedPerson {
   option (.google.fhir.proto.structure_definition_kind) = KIND_RESOURCE;
-  option (.google.fhir.proto.fhir_structure_definition_url) =
-      "http://hl7.org/fhir/StructureDefinition/RelatedPerson";
+  option (.google.fhir.proto.fhir_structure_definition_url) = "http://hl7.org/fhir/StructureDefinition/RelatedPerson";
 
   // Logical id of this artifact
   Id id = 1;
@@ -86,10 +85,8 @@ message RelatedPerson {
   // male | female | other | unknown
   message GenderCode {
     option (.google.fhir.proto.structure_definition_kind) = KIND_PRIMITIVE_TYPE;
-    option (.google.fhir.proto.fhir_valueset_url) =
-        "http://hl7.org/fhir/ValueSet/administrative-gender";
-    option (.google.fhir.proto.fhir_profile_base) =
-        "http://hl7.org/fhir/StructureDefinition/code";
+    option (.google.fhir.proto.fhir_valueset_url) = "http://hl7.org/fhir/ValueSet/administrative-gender";
+    option (.google.fhir.proto.fhir_profile_base) = "http://hl7.org/fhir/StructureDefinition/code";
 
     AdministrativeGenderCode.Value value = 1;
 
@@ -125,8 +122,7 @@ message RelatedPerson {
 
     // The language which can be used to communicate with the related person
     // about the patient's health
-    CodeableConcept language = 4
-        [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
+    CodeableConcept language = 4 [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
 
     // Language preference indicator
     Boolean preferred = 5;

@@ -21,20 +21,18 @@ import "proto/google/fhir/proto/annotations.proto";
 import "proto/google/fhir/proto/r5/core/codes.proto";
 import "proto/google/fhir/proto/r5/core/datatypes.proto";
 
+option go_package = "github.com/google/fhir/go/proto/google/fhir/proto/r5/core/resources/evidence_go_proto";
 option java_multiple_files = true;
 option java_package = "com.google.fhir.r5.core";
 option (.google.fhir.proto.fhir_version) = R5;
-option go_package = "github.com/google/fhir/go/proto/google/fhir/proto/r5/core/resources/evidence_go_proto";
 
 // Auto-generated from StructureDefinition for Evidence.
 // Single evidence bit.
 // See http://hl7.org/fhir/StructureDefinition/Evidence
 message Evidence {
   option (.google.fhir.proto.structure_definition_kind) = KIND_RESOURCE;
-  option (.google.fhir.proto.fhir_structure_definition_url) =
-      "http://hl7.org/fhir/StructureDefinition/Evidence";
-  option (.google.fhir.proto.fhir_path_message_warning_constraint) =
-      "name.exists() implies name.matches('^[A-Z]([A-Za-z0-9_]){1,254}$')";
+  option (.google.fhir.proto.fhir_structure_definition_url) = "http://hl7.org/fhir/StructureDefinition/Evidence";
+  option (.google.fhir.proto.fhir_path_message_warning_constraint) = "name.exists() implies name.matches('^[A-Z]([A-Za-z0-9_]){1,254}$')";
 
   // Logical id of this artifact
   Id id = 1;
@@ -66,8 +64,7 @@ message Evidence {
 
   // Canonical identifier for this evidence, represented as a globally unique
   // URI
-  Uri url = 10 [(.google.fhir.proto.fhir_path_warning_constraint) =
-                    "exists() implies matches('^[^|# ]+$')"];
+  Uri url = 10 [(.google.fhir.proto.fhir_path_warning_constraint) = "exists() implies matches('^[^|# ]+$')"];
 
   // Additional identifier for the summary
   repeated Identifier identifier = 11;
@@ -97,8 +94,7 @@ message Evidence {
     option (.google.fhir.proto.is_choice_type) = true;
 
     oneof choice {
-      Reference reference = 1
-          [(.google.fhir.proto.valid_reference_type) = "Citation"];
+      Reference reference = 1 [(.google.fhir.proto.valid_reference_type) = "Citation"];
       Markdown markdown = 2;
     }
   }
@@ -107,10 +103,8 @@ message Evidence {
   // draft | active | retired | unknown
   message StatusCode {
     option (.google.fhir.proto.structure_definition_kind) = KIND_PRIMITIVE_TYPE;
-    option (.google.fhir.proto.fhir_valueset_url) =
-        "http://hl7.org/fhir/ValueSet/publication-status";
-    option (.google.fhir.proto.fhir_profile_base) =
-        "http://hl7.org/fhir/StructureDefinition/code";
+    option (.google.fhir.proto.fhir_valueset_url) = "http://hl7.org/fhir/ValueSet/publication-status";
+    option (.google.fhir.proto.fhir_profile_base) = "http://hl7.org/fhir/StructureDefinition/code";
 
     PublicationStatusCode.Value value = 1;
 
@@ -118,8 +112,7 @@ message Evidence {
 
     repeated Extension extension = 3;
   }
-  StatusCode status = 17
-      [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
+  StatusCode status = 17 [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
 
   // For testing purposes, not real usage
   Boolean experimental = 40;
@@ -194,8 +187,7 @@ message Evidence {
 
     // population | subpopulation | exposure | referenceExposure |
     // measuredVariable | confounder
-    CodeableConcept variable_role = 6
-        [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
+    CodeableConcept variable_role = 6 [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
 
     // Definition of the actual variable related to the statistic(s)
     Reference observed = 7 [
@@ -212,8 +204,7 @@ message Evidence {
     // low | moderate | high | exact
     CodeableConcept directness_match = 9;
   }
-  repeated VariableDefinition variable_definition = 44
-      [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
+  repeated VariableDefinition variable_definition = 44 [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
 
   // The method to combine studies
   CodeableConcept synthesis_type = 45;
@@ -330,8 +321,7 @@ message Evidence {
       repeated Extension modifier_extension = 3;
 
       // Model specification
-      CodeableConcept code = 4
-          [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
+      CodeableConcept code = 4 [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
 
       // Numerical value to complete model specification
       SimpleQuantity value = 5;
@@ -356,12 +346,9 @@ message Evidence {
 
         // continuous | dichotomous | ordinal | polychotomous
         message HandlingCode {
-          option (.google.fhir.proto.structure_definition_kind) =
-              KIND_PRIMITIVE_TYPE;
-          option (.google.fhir.proto.fhir_valueset_url) =
-              "http://hl7.org/fhir/ValueSet/variable-handling";
-          option (.google.fhir.proto.fhir_profile_base) =
-              "http://hl7.org/fhir/StructureDefinition/code";
+          option (.google.fhir.proto.structure_definition_kind) = KIND_PRIMITIVE_TYPE;
+          option (.google.fhir.proto.fhir_valueset_url) = "http://hl7.org/fhir/ValueSet/variable-handling";
+          option (.google.fhir.proto.fhir_profile_base) = "http://hl7.org/fhir/StructureDefinition/code";
 
           EvidenceVariableHandlingCode.Value value = 1;
 

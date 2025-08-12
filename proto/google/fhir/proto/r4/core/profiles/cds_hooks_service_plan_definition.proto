@@ -31,12 +31,9 @@ option (.google.fhir.proto.fhir_version) = R4;
 // http://hl7.org/fhir/StructureDefinition/cdshooksserviceplandefinition
 message CDSHooksServicePlanDefinition {
   option (.google.fhir.proto.structure_definition_kind) = KIND_RESOURCE;
-  option (.google.fhir.proto.fhir_profile_base) =
-      "http://hl7.org/fhir/StructureDefinition/PlanDefinition";
-  option (.google.fhir.proto.fhir_structure_definition_url) =
-      "http://hl7.org/fhir/StructureDefinition/cdshooksserviceplandefinition";
-  option (.google.fhir.proto.fhir_path_message_warning_constraint) =
-      "name.matches('[A-Z]([A-Za-z0-9_]){0,254}')";
+  option (.google.fhir.proto.fhir_profile_base) = "http://hl7.org/fhir/StructureDefinition/PlanDefinition";
+  option (.google.fhir.proto.fhir_structure_definition_url) = "http://hl7.org/fhir/StructureDefinition/cdshooksserviceplandefinition";
+  option (.google.fhir.proto.fhir_path_message_warning_constraint) = "name.matches('[A-Z]([A-Za-z0-9_]){0,254}')";
   option (.google.fhir.proto.search_parameter) = {
     name: "composed-of"
     type: REFERENCE
@@ -211,10 +208,8 @@ message CDSHooksServicePlanDefinition {
   // draft | active | retired | unknown
   message StatusCode {
     option (.google.fhir.proto.structure_definition_kind) = KIND_PRIMITIVE_TYPE;
-    option (.google.fhir.proto.fhir_valueset_url) =
-        "http://hl7.org/fhir/ValueSet/publication-status";
-    option (.google.fhir.proto.fhir_profile_base) =
-        "http://hl7.org/fhir/StructureDefinition/code";
+    option (.google.fhir.proto.fhir_valueset_url) = "http://hl7.org/fhir/ValueSet/publication-status";
+    option (.google.fhir.proto.fhir_profile_base) = "http://hl7.org/fhir/StructureDefinition/code";
 
     PublicationStatusCode.Value value = 1;
 
@@ -222,8 +217,7 @@ message CDSHooksServicePlanDefinition {
 
     repeated Extension extension = 3;
   }
-  StatusCode status = 17
-      [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
+  StatusCode status = 17 [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
 
   // For testing purposes, not real usage
   Boolean experimental = 18;
@@ -234,8 +228,7 @@ message CDSHooksServicePlanDefinition {
 
     oneof choice {
       CodeableConcept codeable_concept = 1;
-      Reference reference = 2
-          [(.google.fhir.proto.valid_reference_type) = "Group"];
+      Reference reference = 2 [(.google.fhir.proto.valid_reference_type) = "Group"];
     }
   }
   SubjectX subject = 19;
@@ -312,8 +305,7 @@ message CDSHooksServicePlanDefinition {
     CodeableConcept category = 4;
 
     // Code or text describing the goal
-    CodeableConcept description = 5
-        [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
+    CodeableConcept description = 5 [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
 
     // high-priority | medium-priority | low-priority
     CodeableConcept priority = 6;
@@ -386,12 +378,9 @@ message CDSHooksServicePlanDefinition {
 
     // routine | urgent | asap | stat
     message PriorityCode {
-      option (.google.fhir.proto.structure_definition_kind) =
-          KIND_PRIMITIVE_TYPE;
-      option (.google.fhir.proto.fhir_valueset_url) =
-          "http://hl7.org/fhir/ValueSet/request-priority";
-      option (.google.fhir.proto.fhir_profile_base) =
-          "http://hl7.org/fhir/StructureDefinition/code";
+      option (.google.fhir.proto.structure_definition_kind) = KIND_PRIMITIVE_TYPE;
+      option (.google.fhir.proto.fhir_valueset_url) = "http://hl7.org/fhir/ValueSet/request-priority";
+      option (.google.fhir.proto.fhir_profile_base) = "http://hl7.org/fhir/StructureDefinition/code";
 
       RequestPriorityCode.Value value = 1;
 
@@ -419,8 +408,7 @@ message CDSHooksServicePlanDefinition {
 
       oneof choice {
         CodeableConcept codeable_concept = 1;
-        Reference reference = 2
-            [(.google.fhir.proto.valid_reference_type) = "Group"];
+        Reference reference = 2 [(.google.fhir.proto.valid_reference_type) = "Group"];
       }
     }
     SubjectX subject = 13;
@@ -441,12 +429,9 @@ message CDSHooksServicePlanDefinition {
 
       // applicability | start | stop
       message KindCode {
-        option (.google.fhir.proto.structure_definition_kind) =
-            KIND_PRIMITIVE_TYPE;
-        option (.google.fhir.proto.fhir_valueset_url) =
-            "http://hl7.org/fhir/ValueSet/action-condition-kind";
-        option (.google.fhir.proto.fhir_profile_base) =
-            "http://hl7.org/fhir/StructureDefinition/code";
+        option (.google.fhir.proto.structure_definition_kind) = KIND_PRIMITIVE_TYPE;
+        option (.google.fhir.proto.fhir_valueset_url) = "http://hl7.org/fhir/ValueSet/action-condition-kind";
+        option (.google.fhir.proto.fhir_profile_base) = "http://hl7.org/fhir/StructureDefinition/code";
 
         ActionConditionKindCode.Value value = 1;
 
@@ -454,8 +439,7 @@ message CDSHooksServicePlanDefinition {
 
         repeated Extension extension = 3;
       }
-      KindCode kind = 4
-          [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
+      KindCode kind = 4 [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
 
       // Boolean-valued expression
       Expression expression = 5;
@@ -480,18 +464,14 @@ message CDSHooksServicePlanDefinition {
       repeated Extension modifier_extension = 3;
 
       // What action is this related to
-      Id action_id = 4
-          [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
+      Id action_id = 4 [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
 
       // before-start | before | before-end | concurrent-with-start | concurrent
       // | concurrent-with-end | after-start | after | after-end
       message RelationshipCode {
-        option (.google.fhir.proto.structure_definition_kind) =
-            KIND_PRIMITIVE_TYPE;
-        option (.google.fhir.proto.fhir_valueset_url) =
-            "http://hl7.org/fhir/ValueSet/action-relationship-type";
-        option (.google.fhir.proto.fhir_profile_base) =
-            "http://hl7.org/fhir/StructureDefinition/code";
+        option (.google.fhir.proto.structure_definition_kind) = KIND_PRIMITIVE_TYPE;
+        option (.google.fhir.proto.fhir_valueset_url) = "http://hl7.org/fhir/ValueSet/action-relationship-type";
+        option (.google.fhir.proto.fhir_profile_base) = "http://hl7.org/fhir/StructureDefinition/code";
 
         ActionRelationshipTypeCode.Value value = 1;
 
@@ -499,8 +479,7 @@ message CDSHooksServicePlanDefinition {
 
         repeated Extension extension = 3;
       }
-      RelationshipCode relationship = 5
-          [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
+      RelationshipCode relationship = 5 [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
 
       // Time offset for the relationship
       message OffsetX {
@@ -543,12 +522,9 @@ message CDSHooksServicePlanDefinition {
 
       // patient | practitioner | related-person | device
       message TypeCode {
-        option (.google.fhir.proto.structure_definition_kind) =
-            KIND_PRIMITIVE_TYPE;
-        option (.google.fhir.proto.fhir_valueset_url) =
-            "http://hl7.org/fhir/ValueSet/action-participant-type";
-        option (.google.fhir.proto.fhir_profile_base) =
-            "http://hl7.org/fhir/StructureDefinition/code";
+        option (.google.fhir.proto.structure_definition_kind) = KIND_PRIMITIVE_TYPE;
+        option (.google.fhir.proto.fhir_valueset_url) = "http://hl7.org/fhir/ValueSet/action-participant-type";
+        option (.google.fhir.proto.fhir_profile_base) = "http://hl7.org/fhir/StructureDefinition/code";
 
         ActionParticipantTypeCode.Value value = 1;
 
@@ -556,8 +532,7 @@ message CDSHooksServicePlanDefinition {
 
         repeated Extension extension = 3;
       }
-      TypeCode type = 4
-          [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
+      TypeCode type = 4 [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
 
       // E.g. Nurse, Surgeon, Parent
       CodeableConcept role = 5;
@@ -569,12 +544,9 @@ message CDSHooksServicePlanDefinition {
 
     // visual-group | logical-group | sentence-group
     message GroupingBehaviorCode {
-      option (.google.fhir.proto.structure_definition_kind) =
-          KIND_PRIMITIVE_TYPE;
-      option (.google.fhir.proto.fhir_valueset_url) =
-          "http://hl7.org/fhir/ValueSet/action-grouping-behavior";
-      option (.google.fhir.proto.fhir_profile_base) =
-          "http://hl7.org/fhir/StructureDefinition/code";
+      option (.google.fhir.proto.structure_definition_kind) = KIND_PRIMITIVE_TYPE;
+      option (.google.fhir.proto.fhir_valueset_url) = "http://hl7.org/fhir/ValueSet/action-grouping-behavior";
+      option (.google.fhir.proto.fhir_profile_base) = "http://hl7.org/fhir/StructureDefinition/code";
 
       ActionGroupingBehaviorCode.Value value = 1;
 
@@ -586,12 +558,9 @@ message CDSHooksServicePlanDefinition {
 
     // any | all | all-or-none | exactly-one | at-most-one | one-or-more
     message SelectionBehaviorCode {
-      option (.google.fhir.proto.structure_definition_kind) =
-          KIND_PRIMITIVE_TYPE;
-      option (.google.fhir.proto.fhir_valueset_url) =
-          "http://hl7.org/fhir/ValueSet/action-selection-behavior";
-      option (.google.fhir.proto.fhir_profile_base) =
-          "http://hl7.org/fhir/StructureDefinition/code";
+      option (.google.fhir.proto.structure_definition_kind) = KIND_PRIMITIVE_TYPE;
+      option (.google.fhir.proto.fhir_valueset_url) = "http://hl7.org/fhir/ValueSet/action-selection-behavior";
+      option (.google.fhir.proto.fhir_profile_base) = "http://hl7.org/fhir/StructureDefinition/code";
 
       ActionSelectionBehaviorCode.Value value = 1;
 
@@ -603,12 +572,9 @@ message CDSHooksServicePlanDefinition {
 
     // must | could | must-unless-documented
     message RequiredBehaviorCode {
-      option (.google.fhir.proto.structure_definition_kind) =
-          KIND_PRIMITIVE_TYPE;
-      option (.google.fhir.proto.fhir_valueset_url) =
-          "http://hl7.org/fhir/ValueSet/action-required-behavior";
-      option (.google.fhir.proto.fhir_profile_base) =
-          "http://hl7.org/fhir/StructureDefinition/code";
+      option (.google.fhir.proto.structure_definition_kind) = KIND_PRIMITIVE_TYPE;
+      option (.google.fhir.proto.fhir_valueset_url) = "http://hl7.org/fhir/ValueSet/action-required-behavior";
+      option (.google.fhir.proto.fhir_profile_base) = "http://hl7.org/fhir/StructureDefinition/code";
 
       ActionRequiredBehaviorCode.Value value = 1;
 
@@ -620,12 +586,9 @@ message CDSHooksServicePlanDefinition {
 
     // yes | no
     message PrecheckBehaviorCode {
-      option (.google.fhir.proto.structure_definition_kind) =
-          KIND_PRIMITIVE_TYPE;
-      option (.google.fhir.proto.fhir_valueset_url) =
-          "http://hl7.org/fhir/ValueSet/action-precheck-behavior";
-      option (.google.fhir.proto.fhir_profile_base) =
-          "http://hl7.org/fhir/StructureDefinition/code";
+      option (.google.fhir.proto.structure_definition_kind) = KIND_PRIMITIVE_TYPE;
+      option (.google.fhir.proto.fhir_valueset_url) = "http://hl7.org/fhir/ValueSet/action-precheck-behavior";
+      option (.google.fhir.proto.fhir_profile_base) = "http://hl7.org/fhir/StructureDefinition/code";
 
       ActionPrecheckBehaviorCode.Value value = 1;
 
@@ -637,12 +600,9 @@ message CDSHooksServicePlanDefinition {
 
     // single | multiple
     message CardinalityBehaviorCode {
-      option (.google.fhir.proto.structure_definition_kind) =
-          KIND_PRIMITIVE_TYPE;
-      option (.google.fhir.proto.fhir_valueset_url) =
-          "http://hl7.org/fhir/ValueSet/action-cardinality-behavior";
-      option (.google.fhir.proto.fhir_profile_base) =
-          "http://hl7.org/fhir/StructureDefinition/code";
+      option (.google.fhir.proto.structure_definition_kind) = KIND_PRIMITIVE_TYPE;
+      option (.google.fhir.proto.fhir_valueset_url) = "http://hl7.org/fhir/ValueSet/action-cardinality-behavior";
+      option (.google.fhir.proto.fhir_profile_base) = "http://hl7.org/fhir/StructureDefinition/code";
 
       ActionCardinalityBehaviorCode.Value value = 1;
 
@@ -693,7 +653,6 @@ message CDSHooksServicePlanDefinition {
   // Service endpoint
   Uri cds_hooks_endpoint = 41 [
     (.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR,
-    (.google.fhir.proto.fhir_inlined_extension_url) =
-        "http://hl7.org/fhir/StructureDefinition/cqf-cdsHooksEndpoint"
+    (.google.fhir.proto.fhir_inlined_extension_url) = "http://hl7.org/fhir/StructureDefinition/cqf-cdsHooksEndpoint"
   ];
 }

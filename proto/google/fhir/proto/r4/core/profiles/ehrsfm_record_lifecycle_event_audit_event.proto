@@ -30,10 +30,8 @@ option (.google.fhir.proto.fhir_version) = R4;
 // http://hl7.org/fhir/StructureDefinition/ehrsrle-auditevent
 message EHRSFMRecordLifecycleEventAuditEvent {
   option (.google.fhir.proto.structure_definition_kind) = KIND_RESOURCE;
-  option (.google.fhir.proto.fhir_profile_base) =
-      "http://hl7.org/fhir/StructureDefinition/AuditEvent";
-  option (.google.fhir.proto.fhir_structure_definition_url) =
-      "http://hl7.org/fhir/StructureDefinition/ehrsrle-auditevent";
+  option (.google.fhir.proto.fhir_profile_base) = "http://hl7.org/fhir/StructureDefinition/AuditEvent";
+  option (.google.fhir.proto.fhir_structure_definition_url) = "http://hl7.org/fhir/StructureDefinition/ehrsrle-auditevent";
   option (.google.fhir.proto.search_parameter) = {
     name: "action"
     type: TOKEN
@@ -154,8 +152,7 @@ message EHRSFMRecordLifecycleEventAuditEvent {
   repeated Extension modifier_extension = 9;
 
   // Type/identifier of event
-  Coding type = 10
-      [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
+  Coding type = 10 [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
 
   // More specific type/id for the event
   repeated Coding subtype = 11;
@@ -163,10 +160,8 @@ message EHRSFMRecordLifecycleEventAuditEvent {
   // Type of action performed during the event
   message ActionCode {
     option (.google.fhir.proto.structure_definition_kind) = KIND_PRIMITIVE_TYPE;
-    option (.google.fhir.proto.fhir_valueset_url) =
-        "http://hl7.org/fhir/ValueSet/audit-event-action";
-    option (.google.fhir.proto.fhir_profile_base) =
-        "http://hl7.org/fhir/StructureDefinition/code";
+    option (.google.fhir.proto.fhir_valueset_url) = "http://hl7.org/fhir/ValueSet/audit-event-action";
+    option (.google.fhir.proto.fhir_profile_base) = "http://hl7.org/fhir/StructureDefinition/code";
 
     AuditEventActionCode.Value value = 1;
 
@@ -180,16 +175,13 @@ message EHRSFMRecordLifecycleEventAuditEvent {
   Period period = 13;
 
   // Time when the event was recorded
-  Instant recorded = 14
-      [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
+  Instant recorded = 14 [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
 
   // Whether the event succeeded or failed
   message OutcomeCode {
     option (.google.fhir.proto.structure_definition_kind) = KIND_PRIMITIVE_TYPE;
-    option (.google.fhir.proto.fhir_valueset_url) =
-        "http://hl7.org/fhir/ValueSet/audit-event-outcome";
-    option (.google.fhir.proto.fhir_profile_base) =
-        "http://hl7.org/fhir/StructureDefinition/code";
+    option (.google.fhir.proto.fhir_valueset_url) = "http://hl7.org/fhir/ValueSet/audit-event-outcome";
+    option (.google.fhir.proto.fhir_profile_base) = "http://hl7.org/fhir/StructureDefinition/code";
 
     AuditEventOutcomeCode.Value value = 1;
 
@@ -239,12 +231,10 @@ message EHRSFMRecordLifecycleEventAuditEvent {
     String name = 8;
 
     // Whether user is initiator
-    Boolean requestor = 9
-        [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
+    Boolean requestor = 9 [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
 
     // Where
-    Reference location = 10
-        [(.google.fhir.proto.valid_reference_type) = "Location"];
+    Reference location = 10 [(.google.fhir.proto.valid_reference_type) = "Location"];
 
     // Policy that authorized event
     repeated Uri policy = 11;
@@ -268,12 +258,9 @@ message EHRSFMRecordLifecycleEventAuditEvent {
 
       // The type of network access point
       message TypeCode {
-        option (.google.fhir.proto.structure_definition_kind) =
-            KIND_PRIMITIVE_TYPE;
-        option (.google.fhir.proto.fhir_valueset_url) =
-            "http://hl7.org/fhir/ValueSet/network-type";
-        option (.google.fhir.proto.fhir_profile_base) =
-            "http://hl7.org/fhir/StructureDefinition/code";
+        option (.google.fhir.proto.structure_definition_kind) = KIND_PRIMITIVE_TYPE;
+        option (.google.fhir.proto.fhir_valueset_url) = "http://hl7.org/fhir/ValueSet/network-type";
+        option (.google.fhir.proto.fhir_profile_base) = "http://hl7.org/fhir/StructureDefinition/code";
 
         AuditEventAgentNetworkTypeCode.Value value = 1;
 
@@ -288,8 +275,7 @@ message EHRSFMRecordLifecycleEventAuditEvent {
     // Reason given for this user
     repeated CodeableConcept purpose_of_use = 14;
   }
-  repeated Agent agent = 18
-      [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
+  repeated Agent agent = 18 [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
 
   // Audit Event Reporter
   message Source {
@@ -319,13 +305,11 @@ message EHRSFMRecordLifecycleEventAuditEvent {
     // The type of source where event originated
     repeated Coding type = 6;
   }
-  Source source = 19
-      [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
+  Source source = 19 [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
 
   // Data or objects used
   message Entity {
-    option (.google.fhir.proto.fhir_path_message_constraint) =
-        "name.empty() or query.empty()";
+    option (.google.fhir.proto.fhir_path_message_constraint) = "name.empty() or query.empty()";
 
     // Unique id for inter-element referencing
     String id = 1;
@@ -372,8 +356,7 @@ message EHRSFMRecordLifecycleEventAuditEvent {
       repeated Extension modifier_extension = 3;
 
       // Name of the property
-      String type = 4
-          [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
+      String type = 4 [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
 
       // Property value
       message ValueX {
@@ -384,8 +367,7 @@ message EHRSFMRecordLifecycleEventAuditEvent {
           Base64Binary base64_binary = 2;
         }
       }
-      ValueX value = 5
-          [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
+      ValueX value = 5 [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
     }
     repeated Detail detail = 12;
   }

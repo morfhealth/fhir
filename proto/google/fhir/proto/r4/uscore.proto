@@ -32,10 +32,8 @@ option (.google.fhir.proto.fhir_version) = R4;
 // See http://hl7.org/fhir/us/core/StructureDefinition/us-core-birthsex
 message PatientUSCoreBirthSexExtension {
   option (.google.fhir.proto.structure_definition_kind) = KIND_COMPLEX_TYPE;
-  option (.google.fhir.proto.fhir_profile_base) =
-      "http://hl7.org/fhir/StructureDefinition/Extension";
-  option (.google.fhir.proto.fhir_structure_definition_url) =
-      "http://hl7.org/fhir/us/core/StructureDefinition/us-core-birthsex";
+  option (.google.fhir.proto.fhir_profile_base) = "http://hl7.org/fhir/StructureDefinition/Extension";
+  option (.google.fhir.proto.fhir_structure_definition_url) = "http://hl7.org/fhir/us/core/StructureDefinition/us-core-birthsex";
 
   // Unique id for inter-element referencing
   core.String id = 1;
@@ -46,10 +44,8 @@ message PatientUSCoreBirthSexExtension {
   // Value of extension
   message ValueCode {
     option (.google.fhir.proto.structure_definition_kind) = KIND_PRIMITIVE_TYPE;
-    option (.google.fhir.proto.fhir_valueset_url) =
-        "http://hl7.org/fhir/us/core/ValueSet/birthsex";
-    option (.google.fhir.proto.fhir_profile_base) =
-        "http://hl7.org/fhir/StructureDefinition/code";
+    option (.google.fhir.proto.fhir_valueset_url) = "http://hl7.org/fhir/us/core/ValueSet/birthsex";
+    option (.google.fhir.proto.fhir_profile_base) = "http://hl7.org/fhir/StructureDefinition/code";
 
     BirthSexValueSet.Value value = 1;
 
@@ -65,10 +61,8 @@ message PatientUSCoreBirthSexExtension {
 // See http://hl7.org/fhir/us/core/StructureDefinition/us-core-ethnicity
 message PatientUSCoreEthnicityExtension {
   option (.google.fhir.proto.structure_definition_kind) = KIND_COMPLEX_TYPE;
-  option (.google.fhir.proto.fhir_profile_base) =
-      "http://hl7.org/fhir/StructureDefinition/Extension";
-  option (.google.fhir.proto.fhir_structure_definition_url) =
-      "http://hl7.org/fhir/us/core/StructureDefinition/us-core-ethnicity";
+  option (.google.fhir.proto.fhir_profile_base) = "http://hl7.org/fhir/StructureDefinition/Extension";
+  option (.google.fhir.proto.fhir_structure_definition_url) = "http://hl7.org/fhir/us/core/StructureDefinition/us-core-ethnicity";
 
   // Unique id for inter-element referencing
   core.String id = 1;
@@ -78,8 +72,7 @@ message PatientUSCoreEthnicityExtension {
 
   // Hispanic or Latino|Not Hispanic or Latino
   message OmbCategoryCoding {
-    option (.google.fhir.proto.fhir_profile_base) =
-        "http://hl7.org/fhir/StructureDefinition/Coding";
+    option (.google.fhir.proto.fhir_profile_base) = "http://hl7.org/fhir/StructureDefinition/Coding";
 
     core.String id = 1;
 
@@ -88,12 +81,9 @@ message PatientUSCoreEthnicityExtension {
     core.String version = 4;
 
     message BoundCode {
-      option (.google.fhir.proto.structure_definition_kind) =
-          KIND_PRIMITIVE_TYPE;
-      option (.google.fhir.proto.fhir_valueset_url) =
-          "http://hl7.org/fhir/us/core/ValueSet/omb-ethnicity-category";
-      option (.google.fhir.proto.fhir_profile_base) =
-          "http://hl7.org/fhir/StructureDefinition/code";
+      option (.google.fhir.proto.structure_definition_kind) = KIND_PRIMITIVE_TYPE;
+      option (.google.fhir.proto.fhir_valueset_url) = "http://hl7.org/fhir/us/core/ValueSet/omb-ethnicity-category";
+      option (.google.fhir.proto.fhir_profile_base) = "http://hl7.org/fhir/StructureDefinition/code";
 
       OmbEthnicityCategoriesValueSet.Value value = 1;
 
@@ -111,8 +101,7 @@ message PatientUSCoreEthnicityExtension {
 
   // Extended ethnicity codes
   message DetailedCoding {
-    option (.google.fhir.proto.fhir_profile_base) =
-        "http://hl7.org/fhir/StructureDefinition/Coding";
+    option (.google.fhir.proto.fhir_profile_base) = "http://hl7.org/fhir/StructureDefinition/Coding";
 
     core.String id = 1;
 
@@ -121,12 +110,9 @@ message PatientUSCoreEthnicityExtension {
     core.String version = 4;
 
     message BoundCode {
-      option (.google.fhir.proto.structure_definition_kind) =
-          KIND_PRIMITIVE_TYPE;
-      option (.google.fhir.proto.fhir_valueset_url) =
-          "http://hl7.org/fhir/us/core/ValueSet/detailed-ethnicity";
-      option (.google.fhir.proto.fhir_profile_base) =
-          "http://hl7.org/fhir/StructureDefinition/code";
+      option (.google.fhir.proto.structure_definition_kind) = KIND_PRIMITIVE_TYPE;
+      option (.google.fhir.proto.fhir_valueset_url) = "http://hl7.org/fhir/us/core/ValueSet/detailed-ethnicity";
+      option (.google.fhir.proto.fhir_profile_base) = "http://hl7.org/fhir/StructureDefinition/code";
 
       DetailedEthnicityValueSet.Value value = 1;
 
@@ -143,8 +129,7 @@ message PatientUSCoreEthnicityExtension {
   repeated DetailedCoding detailed = 5;
 
   // ethnicity Text
-  core.String text = 6
-      [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
+  core.String text = 6 [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
 }
 
 // Auto-generated from StructureDefinition for USCoreRaceExtension.
@@ -152,10 +137,8 @@ message PatientUSCoreEthnicityExtension {
 // See http://hl7.org/fhir/us/core/StructureDefinition/us-core-race
 message PatientUSCoreRaceExtension {
   option (.google.fhir.proto.structure_definition_kind) = KIND_COMPLEX_TYPE;
-  option (.google.fhir.proto.fhir_profile_base) =
-      "http://hl7.org/fhir/StructureDefinition/Extension";
-  option (.google.fhir.proto.fhir_structure_definition_url) =
-      "http://hl7.org/fhir/us/core/StructureDefinition/us-core-race";
+  option (.google.fhir.proto.fhir_profile_base) = "http://hl7.org/fhir/StructureDefinition/Extension";
+  option (.google.fhir.proto.fhir_structure_definition_url) = "http://hl7.org/fhir/us/core/StructureDefinition/us-core-race";
 
   // Unique id for inter-element referencing
   core.String id = 1;
@@ -166,8 +149,7 @@ message PatientUSCoreRaceExtension {
   // American Indian or Alaska Native|Asian|Black or African American|Native
   // Hawaiian or Other Pacific Islander|White
   message OmbCategoryCoding {
-    option (.google.fhir.proto.fhir_profile_base) =
-        "http://hl7.org/fhir/StructureDefinition/Coding";
+    option (.google.fhir.proto.fhir_profile_base) = "http://hl7.org/fhir/StructureDefinition/Coding";
 
     core.String id = 1;
 
@@ -176,12 +158,9 @@ message PatientUSCoreRaceExtension {
     core.String version = 4;
 
     message BoundCode {
-      option (.google.fhir.proto.structure_definition_kind) =
-          KIND_PRIMITIVE_TYPE;
-      option (.google.fhir.proto.fhir_valueset_url) =
-          "http://hl7.org/fhir/us/core/ValueSet/omb-race-category";
-      option (.google.fhir.proto.fhir_profile_base) =
-          "http://hl7.org/fhir/StructureDefinition/code";
+      option (.google.fhir.proto.structure_definition_kind) = KIND_PRIMITIVE_TYPE;
+      option (.google.fhir.proto.fhir_valueset_url) = "http://hl7.org/fhir/us/core/ValueSet/omb-race-category";
+      option (.google.fhir.proto.fhir_profile_base) = "http://hl7.org/fhir/StructureDefinition/code";
 
       OmbRaceCategoriesValueSet.Value value = 1;
 
@@ -199,8 +178,7 @@ message PatientUSCoreRaceExtension {
 
   // Extended race codes
   message DetailedCoding {
-    option (.google.fhir.proto.fhir_profile_base) =
-        "http://hl7.org/fhir/StructureDefinition/Coding";
+    option (.google.fhir.proto.fhir_profile_base) = "http://hl7.org/fhir/StructureDefinition/Coding";
 
     core.String id = 1;
 
@@ -209,12 +187,9 @@ message PatientUSCoreRaceExtension {
     core.String version = 4;
 
     message BoundCode {
-      option (.google.fhir.proto.structure_definition_kind) =
-          KIND_PRIMITIVE_TYPE;
-      option (.google.fhir.proto.fhir_valueset_url) =
-          "http://hl7.org/fhir/us/core/ValueSet/detailed-race";
-      option (.google.fhir.proto.fhir_profile_base) =
-          "http://hl7.org/fhir/StructureDefinition/code";
+      option (.google.fhir.proto.structure_definition_kind) = KIND_PRIMITIVE_TYPE;
+      option (.google.fhir.proto.fhir_valueset_url) = "http://hl7.org/fhir/us/core/ValueSet/detailed-race";
+      option (.google.fhir.proto.fhir_profile_base) = "http://hl7.org/fhir/StructureDefinition/code";
 
       DetailedRaceValueSet.Value value = 1;
 
@@ -231,8 +206,7 @@ message PatientUSCoreRaceExtension {
   repeated DetailedCoding detailed = 5;
 
   // Race Text
-  core.String text = 6
-      [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
+  core.String text = 6 [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
 }
 
 // Auto-generated from StructureDefinition for USCoreAllergyIntolerance.
@@ -241,14 +215,10 @@ message PatientUSCoreRaceExtension {
 // http://hl7.org/fhir/us/core/StructureDefinition/us-core-allergyintolerance
 message USCoreAllergyIntolerance {
   option (.google.fhir.proto.structure_definition_kind) = KIND_RESOURCE;
-  option (.google.fhir.proto.fhir_profile_base) =
-      "http://hl7.org/fhir/StructureDefinition/AllergyIntolerance";
-  option (.google.fhir.proto.fhir_structure_definition_url) =
-      "http://hl7.org/fhir/us/core/StructureDefinition/us-core-allergyintolerance";
-  option (.google.fhir.proto.fhir_path_message_constraint) =
-      "verificationStatus.coding.where(system = 'http://terminology.hl7.org/CodeSystem/allergyintolerance-verification' and code = 'entered-in-error').exists() or clinicalStatus.exists()";
-  option (.google.fhir.proto.fhir_path_message_constraint) =
-      "verificationStatus.coding.where(system = 'http://terminology.hl7.org/CodeSystem/allergyintolerance-verification' and code = 'entered-in-error').empty() or clinicalStatus.empty()";
+  option (.google.fhir.proto.fhir_profile_base) = "http://hl7.org/fhir/StructureDefinition/AllergyIntolerance";
+  option (.google.fhir.proto.fhir_structure_definition_url) = "http://hl7.org/fhir/us/core/StructureDefinition/us-core-allergyintolerance";
+  option (.google.fhir.proto.fhir_path_message_constraint) = "verificationStatus.coding.where(system = 'http://terminology.hl7.org/CodeSystem/allergyintolerance-verification' and code = 'entered-in-error').exists() or clinicalStatus.exists()";
+  option (.google.fhir.proto.fhir_path_message_constraint) = "verificationStatus.coding.where(system = 'http://terminology.hl7.org/CodeSystem/allergyintolerance-verification' and code = 'entered-in-error').empty() or clinicalStatus.empty()";
   option (.google.fhir.proto.search_parameter) = {
     name: "asserter"
     type: REFERENCE
@@ -370,10 +340,8 @@ message USCoreAllergyIntolerance {
   // allergy | intolerance - Underlying mechanism (if known)
   message TypeCode {
     option (.google.fhir.proto.structure_definition_kind) = KIND_PRIMITIVE_TYPE;
-    option (.google.fhir.proto.fhir_valueset_url) =
-        "http://hl7.org/fhir/ValueSet/allergy-intolerance-type";
-    option (.google.fhir.proto.fhir_profile_base) =
-        "http://hl7.org/fhir/StructureDefinition/code";
+    option (.google.fhir.proto.fhir_valueset_url) = "http://hl7.org/fhir/ValueSet/allergy-intolerance-type";
+    option (.google.fhir.proto.fhir_profile_base) = "http://hl7.org/fhir/StructureDefinition/code";
 
     core.AllergyIntoleranceTypeCode.Value value = 1;
 
@@ -386,10 +354,8 @@ message USCoreAllergyIntolerance {
   // food | medication | environment | biologic
   message CategoryCode {
     option (.google.fhir.proto.structure_definition_kind) = KIND_PRIMITIVE_TYPE;
-    option (.google.fhir.proto.fhir_valueset_url) =
-        "http://hl7.org/fhir/ValueSet/allergy-intolerance-category";
-    option (.google.fhir.proto.fhir_profile_base) =
-        "http://hl7.org/fhir/StructureDefinition/code";
+    option (.google.fhir.proto.fhir_valueset_url) = "http://hl7.org/fhir/ValueSet/allergy-intolerance-category";
+    option (.google.fhir.proto.fhir_profile_base) = "http://hl7.org/fhir/StructureDefinition/code";
 
     core.AllergyIntoleranceCategoryCode.Value value = 1;
 
@@ -402,10 +368,8 @@ message USCoreAllergyIntolerance {
   // low | high | unable-to-assess
   message CriticalityCode {
     option (.google.fhir.proto.structure_definition_kind) = KIND_PRIMITIVE_TYPE;
-    option (.google.fhir.proto.fhir_valueset_url) =
-        "http://hl7.org/fhir/ValueSet/allergy-intolerance-criticality";
-    option (.google.fhir.proto.fhir_profile_base) =
-        "http://hl7.org/fhir/StructureDefinition/code";
+    option (.google.fhir.proto.fhir_valueset_url) = "http://hl7.org/fhir/ValueSet/allergy-intolerance-criticality";
+    option (.google.fhir.proto.fhir_profile_base) = "http://hl7.org/fhir/StructureDefinition/code";
 
     core.AllergyIntoleranceCriticalityCode.Value value = 1;
 
@@ -416,8 +380,7 @@ message USCoreAllergyIntolerance {
   CriticalityCode criticality = 15;
 
   // Code that identifies the allergy or intolerance
-  core.CodeableConcept code = 16
-      [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
+  core.CodeableConcept code = 16 [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
 
   // Who the sensitivity is for
   core.Reference patient = 17 [
@@ -426,8 +389,7 @@ message USCoreAllergyIntolerance {
   ];
 
   // Encounter when the allergy or intolerance was asserted
-  core.Reference encounter = 18
-      [(.google.fhir.proto.valid_reference_type) = "Encounter"];
+  core.Reference encounter = 18 [(.google.fhir.proto.valid_reference_type) = "Encounter"];
 
   // When allergy or intolerance was identified
   message OnsetX {
@@ -484,8 +446,7 @@ message USCoreAllergyIntolerance {
     core.CodeableConcept substance = 4;
 
     // Clinical symptoms/signs associated with the Event
-    repeated core.CodeableConcept manifestation = 5
-        [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
+    repeated core.CodeableConcept manifestation = 5 [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
 
     // Description of the event as a whole
     core.String description = 6;
@@ -495,12 +456,9 @@ message USCoreAllergyIntolerance {
 
     // mild | moderate | severe (of event as a whole)
     message SeverityCode {
-      option (.google.fhir.proto.structure_definition_kind) =
-          KIND_PRIMITIVE_TYPE;
-      option (.google.fhir.proto.fhir_valueset_url) =
-          "http://hl7.org/fhir/ValueSet/reaction-event-severity";
-      option (.google.fhir.proto.fhir_profile_base) =
-          "http://hl7.org/fhir/StructureDefinition/code";
+      option (.google.fhir.proto.structure_definition_kind) = KIND_PRIMITIVE_TYPE;
+      option (.google.fhir.proto.fhir_valueset_url) = "http://hl7.org/fhir/ValueSet/reaction-event-severity";
+      option (.google.fhir.proto.fhir_profile_base) = "http://hl7.org/fhir/StructureDefinition/code";
 
       core.AllergyIntoleranceSeverityCode.Value value = 1;
 
@@ -524,10 +482,8 @@ message USCoreAllergyIntolerance {
 // See http://hl7.org/fhir/us/core/StructureDefinition/us-core-careplan
 message USCoreCarePlanProfile {
   option (.google.fhir.proto.structure_definition_kind) = KIND_RESOURCE;
-  option (.google.fhir.proto.fhir_profile_base) =
-      "http://hl7.org/fhir/StructureDefinition/CarePlan";
-  option (.google.fhir.proto.fhir_structure_definition_url) =
-      "http://hl7.org/fhir/us/core/StructureDefinition/us-core-careplan";
+  option (.google.fhir.proto.fhir_profile_base) = "http://hl7.org/fhir/StructureDefinition/CarePlan";
+  option (.google.fhir.proto.fhir_structure_definition_url) = "http://hl7.org/fhir/us/core/StructureDefinition/us-core-careplan";
   option (.google.fhir.proto.search_parameter) = {
     name: "activity-code"
     type: TOKEN
@@ -642,8 +598,7 @@ message USCoreCarePlanProfile {
   core.Code language = 4;
 
   // Text summary of the resource, for human interpretation
-  core.Narrative text = 5
-      [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
+  core.Narrative text = 5 [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
 
   // Contained, inline Resources
   repeated protobuf.Any contained = 6;
@@ -668,24 +623,19 @@ message USCoreCarePlanProfile {
   repeated core.Uri instantiates_uri = 12;
 
   // Fulfills CarePlan
-  repeated core.Reference based_on = 13
-      [(.google.fhir.proto.valid_reference_type) = "CarePlan"];
+  repeated core.Reference based_on = 13 [(.google.fhir.proto.valid_reference_type) = "CarePlan"];
 
   // CarePlan replaced by this CarePlan
-  repeated core.Reference replaces = 14
-      [(.google.fhir.proto.valid_reference_type) = "CarePlan"];
+  repeated core.Reference replaces = 14 [(.google.fhir.proto.valid_reference_type) = "CarePlan"];
 
   // Part of referenced CarePlan
-  repeated core.Reference part_of = 15
-      [(.google.fhir.proto.valid_reference_type) = "CarePlan"];
+  repeated core.Reference part_of = 15 [(.google.fhir.proto.valid_reference_type) = "CarePlan"];
 
   // draft | active | on-hold | revoked | completed | entered-in-error | unknown
   message StatusCode {
     option (.google.fhir.proto.structure_definition_kind) = KIND_PRIMITIVE_TYPE;
-    option (.google.fhir.proto.fhir_valueset_url) =
-        "http://hl7.org/fhir/ValueSet/request-status";
-    option (.google.fhir.proto.fhir_profile_base) =
-        "http://hl7.org/fhir/StructureDefinition/code";
+    option (.google.fhir.proto.fhir_valueset_url) = "http://hl7.org/fhir/ValueSet/request-status";
+    option (.google.fhir.proto.fhir_profile_base) = "http://hl7.org/fhir/StructureDefinition/code";
 
     core.RequestStatusCode.Value value = 1;
 
@@ -693,16 +643,13 @@ message USCoreCarePlanProfile {
 
     repeated core.Extension extension = 3;
   }
-  StatusCode status = 16
-      [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
+  StatusCode status = 16 [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
 
   // proposal | plan | order | option
   message IntentCode {
     option (.google.fhir.proto.structure_definition_kind) = KIND_PRIMITIVE_TYPE;
-    option (.google.fhir.proto.fhir_valueset_url) =
-        "http://hl7.org/fhir/ValueSet/care-plan-intent";
-    option (.google.fhir.proto.fhir_profile_base) =
-        "http://hl7.org/fhir/StructureDefinition/code";
+    option (.google.fhir.proto.fhir_valueset_url) = "http://hl7.org/fhir/ValueSet/care-plan-intent";
+    option (.google.fhir.proto.fhir_profile_base) = "http://hl7.org/fhir/StructureDefinition/code";
 
     core.CarePlanIntentValueSet.Value value = 1;
 
@@ -710,12 +657,10 @@ message USCoreCarePlanProfile {
 
     repeated core.Extension extension = 3;
   }
-  IntentCode intent = 17
-      [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
+  IntentCode intent = 17 [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
 
   // Type of plan
-  repeated core.CodeableConcept category = 18
-      [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
+  repeated core.CodeableConcept category = 18 [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
 
   // Human-friendly name for the care plan
   core.String title = 19;
@@ -730,8 +675,7 @@ message USCoreCarePlanProfile {
   ];
 
   // Encounter created as part of
-  core.Reference encounter = 22
-      [(.google.fhir.proto.valid_reference_type) = "Encounter"];
+  core.Reference encounter = 22 [(.google.fhir.proto.valid_reference_type) = "Encounter"];
 
   // Time period plan covers
   core.Period period = 23;
@@ -762,25 +706,20 @@ message USCoreCarePlanProfile {
   ];
 
   // Who's involved in plan?
-  repeated core.Reference care_team = 27
-      [(.google.fhir.proto.valid_reference_type) = "CareTeam"];
+  repeated core.Reference care_team = 27 [(.google.fhir.proto.valid_reference_type) = "CareTeam"];
 
   // Health issues this plan addresses
-  repeated core.Reference addresses = 28
-      [(.google.fhir.proto.valid_reference_type) = "Condition"];
+  repeated core.Reference addresses = 28 [(.google.fhir.proto.valid_reference_type) = "Condition"];
 
   // Information considered as part of plan
-  repeated core.Reference supporting_info = 29
-      [(.google.fhir.proto.valid_reference_type) = "Resource"];
+  repeated core.Reference supporting_info = 29 [(.google.fhir.proto.valid_reference_type) = "Resource"];
 
   // Desired outcome of plan
-  repeated core.Reference goal = 30
-      [(.google.fhir.proto.valid_reference_type) = "Goal"];
+  repeated core.Reference goal = 30 [(.google.fhir.proto.valid_reference_type) = "Goal"];
 
   // Action to occur as part of plan
   message Activity {
-    option (.google.fhir.proto.fhir_path_message_constraint) =
-        "detail.empty() or reference.empty()";
+    option (.google.fhir.proto.fhir_path_message_constraint) = "detail.empty() or reference.empty()";
 
     // Unique id for inter-element referencing
     core.String id = 1;
@@ -795,8 +734,7 @@ message USCoreCarePlanProfile {
     repeated core.CodeableConcept outcome_codeable_concept = 4;
 
     // Appointment, Encounter, Procedure, etc.
-    repeated core.Reference outcome_reference = 5
-        [(.google.fhir.proto.valid_reference_type) = "Resource"];
+    repeated core.Reference outcome_reference = 5 [(.google.fhir.proto.valid_reference_type) = "Resource"];
 
     // Comments about the activity status/progress
     repeated core.Annotation progress = 6;
@@ -828,12 +766,9 @@ message USCoreCarePlanProfile {
       // Appointment | CommunicationRequest | DeviceRequest | MedicationRequest
       // | NutritionOrder | Task | ServiceRequest | VisionPrescription
       message KindCode {
-        option (.google.fhir.proto.structure_definition_kind) =
-            KIND_PRIMITIVE_TYPE;
-        option (.google.fhir.proto.fhir_valueset_url) =
-            "http://hl7.org/fhir/ValueSet/care-plan-activity-kind";
-        option (.google.fhir.proto.fhir_profile_base) =
-            "http://hl7.org/fhir/StructureDefinition/code";
+        option (.google.fhir.proto.structure_definition_kind) = KIND_PRIMITIVE_TYPE;
+        option (.google.fhir.proto.fhir_valueset_url) = "http://hl7.org/fhir/ValueSet/care-plan-activity-kind";
+        option (.google.fhir.proto.fhir_profile_base) = "http://hl7.org/fhir/StructureDefinition/code";
 
         core.CarePlanActivityKindValueSet.Value value = 1;
 
@@ -864,18 +799,14 @@ message USCoreCarePlanProfile {
       ];
 
       // Goals this activity relates to
-      repeated core.Reference goal = 10
-          [(.google.fhir.proto.valid_reference_type) = "Goal"];
+      repeated core.Reference goal = 10 [(.google.fhir.proto.valid_reference_type) = "Goal"];
 
       // not-started | scheduled | in-progress | on-hold | completed | cancelled
       // | stopped | unknown | entered-in-error
       message StatusCode {
-        option (.google.fhir.proto.structure_definition_kind) =
-            KIND_PRIMITIVE_TYPE;
-        option (.google.fhir.proto.fhir_valueset_url) =
-            "http://hl7.org/fhir/ValueSet/care-plan-activity-status";
-        option (.google.fhir.proto.fhir_profile_base) =
-            "http://hl7.org/fhir/StructureDefinition/code";
+        option (.google.fhir.proto.structure_definition_kind) = KIND_PRIMITIVE_TYPE;
+        option (.google.fhir.proto.fhir_valueset_url) = "http://hl7.org/fhir/ValueSet/care-plan-activity-status";
+        option (.google.fhir.proto.fhir_profile_base) = "http://hl7.org/fhir/StructureDefinition/code";
 
         core.CarePlanActivityStatusCode.Value value = 1;
 
@@ -883,8 +814,7 @@ message USCoreCarePlanProfile {
 
         repeated core.Extension extension = 3;
       }
-      StatusCode status = 11
-          [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
+      StatusCode status = 11 [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
 
       // Reason for current status
       core.CodeableConcept status_reason = 12;
@@ -905,8 +835,7 @@ message USCoreCarePlanProfile {
       ScheduledX scheduled = 14;
 
       // Where it should happen
-      core.Reference location = 15
-          [(.google.fhir.proto.valid_reference_type) = "Location"];
+      core.Reference location = 15 [(.google.fhir.proto.valid_reference_type) = "Location"];
 
       // Who will be responsible?
       repeated core.Reference performer = 16 [
@@ -961,10 +890,8 @@ message USCoreCarePlanProfile {
 // http://hl7.org/fhir/us/core/StructureDefinition/us-core-careteam
 message USCoreCareTeam {
   option (.google.fhir.proto.structure_definition_kind) = KIND_RESOURCE;
-  option (.google.fhir.proto.fhir_profile_base) =
-      "http://hl7.org/fhir/StructureDefinition/CareTeam";
-  option (.google.fhir.proto.fhir_structure_definition_url) =
-      "http://hl7.org/fhir/us/core/StructureDefinition/us-core-careteam";
+  option (.google.fhir.proto.fhir_profile_base) = "http://hl7.org/fhir/StructureDefinition/CareTeam";
+  option (.google.fhir.proto.fhir_structure_definition_url) = "http://hl7.org/fhir/us/core/StructureDefinition/us-core-careteam";
   option (.google.fhir.proto.search_parameter) = {
     name: "category"
     type: TOKEN
@@ -1040,10 +967,8 @@ message USCoreCareTeam {
   // proposed | active | suspended | inactive | entered-in-error
   message StatusCode {
     option (.google.fhir.proto.structure_definition_kind) = KIND_PRIMITIVE_TYPE;
-    option (.google.fhir.proto.fhir_valueset_url) =
-        "http://hl7.org/fhir/ValueSet/care-team-status";
-    option (.google.fhir.proto.fhir_profile_base) =
-        "http://hl7.org/fhir/StructureDefinition/code";
+    option (.google.fhir.proto.fhir_valueset_url) = "http://hl7.org/fhir/ValueSet/care-team-status";
+    option (.google.fhir.proto.fhir_profile_base) = "http://hl7.org/fhir/StructureDefinition/code";
 
     core.CareTeamStatusCode.Value value = 1;
 
@@ -1066,16 +991,14 @@ message USCoreCareTeam {
   ];
 
   // Encounter created as part of
-  core.Reference encounter = 15
-      [(.google.fhir.proto.valid_reference_type) = "Encounter"];
+  core.Reference encounter = 15 [(.google.fhir.proto.valid_reference_type) = "Encounter"];
 
   // Time period team covers
   core.Period period = 16;
 
   // Members of the team
   message Participant {
-    option (.google.fhir.proto.fhir_path_message_constraint) =
-        "onBehalfOf.exists() implies (member.resolve().iif(empty(), true, ofType(Practitioner).exists()))";
+    option (.google.fhir.proto.fhir_path_message_constraint) = "onBehalfOf.exists() implies (member.resolve().iif(empty(), true, ofType(Practitioner).exists()))";
 
     // Unique id for inter-element referencing
     core.String id = 1;
@@ -1087,8 +1010,7 @@ message USCoreCareTeam {
     repeated core.Extension modifier_extension = 3;
 
     // Type of involvement
-    core.CodeableConcept role = 4
-        [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
+    core.CodeableConcept role = 4 [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
 
     // Who is involved
     core.Reference member = 5 [
@@ -1100,25 +1022,21 @@ message USCoreCareTeam {
     ];
 
     // Organization of the practitioner
-    core.Reference on_behalf_of = 6
-        [(.google.fhir.proto.valid_reference_type) = "Organization"];
+    core.Reference on_behalf_of = 6 [(.google.fhir.proto.valid_reference_type) = "Organization"];
 
     // Time period of participant
     core.Period period = 7;
   }
-  repeated Participant participant = 17
-      [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
+  repeated Participant participant = 17 [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
 
   // Why the care team exists
   repeated core.CodeableConcept reason_code = 18;
 
   // Why the care team exists
-  repeated core.Reference reason_reference = 19
-      [(.google.fhir.proto.valid_reference_type) = "Condition"];
+  repeated core.Reference reason_reference = 19 [(.google.fhir.proto.valid_reference_type) = "Condition"];
 
   // Organization responsible for the care team
-  repeated core.Reference managing_organization = 20
-      [(.google.fhir.proto.valid_reference_type) = "Organization"];
+  repeated core.Reference managing_organization = 20 [(.google.fhir.proto.valid_reference_type) = "Organization"];
 
   // A contact detail for the care team (that applies to all members)
   repeated core.ContactPoint telecom = 21;
@@ -1134,10 +1052,8 @@ message USCoreCareTeam {
 // http://hl7.org/fhir/us/core/StructureDefinition/us-core-diagnosticreport-lab
 message USCoreDiagnosticReportProfileLaboratoryReporting {
   option (.google.fhir.proto.structure_definition_kind) = KIND_RESOURCE;
-  option (.google.fhir.proto.fhir_profile_base) =
-      "http://hl7.org/fhir/StructureDefinition/DiagnosticReport";
-  option (.google.fhir.proto.fhir_structure_definition_url) =
-      "http://hl7.org/fhir/us/core/StructureDefinition/us-core-diagnosticreport-lab";
+  option (.google.fhir.proto.fhir_profile_base) = "http://hl7.org/fhir/StructureDefinition/DiagnosticReport";
+  option (.google.fhir.proto.fhir_structure_definition_url) = "http://hl7.org/fhir/us/core/StructureDefinition/us-core-diagnosticreport-lab";
   option (.google.fhir.proto.search_parameter) = {
     name: "assessed-condition"
     type: REFERENCE
@@ -1267,10 +1183,8 @@ message USCoreDiagnosticReportProfileLaboratoryReporting {
   // registered | partial | preliminary | final +
   message StatusCode {
     option (.google.fhir.proto.structure_definition_kind) = KIND_PRIMITIVE_TYPE;
-    option (.google.fhir.proto.fhir_valueset_url) =
-        "http://hl7.org/fhir/ValueSet/diagnostic-report-status";
-    option (.google.fhir.proto.fhir_profile_base) =
-        "http://hl7.org/fhir/StructureDefinition/code";
+    option (.google.fhir.proto.fhir_valueset_url) = "http://hl7.org/fhir/ValueSet/diagnostic-report-status";
+    option (.google.fhir.proto.fhir_profile_base) = "http://hl7.org/fhir/StructureDefinition/code";
 
     core.DiagnosticReportStatusCode.Value value = 1;
 
@@ -1278,16 +1192,13 @@ message USCoreDiagnosticReportProfileLaboratoryReporting {
 
     repeated core.Extension extension = 3;
   }
-  StatusCode status = 12
-      [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
+  StatusCode status = 12 [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
 
   // Service category
-  repeated core.CodeableConcept category = 13
-      [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
+  repeated core.CodeableConcept category = 13 [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
 
   // US Core Laboratory Report Order Code
-  core.CodeableConcept code = 14
-      [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
+  core.CodeableConcept code = 14 [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
 
   // The subject of the report - usually, but not always, the patient
   core.Reference subject = 15 [
@@ -1296,8 +1207,7 @@ message USCoreDiagnosticReportProfileLaboratoryReporting {
   ];
 
   // Health care event when test ordered
-  core.Reference encounter = 16
-      [(.google.fhir.proto.valid_reference_type) = "Encounter"];
+  core.Reference encounter = 16 [(.google.fhir.proto.valid_reference_type) = "Encounter"];
 
   // Specimen Collection Datetime or Period
   message EffectiveX {
@@ -1308,12 +1218,10 @@ message USCoreDiagnosticReportProfileLaboratoryReporting {
       core.Period period = 2;
     }
   }
-  EffectiveX effective = 17
-      [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
+  EffectiveX effective = 17 [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
 
   // DateTime this version was made
-  core.Instant issued = 18
-      [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
+  core.Instant issued = 18 [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
 
   // Responsible Diagnostic Service
   repeated core.Reference performer = 19 [
@@ -1330,16 +1238,13 @@ message USCoreDiagnosticReportProfileLaboratoryReporting {
   ];
 
   // Specimens this report is based on
-  repeated core.Reference specimen = 21
-      [(.google.fhir.proto.valid_reference_type) = "Specimen"];
+  repeated core.Reference specimen = 21 [(.google.fhir.proto.valid_reference_type) = "Specimen"];
 
   // Observations
-  repeated core.Reference result = 22
-      [(.google.fhir.proto.valid_reference_type) = "Observation"];
+  repeated core.Reference result = 22 [(.google.fhir.proto.valid_reference_type) = "Observation"];
 
   // Reference to full details of imaging associated with the diagnostic report
-  repeated core.Reference imaging_study = 23
-      [(.google.fhir.proto.valid_reference_type) = "ImagingStudy"];
+  repeated core.Reference imaging_study = 23 [(.google.fhir.proto.valid_reference_type) = "ImagingStudy"];
 
   // Key images associated with this report
   message Media {
@@ -1383,10 +1288,8 @@ message USCoreDiagnosticReportProfileLaboratoryReporting {
 // http://hl7.org/fhir/us/core/StructureDefinition/us-core-diagnosticreport-note
 message USCoreDiagnosticReportProfileNoteExchange {
   option (.google.fhir.proto.structure_definition_kind) = KIND_RESOURCE;
-  option (.google.fhir.proto.fhir_profile_base) =
-      "http://hl7.org/fhir/StructureDefinition/DiagnosticReport";
-  option (.google.fhir.proto.fhir_structure_definition_url) =
-      "http://hl7.org/fhir/us/core/StructureDefinition/us-core-diagnosticreport-note";
+  option (.google.fhir.proto.fhir_profile_base) = "http://hl7.org/fhir/StructureDefinition/DiagnosticReport";
+  option (.google.fhir.proto.fhir_structure_definition_url) = "http://hl7.org/fhir/us/core/StructureDefinition/us-core-diagnosticreport-note";
   option (.google.fhir.proto.search_parameter) = {
     name: "assessed-condition"
     type: REFERENCE
@@ -1516,10 +1419,8 @@ message USCoreDiagnosticReportProfileNoteExchange {
   // registered | partial | preliminary | final +
   message StatusCode {
     option (.google.fhir.proto.structure_definition_kind) = KIND_PRIMITIVE_TYPE;
-    option (.google.fhir.proto.fhir_valueset_url) =
-        "http://hl7.org/fhir/ValueSet/diagnostic-report-status";
-    option (.google.fhir.proto.fhir_profile_base) =
-        "http://hl7.org/fhir/StructureDefinition/code";
+    option (.google.fhir.proto.fhir_valueset_url) = "http://hl7.org/fhir/ValueSet/diagnostic-report-status";
+    option (.google.fhir.proto.fhir_profile_base) = "http://hl7.org/fhir/StructureDefinition/code";
 
     core.DiagnosticReportStatusCode.Value value = 1;
 
@@ -1527,16 +1428,13 @@ message USCoreDiagnosticReportProfileNoteExchange {
 
     repeated core.Extension extension = 3;
   }
-  StatusCode status = 12
-      [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
+  StatusCode status = 12 [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
 
   // Service category
-  repeated core.CodeableConcept category = 13
-      [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
+  repeated core.CodeableConcept category = 13 [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
 
   // US Core Report Code
-  core.CodeableConcept code = 14
-      [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
+  core.CodeableConcept code = 14 [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
 
   // The subject of the report - usually, but not always, the patient
   core.Reference subject = 15 [
@@ -1545,8 +1443,7 @@ message USCoreDiagnosticReportProfileNoteExchange {
   ];
 
   // Health care event when test ordered
-  core.Reference encounter = 16
-      [(.google.fhir.proto.valid_reference_type) = "Encounter"];
+  core.Reference encounter = 16 [(.google.fhir.proto.valid_reference_type) = "Encounter"];
 
   // Time of the report or note
   message EffectiveX {
@@ -1557,8 +1454,7 @@ message USCoreDiagnosticReportProfileNoteExchange {
       core.Period period = 2;
     }
   }
-  EffectiveX effective = 17
-      [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
+  EffectiveX effective = 17 [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
 
   // DateTime this version was made
   core.Instant issued = 18;
@@ -1578,16 +1474,13 @@ message USCoreDiagnosticReportProfileNoteExchange {
   ];
 
   // Specimens this report is based on
-  repeated core.Reference specimen = 21
-      [(.google.fhir.proto.valid_reference_type) = "Specimen"];
+  repeated core.Reference specimen = 21 [(.google.fhir.proto.valid_reference_type) = "Specimen"];
 
   // Observations
-  repeated core.Reference result = 22
-      [(.google.fhir.proto.valid_reference_type) = "Observation"];
+  repeated core.Reference result = 22 [(.google.fhir.proto.valid_reference_type) = "Observation"];
 
   // Reference to full details of imaging associated with the diagnostic report
-  repeated core.Reference imaging_study = 23
-      [(.google.fhir.proto.valid_reference_type) = "ImagingStudy"];
+  repeated core.Reference imaging_study = 23 [(.google.fhir.proto.valid_reference_type) = "ImagingStudy"];
 
   // Key images associated with this report
   message Media {
@@ -1626,10 +1519,8 @@ message USCoreDiagnosticReportProfileNoteExchange {
 // See http://hl7.org/fhir/us/core/StructureDefinition/us-core-documentreference
 message USCoreDocumentReferenceProfile {
   option (.google.fhir.proto.structure_definition_kind) = KIND_RESOURCE;
-  option (.google.fhir.proto.fhir_profile_base) =
-      "http://hl7.org/fhir/StructureDefinition/DocumentReference";
-  option (.google.fhir.proto.fhir_structure_definition_url) =
-      "http://hl7.org/fhir/us/core/StructureDefinition/us-core-documentreference";
+  option (.google.fhir.proto.fhir_profile_base) = "http://hl7.org/fhir/StructureDefinition/DocumentReference";
+  option (.google.fhir.proto.fhir_structure_definition_url) = "http://hl7.org/fhir/us/core/StructureDefinition/us-core-documentreference";
   option (.google.fhir.proto.search_parameter) = {
     name: "authenticator"
     type: REFERENCE
@@ -1793,10 +1684,8 @@ message USCoreDocumentReferenceProfile {
   // current | superseded | entered-in-error
   message StatusCode {
     option (.google.fhir.proto.structure_definition_kind) = KIND_PRIMITIVE_TYPE;
-    option (.google.fhir.proto.fhir_valueset_url) =
-        "http://hl7.org/fhir/ValueSet/document-reference-status";
-    option (.google.fhir.proto.fhir_profile_base) =
-        "http://hl7.org/fhir/StructureDefinition/code";
+    option (.google.fhir.proto.fhir_valueset_url) = "http://hl7.org/fhir/ValueSet/document-reference-status";
+    option (.google.fhir.proto.fhir_profile_base) = "http://hl7.org/fhir/StructureDefinition/code";
 
     core.DocumentReferenceStatusCode.Value value = 1;
 
@@ -1804,16 +1693,13 @@ message USCoreDocumentReferenceProfile {
 
     repeated core.Extension extension = 3;
   }
-  StatusCode status = 12
-      [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
+  StatusCode status = 12 [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
 
   // preliminary | final | amended | entered-in-error
   message DocStatusCode {
     option (.google.fhir.proto.structure_definition_kind) = KIND_PRIMITIVE_TYPE;
-    option (.google.fhir.proto.fhir_valueset_url) =
-        "http://hl7.org/fhir/ValueSet/composition-status";
-    option (.google.fhir.proto.fhir_profile_base) =
-        "http://hl7.org/fhir/StructureDefinition/code";
+    option (.google.fhir.proto.fhir_valueset_url) = "http://hl7.org/fhir/ValueSet/composition-status";
+    option (.google.fhir.proto.fhir_profile_base) = "http://hl7.org/fhir/StructureDefinition/code";
 
     core.CompositionStatusCode.Value value = 1;
 
@@ -1824,12 +1710,10 @@ message USCoreDocumentReferenceProfile {
   DocStatusCode doc_status = 13;
 
   // Kind of document (LOINC if possible)
-  core.CodeableConcept type = 14
-      [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
+  core.CodeableConcept type = 14 [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
 
   // Categorization of document
-  repeated core.CodeableConcept category = 15
-      [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
+  repeated core.CodeableConcept category = 15 [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
 
   // Who/what is the subject of the document
   core.Reference subject = 16 [
@@ -1858,8 +1742,7 @@ message USCoreDocumentReferenceProfile {
   ];
 
   // Organization which maintains the document
-  core.Reference custodian = 20
-      [(.google.fhir.proto.valid_reference_type) = "Organization"];
+  core.Reference custodian = 20 [(.google.fhir.proto.valid_reference_type) = "Organization"];
 
   // Relationships to other documents
   message RelatesTo {
@@ -1874,12 +1757,9 @@ message USCoreDocumentReferenceProfile {
 
     // replaces | transforms | signs | appends
     message CodeType {
-      option (.google.fhir.proto.structure_definition_kind) =
-          KIND_PRIMITIVE_TYPE;
-      option (.google.fhir.proto.fhir_valueset_url) =
-          "http://hl7.org/fhir/ValueSet/document-relationship-type";
-      option (.google.fhir.proto.fhir_profile_base) =
-          "http://hl7.org/fhir/StructureDefinition/code";
+      option (.google.fhir.proto.structure_definition_kind) = KIND_PRIMITIVE_TYPE;
+      option (.google.fhir.proto.fhir_valueset_url) = "http://hl7.org/fhir/ValueSet/document-relationship-type";
+      option (.google.fhir.proto.fhir_profile_base) = "http://hl7.org/fhir/StructureDefinition/code";
 
       core.DocumentRelationshipTypeCode.Value value = 1;
 
@@ -1887,8 +1767,7 @@ message USCoreDocumentReferenceProfile {
 
       repeated core.Extension extension = 3;
     }
-    CodeType code = 4
-        [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
+    CodeType code = 4 [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
 
     // Target of the relationship
     core.Reference target = 5 [
@@ -1918,15 +1797,13 @@ message USCoreDocumentReferenceProfile {
     // Where to access the document
     core.Attachment attachment = 4 [
       (.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR,
-      (.google.fhir.proto.fhir_path_constraint) =
-          "url.exists() or data.exists()"
+      (.google.fhir.proto.fhir_path_constraint) = "url.exists() or data.exists()"
     ];
 
     // Format/content rules for the document
     core.Coding format = 5;
   }
-  Content content = 24
-      [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
+  Content content = 24 [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
 
   // Clinical context of document
   message Context {
@@ -1940,8 +1817,7 @@ message USCoreDocumentReferenceProfile {
     repeated core.Extension modifier_extension = 3;
 
     // Context of the document  content
-    core.Reference encounter = 4
-        [(.google.fhir.proto.valid_reference_type) = "Encounter"];
+    core.Reference encounter = 4 [(.google.fhir.proto.valid_reference_type) = "Encounter"];
 
     // Main clinical acts documented
     repeated core.CodeableConcept event = 5;
@@ -1957,12 +1833,10 @@ message USCoreDocumentReferenceProfile {
     core.CodeableConcept practice_setting = 8;
 
     // Patient demographics from source
-    core.Reference source_patient_info = 9
-        [(.google.fhir.proto.valid_reference_type) = "Patient"];
+    core.Reference source_patient_info = 9 [(.google.fhir.proto.valid_reference_type) = "Patient"];
 
     // Related identifiers or resources
-    repeated core.Reference related = 10
-        [(.google.fhir.proto.valid_reference_type) = "Resource"];
+    repeated core.Reference related = 10 [(.google.fhir.proto.valid_reference_type) = "Resource"];
   }
   Context context = 25;
 }
@@ -1972,10 +1846,8 @@ message USCoreDocumentReferenceProfile {
 // See http://hl7.org/fhir/us/core/StructureDefinition/us-core-encounter
 message USCoreEncounterProfile {
   option (.google.fhir.proto.structure_definition_kind) = KIND_RESOURCE;
-  option (.google.fhir.proto.fhir_profile_base) =
-      "http://hl7.org/fhir/StructureDefinition/Encounter";
-  option (.google.fhir.proto.fhir_structure_definition_url) =
-      "http://hl7.org/fhir/us/core/StructureDefinition/us-core-encounter";
+  option (.google.fhir.proto.fhir_profile_base) = "http://hl7.org/fhir/StructureDefinition/Encounter";
+  option (.google.fhir.proto.fhir_structure_definition_url) = "http://hl7.org/fhir/us/core/StructureDefinition/us-core-encounter";
   option (.google.fhir.proto.search_parameter) = {
     name: "account"
     type: REFERENCE
@@ -2127,10 +1999,8 @@ message USCoreEncounterProfile {
   // +
   message StatusCode {
     option (.google.fhir.proto.structure_definition_kind) = KIND_PRIMITIVE_TYPE;
-    option (.google.fhir.proto.fhir_valueset_url) =
-        "http://hl7.org/fhir/ValueSet/encounter-status";
-    option (.google.fhir.proto.fhir_profile_base) =
-        "http://hl7.org/fhir/StructureDefinition/code";
+    option (.google.fhir.proto.fhir_valueset_url) = "http://hl7.org/fhir/ValueSet/encounter-status";
+    option (.google.fhir.proto.fhir_profile_base) = "http://hl7.org/fhir/StructureDefinition/code";
 
     core.EncounterStatusCode.Value value = 1;
 
@@ -2138,8 +2008,7 @@ message USCoreEncounterProfile {
 
     repeated core.Extension extension = 3;
   }
-  StatusCode status = 11
-      [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
+  StatusCode status = 11 [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
 
   // List of past encounter statuses
   message StatusHistory {
@@ -2155,12 +2024,9 @@ message USCoreEncounterProfile {
     // planned | arrived | triaged | in-progress | onleave | finished |
     // cancelled +
     message StatusCode {
-      option (.google.fhir.proto.structure_definition_kind) =
-          KIND_PRIMITIVE_TYPE;
-      option (.google.fhir.proto.fhir_valueset_url) =
-          "http://hl7.org/fhir/ValueSet/encounter-status";
-      option (.google.fhir.proto.fhir_profile_base) =
-          "http://hl7.org/fhir/StructureDefinition/code";
+      option (.google.fhir.proto.structure_definition_kind) = KIND_PRIMITIVE_TYPE;
+      option (.google.fhir.proto.fhir_valueset_url) = "http://hl7.org/fhir/ValueSet/encounter-status";
+      option (.google.fhir.proto.fhir_profile_base) = "http://hl7.org/fhir/StructureDefinition/code";
 
       core.EncounterStatusCode.Value value = 1;
 
@@ -2168,12 +2034,10 @@ message USCoreEncounterProfile {
 
       repeated core.Extension extension = 3;
     }
-    StatusCode status = 4
-        [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
+    StatusCode status = 4 [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
 
     // The time that the episode was in the specified status
-    core.Period period = 5
-        [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
+    core.Period period = 5 [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
   }
   repeated StatusHistory status_history = 12;
 
@@ -2201,14 +2065,12 @@ message USCoreEncounterProfile {
     ];
 
     // The time that the episode was in the specified class
-    core.Period period = 5
-        [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
+    core.Period period = 5 [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
   }
   repeated ClassHistory class_history = 14;
 
   // Specific type of encounter
-  repeated core.CodeableConcept type = 15
-      [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
+  repeated core.CodeableConcept type = 15 [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
 
   // Specific type of service
   core.CodeableConcept service_type = 16;
@@ -2223,12 +2085,10 @@ message USCoreEncounterProfile {
   ];
 
   // Episode(s) of care that this encounter should be recorded against
-  repeated core.Reference episode_of_care = 19
-      [(.google.fhir.proto.valid_reference_type) = "EpisodeOfCare"];
+  repeated core.Reference episode_of_care = 19 [(.google.fhir.proto.valid_reference_type) = "EpisodeOfCare"];
 
   // The ServiceRequest that initiated this encounter
-  repeated core.Reference based_on = 20
-      [(.google.fhir.proto.valid_reference_type) = "ServiceRequest"];
+  repeated core.Reference based_on = 20 [(.google.fhir.proto.valid_reference_type) = "ServiceRequest"];
 
   // List of participants involved in the encounter
   message Participant {
@@ -2248,14 +2108,12 @@ message USCoreEncounterProfile {
     core.Period period = 5;
 
     // Persons involved in the encounter other than the patient
-    core.Reference individual = 6
-        [(.google.fhir.proto.valid_reference_type) = "Practitioner"];
+    core.Reference individual = 6 [(.google.fhir.proto.valid_reference_type) = "Practitioner"];
   }
   repeated Participant participant = 21;
 
   // The appointment that scheduled this encounter
-  repeated core.Reference appointment = 22
-      [(.google.fhir.proto.valid_reference_type) = "Appointment"];
+  repeated core.Reference appointment = 22 [(.google.fhir.proto.valid_reference_type) = "Appointment"];
 
   // The start and end time of the encounter
   core.Period period = 23;
@@ -2302,8 +2160,7 @@ message USCoreEncounterProfile {
   repeated Diagnosis diagnosis = 27;
 
   // The set of accounts that may be used for billing for this Encounter
-  repeated core.Reference account = 28
-      [(.google.fhir.proto.valid_reference_type) = "Account"];
+  repeated core.Reference account = 28 [(.google.fhir.proto.valid_reference_type) = "Account"];
 
   // Details about the admission to a healthcare service
   message Hospitalization {
@@ -2371,12 +2228,9 @@ message USCoreEncounterProfile {
 
     // planned | active | reserved | completed
     message StatusCode {
-      option (.google.fhir.proto.structure_definition_kind) =
-          KIND_PRIMITIVE_TYPE;
-      option (.google.fhir.proto.fhir_valueset_url) =
-          "http://hl7.org/fhir/ValueSet/encounter-location-status";
-      option (.google.fhir.proto.fhir_profile_base) =
-          "http://hl7.org/fhir/StructureDefinition/code";
+      option (.google.fhir.proto.structure_definition_kind) = KIND_PRIMITIVE_TYPE;
+      option (.google.fhir.proto.fhir_valueset_url) = "http://hl7.org/fhir/ValueSet/encounter-location-status";
+      option (.google.fhir.proto.fhir_profile_base) = "http://hl7.org/fhir/StructureDefinition/code";
 
       core.EncounterLocationStatusCode.Value value = 1;
 
@@ -2396,12 +2250,10 @@ message USCoreEncounterProfile {
   repeated Location location = 30;
 
   // The organization (facility) responsible for this encounter
-  core.Reference service_provider = 31
-      [(.google.fhir.proto.valid_reference_type) = "Organization"];
+  core.Reference service_provider = 31 [(.google.fhir.proto.valid_reference_type) = "Organization"];
 
   // Another Encounter this encounter is part of
-  core.Reference part_of = 32
-      [(.google.fhir.proto.valid_reference_type) = "Encounter"];
+  core.Reference part_of = 32 [(.google.fhir.proto.valid_reference_type) = "Encounter"];
 }
 
 // Auto-generated from StructureDefinition for USCoreGoalProfile.
@@ -2409,10 +2261,8 @@ message USCoreEncounterProfile {
 // See http://hl7.org/fhir/us/core/StructureDefinition/us-core-goal
 message USCoreGoalProfile {
   option (.google.fhir.proto.structure_definition_kind) = KIND_RESOURCE;
-  option (.google.fhir.proto.fhir_profile_base) =
-      "http://hl7.org/fhir/StructureDefinition/Goal";
-  option (.google.fhir.proto.fhir_structure_definition_url) =
-      "http://hl7.org/fhir/us/core/StructureDefinition/us-core-goal";
+  option (.google.fhir.proto.fhir_profile_base) = "http://hl7.org/fhir/StructureDefinition/Goal";
+  option (.google.fhir.proto.fhir_structure_definition_url) = "http://hl7.org/fhir/us/core/StructureDefinition/us-core-goal";
   option (.google.fhir.proto.search_parameter) = {
     name: "achievement-status"
     type: TOKEN
@@ -2489,10 +2339,8 @@ message USCoreGoalProfile {
   // entered-in-error | rejected
   message LifecycleStatusCode {
     option (.google.fhir.proto.structure_definition_kind) = KIND_PRIMITIVE_TYPE;
-    option (.google.fhir.proto.fhir_valueset_url) =
-        "http://hl7.org/fhir/ValueSet/goal-status";
-    option (.google.fhir.proto.fhir_profile_base) =
-        "http://hl7.org/fhir/StructureDefinition/code";
+    option (.google.fhir.proto.fhir_valueset_url) = "http://hl7.org/fhir/ValueSet/goal-status";
+    option (.google.fhir.proto.fhir_profile_base) = "http://hl7.org/fhir/StructureDefinition/code";
 
     core.GoalLifecycleStatusCode.Value value = 1;
 
@@ -2500,8 +2348,7 @@ message USCoreGoalProfile {
 
     repeated core.Extension extension = 3;
   }
-  LifecycleStatusCode lifecycle_status = 11
-      [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
+  LifecycleStatusCode lifecycle_status = 11 [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
 
   // in-progress | improving | worsening | no-change | achieved | sustaining |
   // not-achieved | no-progress | not-attainable
@@ -2514,8 +2361,7 @@ message USCoreGoalProfile {
   core.CodeableConcept priority = 14;
 
   // Code or text describing goal
-  core.CodeableConcept description = 15
-      [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
+  core.CodeableConcept description = 15 [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
 
   // Who this goal is intended for
   core.Reference subject = 16 [
@@ -2536,8 +2382,7 @@ message USCoreGoalProfile {
 
   // Target outcome for the goal
   message Target {
-    option (.google.fhir.proto.fhir_path_message_constraint) =
-        "(detail.exists() and measure.exists()) or detail.exists().not()";
+    option (.google.fhir.proto.fhir_path_message_constraint) = "(detail.exists() and measure.exists()) or detail.exists().not()";
 
     // Unique id for inter-element referencing
     core.String id = 1;
@@ -2610,8 +2455,7 @@ message USCoreGoalProfile {
   repeated core.CodeableConcept outcome_code = 24;
 
   // Observation that resulted from goal
-  repeated core.Reference outcome_reference = 25
-      [(.google.fhir.proto.valid_reference_type) = "Observation"];
+  repeated core.Reference outcome_reference = 25 [(.google.fhir.proto.valid_reference_type) = "Observation"];
 }
 
 // Auto-generated from StructureDefinition for USCoreImmunizationProfile.
@@ -2619,10 +2463,8 @@ message USCoreGoalProfile {
 // See http://hl7.org/fhir/us/core/StructureDefinition/us-core-immunization
 message USCoreImmunizationProfile {
   option (.google.fhir.proto.structure_definition_kind) = KIND_RESOURCE;
-  option (.google.fhir.proto.fhir_profile_base) =
-      "http://hl7.org/fhir/StructureDefinition/Immunization";
-  option (.google.fhir.proto.fhir_structure_definition_url) =
-      "http://hl7.org/fhir/us/core/StructureDefinition/us-core-immunization";
+  option (.google.fhir.proto.fhir_profile_base) = "http://hl7.org/fhir/StructureDefinition/Immunization";
+  option (.google.fhir.proto.fhir_structure_definition_url) = "http://hl7.org/fhir/us/core/StructureDefinition/us-core-immunization";
   option (.google.fhir.proto.search_parameter) = {
     name: "date"
     type: DATE
@@ -2738,10 +2580,8 @@ message USCoreImmunizationProfile {
   // completed | entered-in-error | not-done
   message StatusCode {
     option (.google.fhir.proto.structure_definition_kind) = KIND_PRIMITIVE_TYPE;
-    option (.google.fhir.proto.fhir_valueset_url) =
-        "http://hl7.org/fhir/ValueSet/immunization-status";
-    option (.google.fhir.proto.fhir_profile_base) =
-        "http://hl7.org/fhir/StructureDefinition/code";
+    option (.google.fhir.proto.fhir_valueset_url) = "http://hl7.org/fhir/ValueSet/immunization-status";
+    option (.google.fhir.proto.fhir_profile_base) = "http://hl7.org/fhir/StructureDefinition/code";
 
     core.ImmunizationStatusCodesValueSet.Value value = 1;
 
@@ -2749,8 +2589,7 @@ message USCoreImmunizationProfile {
 
     repeated core.Extension extension = 3;
   }
-  StatusCode status = 11
-      [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
+  StatusCode status = 11 [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
 
   // Reason not done
   core.CodeableConcept status_reason = 12;
@@ -2758,8 +2597,7 @@ message USCoreImmunizationProfile {
   // Vaccine Product Type (bind to CVX)
   core.CodeableConcept vaccine_code = 13 [
     (.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR,
-    (.google.fhir.proto.fhir_path_warning_constraint) =
-        "coding.where(system='http://hl7.org/fhir/sid/ndc').empty()"
+    (.google.fhir.proto.fhir_path_warning_constraint) = "coding.where(system='http://hl7.org/fhir/sid/ndc').empty()"
   ];
 
   // Who was immunized
@@ -2769,8 +2607,7 @@ message USCoreImmunizationProfile {
   ];
 
   // Encounter immunization was part of
-  core.Reference encounter = 15
-      [(.google.fhir.proto.valid_reference_type) = "Encounter"];
+  core.Reference encounter = 15 [(.google.fhir.proto.valid_reference_type) = "Encounter"];
 
   // Vaccine administration date
   message OccurrenceX {
@@ -2781,26 +2618,22 @@ message USCoreImmunizationProfile {
       core.String string_value = 2 [json_name = "string"];
     }
   }
-  OccurrenceX occurrence = 16
-      [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
+  OccurrenceX occurrence = 16 [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
 
   // When the immunization was first captured in the subject's record
   core.DateTime recorded = 17;
 
   // Indicates context the data was recorded in
-  core.Boolean primary_source = 18
-      [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
+  core.Boolean primary_source = 18 [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
 
   // Indicates the source of a secondarily reported record
   core.CodeableConcept report_origin = 19;
 
   // Where immunization occurred
-  core.Reference location = 20
-      [(.google.fhir.proto.valid_reference_type) = "Location"];
+  core.Reference location = 20 [(.google.fhir.proto.valid_reference_type) = "Location"];
 
   // Vaccine manufacturer
-  core.Reference manufacturer = 21
-      [(.google.fhir.proto.valid_reference_type) = "Organization"];
+  core.Reference manufacturer = 21 [(.google.fhir.proto.valid_reference_type) = "Organization"];
 
   // Vaccine lot number
   core.String lot_number = 22;
@@ -2862,8 +2695,7 @@ message USCoreImmunizationProfile {
 
   // Educational material presented to patient
   message Education {
-    option (.google.fhir.proto.fhir_path_message_constraint) =
-        "documentType.exists() or reference.exists()";
+    option (.google.fhir.proto.fhir_path_message_constraint) = "documentType.exists() or reference.exists()";
 
     // Unique id for inter-element referencing
     core.String id = 1;
@@ -2909,8 +2741,7 @@ message USCoreImmunizationProfile {
     core.DateTime date = 4;
 
     // Additional information on reaction
-    core.Reference detail = 5
-        [(.google.fhir.proto.valid_reference_type) = "Observation"];
+    core.Reference detail = 5 [(.google.fhir.proto.valid_reference_type) = "Observation"];
 
     // Indicates self-reported reaction
     core.Boolean reported = 6;
@@ -2932,8 +2763,7 @@ message USCoreImmunizationProfile {
     core.String series = 4;
 
     // Who is responsible for publishing the recommendations
-    core.Reference authority = 5
-        [(.google.fhir.proto.valid_reference_type) = "Organization"];
+    core.Reference authority = 5 [(.google.fhir.proto.valid_reference_type) = "Organization"];
 
     // Vaccine preventatable disease being targetted
     repeated core.CodeableConcept target_disease = 6;
@@ -2947,8 +2777,7 @@ message USCoreImmunizationProfile {
         core.String string_value = 2 [json_name = "string"];
       }
     }
-    DoseNumberX dose_number = 7
-        [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
+    DoseNumberX dose_number = 7 [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
 
     // Recommended number of doses for immunity
     message SeriesDosesX {
@@ -2970,14 +2799,10 @@ message USCoreImmunizationProfile {
 // http://hl7.org/fhir/us/core/StructureDefinition/us-core-implantable-device
 message USCoreImplantableDeviceProfile {
   option (.google.fhir.proto.structure_definition_kind) = KIND_RESOURCE;
-  option (.google.fhir.proto.fhir_profile_base) =
-      "http://hl7.org/fhir/StructureDefinition/Device";
-  option (.google.fhir.proto.fhir_structure_definition_url) =
-      "http://hl7.org/fhir/us/core/StructureDefinition/us-core-implantable-device";
-  option (.google.fhir.proto.fhir_path_message_constraint) =
-      "udiCarrier.empty() or (udiCarrier.carrierAIDC.exists() or udiCarrier.carrierHRF.exists())";
-  option (.google.fhir.proto.fhir_path_message_constraint) =
-      "udiCarrier.empty() or (manufactureDate.exists() or expirationDate.exists() or lotNumber.exists() or serialNumber.exists() or distinctIdentifier.exists())";
+  option (.google.fhir.proto.fhir_profile_base) = "http://hl7.org/fhir/StructureDefinition/Device";
+  option (.google.fhir.proto.fhir_structure_definition_url) = "http://hl7.org/fhir/us/core/StructureDefinition/us-core-implantable-device";
+  option (.google.fhir.proto.fhir_path_message_constraint) = "udiCarrier.empty() or (udiCarrier.carrierAIDC.exists() or udiCarrier.carrierHRF.exists())";
+  option (.google.fhir.proto.fhir_path_message_constraint) = "udiCarrier.empty() or (manufactureDate.exists() or expirationDate.exists() or lotNumber.exists() or serialNumber.exists() or distinctIdentifier.exists())";
   option (.google.fhir.proto.search_parameter) = {
     name: "device-name"
     type: STRING
@@ -3071,8 +2896,7 @@ message USCoreImplantableDeviceProfile {
   repeated core.Identifier identifier = 10;
 
   // The reference to the definition for the device
-  core.Reference definition = 11
-      [(.google.fhir.proto.valid_reference_type) = "DeviceDefinition"];
+  core.Reference definition = 11 [(.google.fhir.proto.valid_reference_type) = "DeviceDefinition"];
 
   // Unique Device Identifier (UDI) Barcode string
   message UdiCarrier {
@@ -3086,8 +2910,7 @@ message USCoreImplantableDeviceProfile {
     repeated core.Extension modifier_extension = 3;
 
     // Mandatory fixed portion of UDI
-    core.String device_identifier = 4
-        [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
+    core.String device_identifier = 4 [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
 
     // UDI Issuing Organization
     core.Uri issuer = 5;
@@ -3103,12 +2926,9 @@ message USCoreImplantableDeviceProfile {
 
     // barcode | rfid | manual +
     message EntryTypeCode {
-      option (.google.fhir.proto.structure_definition_kind) =
-          KIND_PRIMITIVE_TYPE;
-      option (.google.fhir.proto.fhir_valueset_url) =
-          "http://hl7.org/fhir/ValueSet/udi-entry-type";
-      option (.google.fhir.proto.fhir_profile_base) =
-          "http://hl7.org/fhir/StructureDefinition/code";
+      option (.google.fhir.proto.structure_definition_kind) = KIND_PRIMITIVE_TYPE;
+      option (.google.fhir.proto.fhir_valueset_url) = "http://hl7.org/fhir/ValueSet/udi-entry-type";
+      option (.google.fhir.proto.fhir_profile_base) = "http://hl7.org/fhir/StructureDefinition/code";
 
       core.UDIEntryTypeCode.Value value = 1;
 
@@ -3123,10 +2943,8 @@ message USCoreImplantableDeviceProfile {
   // active | inactive | entered-in-error | unknown
   message StatusCode {
     option (.google.fhir.proto.structure_definition_kind) = KIND_PRIMITIVE_TYPE;
-    option (.google.fhir.proto.fhir_valueset_url) =
-        "http://hl7.org/fhir/ValueSet/device-status";
-    option (.google.fhir.proto.fhir_profile_base) =
-        "http://hl7.org/fhir/StructureDefinition/code";
+    option (.google.fhir.proto.fhir_valueset_url) = "http://hl7.org/fhir/ValueSet/device-status";
+    option (.google.fhir.proto.fhir_profile_base) = "http://hl7.org/fhir/StructureDefinition/code";
 
     core.FHIRDeviceStatusCode.Value value = 1;
 
@@ -3170,18 +2988,14 @@ message USCoreImplantableDeviceProfile {
     repeated core.Extension modifier_extension = 3;
 
     // The name of the device
-    core.String name = 4
-        [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
+    core.String name = 4 [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
 
     // udi-label-name | user-friendly-name | patient-reported-name |
     // manufacturer-name | model-name | other
     message TypeCode {
-      option (.google.fhir.proto.structure_definition_kind) =
-          KIND_PRIMITIVE_TYPE;
-      option (.google.fhir.proto.fhir_valueset_url) =
-          "http://hl7.org/fhir/ValueSet/device-nametype";
-      option (.google.fhir.proto.fhir_profile_base) =
-          "http://hl7.org/fhir/StructureDefinition/code";
+      option (.google.fhir.proto.structure_definition_kind) = KIND_PRIMITIVE_TYPE;
+      option (.google.fhir.proto.fhir_valueset_url) = "http://hl7.org/fhir/ValueSet/device-nametype";
+      option (.google.fhir.proto.fhir_profile_base) = "http://hl7.org/fhir/StructureDefinition/code";
 
       core.DeviceNameTypeCode.Value value = 1;
 
@@ -3189,8 +3003,7 @@ message USCoreImplantableDeviceProfile {
 
       repeated core.Extension extension = 3;
     }
-    TypeCode type = 5
-        [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
+    TypeCode type = 5 [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
   }
   repeated DeviceName device_name = 21;
 
@@ -3201,8 +3014,7 @@ message USCoreImplantableDeviceProfile {
   core.String part_number = 23;
 
   // The kind or type of device
-  core.CodeableConcept type = 24
-      [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
+  core.CodeableConcept type = 24 [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
 
   // The capabilities supported on a  device, the standards to which the device
   // conforms for a particular purpose, and used for the communication
@@ -3217,8 +3029,7 @@ message USCoreImplantableDeviceProfile {
     repeated core.Extension modifier_extension = 3;
 
     // The standard that is used to operate and communicate
-    core.CodeableConcept system_type = 4
-        [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
+    core.CodeableConcept system_type = 4 [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
 
     // The version of the standard that is used to operate and communicate
     core.String version = 5;
@@ -3243,8 +3054,7 @@ message USCoreImplantableDeviceProfile {
     core.Identifier component = 5;
 
     // The version text
-    core.String value = 6
-        [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
+    core.String value = 6 [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
   }
   repeated Version version = 26;
 
@@ -3261,8 +3071,7 @@ message USCoreImplantableDeviceProfile {
     repeated core.Extension modifier_extension = 3;
 
     // Code that specifies the property DeviceDefinitionPropetyCode (Extensible)
-    core.CodeableConcept type = 4
-        [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
+    core.CodeableConcept type = 4 [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
 
     // Property value as a quantity
     repeated core.Quantity value_quantity = 5;
@@ -3279,15 +3088,13 @@ message USCoreImplantableDeviceProfile {
   ];
 
   // Organization responsible for device
-  core.Reference owner = 29
-      [(.google.fhir.proto.valid_reference_type) = "Organization"];
+  core.Reference owner = 29 [(.google.fhir.proto.valid_reference_type) = "Organization"];
 
   // Details for human/organization for support
   repeated core.ContactPoint contact = 30;
 
   // Where the device is found
-  core.Reference location = 31
-      [(.google.fhir.proto.valid_reference_type) = "Location"];
+  core.Reference location = 31 [(.google.fhir.proto.valid_reference_type) = "Location"];
 
   // Network address to contact device
   core.Uri url = 32;
@@ -3299,8 +3106,7 @@ message USCoreImplantableDeviceProfile {
   repeated core.CodeableConcept safety = 34;
 
   // The parent device
-  core.Reference parent = 35
-      [(.google.fhir.proto.valid_reference_type) = "Device"];
+  core.Reference parent = 35 [(.google.fhir.proto.valid_reference_type) = "Device"];
 }
 
 // Auto-generated from StructureDefinition for
@@ -3308,16 +3114,11 @@ message USCoreImplantableDeviceProfile {
 // See http://hl7.org/fhir/us/core/StructureDefinition/us-core-observation-lab
 message USCoreLaboratoryResultObservationProfile {
   option (.google.fhir.proto.structure_definition_kind) = KIND_RESOURCE;
-  option (.google.fhir.proto.fhir_profile_base) =
-      "http://hl7.org/fhir/StructureDefinition/Observation";
-  option (.google.fhir.proto.fhir_structure_definition_url) =
-      "http://hl7.org/fhir/us/core/StructureDefinition/us-core-observation-lab";
-  option (.google.fhir.proto.fhir_path_message_constraint) =
-      "dataAbsentReason.empty() or value.empty()";
-  option (.google.fhir.proto.fhir_path_message_constraint) =
-      "value.empty() or component.code.where(coding.intersect(%resource.code.coding).exists()).empty()";
-  option (.google.fhir.proto.fhir_path_message_constraint) =
-      "(component.empty() and related.empty()) implies (dataAbsentReason or value)";
+  option (.google.fhir.proto.fhir_profile_base) = "http://hl7.org/fhir/StructureDefinition/Observation";
+  option (.google.fhir.proto.fhir_structure_definition_url) = "http://hl7.org/fhir/us/core/StructureDefinition/us-core-observation-lab";
+  option (.google.fhir.proto.fhir_path_message_constraint) = "dataAbsentReason.empty() or value.empty()";
+  option (.google.fhir.proto.fhir_path_message_constraint) = "value.empty() or component.code.where(coding.intersect(%resource.code.coding).exists()).empty()";
+  option (.google.fhir.proto.fhir_path_message_constraint) = "(component.empty() and related.empty()) implies (dataAbsentReason or value)";
   option (.google.fhir.proto.search_parameter) = {
     name: "amino-acid-change"
     type: STRING
@@ -3588,10 +3389,8 @@ message USCoreLaboratoryResultObservationProfile {
   // registered | preliminary | final | amended +
   message StatusCode {
     option (.google.fhir.proto.structure_definition_kind) = KIND_PRIMITIVE_TYPE;
-    option (.google.fhir.proto.fhir_valueset_url) =
-        "http://hl7.org/fhir/ValueSet/observation-status";
-    option (.google.fhir.proto.fhir_profile_base) =
-        "http://hl7.org/fhir/StructureDefinition/code";
+    option (.google.fhir.proto.fhir_valueset_url) = "http://hl7.org/fhir/ValueSet/observation-status";
+    option (.google.fhir.proto.fhir_profile_base) = "http://hl7.org/fhir/StructureDefinition/code";
 
     core.ObservationStatusCode.Value value = 1;
 
@@ -3599,16 +3398,13 @@ message USCoreLaboratoryResultObservationProfile {
 
     repeated core.Extension extension = 3;
   }
-  StatusCode status = 13
-      [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
+  StatusCode status = 13 [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
 
   // Classification of  type of observation
-  repeated core.CodeableConcept category = 14
-      [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
+  repeated core.CodeableConcept category = 14 [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
 
   // Laboratory Test Name
-  core.CodeableConcept code = 15
-      [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
+  core.CodeableConcept code = 15 [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
 
   // Who and/or what the observation is about
   core.Reference subject = 16 [
@@ -3617,17 +3413,14 @@ message USCoreLaboratoryResultObservationProfile {
   ];
 
   // What the observation is about, when it is not about the subject of record
-  repeated core.Reference focus = 17
-      [(.google.fhir.proto.valid_reference_type) = "Resource"];
+  repeated core.Reference focus = 17 [(.google.fhir.proto.valid_reference_type) = "Resource"];
 
   // Healthcare event during which this observation is made
-  core.Reference encounter = 18
-      [(.google.fhir.proto.valid_reference_type) = "Encounter"];
+  core.Reference encounter = 18 [(.google.fhir.proto.valid_reference_type) = "Encounter"];
 
   // Clinically relevant time/time-period for observation
   message EffectiveX {
-    option (.google.fhir.proto.fhir_path_message_constraint) =
-        "($this as dateTime).toString().length() >= 8";
+    option (.google.fhir.proto.fhir_path_message_constraint) = "($this as dateTime).toString().length() >= 8";
     option (.google.fhir.proto.is_choice_type) = true;
 
     oneof choice {
@@ -3652,8 +3445,7 @@ message USCoreLaboratoryResultObservationProfile {
 
   // Result Value
   message ValueX {
-    option (.google.fhir.proto.fhir_path_message_warning_constraint) =
-        "valueCodeableConcept.coding.system.empty() or valueCodeableConcept.coding.system = 'http://snomed.info/sct'";
+    option (.google.fhir.proto.fhir_path_message_warning_constraint) = "valueCodeableConcept.coding.system.empty() or valueCodeableConcept.coding.system = 'http://snomed.info/sct'";
     option (.google.fhir.proto.is_choice_type) = true;
 
     oneof choice {
@@ -3688,8 +3480,7 @@ message USCoreLaboratoryResultObservationProfile {
   core.CodeableConcept method = 27;
 
   // Specimen used for this observation
-  core.Reference specimen = 28
-      [(.google.fhir.proto.valid_reference_type) = "Specimen"];
+  core.Reference specimen = 28 [(.google.fhir.proto.valid_reference_type) = "Specimen"];
 
   // (Measurement) Device
   core.Reference device = 29 [
@@ -3699,8 +3490,7 @@ message USCoreLaboratoryResultObservationProfile {
 
   // Provides guide for interpretation
   message ReferenceRange {
-    option (.google.fhir.proto.fhir_path_message_constraint) =
-        "low.exists() or high.exists() or text.exists()";
+    option (.google.fhir.proto.fhir_path_message_constraint) = "low.exists() or high.exists() or text.exists()";
 
     // Unique id for inter-element referencing
     core.String id = 1;
@@ -3760,8 +3550,7 @@ message USCoreLaboratoryResultObservationProfile {
     repeated core.Extension modifier_extension = 3;
 
     // Type of component observation (code / type)
-    core.CodeableConcept code = 4
-        [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
+    core.CodeableConcept code = 4 [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
 
     // Actual component result
     message ValueX {
@@ -3804,10 +3593,8 @@ message USCoreLaboratoryResultObservationProfile {
 // See http://hl7.org/fhir/us/core/StructureDefinition/us-core-location
 message USCoreLocation {
   option (.google.fhir.proto.structure_definition_kind) = KIND_RESOURCE;
-  option (.google.fhir.proto.fhir_profile_base) =
-      "http://hl7.org/fhir/StructureDefinition/Location";
-  option (.google.fhir.proto.fhir_structure_definition_url) =
-      "http://hl7.org/fhir/us/core/StructureDefinition/us-core-location";
+  option (.google.fhir.proto.fhir_profile_base) = "http://hl7.org/fhir/StructureDefinition/Location";
+  option (.google.fhir.proto.fhir_structure_definition_url) = "http://hl7.org/fhir/us/core/StructureDefinition/us-core-location";
   option (.google.fhir.proto.search_parameter) = {
     name: "address"
     type: STRING
@@ -3918,10 +3705,8 @@ message USCoreLocation {
   // active | suspended | inactive
   message StatusCode {
     option (.google.fhir.proto.structure_definition_kind) = KIND_PRIMITIVE_TYPE;
-    option (.google.fhir.proto.fhir_valueset_url) =
-        "http://hl7.org/fhir/ValueSet/location-status";
-    option (.google.fhir.proto.fhir_profile_base) =
-        "http://hl7.org/fhir/StructureDefinition/code";
+    option (.google.fhir.proto.fhir_valueset_url) = "http://hl7.org/fhir/ValueSet/location-status";
+    option (.google.fhir.proto.fhir_profile_base) = "http://hl7.org/fhir/StructureDefinition/code";
 
     core.LocationStatusCode.Value value = 1;
 
@@ -3935,8 +3720,7 @@ message USCoreLocation {
   core.Coding operational_status = 12;
 
   // Name of the location as used by humans
-  core.String name = 13
-      [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
+  core.String name = 13 [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
 
   // A list of alternate names that the location is known as, or was known as,
   // in the past
@@ -3949,10 +3733,8 @@ message USCoreLocation {
   // instance | kind
   message ModeCode {
     option (.google.fhir.proto.structure_definition_kind) = KIND_PRIMITIVE_TYPE;
-    option (.google.fhir.proto.fhir_valueset_url) =
-        "http://hl7.org/fhir/ValueSet/location-mode";
-    option (.google.fhir.proto.fhir_profile_base) =
-        "http://hl7.org/fhir/StructureDefinition/code";
+    option (.google.fhir.proto.fhir_valueset_url) = "http://hl7.org/fhir/ValueSet/location-mode";
+    option (.google.fhir.proto.fhir_profile_base) = "http://hl7.org/fhir/StructureDefinition/code";
 
     core.LocationModeCode.Value value = 1;
 
@@ -3986,12 +3768,10 @@ message USCoreLocation {
     repeated core.Extension modifier_extension = 3;
 
     // Longitude with WGS84 datum
-    core.Decimal longitude = 4
-        [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
+    core.Decimal longitude = 4 [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
 
     // Latitude with WGS84 datum
-    core.Decimal latitude = 5
-        [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
+    core.Decimal latitude = 5 [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
 
     // Altitude with WGS84 datum
     core.Decimal altitude = 6;
@@ -3999,12 +3779,10 @@ message USCoreLocation {
   Position position = 21;
 
   // Organization responsible for provisioning and upkeep
-  core.Reference managing_organization = 22
-      [(.google.fhir.proto.valid_reference_type) = "Organization"];
+  core.Reference managing_organization = 22 [(.google.fhir.proto.valid_reference_type) = "Organization"];
 
   // Another Location this one is physically a part of
-  core.Reference part_of = 23
-      [(.google.fhir.proto.valid_reference_type) = "Location"];
+  core.Reference part_of = 23 [(.google.fhir.proto.valid_reference_type) = "Location"];
 
   // What days/times during a week is this location usually open
   message HoursOfOperation {
@@ -4019,12 +3797,9 @@ message USCoreLocation {
 
     // mon | tue | wed | thu | fri | sat | sun
     message DaysOfWeekCode {
-      option (.google.fhir.proto.structure_definition_kind) =
-          KIND_PRIMITIVE_TYPE;
-      option (.google.fhir.proto.fhir_valueset_url) =
-          "http://hl7.org/fhir/ValueSet/days-of-week";
-      option (.google.fhir.proto.fhir_profile_base) =
-          "http://hl7.org/fhir/StructureDefinition/code";
+      option (.google.fhir.proto.structure_definition_kind) = KIND_PRIMITIVE_TYPE;
+      option (.google.fhir.proto.fhir_valueset_url) = "http://hl7.org/fhir/ValueSet/days-of-week";
+      option (.google.fhir.proto.fhir_profile_base) = "http://hl7.org/fhir/StructureDefinition/code";
 
       core.DaysOfWeekCode.Value value = 1;
 
@@ -4049,8 +3824,7 @@ message USCoreLocation {
   core.String availability_exceptions = 25;
 
   // Technical endpoints providing access to services operated for the location
-  repeated core.Reference endpoint = 26
-      [(.google.fhir.proto.valid_reference_type) = "Endpoint"];
+  repeated core.Reference endpoint = 26 [(.google.fhir.proto.valid_reference_type) = "Endpoint"];
 }
 
 // Auto-generated from StructureDefinition for USCoreMedicationProfile.
@@ -4058,10 +3832,8 @@ message USCoreLocation {
 // See http://hl7.org/fhir/us/core/StructureDefinition/us-core-medication
 message USCoreMedicationProfile {
   option (.google.fhir.proto.structure_definition_kind) = KIND_RESOURCE;
-  option (.google.fhir.proto.fhir_profile_base) =
-      "http://hl7.org/fhir/StructureDefinition/Medication";
-  option (.google.fhir.proto.fhir_structure_definition_url) =
-      "http://hl7.org/fhir/us/core/StructureDefinition/us-core-medication";
+  option (.google.fhir.proto.fhir_profile_base) = "http://hl7.org/fhir/StructureDefinition/Medication";
+  option (.google.fhir.proto.fhir_structure_definition_url) = "http://hl7.org/fhir/us/core/StructureDefinition/us-core-medication";
   option (.google.fhir.proto.search_parameter) = {
     name: "code"
     type: TOKEN
@@ -4140,16 +3912,13 @@ message USCoreMedicationProfile {
   repeated core.Identifier identifier = 10;
 
   // Codes that identify this medication
-  core.CodeableConcept code = 11
-      [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
+  core.CodeableConcept code = 11 [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
 
   // active | inactive | entered-in-error
   message StatusCode {
     option (.google.fhir.proto.structure_definition_kind) = KIND_PRIMITIVE_TYPE;
-    option (.google.fhir.proto.fhir_valueset_url) =
-        "http://hl7.org/fhir/ValueSet/medication-status";
-    option (.google.fhir.proto.fhir_profile_base) =
-        "http://hl7.org/fhir/StructureDefinition/code";
+    option (.google.fhir.proto.fhir_valueset_url) = "http://hl7.org/fhir/ValueSet/medication-status";
+    option (.google.fhir.proto.fhir_profile_base) = "http://hl7.org/fhir/StructureDefinition/code";
 
     core.MedicationStatusCode.Value value = 1;
 
@@ -4160,8 +3929,7 @@ message USCoreMedicationProfile {
   StatusCode status = 12;
 
   // Manufacturer of the item
-  core.Reference manufacturer = 13
-      [(.google.fhir.proto.valid_reference_type) = "Organization"];
+  core.Reference manufacturer = 13 [(.google.fhir.proto.valid_reference_type) = "Organization"];
 
   // powder | tablets | capsule +
   core.CodeableConcept form = 14;
@@ -4192,8 +3960,7 @@ message USCoreMedicationProfile {
         ];
       }
     }
-    ItemX item = 4
-        [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
+    ItemX item = 4 [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
 
     // Active ingredient indicator
     core.Boolean is_active = 5;
@@ -4228,10 +3995,8 @@ message USCoreMedicationProfile {
 // See http://hl7.org/fhir/us/core/StructureDefinition/us-core-medicationrequest
 message USCoreMedicationRequestProfile {
   option (.google.fhir.proto.structure_definition_kind) = KIND_RESOURCE;
-  option (.google.fhir.proto.fhir_profile_base) =
-      "http://hl7.org/fhir/StructureDefinition/MedicationRequest";
-  option (.google.fhir.proto.fhir_structure_definition_url) =
-      "http://hl7.org/fhir/us/core/StructureDefinition/us-core-medicationrequest";
+  option (.google.fhir.proto.fhir_profile_base) = "http://hl7.org/fhir/StructureDefinition/MedicationRequest";
+  option (.google.fhir.proto.fhir_structure_definition_url) = "http://hl7.org/fhir/us/core/StructureDefinition/us-core-medicationrequest";
   option (.google.fhir.proto.search_parameter) = {
     name: "authoredon"
     type: DATE
@@ -4348,10 +4113,8 @@ message USCoreMedicationRequestProfile {
   // draft | unknown
   message StatusCode {
     option (.google.fhir.proto.structure_definition_kind) = KIND_PRIMITIVE_TYPE;
-    option (.google.fhir.proto.fhir_valueset_url) =
-        "http://hl7.org/fhir/ValueSet/medicationrequest-status";
-    option (.google.fhir.proto.fhir_profile_base) =
-        "http://hl7.org/fhir/StructureDefinition/code";
+    option (.google.fhir.proto.fhir_valueset_url) = "http://hl7.org/fhir/ValueSet/medicationrequest-status";
+    option (.google.fhir.proto.fhir_profile_base) = "http://hl7.org/fhir/StructureDefinition/code";
 
     core.MedicationrequestStatusCode.Value value = 1;
 
@@ -4359,8 +4122,7 @@ message USCoreMedicationRequestProfile {
 
     repeated core.Extension extension = 3;
   }
-  StatusCode status = 11
-      [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
+  StatusCode status = 11 [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
 
   // Reason for current status
   core.CodeableConcept status_reason = 12;
@@ -4369,10 +4131,8 @@ message USCoreMedicationRequestProfile {
   // instance-order | option
   message IntentCode {
     option (.google.fhir.proto.structure_definition_kind) = KIND_PRIMITIVE_TYPE;
-    option (.google.fhir.proto.fhir_valueset_url) =
-        "http://hl7.org/fhir/ValueSet/medicationrequest-intent";
-    option (.google.fhir.proto.fhir_profile_base) =
-        "http://hl7.org/fhir/StructureDefinition/code";
+    option (.google.fhir.proto.fhir_valueset_url) = "http://hl7.org/fhir/ValueSet/medicationrequest-intent";
+    option (.google.fhir.proto.fhir_profile_base) = "http://hl7.org/fhir/StructureDefinition/code";
 
     core.MedicationRequestIntentCode.Value value = 1;
 
@@ -4380,8 +4140,7 @@ message USCoreMedicationRequestProfile {
 
     repeated core.Extension extension = 3;
   }
-  IntentCode intent = 13
-      [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
+  IntentCode intent = 13 [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
 
   // Type of medication usage
   repeated core.CodeableConcept category = 14;
@@ -4389,10 +4148,8 @@ message USCoreMedicationRequestProfile {
   // routine | urgent | asap | stat
   message PriorityCode {
     option (.google.fhir.proto.structure_definition_kind) = KIND_PRIMITIVE_TYPE;
-    option (.google.fhir.proto.fhir_valueset_url) =
-        "http://hl7.org/fhir/ValueSet/request-priority";
-    option (.google.fhir.proto.fhir_profile_base) =
-        "http://hl7.org/fhir/StructureDefinition/code";
+    option (.google.fhir.proto.fhir_valueset_url) = "http://hl7.org/fhir/ValueSet/request-priority";
+    option (.google.fhir.proto.fhir_profile_base) = "http://hl7.org/fhir/StructureDefinition/code";
 
     core.RequestPriorityCode.Value value = 1;
 
@@ -4428,12 +4185,10 @@ message USCoreMedicationRequestProfile {
 
     oneof choice {
       core.CodeableConcept codeable_concept = 1;
-      core.Reference reference = 2
-          [(.google.fhir.proto.valid_reference_type) = "Medication"];
+      core.Reference reference = 2 [(.google.fhir.proto.valid_reference_type) = "Medication"];
     }
   }
-  MedicationX medication = 18
-      [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
+  MedicationX medication = 18 [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
 
   // Who or group medication request is for
   core.Reference subject = 19 [
@@ -4442,16 +4197,13 @@ message USCoreMedicationRequestProfile {
   ];
 
   // Encounter created as part of encounter/admission/stay
-  core.Reference encounter = 20
-      [(.google.fhir.proto.valid_reference_type) = "Encounter"];
+  core.Reference encounter = 20 [(.google.fhir.proto.valid_reference_type) = "Encounter"];
 
   // Information to support ordering of the medication
-  repeated core.Reference supporting_information = 21
-      [(.google.fhir.proto.valid_reference_type) = "Resource"];
+  repeated core.Reference supporting_information = 21 [(.google.fhir.proto.valid_reference_type) = "Resource"];
 
   // When request was initially authored
-  core.DateTime authored_on = 22
-      [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
+  core.DateTime authored_on = 22 [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
 
   // Who/What requested the Request
   core.Reference requester = 23 [
@@ -4572,8 +4324,7 @@ message USCoreMedicationRequestProfile {
     core.Duration expected_supply_duration = 9;
 
     // Intended dispenser
-    core.Reference performer = 10
-        [(.google.fhir.proto.valid_reference_type) = "Organization"];
+    core.Reference performer = 10 [(.google.fhir.proto.valid_reference_type) = "Organization"];
   }
   DispenseRequest dispense_request = 37;
 
@@ -4597,8 +4348,7 @@ message USCoreMedicationRequestProfile {
         core.CodeableConcept codeable_concept = 2;
       }
     }
-    AllowedX allowed = 4
-        [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
+    AllowedX allowed = 4 [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
 
     // Why should (not) substitution be made
     core.CodeableConcept reason = 5;
@@ -4606,16 +4356,13 @@ message USCoreMedicationRequestProfile {
   Substitution substitution = 38;
 
   // An order/prescription that is being replaced
-  core.Reference prior_prescription = 39
-      [(.google.fhir.proto.valid_reference_type) = "MedicationRequest"];
+  core.Reference prior_prescription = 39 [(.google.fhir.proto.valid_reference_type) = "MedicationRequest"];
 
   // Clinical Issue with action
-  repeated core.Reference detected_issue = 40
-      [(.google.fhir.proto.valid_reference_type) = "DetectedIssue"];
+  repeated core.Reference detected_issue = 40 [(.google.fhir.proto.valid_reference_type) = "DetectedIssue"];
 
   // A list of events of interest in the lifecycle
-  repeated core.Reference event_history = 41
-      [(.google.fhir.proto.valid_reference_type) = "Provenance"];
+  repeated core.Reference event_history = 41 [(.google.fhir.proto.valid_reference_type) = "Provenance"];
 }
 
 // Auto-generated from StructureDefinition for USCoreOrganizationProfile.
@@ -4623,12 +4370,9 @@ message USCoreMedicationRequestProfile {
 // See http://hl7.org/fhir/us/core/StructureDefinition/us-core-organization
 message USCoreOrganizationProfile {
   option (.google.fhir.proto.structure_definition_kind) = KIND_RESOURCE;
-  option (.google.fhir.proto.fhir_profile_base) =
-      "http://hl7.org/fhir/StructureDefinition/Organization";
-  option (.google.fhir.proto.fhir_structure_definition_url) =
-      "http://hl7.org/fhir/us/core/StructureDefinition/us-core-organization";
-  option (.google.fhir.proto.fhir_path_message_constraint) =
-      "(identifier.count() + name.count()) > 0";
+  option (.google.fhir.proto.fhir_profile_base) = "http://hl7.org/fhir/StructureDefinition/Organization";
+  option (.google.fhir.proto.fhir_structure_definition_url) = "http://hl7.org/fhir/us/core/StructureDefinition/us-core-organization";
+  option (.google.fhir.proto.fhir_path_message_constraint) = "(identifier.count() + name.count()) > 0";
   option (.google.fhir.proto.search_parameter) = {
     name: "active"
     type: TOKEN
@@ -4727,33 +4471,26 @@ message USCoreOrganizationProfile {
   repeated core.Identifier identifier = 10;
 
   // Whether the organization's record is still in active use
-  core.Boolean active = 11
-      [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
+  core.Boolean active = 11 [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
 
   // Kind of organization
   repeated core.CodeableConcept type = 12;
 
   // Name used for the organization
-  core.String name = 13
-      [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
+  core.String name = 13 [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
 
   // A list of alternate names that the organization is known as, or was known
   // as in the past
   repeated core.String alias = 14;
 
   // A contact detail for the organization
-  repeated core.ContactPoint telecom = 15
-      [(.google.fhir.proto.fhir_path_constraint) =
-           "where(use = 'home').empty()"];
+  repeated core.ContactPoint telecom = 15 [(.google.fhir.proto.fhir_path_constraint) = "where(use = 'home').empty()"];
 
   // An address for the organization
-  repeated core.Address address = 16
-      [(.google.fhir.proto.fhir_path_constraint) =
-           "where(use = 'home').empty()"];
+  repeated core.Address address = 16 [(.google.fhir.proto.fhir_path_constraint) = "where(use = 'home').empty()"];
 
   // The organization of which this organization forms a part
-  core.Reference part_of = 17
-      [(.google.fhir.proto.valid_reference_type) = "Organization"];
+  core.Reference part_of = 17 [(.google.fhir.proto.valid_reference_type) = "Organization"];
 
   // Contact for the organization for a certain purpose
   message Contact {
@@ -4782,8 +4519,7 @@ message USCoreOrganizationProfile {
 
   // Technical endpoints providing access to services operated for the
   // organization
-  repeated core.Reference endpoint = 19
-      [(.google.fhir.proto.valid_reference_type) = "Endpoint"];
+  repeated core.Reference endpoint = 19 [(.google.fhir.proto.valid_reference_type) = "Endpoint"];
 
   // field 20 reserved for Organization.identifier:NPI which uses an unsupported
   // slicing on Identifier
@@ -4799,10 +4535,8 @@ message USCoreOrganizationProfile {
 // See http://hl7.org/fhir/us/core/StructureDefinition/us-core-patient
 message USCorePatientProfile {
   option (.google.fhir.proto.structure_definition_kind) = KIND_RESOURCE;
-  option (.google.fhir.proto.fhir_profile_base) =
-      "http://hl7.org/fhir/StructureDefinition/Patient";
-  option (.google.fhir.proto.fhir_structure_definition_url) =
-      "http://hl7.org/fhir/us/core/StructureDefinition/us-core-patient";
+  option (.google.fhir.proto.fhir_profile_base) = "http://hl7.org/fhir/StructureDefinition/Patient";
+  option (.google.fhir.proto.fhir_structure_definition_url) = "http://hl7.org/fhir/us/core/StructureDefinition/us-core-patient";
   option (.google.fhir.proto.search_parameter) = {
     name: "Example Search Parameter on an extension"
     type: REFERENCE
@@ -4953,8 +4687,7 @@ message USCorePatientProfile {
   repeated core.Extension modifier_extension = 9;
 
   // An identifier for this patient
-  repeated core.Identifier identifier = 10
-      [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
+  repeated core.Identifier identifier = 10 [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
 
   // Whether this patient's record is in active use
   core.Boolean active = 11;
@@ -4962,8 +4695,7 @@ message USCorePatientProfile {
   // A name associated with the patient
   repeated core.HumanName name = 12 [
     (.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR,
-    (.google.fhir.proto.fhir_path_constraint) =
-        "family.exists() or given.exists()"
+    (.google.fhir.proto.fhir_path_constraint) = "family.exists() or given.exists()"
   ];
 
   // A contact detail for the individual
@@ -4972,10 +4704,8 @@ message USCorePatientProfile {
   // male | female | other | unknown
   message GenderCode {
     option (.google.fhir.proto.structure_definition_kind) = KIND_PRIMITIVE_TYPE;
-    option (.google.fhir.proto.fhir_valueset_url) =
-        "http://hl7.org/fhir/ValueSet/administrative-gender";
-    option (.google.fhir.proto.fhir_profile_base) =
-        "http://hl7.org/fhir/StructureDefinition/code";
+    option (.google.fhir.proto.fhir_valueset_url) = "http://hl7.org/fhir/ValueSet/administrative-gender";
+    option (.google.fhir.proto.fhir_profile_base) = "http://hl7.org/fhir/StructureDefinition/code";
 
     core.AdministrativeGenderCode.Value value = 1;
 
@@ -4983,8 +4713,7 @@ message USCorePatientProfile {
 
     repeated core.Extension extension = 3;
   }
-  GenderCode gender = 14
-      [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
+  GenderCode gender = 14 [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
 
   // The date of birth for the individual
   core.Date birth_date = 15;
@@ -5022,8 +4751,7 @@ message USCorePatientProfile {
 
   // A contact party (e.g. guardian, partner, friend) for the patient
   message Contact {
-    option (.google.fhir.proto.fhir_path_message_constraint) =
-        "name.exists() or telecom.exists() or address.exists() or organization.exists()";
+    option (.google.fhir.proto.fhir_path_message_constraint) = "name.exists() or telecom.exists() or address.exists() or organization.exists()";
 
     // Unique id for inter-element referencing
     core.String id = 1;
@@ -5048,12 +4776,9 @@ message USCorePatientProfile {
 
     // male | female | other | unknown
     message GenderCode {
-      option (.google.fhir.proto.structure_definition_kind) =
-          KIND_PRIMITIVE_TYPE;
-      option (.google.fhir.proto.fhir_valueset_url) =
-          "http://hl7.org/fhir/ValueSet/administrative-gender";
-      option (.google.fhir.proto.fhir_profile_base) =
-          "http://hl7.org/fhir/StructureDefinition/code";
+      option (.google.fhir.proto.structure_definition_kind) = KIND_PRIMITIVE_TYPE;
+      option (.google.fhir.proto.fhir_valueset_url) = "http://hl7.org/fhir/ValueSet/administrative-gender";
+      option (.google.fhir.proto.fhir_profile_base) = "http://hl7.org/fhir/StructureDefinition/code";
 
       core.AdministrativeGenderCode.Value value = 1;
 
@@ -5064,8 +4789,7 @@ message USCorePatientProfile {
     GenderCode gender = 8;
 
     // Organization that is associated with the contact
-    core.Reference organization = 9
-        [(.google.fhir.proto.valid_reference_type) = "Organization"];
+    core.Reference organization = 9 [(.google.fhir.proto.valid_reference_type) = "Organization"];
 
     // The period during which this contact person or organization is valid to
     // be contacted relating to this patient
@@ -5087,8 +4811,7 @@ message USCorePatientProfile {
 
     // The language which can be used to communicate with the patient about his
     // or her health
-    core.CodeableConcept language = 4
-        [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
+    core.CodeableConcept language = 4 [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
 
     // Language preference indicator
     core.Boolean preferred = 5;
@@ -5103,8 +4826,7 @@ message USCorePatientProfile {
   ];
 
   // Organization that is the custodian of the patient record
-  core.Reference managing_organization = 24
-      [(.google.fhir.proto.valid_reference_type) = "Organization"];
+  core.Reference managing_organization = 24 [(.google.fhir.proto.valid_reference_type) = "Organization"];
 
   // Link to another patient resource that concerns the same actual person
   message Link {
@@ -5126,12 +4848,9 @@ message USCorePatientProfile {
 
     // replaced-by | replaces | refer | seealso
     message TypeCode {
-      option (.google.fhir.proto.structure_definition_kind) =
-          KIND_PRIMITIVE_TYPE;
-      option (.google.fhir.proto.fhir_valueset_url) =
-          "http://hl7.org/fhir/ValueSet/link-type";
-      option (.google.fhir.proto.fhir_profile_base) =
-          "http://hl7.org/fhir/StructureDefinition/code";
+      option (.google.fhir.proto.structure_definition_kind) = KIND_PRIMITIVE_TYPE;
+      option (.google.fhir.proto.fhir_valueset_url) = "http://hl7.org/fhir/ValueSet/link-type";
+      option (.google.fhir.proto.fhir_profile_base) = "http://hl7.org/fhir/StructureDefinition/code";
 
       core.LinkTypeCode.Value value = 1;
 
@@ -5139,25 +4858,18 @@ message USCorePatientProfile {
 
       repeated core.Extension extension = 3;
     }
-    TypeCode type = 5
-        [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
+    TypeCode type = 5 [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
   }
   repeated Link link = 25;
 
   // US Core Race Extension
-  PatientUSCoreRaceExtension race = 26
-      [(.google.fhir.proto.fhir_inlined_extension_url) =
-           "http://hl7.org/fhir/us/core/StructureDefinition/us-core-race"];
+  PatientUSCoreRaceExtension race = 26 [(.google.fhir.proto.fhir_inlined_extension_url) = "http://hl7.org/fhir/us/core/StructureDefinition/us-core-race"];
 
   // US Core ethnicity Extension
-  PatientUSCoreEthnicityExtension ethnicity = 27
-      [(.google.fhir.proto.fhir_inlined_extension_url) =
-           "http://hl7.org/fhir/us/core/StructureDefinition/us-core-ethnicity"];
+  PatientUSCoreEthnicityExtension ethnicity = 27 [(.google.fhir.proto.fhir_inlined_extension_url) = "http://hl7.org/fhir/us/core/StructureDefinition/us-core-ethnicity"];
 
   // Extension
-  PatientUSCoreBirthSexExtension.ValueCode birthsex = 28
-      [(.google.fhir.proto.fhir_inlined_extension_url) =
-           "http://hl7.org/fhir/us/core/StructureDefinition/us-core-birthsex"];
+  PatientUSCoreBirthSexExtension.ValueCode birthsex = 28 [(.google.fhir.proto.fhir_inlined_extension_url) = "http://hl7.org/fhir/us/core/StructureDefinition/us-core-birthsex"];
 }
 
 // Auto-generated from StructureDefinition for
@@ -5165,18 +4877,12 @@ message USCorePatientProfile {
 // http://hl7.org/fhir/us/core/StructureDefinition/pediatric-bmi-for-age
 message USCorePediatricBMIforAgeObservationProfile {
   option (.google.fhir.proto.structure_definition_kind) = KIND_RESOURCE;
-  option (.google.fhir.proto.fhir_profile_base) =
-      "http://hl7.org/fhir/StructureDefinition/vitalsigns";
-  option (.google.fhir.proto.fhir_profile_base) =
-      "http://hl7.org/fhir/StructureDefinition/Observation";
-  option (.google.fhir.proto.fhir_structure_definition_url) =
-      "http://hl7.org/fhir/us/core/StructureDefinition/pediatric-bmi-for-age";
-  option (.google.fhir.proto.fhir_path_message_constraint) =
-      "dataAbsentReason.empty() or value.empty()";
-  option (.google.fhir.proto.fhir_path_message_constraint) =
-      "value.empty() or component.code.where(coding.intersect(%resource.code.coding).exists()).empty()";
-  option (.google.fhir.proto.fhir_path_message_constraint) =
-      "(component.empty() and hasMember.empty()) implies (dataAbsentReason.exists() or value.exists())";
+  option (.google.fhir.proto.fhir_profile_base) = "http://hl7.org/fhir/StructureDefinition/vitalsigns";
+  option (.google.fhir.proto.fhir_profile_base) = "http://hl7.org/fhir/StructureDefinition/Observation";
+  option (.google.fhir.proto.fhir_structure_definition_url) = "http://hl7.org/fhir/us/core/StructureDefinition/pediatric-bmi-for-age";
+  option (.google.fhir.proto.fhir_path_message_constraint) = "dataAbsentReason.empty() or value.empty()";
+  option (.google.fhir.proto.fhir_path_message_constraint) = "value.empty() or component.code.where(coding.intersect(%resource.code.coding).exists()).empty()";
+  option (.google.fhir.proto.fhir_path_message_constraint) = "(component.empty() and hasMember.empty()) implies (dataAbsentReason.exists() or value.exists())";
   option (.google.fhir.proto.search_parameter) = {
     name: "amino-acid-change"
     type: STRING
@@ -5447,10 +5153,8 @@ message USCorePediatricBMIforAgeObservationProfile {
   // registered | preliminary | final | amended +
   message StatusCode {
     option (.google.fhir.proto.structure_definition_kind) = KIND_PRIMITIVE_TYPE;
-    option (.google.fhir.proto.fhir_valueset_url) =
-        "http://hl7.org/fhir/ValueSet/observation-status";
-    option (.google.fhir.proto.fhir_profile_base) =
-        "http://hl7.org/fhir/StructureDefinition/code";
+    option (.google.fhir.proto.fhir_valueset_url) = "http://hl7.org/fhir/ValueSet/observation-status";
+    option (.google.fhir.proto.fhir_profile_base) = "http://hl7.org/fhir/StructureDefinition/code";
 
     core.ObservationStatusCode.Value value = 1;
 
@@ -5458,16 +5162,13 @@ message USCorePediatricBMIforAgeObservationProfile {
 
     repeated core.Extension extension = 3;
   }
-  StatusCode status = 13
-      [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
+  StatusCode status = 13 [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
 
   // Classification of  type of observation
-  repeated core.CodeableConcept category = 14
-      [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
+  repeated core.CodeableConcept category = 14 [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
 
   // BMI percentile per age and sex for youth 2-20
-  core.CodeableConcept code = 15
-      [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
+  core.CodeableConcept code = 15 [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
 
   // Who and/or what the observation is about
   core.Reference subject = 16 [
@@ -5476,17 +5177,14 @@ message USCorePediatricBMIforAgeObservationProfile {
   ];
 
   // What the observation is about, when it is not about the subject of record
-  repeated core.Reference focus = 17
-      [(.google.fhir.proto.valid_reference_type) = "Resource"];
+  repeated core.Reference focus = 17 [(.google.fhir.proto.valid_reference_type) = "Resource"];
 
   // Healthcare event during which this observation is made
-  core.Reference encounter = 18
-      [(.google.fhir.proto.valid_reference_type) = "Encounter"];
+  core.Reference encounter = 18 [(.google.fhir.proto.valid_reference_type) = "Encounter"];
 
   // Often just a dateTime for Vital Signs
   message EffectiveX {
-    option (.google.fhir.proto.fhir_path_message_constraint) =
-        "($this as dateTime).toString().length() >= 8";
+    option (.google.fhir.proto.fhir_path_message_constraint) = "($this as dateTime).toString().length() >= 8";
     option (.google.fhir.proto.is_choice_type) = true;
 
     oneof choice {
@@ -5494,8 +5192,7 @@ message USCorePediatricBMIforAgeObservationProfile {
       core.Period period = 2;
     }
   }
-  EffectiveX effective = 19
-      [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
+  EffectiveX effective = 19 [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
 
   // Date/Time this version was made available
   core.Instant issued = 20;
@@ -5520,8 +5217,7 @@ message USCorePediatricBMIforAgeObservationProfile {
       core.Quantity quantity = 1;
     }
   }
-  ValueX value = 22
-      [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
+  ValueX value = 22 [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
 
   // Why the result is missing
   core.CodeableConcept data_absent_reason = 23;
@@ -5539,8 +5235,7 @@ message USCorePediatricBMIforAgeObservationProfile {
   core.CodeableConcept method = 27;
 
   // Specimen used for this observation
-  core.Reference specimen = 28
-      [(.google.fhir.proto.valid_reference_type) = "Specimen"];
+  core.Reference specimen = 28 [(.google.fhir.proto.valid_reference_type) = "Specimen"];
 
   // (Measurement) Device
   core.Reference device = 29 [
@@ -5550,8 +5245,7 @@ message USCorePediatricBMIforAgeObservationProfile {
 
   // Provides guide for interpretation
   message ReferenceRange {
-    option (.google.fhir.proto.fhir_path_message_constraint) =
-        "low.exists() or high.exists() or text.exists()";
+    option (.google.fhir.proto.fhir_path_message_constraint) = "low.exists() or high.exists() or text.exists()";
 
     // Unique id for inter-element referencing
     core.String id = 1;
@@ -5601,8 +5295,7 @@ message USCorePediatricBMIforAgeObservationProfile {
 
   // Used when reporting systolic and diastolic blood pressure.
   message Component {
-    option (.google.fhir.proto.fhir_path_message_constraint) =
-        "value.exists() or dataAbsentReason.exists()";
+    option (.google.fhir.proto.fhir_path_message_constraint) = "value.exists() or dataAbsentReason.exists()";
 
     // Unique id for inter-element referencing
     core.String id = 1;
@@ -5614,8 +5307,7 @@ message USCorePediatricBMIforAgeObservationProfile {
     repeated core.Extension modifier_extension = 3;
 
     // Type of component observation (code / type)
-    core.CodeableConcept code = 4
-        [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
+    core.CodeableConcept code = 4 [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
 
     // Vital Sign Value recorded with UCUM
     message ValueX {
@@ -5659,18 +5351,12 @@ message USCorePediatricBMIforAgeObservationProfile {
 // http://hl7.org/fhir/us/core/StructureDefinition/pediatric-weight-for-height
 message USCorePediatricWeightForHeightObservationProfile {
   option (.google.fhir.proto.structure_definition_kind) = KIND_RESOURCE;
-  option (.google.fhir.proto.fhir_profile_base) =
-      "http://hl7.org/fhir/StructureDefinition/vitalsigns";
-  option (.google.fhir.proto.fhir_profile_base) =
-      "http://hl7.org/fhir/StructureDefinition/Observation";
-  option (.google.fhir.proto.fhir_structure_definition_url) =
-      "http://hl7.org/fhir/us/core/StructureDefinition/pediatric-weight-for-height";
-  option (.google.fhir.proto.fhir_path_message_constraint) =
-      "dataAbsentReason.empty() or value.empty()";
-  option (.google.fhir.proto.fhir_path_message_constraint) =
-      "value.empty() or component.code.where(coding.intersect(%resource.code.coding).exists()).empty()";
-  option (.google.fhir.proto.fhir_path_message_constraint) =
-      "(component.empty() and hasMember.empty()) implies (dataAbsentReason.exists() or value.exists())";
+  option (.google.fhir.proto.fhir_profile_base) = "http://hl7.org/fhir/StructureDefinition/vitalsigns";
+  option (.google.fhir.proto.fhir_profile_base) = "http://hl7.org/fhir/StructureDefinition/Observation";
+  option (.google.fhir.proto.fhir_structure_definition_url) = "http://hl7.org/fhir/us/core/StructureDefinition/pediatric-weight-for-height";
+  option (.google.fhir.proto.fhir_path_message_constraint) = "dataAbsentReason.empty() or value.empty()";
+  option (.google.fhir.proto.fhir_path_message_constraint) = "value.empty() or component.code.where(coding.intersect(%resource.code.coding).exists()).empty()";
+  option (.google.fhir.proto.fhir_path_message_constraint) = "(component.empty() and hasMember.empty()) implies (dataAbsentReason.exists() or value.exists())";
   option (.google.fhir.proto.search_parameter) = {
     name: "amino-acid-change"
     type: STRING
@@ -5941,10 +5627,8 @@ message USCorePediatricWeightForHeightObservationProfile {
   // registered | preliminary | final | amended +
   message StatusCode {
     option (.google.fhir.proto.structure_definition_kind) = KIND_PRIMITIVE_TYPE;
-    option (.google.fhir.proto.fhir_valueset_url) =
-        "http://hl7.org/fhir/ValueSet/observation-status";
-    option (.google.fhir.proto.fhir_profile_base) =
-        "http://hl7.org/fhir/StructureDefinition/code";
+    option (.google.fhir.proto.fhir_valueset_url) = "http://hl7.org/fhir/ValueSet/observation-status";
+    option (.google.fhir.proto.fhir_profile_base) = "http://hl7.org/fhir/StructureDefinition/code";
 
     core.ObservationStatusCode.Value value = 1;
 
@@ -5952,16 +5636,13 @@ message USCorePediatricWeightForHeightObservationProfile {
 
     repeated core.Extension extension = 3;
   }
-  StatusCode status = 13
-      [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
+  StatusCode status = 13 [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
 
   // Classification of  type of observation
-  repeated core.CodeableConcept category = 14
-      [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
+  repeated core.CodeableConcept category = 14 [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
 
   // Weight-for-length per age and gender
-  core.CodeableConcept code = 15
-      [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
+  core.CodeableConcept code = 15 [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
 
   // Who and/or what the observation is about
   core.Reference subject = 16 [
@@ -5970,17 +5651,14 @@ message USCorePediatricWeightForHeightObservationProfile {
   ];
 
   // What the observation is about, when it is not about the subject of record
-  repeated core.Reference focus = 17
-      [(.google.fhir.proto.valid_reference_type) = "Resource"];
+  repeated core.Reference focus = 17 [(.google.fhir.proto.valid_reference_type) = "Resource"];
 
   // Healthcare event during which this observation is made
-  core.Reference encounter = 18
-      [(.google.fhir.proto.valid_reference_type) = "Encounter"];
+  core.Reference encounter = 18 [(.google.fhir.proto.valid_reference_type) = "Encounter"];
 
   // Often just a dateTime for Vital Signs
   message EffectiveX {
-    option (.google.fhir.proto.fhir_path_message_constraint) =
-        "($this as dateTime).toString().length() >= 8";
+    option (.google.fhir.proto.fhir_path_message_constraint) = "($this as dateTime).toString().length() >= 8";
     option (.google.fhir.proto.is_choice_type) = true;
 
     oneof choice {
@@ -5988,8 +5666,7 @@ message USCorePediatricWeightForHeightObservationProfile {
       core.Period period = 2;
     }
   }
-  EffectiveX effective = 19
-      [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
+  EffectiveX effective = 19 [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
 
   // Date/Time this version was made available
   core.Instant issued = 20;
@@ -6014,8 +5691,7 @@ message USCorePediatricWeightForHeightObservationProfile {
       core.Quantity quantity = 1;
     }
   }
-  ValueX value = 22
-      [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
+  ValueX value = 22 [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
 
   // Why the result is missing
   core.CodeableConcept data_absent_reason = 23;
@@ -6033,8 +5709,7 @@ message USCorePediatricWeightForHeightObservationProfile {
   core.CodeableConcept method = 27;
 
   // Specimen used for this observation
-  core.Reference specimen = 28
-      [(.google.fhir.proto.valid_reference_type) = "Specimen"];
+  core.Reference specimen = 28 [(.google.fhir.proto.valid_reference_type) = "Specimen"];
 
   // (Measurement) Device
   core.Reference device = 29 [
@@ -6044,8 +5719,7 @@ message USCorePediatricWeightForHeightObservationProfile {
 
   // Provides guide for interpretation
   message ReferenceRange {
-    option (.google.fhir.proto.fhir_path_message_constraint) =
-        "low.exists() or high.exists() or text.exists()";
+    option (.google.fhir.proto.fhir_path_message_constraint) = "low.exists() or high.exists() or text.exists()";
 
     // Unique id for inter-element referencing
     core.String id = 1;
@@ -6095,8 +5769,7 @@ message USCorePediatricWeightForHeightObservationProfile {
 
   // Used when reporting systolic and diastolic blood pressure.
   message Component {
-    option (.google.fhir.proto.fhir_path_message_constraint) =
-        "value.exists() or dataAbsentReason.exists()";
+    option (.google.fhir.proto.fhir_path_message_constraint) = "value.exists() or dataAbsentReason.exists()";
 
     // Unique id for inter-element referencing
     core.String id = 1;
@@ -6108,8 +5781,7 @@ message USCorePediatricWeightForHeightObservationProfile {
     repeated core.Extension modifier_extension = 3;
 
     // Type of component observation (code / type)
-    core.CodeableConcept code = 4
-        [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
+    core.CodeableConcept code = 4 [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
 
     // Vital Sign Value recorded with UCUM
     message ValueX {
@@ -6153,10 +5825,8 @@ message USCorePediatricWeightForHeightObservationProfile {
 // http://hl7.org/fhir/us/core/StructureDefinition/us-core-practitioner
 message USCorePractitionerProfile {
   option (.google.fhir.proto.structure_definition_kind) = KIND_RESOURCE;
-  option (.google.fhir.proto.fhir_profile_base) =
-      "http://hl7.org/fhir/StructureDefinition/Practitioner";
-  option (.google.fhir.proto.fhir_structure_definition_url) =
-      "http://hl7.org/fhir/us/core/StructureDefinition/us-core-practitioner";
+  option (.google.fhir.proto.fhir_profile_base) = "http://hl7.org/fhir/StructureDefinition/Practitioner";
+  option (.google.fhir.proto.fhir_structure_definition_url) = "http://hl7.org/fhir/us/core/StructureDefinition/us-core-practitioner";
   option (.google.fhir.proto.search_parameter) = {
     name: "active"
     type: TOKEN
@@ -6272,15 +5942,13 @@ message USCorePractitionerProfile {
   repeated core.Extension modifier_extension = 9;
 
   // An identifier for the person as this agent
-  repeated core.Identifier identifier = 10
-      [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
+  repeated core.Identifier identifier = 10 [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
 
   // Whether this practitioner's record is in active use
   core.Boolean active = 11;
 
   // The name(s) associated with the practitioner
-  repeated core.HumanName name = 12
-      [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
+  repeated core.HumanName name = 12 [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
 
   // A contact detail for the practitioner (that apply to all roles)
   repeated core.ContactPoint telecom = 13;
@@ -6292,10 +5960,8 @@ message USCorePractitionerProfile {
   // male | female | other | unknown
   message GenderCode {
     option (.google.fhir.proto.structure_definition_kind) = KIND_PRIMITIVE_TYPE;
-    option (.google.fhir.proto.fhir_valueset_url) =
-        "http://hl7.org/fhir/ValueSet/administrative-gender";
-    option (.google.fhir.proto.fhir_profile_base) =
-        "http://hl7.org/fhir/StructureDefinition/code";
+    option (.google.fhir.proto.fhir_valueset_url) = "http://hl7.org/fhir/ValueSet/administrative-gender";
+    option (.google.fhir.proto.fhir_profile_base) = "http://hl7.org/fhir/StructureDefinition/code";
 
     core.AdministrativeGenderCode.Value value = 1;
 
@@ -6326,15 +5992,13 @@ message USCorePractitionerProfile {
     repeated core.Identifier identifier = 4;
 
     // Coded representation of the qualification
-    core.CodeableConcept code = 5
-        [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
+    core.CodeableConcept code = 5 [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
 
     // Period during which the qualification is valid
     core.Period period = 6;
 
     // Organization that regulates and issues the qualification
-    core.Reference issuer = 7
-        [(.google.fhir.proto.valid_reference_type) = "Organization"];
+    core.Reference issuer = 7 [(.google.fhir.proto.valid_reference_type) = "Organization"];
   }
   repeated Qualification qualification = 18;
 
@@ -6351,10 +6015,8 @@ message USCorePractitionerProfile {
 // See http://hl7.org/fhir/us/core/StructureDefinition/us-core-practitionerrole
 message USCorePractitionerRoleProfile {
   option (.google.fhir.proto.structure_definition_kind) = KIND_RESOURCE;
-  option (.google.fhir.proto.fhir_profile_base) =
-      "http://hl7.org/fhir/StructureDefinition/PractitionerRole";
-  option (.google.fhir.proto.fhir_structure_definition_url) =
-      "http://hl7.org/fhir/us/core/StructureDefinition/us-core-practitionerrole";
+  option (.google.fhir.proto.fhir_profile_base) = "http://hl7.org/fhir/StructureDefinition/PractitionerRole";
+  option (.google.fhir.proto.fhir_structure_definition_url) = "http://hl7.org/fhir/us/core/StructureDefinition/us-core-practitionerrole";
   option (.google.fhir.proto.search_parameter) = {
     name: "active"
     type: TOKEN
@@ -6479,13 +6141,11 @@ message USCorePractitionerRoleProfile {
   repeated core.CodeableConcept specialty = 16;
 
   // The location(s) at which this practitioner provides care
-  repeated core.Reference location = 17
-      [(.google.fhir.proto.valid_reference_type) = "Location"];
+  repeated core.Reference location = 17 [(.google.fhir.proto.valid_reference_type) = "Location"];
 
   // The list of healthcare services that this worker provides for this role's
   // Organization/Location(s)
-  repeated core.Reference healthcare_service = 18
-      [(.google.fhir.proto.valid_reference_type) = "HealthcareService"];
+  repeated core.Reference healthcare_service = 18 [(.google.fhir.proto.valid_reference_type) = "HealthcareService"];
 
   // Contact details that are specific to the role/location/service
   repeated core.ContactPoint telecom = 19;
@@ -6503,12 +6163,9 @@ message USCorePractitionerRoleProfile {
 
     // mon | tue | wed | thu | fri | sat | sun
     message DaysOfWeekCode {
-      option (.google.fhir.proto.structure_definition_kind) =
-          KIND_PRIMITIVE_TYPE;
-      option (.google.fhir.proto.fhir_valueset_url) =
-          "http://hl7.org/fhir/ValueSet/days-of-week";
-      option (.google.fhir.proto.fhir_profile_base) =
-          "http://hl7.org/fhir/StructureDefinition/code";
+      option (.google.fhir.proto.structure_definition_kind) = KIND_PRIMITIVE_TYPE;
+      option (.google.fhir.proto.fhir_valueset_url) = "http://hl7.org/fhir/ValueSet/days-of-week";
+      option (.google.fhir.proto.fhir_profile_base) = "http://hl7.org/fhir/StructureDefinition/code";
 
       core.DaysOfWeekCode.Value value = 1;
 
@@ -6541,8 +6198,7 @@ message USCorePractitionerRoleProfile {
     repeated core.Extension modifier_extension = 3;
 
     // Reason presented to the user explaining why time not available
-    core.String description = 4
-        [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
+    core.String description = 4 [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
 
     // Service not available from this date
     core.Period during = 5;
@@ -6554,8 +6210,7 @@ message USCorePractitionerRoleProfile {
 
   // Technical endpoints providing access to services operated for the
   // practitioner with this role
-  repeated core.Reference endpoint = 23
-      [(.google.fhir.proto.valid_reference_type) = "Endpoint"];
+  repeated core.Reference endpoint = 23 [(.google.fhir.proto.valid_reference_type) = "Endpoint"];
 }
 
 // Auto-generated from StructureDefinition for USCoreProcedureProfile.
@@ -6563,10 +6218,8 @@ message USCorePractitionerRoleProfile {
 // See http://hl7.org/fhir/us/core/StructureDefinition/us-core-procedure
 message USCoreProcedureProfile {
   option (.google.fhir.proto.structure_definition_kind) = KIND_RESOURCE;
-  option (.google.fhir.proto.fhir_profile_base) =
-      "http://hl7.org/fhir/StructureDefinition/Procedure";
-  option (.google.fhir.proto.fhir_structure_definition_url) =
-      "http://hl7.org/fhir/us/core/StructureDefinition/us-core-procedure";
+  option (.google.fhir.proto.fhir_profile_base) = "http://hl7.org/fhir/StructureDefinition/Procedure";
+  option (.google.fhir.proto.fhir_structure_definition_url) = "http://hl7.org/fhir/us/core/StructureDefinition/us-core-procedure";
   option (.google.fhir.proto.search_parameter) = {
     name: "based-on"
     type: REFERENCE
@@ -6702,10 +6355,8 @@ message USCoreProcedureProfile {
   // entered-in-error | unknown
   message StatusCode {
     option (.google.fhir.proto.structure_definition_kind) = KIND_PRIMITIVE_TYPE;
-    option (.google.fhir.proto.fhir_valueset_url) =
-        "http://hl7.org/fhir/ValueSet/event-status";
-    option (.google.fhir.proto.fhir_profile_base) =
-        "http://hl7.org/fhir/StructureDefinition/code";
+    option (.google.fhir.proto.fhir_valueset_url) = "http://hl7.org/fhir/ValueSet/event-status";
+    option (.google.fhir.proto.fhir_profile_base) = "http://hl7.org/fhir/StructureDefinition/code";
 
     core.EventStatusCode.Value value = 1;
 
@@ -6713,8 +6364,7 @@ message USCoreProcedureProfile {
 
     repeated core.Extension extension = 3;
   }
-  StatusCode status = 15
-      [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
+  StatusCode status = 15 [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
 
   // Reason for current status
   core.CodeableConcept status_reason = 16;
@@ -6723,8 +6373,7 @@ message USCoreProcedureProfile {
   core.CodeableConcept category = 17;
 
   // Procedure codes from SNOMED CT, CPT, or HCPCS II
-  core.CodeableConcept code = 18
-      [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
+  core.CodeableConcept code = 18 [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
 
   // Who the procedure was performed on
   core.Reference subject = 19 [
@@ -6733,8 +6382,7 @@ message USCoreProcedureProfile {
   ];
 
   // Encounter created as part of
-  core.Reference encounter = 20
-      [(.google.fhir.proto.valid_reference_type) = "Encounter"];
+  core.Reference encounter = 20 [(.google.fhir.proto.valid_reference_type) = "Encounter"];
 
   // When the procedure was performed
   message PerformedX {
@@ -6745,8 +6393,7 @@ message USCoreProcedureProfile {
       core.Period period = 2;
     }
   }
-  PerformedX performed = 21
-      [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
+  PerformedX performed = 21 [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
 
   // Who recorded the procedure
   core.Reference recorder = 22 [
@@ -6790,14 +6437,12 @@ message USCoreProcedureProfile {
     ];
 
     // Organization the device or practitioner was acting for
-    core.Reference on_behalf_of = 6
-        [(.google.fhir.proto.valid_reference_type) = "Organization"];
+    core.Reference on_behalf_of = 6 [(.google.fhir.proto.valid_reference_type) = "Organization"];
   }
   repeated Performer performer = 24;
 
   // Where the procedure happened
-  core.Reference location = 25
-      [(.google.fhir.proto.valid_reference_type) = "Location"];
+  core.Reference location = 25 [(.google.fhir.proto.valid_reference_type) = "Location"];
 
   // Coded reason procedure performed
   repeated core.CodeableConcept reason_code = 26;
@@ -6828,8 +6473,7 @@ message USCoreProcedureProfile {
   repeated core.CodeableConcept complication = 31;
 
   // A condition that is a result of the procedure
-  repeated core.Reference complication_detail = 32
-      [(.google.fhir.proto.valid_reference_type) = "Condition"];
+  repeated core.Reference complication_detail = 32 [(.google.fhir.proto.valid_reference_type) = "Condition"];
 
   // Instructions for follow up
   repeated core.CodeableConcept follow_up = 33;
@@ -6875,10 +6519,8 @@ message USCoreProcedureProfile {
 // See http://hl7.org/fhir/us/core/StructureDefinition/us-core-provenance
 message USCoreProvenance {
   option (.google.fhir.proto.structure_definition_kind) = KIND_RESOURCE;
-  option (.google.fhir.proto.fhir_profile_base) =
-      "http://hl7.org/fhir/StructureDefinition/Provenance";
-  option (.google.fhir.proto.fhir_structure_definition_url) =
-      "http://hl7.org/fhir/us/core/StructureDefinition/us-core-provenance";
+  option (.google.fhir.proto.fhir_profile_base) = "http://hl7.org/fhir/StructureDefinition/Provenance";
+  option (.google.fhir.proto.fhir_structure_definition_url) = "http://hl7.org/fhir/us/core/StructureDefinition/us-core-provenance";
   option (.google.fhir.proto.search_parameter) = {
     name: "agent"
     type: REFERENCE
@@ -6976,15 +6618,13 @@ message USCoreProvenance {
   OccurredX occurred = 11;
 
   // Timestamp when the activity was recorded / updated
-  core.Instant recorded = 12
-      [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
+  core.Instant recorded = 12 [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
 
   // Policy or plan the activity was defined by
   repeated core.Uri policy = 13;
 
   // Where the activity occurred, if relevant
-  core.Reference location = 14
-      [(.google.fhir.proto.valid_reference_type) = "Location"];
+  core.Reference location = 14 [(.google.fhir.proto.valid_reference_type) = "Location"];
 
   // Reason the activity is occurring
   repeated core.CodeableConcept reason = 15;
@@ -7023,12 +6663,10 @@ message USCoreProvenance {
     // Who the agent is representing
     core.Reference on_behalf_of = 7 [
       (.google.fhir.proto.valid_reference_type) = "Organization",
-      (.google.fhir.proto.fhir_path_constraint) =
-          "($this.agent.who.resolve().is Practitioner or Device) implies exists()"
+      (.google.fhir.proto.fhir_path_constraint) = "($this.agent.who.resolve().is Practitioner or Device) implies exists()"
     ];
   }
-  repeated Agent agent = 17
-      [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
+  repeated Agent agent = 17 [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
 
   // An entity used in this activity
   message Entity {
@@ -7043,12 +6681,9 @@ message USCoreProvenance {
 
     // derivation | revision | quotation | source | removal
     message RoleCode {
-      option (.google.fhir.proto.structure_definition_kind) =
-          KIND_PRIMITIVE_TYPE;
-      option (.google.fhir.proto.fhir_valueset_url) =
-          "http://hl7.org/fhir/ValueSet/provenance-entity-role";
-      option (.google.fhir.proto.fhir_profile_base) =
-          "http://hl7.org/fhir/StructureDefinition/code";
+      option (.google.fhir.proto.structure_definition_kind) = KIND_PRIMITIVE_TYPE;
+      option (.google.fhir.proto.fhir_valueset_url) = "http://hl7.org/fhir/ValueSet/provenance-entity-role";
+      option (.google.fhir.proto.fhir_profile_base) = "http://hl7.org/fhir/StructureDefinition/code";
 
       core.ProvenanceEntityRoleCode.Value value = 1;
 
@@ -7056,8 +6691,7 @@ message USCoreProvenance {
 
       repeated core.Extension extension = 3;
     }
-    RoleCode role = 4
-        [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
+    RoleCode role = 4 [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
 
     // Identity of entity
     core.Reference what = 5 [
@@ -7087,20 +6721,13 @@ message USCoreProvenance {
 // See http://hl7.org/fhir/us/core/StructureDefinition/us-core-pulse-oximetry
 message USCorePulseOximetryProfile {
   option (.google.fhir.proto.structure_definition_kind) = KIND_RESOURCE;
-  option (.google.fhir.proto.fhir_profile_base) =
-      "http://hl7.org/fhir/StructureDefinition/oxygensat";
-  option (.google.fhir.proto.fhir_profile_base) =
-      "http://hl7.org/fhir/StructureDefinition/vitalsigns";
-  option (.google.fhir.proto.fhir_profile_base) =
-      "http://hl7.org/fhir/StructureDefinition/Observation";
-  option (.google.fhir.proto.fhir_structure_definition_url) =
-      "http://hl7.org/fhir/us/core/StructureDefinition/us-core-pulse-oximetry";
-  option (.google.fhir.proto.fhir_path_message_constraint) =
-      "dataAbsentReason.empty() or value.empty()";
-  option (.google.fhir.proto.fhir_path_message_constraint) =
-      "value.empty() or component.code.where(coding.intersect(%resource.code.coding).exists()).empty()";
-  option (.google.fhir.proto.fhir_path_message_constraint) =
-      "(component.empty() and hasMember.empty()) implies (dataAbsentReason.exists() or value.exists())";
+  option (.google.fhir.proto.fhir_profile_base) = "http://hl7.org/fhir/StructureDefinition/oxygensat";
+  option (.google.fhir.proto.fhir_profile_base) = "http://hl7.org/fhir/StructureDefinition/vitalsigns";
+  option (.google.fhir.proto.fhir_profile_base) = "http://hl7.org/fhir/StructureDefinition/Observation";
+  option (.google.fhir.proto.fhir_structure_definition_url) = "http://hl7.org/fhir/us/core/StructureDefinition/us-core-pulse-oximetry";
+  option (.google.fhir.proto.fhir_path_message_constraint) = "dataAbsentReason.empty() or value.empty()";
+  option (.google.fhir.proto.fhir_path_message_constraint) = "value.empty() or component.code.where(coding.intersect(%resource.code.coding).exists()).empty()";
+  option (.google.fhir.proto.fhir_path_message_constraint) = "(component.empty() and hasMember.empty()) implies (dataAbsentReason.exists() or value.exists())";
   option (.google.fhir.proto.search_parameter) = {
     name: "amino-acid-change"
     type: STRING
@@ -7371,10 +6998,8 @@ message USCorePulseOximetryProfile {
   // registered | preliminary | final | amended +
   message StatusCode {
     option (.google.fhir.proto.structure_definition_kind) = KIND_PRIMITIVE_TYPE;
-    option (.google.fhir.proto.fhir_valueset_url) =
-        "http://hl7.org/fhir/ValueSet/observation-status";
-    option (.google.fhir.proto.fhir_profile_base) =
-        "http://hl7.org/fhir/StructureDefinition/code";
+    option (.google.fhir.proto.fhir_valueset_url) = "http://hl7.org/fhir/ValueSet/observation-status";
+    option (.google.fhir.proto.fhir_profile_base) = "http://hl7.org/fhir/StructureDefinition/code";
 
     core.ObservationStatusCode.Value value = 1;
 
@@ -7382,17 +7007,14 @@ message USCorePulseOximetryProfile {
 
     repeated core.Extension extension = 3;
   }
-  StatusCode status = 13
-      [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
+  StatusCode status = 13 [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
 
   // Classification of  type of observation
-  repeated core.CodeableConcept category = 14
-      [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
+  repeated core.CodeableConcept category = 14 [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
 
   // Oxygen Saturation by Pulse Oximetry
   message CodeableConceptForCode {
-    option (.google.fhir.proto.fhir_profile_base) =
-        "http://hl7.org/fhir/StructureDefinition/CodeableConcept";
+    option (.google.fhir.proto.fhir_profile_base) = "http://hl7.org/fhir/StructureDefinition/CodeableConcept";
 
     // Unique id for inter-element referencing
     core.String id = 1;
@@ -7418,8 +7040,7 @@ message USCorePulseOximetryProfile {
       json_name = "PulseOx"
     ];
   }
-  CodeableConceptForCode code = 15
-      [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
+  CodeableConceptForCode code = 15 [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
 
   // Who and/or what the observation is about
   core.Reference subject = 16 [
@@ -7428,17 +7049,14 @@ message USCorePulseOximetryProfile {
   ];
 
   // What the observation is about, when it is not about the subject of record
-  repeated core.Reference focus = 17
-      [(.google.fhir.proto.valid_reference_type) = "Resource"];
+  repeated core.Reference focus = 17 [(.google.fhir.proto.valid_reference_type) = "Resource"];
 
   // Healthcare event during which this observation is made
-  core.Reference encounter = 18
-      [(.google.fhir.proto.valid_reference_type) = "Encounter"];
+  core.Reference encounter = 18 [(.google.fhir.proto.valid_reference_type) = "Encounter"];
 
   // Often just a dateTime for Vital Signs
   message EffectiveX {
-    option (.google.fhir.proto.fhir_path_message_constraint) =
-        "($this as dateTime).toString().length() >= 8";
+    option (.google.fhir.proto.fhir_path_message_constraint) = "($this as dateTime).toString().length() >= 8";
     option (.google.fhir.proto.is_choice_type) = true;
 
     oneof choice {
@@ -7446,8 +7064,7 @@ message USCorePulseOximetryProfile {
       core.Period period = 2;
     }
   }
-  EffectiveX effective = 19
-      [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
+  EffectiveX effective = 19 [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
 
   // Date/Time this version was made available
   core.Instant issued = 20;
@@ -7490,8 +7107,7 @@ message USCorePulseOximetryProfile {
   core.CodeableConcept method = 27;
 
   // Specimen used for this observation
-  core.Reference specimen = 28
-      [(.google.fhir.proto.valid_reference_type) = "Specimen"];
+  core.Reference specimen = 28 [(.google.fhir.proto.valid_reference_type) = "Specimen"];
 
   // (Measurement) Device
   core.Reference device = 29 [
@@ -7501,8 +7117,7 @@ message USCorePulseOximetryProfile {
 
   // Provides guide for interpretation
   message ReferenceRange {
-    option (.google.fhir.proto.fhir_path_message_constraint) =
-        "low.exists() or high.exists() or text.exists()";
+    option (.google.fhir.proto.fhir_path_message_constraint) = "low.exists() or high.exists() or text.exists()";
 
     // Unique id for inter-element referencing
     core.String id = 1;
@@ -7552,8 +7167,7 @@ message USCorePulseOximetryProfile {
 
   // Used when reporting systolic and diastolic blood pressure.
   message Component {
-    option (.google.fhir.proto.fhir_path_message_constraint) =
-        "value.exists() or dataAbsentReason.exists()";
+    option (.google.fhir.proto.fhir_path_message_constraint) = "value.exists() or dataAbsentReason.exists()";
 
     // Unique id for inter-element referencing
     core.String id = 1;
@@ -7565,8 +7179,7 @@ message USCorePulseOximetryProfile {
     repeated core.Extension modifier_extension = 3;
 
     // Type of component observation (code / type)
-    core.CodeableConcept code = 4
-        [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
+    core.CodeableConcept code = 4 [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
 
     // Vital Sign Value recorded with UCUM
     message ValueX {
@@ -7617,14 +7230,10 @@ message USCorePulseOximetryProfile {
 // See http://hl7.org/fhir/us/core/StructureDefinition/us-core-smokingstatus
 message USCoreSmokingStatusProfile {
   option (.google.fhir.proto.structure_definition_kind) = KIND_RESOURCE;
-  option (.google.fhir.proto.fhir_profile_base) =
-      "http://hl7.org/fhir/StructureDefinition/Observation";
-  option (.google.fhir.proto.fhir_structure_definition_url) =
-      "http://hl7.org/fhir/us/core/StructureDefinition/us-core-smokingstatus";
-  option (.google.fhir.proto.fhir_path_message_constraint) =
-      "dataAbsentReason.empty() or value.empty()";
-  option (.google.fhir.proto.fhir_path_message_constraint) =
-      "value.empty() or component.code.where(coding.intersect(%resource.code.coding).exists()).empty()";
+  option (.google.fhir.proto.fhir_profile_base) = "http://hl7.org/fhir/StructureDefinition/Observation";
+  option (.google.fhir.proto.fhir_structure_definition_url) = "http://hl7.org/fhir/us/core/StructureDefinition/us-core-smokingstatus";
+  option (.google.fhir.proto.fhir_path_message_constraint) = "dataAbsentReason.empty() or value.empty()";
+  option (.google.fhir.proto.fhir_path_message_constraint) = "value.empty() or component.code.where(coding.intersect(%resource.code.coding).exists()).empty()";
   option (.google.fhir.proto.search_parameter) = {
     name: "amino-acid-change"
     type: STRING
@@ -7895,10 +7504,8 @@ message USCoreSmokingStatusProfile {
   // registered | preliminary | final | amended +
   message StatusCode {
     option (.google.fhir.proto.structure_definition_kind) = KIND_PRIMITIVE_TYPE;
-    option (.google.fhir.proto.fhir_valueset_url) =
-        "http://hl7.org/fhir/us/core/ValueSet/us-core-observation-smoking-status-status";
-    option (.google.fhir.proto.fhir_profile_base) =
-        "http://hl7.org/fhir/StructureDefinition/code";
+    option (.google.fhir.proto.fhir_valueset_url) = "http://hl7.org/fhir/us/core/ValueSet/us-core-observation-smoking-status-status";
+    option (.google.fhir.proto.fhir_profile_base) = "http://hl7.org/fhir/StructureDefinition/code";
 
     USCoreObservationSmokingStatusStatusValueSet.Value value = 1;
 
@@ -7906,15 +7513,13 @@ message USCoreSmokingStatusProfile {
 
     repeated core.Extension extension = 3;
   }
-  StatusCode status = 13
-      [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
+  StatusCode status = 13 [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
 
   // Classification of  type of observation
   repeated core.CodeableConcept category = 14;
 
   // Smoking Status
-  core.CodeableConcept code = 15
-      [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
+  core.CodeableConcept code = 15 [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
 
   // Who and/or what the observation is about
   core.Reference subject = 16 [
@@ -7923,12 +7528,10 @@ message USCoreSmokingStatusProfile {
   ];
 
   // What the observation is about, when it is not about the subject of record
-  repeated core.Reference focus = 17
-      [(.google.fhir.proto.valid_reference_type) = "Resource"];
+  repeated core.Reference focus = 17 [(.google.fhir.proto.valid_reference_type) = "Resource"];
 
   // Healthcare event during which this observation is made
-  core.Reference encounter = 18
-      [(.google.fhir.proto.valid_reference_type) = "Encounter"];
+  core.Reference encounter = 18 [(.google.fhir.proto.valid_reference_type) = "Encounter"];
 
   // Clinically relevant time/time-period for observation
   message EffectiveX {
@@ -7944,8 +7547,7 @@ message USCoreSmokingStatusProfile {
   EffectiveX effective = 19;
 
   // Date/Time this version was made available
-  core.Instant issued = 20
-      [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
+  core.Instant issued = 20 [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
 
   // Who is responsible for the observation
   repeated core.Reference performer = 21 [
@@ -7965,8 +7567,7 @@ message USCoreSmokingStatusProfile {
       core.CodeableConcept codeable_concept = 2;
     }
   }
-  ValueX value = 22
-      [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
+  ValueX value = 22 [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
 
   // Why the result is missing
   core.CodeableConcept data_absent_reason = 23;
@@ -7984,8 +7585,7 @@ message USCoreSmokingStatusProfile {
   core.CodeableConcept method = 27;
 
   // Specimen used for this observation
-  core.Reference specimen = 28
-      [(.google.fhir.proto.valid_reference_type) = "Specimen"];
+  core.Reference specimen = 28 [(.google.fhir.proto.valid_reference_type) = "Specimen"];
 
   // (Measurement) Device
   core.Reference device = 29 [
@@ -7995,8 +7595,7 @@ message USCoreSmokingStatusProfile {
 
   // Provides guide for interpretation
   message ReferenceRange {
-    option (.google.fhir.proto.fhir_path_message_constraint) =
-        "low.exists() or high.exists() or text.exists()";
+    option (.google.fhir.proto.fhir_path_message_constraint) = "low.exists() or high.exists() or text.exists()";
 
     // Unique id for inter-element referencing
     core.String id = 1;
@@ -8056,8 +7655,7 @@ message USCoreSmokingStatusProfile {
     repeated core.Extension modifier_extension = 3;
 
     // Type of component observation (code / type)
-    core.CodeableConcept code = 4
-        [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
+    core.CodeableConcept code = 4 [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
 
     // Actual component result
     message ValueX {
@@ -8096,18 +7694,12 @@ message USCoreSmokingStatusProfile {
 // See http://hl7.org/fhir/us/core/StructureDefinition/us-core-condition
 message UsCoreCondition {
   option (.google.fhir.proto.structure_definition_kind) = KIND_RESOURCE;
-  option (.google.fhir.proto.fhir_profile_base) =
-      "http://hl7.org/fhir/StructureDefinition/Condition";
-  option (.google.fhir.proto.fhir_structure_definition_url) =
-      "http://hl7.org/fhir/us/core/StructureDefinition/us-core-condition";
-  option (.google.fhir.proto.fhir_path_message_constraint) =
-      "abatement.empty() or clinicalStatus.coding.where(system='http://terminology.hl7.org/CodeSystem/condition-clinical' and (code='resolved' or code='remission' or code='inactive')).exists()";
-  option (.google.fhir.proto.fhir_path_message_constraint) =
-      "verificationStatus.coding.where(system='http://terminology.hl7.org/CodeSystem/condition-ver-status' and code='entered-in-error').empty() or clinicalStatus.empty()";
-  option (.google.fhir.proto.fhir_path_message_warning_constraint) =
-      "clinicalStatus.exists() or verificationStatus.coding.where(system='http://terminology.hl7.org/CodeSystem/condition-ver-status' and code = 'entered-in-error').exists() or category.select($this='problem-list-item').empty()";
-  option (.google.fhir.proto.fhir_path_message_warning_constraint) =
-      "where(category in 'http://hl7.org/fhir/us/core/ValueSet/us-core-condition-category').exists()";
+  option (.google.fhir.proto.fhir_profile_base) = "http://hl7.org/fhir/StructureDefinition/Condition";
+  option (.google.fhir.proto.fhir_structure_definition_url) = "http://hl7.org/fhir/us/core/StructureDefinition/us-core-condition";
+  option (.google.fhir.proto.fhir_path_message_constraint) = "abatement.empty() or clinicalStatus.coding.where(system='http://terminology.hl7.org/CodeSystem/condition-clinical' and (code='resolved' or code='remission' or code='inactive')).exists()";
+  option (.google.fhir.proto.fhir_path_message_constraint) = "verificationStatus.coding.where(system='http://terminology.hl7.org/CodeSystem/condition-ver-status' and code='entered-in-error').empty() or clinicalStatus.empty()";
+  option (.google.fhir.proto.fhir_path_message_warning_constraint) = "clinicalStatus.exists() or verificationStatus.coding.where(system='http://terminology.hl7.org/CodeSystem/condition-ver-status' and code = 'entered-in-error').exists() or category.select($this='problem-list-item').empty()";
+  option (.google.fhir.proto.fhir_path_message_warning_constraint) = "where(category in 'http://hl7.org/fhir/us/core/ValueSet/us-core-condition-category').exists()";
   option (.google.fhir.proto.search_parameter) = {
     name: "Example Search Parameter"
     type: REFERENCE
@@ -8258,15 +7850,13 @@ message UsCoreCondition {
   core.CodeableConcept verification_status = 12;
 
   // problem-list-item | encounter-diagnosis | health-concern
-  repeated core.CodeableConcept category = 13
-      [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
+  repeated core.CodeableConcept category = 13 [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
 
   // Subjective severity of condition
   core.CodeableConcept severity = 14;
 
   // Identification of the condition, problem or diagnosis
-  core.CodeableConcept code = 15
-      [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
+  core.CodeableConcept code = 15 [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
 
   // Anatomical location, if relevant
   repeated core.CodeableConcept body_site = 16;
@@ -8278,8 +7868,7 @@ message UsCoreCondition {
   ];
 
   // Encounter created as part of
-  core.Reference encounter = 18
-      [(.google.fhir.proto.valid_reference_type) = "Encounter"];
+  core.Reference encounter = 18 [(.google.fhir.proto.valid_reference_type) = "Encounter"];
 
   // Estimated or actual date,  date-time, or age
   message OnsetX {
@@ -8330,8 +7919,7 @@ message UsCoreCondition {
 
   // Stage/grade, usually assessed formally
   message Stage {
-    option (.google.fhir.proto.fhir_path_message_constraint) =
-        "summary.exists() or assessment.exists()";
+    option (.google.fhir.proto.fhir_path_message_constraint) = "summary.exists() or assessment.exists()";
 
     // Unique id for inter-element referencing
     core.String id = 1;
@@ -8359,8 +7947,7 @@ message UsCoreCondition {
 
   // Supporting evidence
   message Evidence {
-    option (.google.fhir.proto.fhir_path_message_constraint) =
-        "code.exists() or detail.exists()";
+    option (.google.fhir.proto.fhir_path_message_constraint) = "code.exists() or detail.exists()";
 
     // Unique id for inter-element referencing
     core.String id = 1;
@@ -8375,8 +7962,7 @@ message UsCoreCondition {
     repeated core.CodeableConcept code = 4;
 
     // Supporting information found elsewhere
-    repeated core.Reference detail = 5
-        [(.google.fhir.proto.valid_reference_type) = "Resource"];
+    repeated core.Reference detail = 5 [(.google.fhir.proto.valid_reference_type) = "Resource"];
   }
   repeated Evidence evidence = 25;
 
@@ -8389,10 +7975,8 @@ message UsCoreCondition {
 // See http://hl7.org/fhir/us/core/StructureDefinition/us-core-direct
 message UsCoreDirectEmail {
   option (.google.fhir.proto.structure_definition_kind) = KIND_COMPLEX_TYPE;
-  option (.google.fhir.proto.fhir_profile_base) =
-      "http://hl7.org/fhir/StructureDefinition/Extension";
-  option (.google.fhir.proto.fhir_structure_definition_url) =
-      "http://hl7.org/fhir/us/core/StructureDefinition/us-core-direct";
+  option (.google.fhir.proto.fhir_profile_base) = "http://hl7.org/fhir/StructureDefinition/Extension";
+  option (.google.fhir.proto.fhir_structure_definition_url) = "http://hl7.org/fhir/us/core/StructureDefinition/us-core-direct";
 
   // Unique id for inter-element referencing
   core.String id = 1;

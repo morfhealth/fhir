@@ -21,18 +21,17 @@ import "proto/google/fhir/proto/annotations.proto";
 import "proto/google/fhir/proto/r5/core/codes.proto";
 import "proto/google/fhir/proto/r5/core/datatypes.proto";
 
+option go_package = "github.com/google/fhir/go/proto/google/fhir/proto/r5/core/resources/subscription_go_proto";
 option java_multiple_files = true;
 option java_package = "com.google.fhir.r5.core";
 option (.google.fhir.proto.fhir_version) = R5;
-option go_package = "github.com/google/fhir/go/proto/google/fhir/proto/r5/core/resources/subscription_go_proto";
 
 // Auto-generated from StructureDefinition for Subscription.
 // Notification about a SubscriptionTopic.
 // See http://hl7.org/fhir/StructureDefinition/Subscription
 message Subscription {
   option (.google.fhir.proto.structure_definition_kind) = KIND_RESOURCE;
-  option (.google.fhir.proto.fhir_structure_definition_url) =
-      "http://hl7.org/fhir/StructureDefinition/Subscription";
+  option (.google.fhir.proto.fhir_structure_definition_url) = "http://hl7.org/fhir/StructureDefinition/Subscription";
 
   // Logical id of this artifact
   Id id = 1;
@@ -71,10 +70,8 @@ message Subscription {
   // requested | active | error | off | entered-in-error
   message StatusCode {
     option (.google.fhir.proto.structure_definition_kind) = KIND_PRIMITIVE_TYPE;
-    option (.google.fhir.proto.fhir_valueset_url) =
-        "http://hl7.org/fhir/ValueSet/subscription-status";
-    option (.google.fhir.proto.fhir_profile_base) =
-        "http://hl7.org/fhir/StructureDefinition/code";
+    option (.google.fhir.proto.fhir_valueset_url) = "http://hl7.org/fhir/ValueSet/subscription-status";
+    option (.google.fhir.proto.fhir_profile_base) = "http://hl7.org/fhir/StructureDefinition/code";
 
     SubscriptionStatusCode.Value value = 1;
 
@@ -82,12 +79,10 @@ message Subscription {
 
     repeated Extension extension = 3;
   }
-  StatusCode status = 10
-      [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
+  StatusCode status = 10 [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
 
   // Reference to the subscription topic being subscribed to
-  Canonical topic = 19
-      [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
+  Canonical topic = 19 [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
 
   // Contact details for source (e.g. troubleshooting)
   repeated ContactPoint contact = 11;
@@ -111,8 +106,7 @@ message Subscription {
 
   // Criteria for narrowing the subscription topic stream
   message FilterBy {
-    option (.google.fhir.proto.fhir_path_message_constraint) =
-        "(comparator.exists() and modifier.exists()).not()";
+    option (.google.fhir.proto.fhir_path_message_constraint) = "(comparator.exists() and modifier.exists()).not()";
 
     // Unique id for inter-element referencing
     String id = 1;
@@ -127,17 +121,13 @@ message Subscription {
     Uri resource_type = 4;
 
     // Filter label defined in SubscriptionTopic
-    String filter_parameter = 5
-        [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
+    String filter_parameter = 5 [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
 
     // eq | ne | gt | lt | ge | le | sa | eb | ap
     message ComparatorCode {
-      option (.google.fhir.proto.structure_definition_kind) =
-          KIND_PRIMITIVE_TYPE;
-      option (.google.fhir.proto.fhir_valueset_url) =
-          "http://hl7.org/fhir/ValueSet/search-comparator";
-      option (.google.fhir.proto.fhir_profile_base) =
-          "http://hl7.org/fhir/StructureDefinition/code";
+      option (.google.fhir.proto.structure_definition_kind) = KIND_PRIMITIVE_TYPE;
+      option (.google.fhir.proto.fhir_valueset_url) = "http://hl7.org/fhir/ValueSet/search-comparator";
+      option (.google.fhir.proto.fhir_profile_base) = "http://hl7.org/fhir/StructureDefinition/code";
 
       SearchComparatorCode.Value value = 1;
 
@@ -150,12 +140,9 @@ message Subscription {
     // missing | exact | contains | not | text | in | not-in | below | above |
     // type | identifier | of-type | code-text | text-advanced | iterate
     message ModifierCode {
-      option (.google.fhir.proto.structure_definition_kind) =
-          KIND_PRIMITIVE_TYPE;
-      option (.google.fhir.proto.fhir_valueset_url) =
-          "http://hl7.org/fhir/ValueSet/search-modifier-code";
-      option (.google.fhir.proto.fhir_profile_base) =
-          "http://hl7.org/fhir/StructureDefinition/code";
+      option (.google.fhir.proto.structure_definition_kind) = KIND_PRIMITIVE_TYPE;
+      option (.google.fhir.proto.fhir_valueset_url) = "http://hl7.org/fhir/ValueSet/search-modifier-code";
+      option (.google.fhir.proto.fhir_profile_base) = "http://hl7.org/fhir/StructureDefinition/code";
 
       SearchModifierCode.Value value = 1;
 
@@ -166,14 +153,12 @@ message Subscription {
     ModifierCode modifier = 7;
 
     // Literal value or resource path
-    String value = 8
-        [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
+    String value = 8 [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
   }
   repeated FilterBy filter_by = 21;
 
   // Channel type for notifications
-  Coding channel_type = 22
-      [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
+  Coding channel_type = 22 [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
 
   // Where the channel points to
   Url endpoint = 23;
@@ -190,12 +175,10 @@ message Subscription {
     repeated Extension modifier_extension = 3;
 
     // Name (key) of the parameter
-    String name = 4
-        [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
+    String name = 4 [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
 
     // Value of the parameter to use or pass through
-    String value = 5
-        [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
+    String value = 5 [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
   }
   repeated Parameter parameter = 24;
 
@@ -208,10 +191,8 @@ message Subscription {
   // MIME type to send, or omit for no payload
   message ContentTypeCode {
     option (.google.fhir.proto.structure_definition_kind) = KIND_PRIMITIVE_TYPE;
-    option (.google.fhir.proto.fhir_valueset_url) =
-        "http://hl7.org/fhir/ValueSet/mimetypes";
-    option (.google.fhir.proto.fhir_profile_base) =
-        "http://hl7.org/fhir/StructureDefinition/code";
+    option (.google.fhir.proto.fhir_valueset_url) = "http://hl7.org/fhir/ValueSet/mimetypes";
+    option (.google.fhir.proto.fhir_profile_base) = "http://hl7.org/fhir/StructureDefinition/code";
 
     // Field 1 reserved to allow enumeration in the future.
     reserved 1;
@@ -228,10 +209,8 @@ message Subscription {
   // empty | id-only | full-resource
   message ContentCode {
     option (.google.fhir.proto.structure_definition_kind) = KIND_PRIMITIVE_TYPE;
-    option (.google.fhir.proto.fhir_valueset_url) =
-        "http://hl7.org/fhir/ValueSet/subscription-payload-content";
-    option (.google.fhir.proto.fhir_profile_base) =
-        "http://hl7.org/fhir/StructureDefinition/code";
+    option (.google.fhir.proto.fhir_valueset_url) = "http://hl7.org/fhir/ValueSet/subscription-payload-content";
+    option (.google.fhir.proto.fhir_profile_base) = "http://hl7.org/fhir/StructureDefinition/code";
 
     SubscriptionPayloadContentCode.Value value = 1;
 

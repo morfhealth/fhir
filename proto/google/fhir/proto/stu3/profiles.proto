@@ -23,22 +23,19 @@ import "proto/google/fhir/proto/stu3/extensions.proto";
 import "proto/google/fhir/proto/stu3/metadatatypes.proto";
 import "proto/google/fhir/proto/stu3/resources.proto";
 
+option go_package = "github.com/google/fhir/go/proto/google/fhir/proto/stu3/profiles_go_proto";
 option java_multiple_files = true;
 option java_package = "com.google.fhir.stu3.proto";
 option (.google.fhir.proto.fhir_version) = STU3;
-option go_package = "github.com/google/fhir/go/proto/google/fhir/proto/stu3/profiles_go_proto";
 
 // Auto-generated from StructureDefinition for Vital Signs Profile.
 // FHIR Body Mass Index (BMI) Profile.
 // See http://hl7.org/fhir/StructureDefinition/bmi
 message Bmi {
   option (.google.fhir.proto.structure_definition_kind) = KIND_RESOURCE;
-  option (.google.fhir.proto.fhir_profile_base) =
-      "http://hl7.org/fhir/StructureDefinition/vitalsigns";
-  option (.google.fhir.proto.fhir_profile_base) =
-      "http://hl7.org/fhir/StructureDefinition/Observation";
-  option (.google.fhir.proto.fhir_structure_definition_url) =
-      "http://hl7.org/fhir/StructureDefinition/bmi";
+  option (.google.fhir.proto.fhir_profile_base) = "http://hl7.org/fhir/StructureDefinition/vitalsigns";
+  option (.google.fhir.proto.fhir_profile_base) = "http://hl7.org/fhir/StructureDefinition/Observation";
+  option (.google.fhir.proto.fhir_structure_definition_url) = "http://hl7.org/fhir/StructureDefinition/bmi";
 
   // Logical id of this artifact
   Id id = 1;
@@ -79,20 +76,17 @@ message Bmi {
   ];
 
   // registered | preliminary | final | amended +
-  ObservationStatusCode status = 11
-      [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
+  ObservationStatusCode status = 11 [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
 
   // Classification of  type of observation
   repeated CodeableConcept category = 12 [
     (.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR,
-    (.google.fhir.proto.fhir_path_constraint) =
-        "where(coding.system='http://hl7.org/fhir/observation-category' and coding.code='vital-signs').exists()"
+    (.google.fhir.proto.fhir_path_constraint) = "where(coding.system='http://hl7.org/fhir/observation-category' and coding.code='vital-signs').exists()"
   ];
 
   // Body Mass Index (BMI)
   message CodeableConceptForCode {
-    option (.google.fhir.proto.fhir_profile_base) =
-        "http://hl7.org/fhir/StructureDefinition/CodeableConcept";
+    option (.google.fhir.proto.fhir_profile_base) = "http://hl7.org/fhir/StructureDefinition/CodeableConcept";
 
     // xml:id (or equivalent in JSON)
     String id = 1;
@@ -112,8 +106,7 @@ message Bmi {
       json_name = "BMICode"
     ];
   }
-  CodeableConceptForCode code = 13
-      [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
+  CodeableConceptForCode code = 13 [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
 
   // Who and/or what this is about
   Reference subject = 14 [
@@ -138,8 +131,7 @@ message Bmi {
   }
   Effective effective = 16 [
     (.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR,
-    (.google.fhir.proto.fhir_path_constraint) =
-        "($this as dateTime).toString().length() >= 8"
+    (.google.fhir.proto.fhir_path_constraint) = "($this as dateTime).toString().length() >= 8"
   ];
 
   // Date/Time this was made available
@@ -179,8 +171,7 @@ message Bmi {
   CodeableConcept method = 24;
 
   // Specimen used for this observation
-  Reference specimen = 25
-      [(.google.fhir.proto.valid_reference_type) = "Specimen"];
+  Reference specimen = 25 [(.google.fhir.proto.valid_reference_type) = "Specimen"];
 
   // (Measurement) Device
   Reference device = 26 [
@@ -217,9 +208,7 @@ message Bmi {
     // Text based reference range in an observation
     String text = 9;
   }
-  repeated ReferenceRange reference_range = 27
-      [(.google.fhir.proto.fhir_path_constraint) =
-           "low.exists() or high.exists() or text.exists()"];
+  repeated ReferenceRange reference_range = 27 [(.google.fhir.proto.fhir_path_constraint) = "low.exists() or high.exists() or text.exists()"];
 
   // Used when reporting vital signs panel components
   message Related {
@@ -234,8 +223,7 @@ message Bmi {
 
     // has-member | derived-from | sequel-to | replaces | qualified-by |
     // interfered-by
-    ObservationRelationshipTypeCode type = 4
-        [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
+    ObservationRelationshipTypeCode type = 4 [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
 
     // Resource that is related to this one
     Reference target = 5 [
@@ -257,8 +245,7 @@ message Bmi {
     repeated Extension modifier_extension = 3;
 
     // Type of component observation (code / type)
-    CodeableConcept code = 4
-        [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
+    CodeableConcept code = 4 [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
 
     // Vital Sign Value recorded with UCUM
     message Value {
@@ -279,9 +266,7 @@ message Bmi {
     // Provides guide for interpretation of component result
     repeated ReferenceRange reference_range = 8;
   }
-  repeated Component component = 29
-      [(.google.fhir.proto.fhir_path_constraint) =
-           "value.exists() or dataAbsentReason.exists()"];
+  repeated Component component = 29 [(.google.fhir.proto.fhir_path_constraint) = "value.exists() or dataAbsentReason.exists()"];
 }
 
 // Auto-generated from StructureDefinition for Vital Signs Profile.
@@ -289,12 +274,9 @@ message Bmi {
 // See http://hl7.org/fhir/StructureDefinition/bodyheight
 message Bodyheight {
   option (.google.fhir.proto.structure_definition_kind) = KIND_RESOURCE;
-  option (.google.fhir.proto.fhir_profile_base) =
-      "http://hl7.org/fhir/StructureDefinition/vitalsigns";
-  option (.google.fhir.proto.fhir_profile_base) =
-      "http://hl7.org/fhir/StructureDefinition/Observation";
-  option (.google.fhir.proto.fhir_structure_definition_url) =
-      "http://hl7.org/fhir/StructureDefinition/bodyheight";
+  option (.google.fhir.proto.fhir_profile_base) = "http://hl7.org/fhir/StructureDefinition/vitalsigns";
+  option (.google.fhir.proto.fhir_profile_base) = "http://hl7.org/fhir/StructureDefinition/Observation";
+  option (.google.fhir.proto.fhir_structure_definition_url) = "http://hl7.org/fhir/StructureDefinition/bodyheight";
 
   // Logical id of this artifact
   Id id = 1;
@@ -335,20 +317,17 @@ message Bodyheight {
   ];
 
   // registered | preliminary | final | amended +
-  ObservationStatusCode status = 11
-      [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
+  ObservationStatusCode status = 11 [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
 
   // Classification of  type of observation
   repeated CodeableConcept category = 12 [
     (.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR,
-    (.google.fhir.proto.fhir_path_constraint) =
-        "where(coding.system='http://hl7.org/fhir/observation-category' and coding.code='vital-signs').exists()"
+    (.google.fhir.proto.fhir_path_constraint) = "where(coding.system='http://hl7.org/fhir/observation-category' and coding.code='vital-signs').exists()"
   ];
 
   // Body Height
   message CodeableConceptForCode {
-    option (.google.fhir.proto.fhir_profile_base) =
-        "http://hl7.org/fhir/StructureDefinition/CodeableConcept";
+    option (.google.fhir.proto.fhir_profile_base) = "http://hl7.org/fhir/StructureDefinition/CodeableConcept";
 
     // xml:id (or equivalent in JSON)
     String id = 1;
@@ -368,8 +347,7 @@ message Bodyheight {
       json_name = "BodyHeightCode"
     ];
   }
-  CodeableConceptForCode code = 13
-      [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
+  CodeableConceptForCode code = 13 [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
 
   // Who and/or what this is about
   Reference subject = 14 [
@@ -394,8 +372,7 @@ message Bodyheight {
   }
   Effective effective = 16 [
     (.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR,
-    (.google.fhir.proto.fhir_path_constraint) =
-        "($this as dateTime).toString().length() >= 8"
+    (.google.fhir.proto.fhir_path_constraint) = "($this as dateTime).toString().length() >= 8"
   ];
 
   // Date/Time this was made available
@@ -435,8 +412,7 @@ message Bodyheight {
   CodeableConcept method = 24;
 
   // Specimen used for this observation
-  Reference specimen = 25
-      [(.google.fhir.proto.valid_reference_type) = "Specimen"];
+  Reference specimen = 25 [(.google.fhir.proto.valid_reference_type) = "Specimen"];
 
   // (Measurement) Device
   Reference device = 26 [
@@ -473,9 +449,7 @@ message Bodyheight {
     // Text based reference range in an observation
     String text = 9;
   }
-  repeated ReferenceRange reference_range = 27
-      [(.google.fhir.proto.fhir_path_constraint) =
-           "low.exists() or high.exists() or text.exists()"];
+  repeated ReferenceRange reference_range = 27 [(.google.fhir.proto.fhir_path_constraint) = "low.exists() or high.exists() or text.exists()"];
 
   // Used when reporting vital signs panel components
   message Related {
@@ -490,8 +464,7 @@ message Bodyheight {
 
     // has-member | derived-from | sequel-to | replaces | qualified-by |
     // interfered-by
-    ObservationRelationshipTypeCode type = 4
-        [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
+    ObservationRelationshipTypeCode type = 4 [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
 
     // Resource that is related to this one
     Reference target = 5 [
@@ -513,8 +486,7 @@ message Bodyheight {
     repeated Extension modifier_extension = 3;
 
     // Type of component observation (code / type)
-    CodeableConcept code = 4
-        [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
+    CodeableConcept code = 4 [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
 
     // Vital Sign Value recorded with UCUM
     message Value {
@@ -535,9 +507,7 @@ message Bodyheight {
     // Provides guide for interpretation of component result
     repeated ReferenceRange reference_range = 8;
   }
-  repeated Component component = 29
-      [(.google.fhir.proto.fhir_path_constraint) =
-           "value.exists() or dataAbsentReason.exists()"];
+  repeated Component component = 29 [(.google.fhir.proto.fhir_path_constraint) = "value.exists() or dataAbsentReason.exists()"];
 }
 
 // Auto-generated from StructureDefinition for Vital Signs Profile.
@@ -545,12 +515,9 @@ message Bodyheight {
 // See http://hl7.org/fhir/StructureDefinition/bodylength
 message Bodylength {
   option (.google.fhir.proto.structure_definition_kind) = KIND_RESOURCE;
-  option (.google.fhir.proto.fhir_profile_base) =
-      "http://hl7.org/fhir/StructureDefinition/vitalsigns";
-  option (.google.fhir.proto.fhir_profile_base) =
-      "http://hl7.org/fhir/StructureDefinition/Observation";
-  option (.google.fhir.proto.fhir_structure_definition_url) =
-      "http://hl7.org/fhir/StructureDefinition/bodylength";
+  option (.google.fhir.proto.fhir_profile_base) = "http://hl7.org/fhir/StructureDefinition/vitalsigns";
+  option (.google.fhir.proto.fhir_profile_base) = "http://hl7.org/fhir/StructureDefinition/Observation";
+  option (.google.fhir.proto.fhir_structure_definition_url) = "http://hl7.org/fhir/StructureDefinition/bodylength";
 
   // Logical id of this artifact
   Id id = 1;
@@ -591,20 +558,17 @@ message Bodylength {
   ];
 
   // registered | preliminary | final | amended +
-  ObservationStatusCode status = 11
-      [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
+  ObservationStatusCode status = 11 [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
 
   // Classification of  type of observation
   repeated CodeableConcept category = 12 [
     (.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR,
-    (.google.fhir.proto.fhir_path_constraint) =
-        "where(coding.system='http://hl7.org/fhir/observation-category' and coding.code='vital-signs').exists()"
+    (.google.fhir.proto.fhir_path_constraint) = "where(coding.system='http://hl7.org/fhir/observation-category' and coding.code='vital-signs').exists()"
   ];
 
   // Body Length
   message CodeableConceptForCode {
-    option (.google.fhir.proto.fhir_profile_base) =
-        "http://hl7.org/fhir/StructureDefinition/CodeableConcept";
+    option (.google.fhir.proto.fhir_profile_base) = "http://hl7.org/fhir/StructureDefinition/CodeableConcept";
 
     // xml:id (or equivalent in JSON)
     String id = 1;
@@ -624,8 +588,7 @@ message Bodylength {
       json_name = "BodyLengthCode"
     ];
   }
-  CodeableConceptForCode code = 13
-      [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
+  CodeableConceptForCode code = 13 [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
 
   // Who and/or what this is about
   Reference subject = 14 [
@@ -650,8 +613,7 @@ message Bodylength {
   }
   Effective effective = 16 [
     (.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR,
-    (.google.fhir.proto.fhir_path_constraint) =
-        "($this as dateTime).toString().length() >= 8"
+    (.google.fhir.proto.fhir_path_constraint) = "($this as dateTime).toString().length() >= 8"
   ];
 
   // Date/Time this was made available
@@ -691,8 +653,7 @@ message Bodylength {
   CodeableConcept method = 24;
 
   // Specimen used for this observation
-  Reference specimen = 25
-      [(.google.fhir.proto.valid_reference_type) = "Specimen"];
+  Reference specimen = 25 [(.google.fhir.proto.valid_reference_type) = "Specimen"];
 
   // (Measurement) Device
   Reference device = 26 [
@@ -729,9 +690,7 @@ message Bodylength {
     // Text based reference range in an observation
     String text = 9;
   }
-  repeated ReferenceRange reference_range = 27
-      [(.google.fhir.proto.fhir_path_constraint) =
-           "low.exists() or high.exists() or text.exists()"];
+  repeated ReferenceRange reference_range = 27 [(.google.fhir.proto.fhir_path_constraint) = "low.exists() or high.exists() or text.exists()"];
 
   // Used when reporting vital signs panel components
   message Related {
@@ -746,8 +705,7 @@ message Bodylength {
 
     // has-member | derived-from | sequel-to | replaces | qualified-by |
     // interfered-by
-    ObservationRelationshipTypeCode type = 4
-        [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
+    ObservationRelationshipTypeCode type = 4 [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
 
     // Resource that is related to this one
     Reference target = 5 [
@@ -769,8 +727,7 @@ message Bodylength {
     repeated Extension modifier_extension = 3;
 
     // Type of component observation (code / type)
-    CodeableConcept code = 4
-        [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
+    CodeableConcept code = 4 [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
 
     // Vital Sign Value recorded with UCUM
     message Value {
@@ -791,9 +748,7 @@ message Bodylength {
     // Provides guide for interpretation of component result
     repeated ReferenceRange reference_range = 8;
   }
-  repeated Component component = 29
-      [(.google.fhir.proto.fhir_path_constraint) =
-           "value.exists() or dataAbsentReason.exists()"];
+  repeated Component component = 29 [(.google.fhir.proto.fhir_path_constraint) = "value.exists() or dataAbsentReason.exists()"];
 }
 
 // Auto-generated from StructureDefinition for Vital Signs Profile.
@@ -801,12 +756,9 @@ message Bodylength {
 // See http://hl7.org/fhir/StructureDefinition/bodytemp
 message Bodytemp {
   option (.google.fhir.proto.structure_definition_kind) = KIND_RESOURCE;
-  option (.google.fhir.proto.fhir_profile_base) =
-      "http://hl7.org/fhir/StructureDefinition/vitalsigns";
-  option (.google.fhir.proto.fhir_profile_base) =
-      "http://hl7.org/fhir/StructureDefinition/Observation";
-  option (.google.fhir.proto.fhir_structure_definition_url) =
-      "http://hl7.org/fhir/StructureDefinition/bodytemp";
+  option (.google.fhir.proto.fhir_profile_base) = "http://hl7.org/fhir/StructureDefinition/vitalsigns";
+  option (.google.fhir.proto.fhir_profile_base) = "http://hl7.org/fhir/StructureDefinition/Observation";
+  option (.google.fhir.proto.fhir_structure_definition_url) = "http://hl7.org/fhir/StructureDefinition/bodytemp";
 
   // Logical id of this artifact
   Id id = 1;
@@ -847,20 +799,17 @@ message Bodytemp {
   ];
 
   // registered | preliminary | final | amended +
-  ObservationStatusCode status = 11
-      [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
+  ObservationStatusCode status = 11 [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
 
   // Classification of  type of observation
   repeated CodeableConcept category = 12 [
     (.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR,
-    (.google.fhir.proto.fhir_path_constraint) =
-        "where(coding.system='http://hl7.org/fhir/observation-category' and coding.code='vital-signs').exists()"
+    (.google.fhir.proto.fhir_path_constraint) = "where(coding.system='http://hl7.org/fhir/observation-category' and coding.code='vital-signs').exists()"
   ];
 
   // Body Temperature
   message CodeableConceptForCode {
-    option (.google.fhir.proto.fhir_profile_base) =
-        "http://hl7.org/fhir/StructureDefinition/CodeableConcept";
+    option (.google.fhir.proto.fhir_profile_base) = "http://hl7.org/fhir/StructureDefinition/CodeableConcept";
 
     // xml:id (or equivalent in JSON)
     String id = 1;
@@ -880,8 +829,7 @@ message Bodytemp {
       json_name = "BodyTempCode"
     ];
   }
-  CodeableConceptForCode code = 13
-      [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
+  CodeableConceptForCode code = 13 [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
 
   // Who and/or what this is about
   Reference subject = 14 [
@@ -906,8 +854,7 @@ message Bodytemp {
   }
   Effective effective = 16 [
     (.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR,
-    (.google.fhir.proto.fhir_path_constraint) =
-        "($this as dateTime).toString().length() >= 8"
+    (.google.fhir.proto.fhir_path_constraint) = "($this as dateTime).toString().length() >= 8"
   ];
 
   // Date/Time this was made available
@@ -947,8 +894,7 @@ message Bodytemp {
   CodeableConcept method = 24;
 
   // Specimen used for this observation
-  Reference specimen = 25
-      [(.google.fhir.proto.valid_reference_type) = "Specimen"];
+  Reference specimen = 25 [(.google.fhir.proto.valid_reference_type) = "Specimen"];
 
   // (Measurement) Device
   Reference device = 26 [
@@ -985,9 +931,7 @@ message Bodytemp {
     // Text based reference range in an observation
     String text = 9;
   }
-  repeated ReferenceRange reference_range = 27
-      [(.google.fhir.proto.fhir_path_constraint) =
-           "low.exists() or high.exists() or text.exists()"];
+  repeated ReferenceRange reference_range = 27 [(.google.fhir.proto.fhir_path_constraint) = "low.exists() or high.exists() or text.exists()"];
 
   // Used when reporting vital signs panel components
   message Related {
@@ -1002,8 +946,7 @@ message Bodytemp {
 
     // has-member | derived-from | sequel-to | replaces | qualified-by |
     // interfered-by
-    ObservationRelationshipTypeCode type = 4
-        [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
+    ObservationRelationshipTypeCode type = 4 [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
 
     // Resource that is related to this one
     Reference target = 5 [
@@ -1025,8 +968,7 @@ message Bodytemp {
     repeated Extension modifier_extension = 3;
 
     // Type of component observation (code / type)
-    CodeableConcept code = 4
-        [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
+    CodeableConcept code = 4 [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
 
     // Vital Sign Value recorded with UCUM
     message Value {
@@ -1047,9 +989,7 @@ message Bodytemp {
     // Provides guide for interpretation of component result
     repeated ReferenceRange reference_range = 8;
   }
-  repeated Component component = 29
-      [(.google.fhir.proto.fhir_path_constraint) =
-           "value.exists() or dataAbsentReason.exists()"];
+  repeated Component component = 29 [(.google.fhir.proto.fhir_path_constraint) = "value.exists() or dataAbsentReason.exists()"];
 }
 
 // Auto-generated from StructureDefinition for Vital Signs Profile.
@@ -1057,12 +997,9 @@ message Bodytemp {
 // See http://hl7.org/fhir/StructureDefinition/bodyweight
 message Bodyweight {
   option (.google.fhir.proto.structure_definition_kind) = KIND_RESOURCE;
-  option (.google.fhir.proto.fhir_profile_base) =
-      "http://hl7.org/fhir/StructureDefinition/vitalsigns";
-  option (.google.fhir.proto.fhir_profile_base) =
-      "http://hl7.org/fhir/StructureDefinition/Observation";
-  option (.google.fhir.proto.fhir_structure_definition_url) =
-      "http://hl7.org/fhir/StructureDefinition/bodyweight";
+  option (.google.fhir.proto.fhir_profile_base) = "http://hl7.org/fhir/StructureDefinition/vitalsigns";
+  option (.google.fhir.proto.fhir_profile_base) = "http://hl7.org/fhir/StructureDefinition/Observation";
+  option (.google.fhir.proto.fhir_structure_definition_url) = "http://hl7.org/fhir/StructureDefinition/bodyweight";
 
   // Logical id of this artifact
   Id id = 1;
@@ -1103,20 +1040,17 @@ message Bodyweight {
   ];
 
   // registered | preliminary | final | amended +
-  ObservationStatusCode status = 11
-      [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
+  ObservationStatusCode status = 11 [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
 
   // Classification of  type of observation
   repeated CodeableConcept category = 12 [
     (.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR,
-    (.google.fhir.proto.fhir_path_constraint) =
-        "where(coding.system='http://hl7.org/fhir/observation-category' and coding.code='vital-signs').exists()"
+    (.google.fhir.proto.fhir_path_constraint) = "where(coding.system='http://hl7.org/fhir/observation-category' and coding.code='vital-signs').exists()"
   ];
 
   // Body Weight
   message CodeableConceptForCode {
-    option (.google.fhir.proto.fhir_profile_base) =
-        "http://hl7.org/fhir/StructureDefinition/CodeableConcept";
+    option (.google.fhir.proto.fhir_profile_base) = "http://hl7.org/fhir/StructureDefinition/CodeableConcept";
 
     // xml:id (or equivalent in JSON)
     String id = 1;
@@ -1136,8 +1070,7 @@ message Bodyweight {
       json_name = "BodyWeightCode"
     ];
   }
-  CodeableConceptForCode code = 13
-      [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
+  CodeableConceptForCode code = 13 [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
 
   // Who and/or what this is about
   Reference subject = 14 [
@@ -1162,8 +1095,7 @@ message Bodyweight {
   }
   Effective effective = 16 [
     (.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR,
-    (.google.fhir.proto.fhir_path_constraint) =
-        "($this as dateTime).toString().length() >= 8"
+    (.google.fhir.proto.fhir_path_constraint) = "($this as dateTime).toString().length() >= 8"
   ];
 
   // Date/Time this was made available
@@ -1203,8 +1135,7 @@ message Bodyweight {
   CodeableConcept method = 24;
 
   // Specimen used for this observation
-  Reference specimen = 25
-      [(.google.fhir.proto.valid_reference_type) = "Specimen"];
+  Reference specimen = 25 [(.google.fhir.proto.valid_reference_type) = "Specimen"];
 
   // (Measurement) Device
   Reference device = 26 [
@@ -1241,9 +1172,7 @@ message Bodyweight {
     // Text based reference range in an observation
     String text = 9;
   }
-  repeated ReferenceRange reference_range = 27
-      [(.google.fhir.proto.fhir_path_constraint) =
-           "low.exists() or high.exists() or text.exists()"];
+  repeated ReferenceRange reference_range = 27 [(.google.fhir.proto.fhir_path_constraint) = "low.exists() or high.exists() or text.exists()"];
 
   // Used when reporting vital signs panel components
   message Related {
@@ -1258,8 +1187,7 @@ message Bodyweight {
 
     // has-member | derived-from | sequel-to | replaces | qualified-by |
     // interfered-by
-    ObservationRelationshipTypeCode type = 4
-        [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
+    ObservationRelationshipTypeCode type = 4 [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
 
     // Resource that is related to this one
     Reference target = 5 [
@@ -1281,8 +1209,7 @@ message Bodyweight {
     repeated Extension modifier_extension = 3;
 
     // Type of component observation (code / type)
-    CodeableConcept code = 4
-        [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
+    CodeableConcept code = 4 [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
 
     // Vital Sign Value recorded with UCUM
     message Value {
@@ -1303,9 +1230,7 @@ message Bodyweight {
     // Provides guide for interpretation of component result
     repeated ReferenceRange reference_range = 8;
   }
-  repeated Component component = 29
-      [(.google.fhir.proto.fhir_path_constraint) =
-           "value.exists() or dataAbsentReason.exists()"];
+  repeated Component component = 29 [(.google.fhir.proto.fhir_path_constraint) = "value.exists() or dataAbsentReason.exists()"];
 }
 
 // Auto-generated from StructureDefinition for Vital Signs Profile.
@@ -1313,12 +1238,9 @@ message Bodyweight {
 // See http://hl7.org/fhir/StructureDefinition/bp
 message Bp {
   option (.google.fhir.proto.structure_definition_kind) = KIND_RESOURCE;
-  option (.google.fhir.proto.fhir_profile_base) =
-      "http://hl7.org/fhir/StructureDefinition/vitalsigns";
-  option (.google.fhir.proto.fhir_profile_base) =
-      "http://hl7.org/fhir/StructureDefinition/Observation";
-  option (.google.fhir.proto.fhir_structure_definition_url) =
-      "http://hl7.org/fhir/StructureDefinition/bp";
+  option (.google.fhir.proto.fhir_profile_base) = "http://hl7.org/fhir/StructureDefinition/vitalsigns";
+  option (.google.fhir.proto.fhir_profile_base) = "http://hl7.org/fhir/StructureDefinition/Observation";
+  option (.google.fhir.proto.fhir_structure_definition_url) = "http://hl7.org/fhir/StructureDefinition/bp";
 
   // Logical id of this artifact
   Id id = 1;
@@ -1359,20 +1281,17 @@ message Bp {
   ];
 
   // registered | preliminary | final | amended +
-  ObservationStatusCode status = 11
-      [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
+  ObservationStatusCode status = 11 [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
 
   // Classification of  type of observation
   repeated CodeableConcept category = 12 [
     (.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR,
-    (.google.fhir.proto.fhir_path_constraint) =
-        "where(coding.system='http://hl7.org/fhir/observation-category' and coding.code='vital-signs').exists()"
+    (.google.fhir.proto.fhir_path_constraint) = "where(coding.system='http://hl7.org/fhir/observation-category' and coding.code='vital-signs').exists()"
   ];
 
   // Blood Pressure
   message CodeableConceptForCode {
-    option (.google.fhir.proto.fhir_profile_base) =
-        "http://hl7.org/fhir/StructureDefinition/CodeableConcept";
+    option (.google.fhir.proto.fhir_profile_base) = "http://hl7.org/fhir/StructureDefinition/CodeableConcept";
 
     // xml:id (or equivalent in JSON)
     String id = 1;
@@ -1392,8 +1311,7 @@ message Bp {
       json_name = "BPCode"
     ];
   }
-  CodeableConceptForCode code = 13
-      [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
+  CodeableConceptForCode code = 13 [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
 
   // Who and/or what this is about
   Reference subject = 14 [
@@ -1418,8 +1336,7 @@ message Bp {
   }
   Effective effective = 16 [
     (.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR,
-    (.google.fhir.proto.fhir_path_constraint) =
-        "($this as dateTime).toString().length() >= 8"
+    (.google.fhir.proto.fhir_path_constraint) = "($this as dateTime).toString().length() >= 8"
   ];
 
   // Date/Time this was made available
@@ -1452,8 +1369,7 @@ message Bp {
   CodeableConcept method = 24;
 
   // Specimen used for this observation
-  Reference specimen = 25
-      [(.google.fhir.proto.valid_reference_type) = "Specimen"];
+  Reference specimen = 25 [(.google.fhir.proto.valid_reference_type) = "Specimen"];
 
   // (Measurement) Device
   Reference device = 26 [
@@ -1490,9 +1406,7 @@ message Bp {
     // Text based reference range in an observation
     String text = 9;
   }
-  repeated ReferenceRange reference_range = 27
-      [(.google.fhir.proto.fhir_path_constraint) =
-           "low.exists() or high.exists() or text.exists()"];
+  repeated ReferenceRange reference_range = 27 [(.google.fhir.proto.fhir_path_constraint) = "low.exists() or high.exists() or text.exists()"];
 
   // Used when reporting vital signs panel components
   message Related {
@@ -1507,8 +1421,7 @@ message Bp {
 
     // has-member | derived-from | sequel-to | replaces | qualified-by |
     // interfered-by
-    ObservationRelationshipTypeCode type = 4
-        [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
+    ObservationRelationshipTypeCode type = 4 [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
 
     // Resource that is related to this one
     Reference target = 5 [
@@ -1520,9 +1433,7 @@ message Bp {
 
   // Used when reporting systolic and diastolic blood pressure.
   message Component {}
-  repeated Component component = 29
-      [(.google.fhir.proto.fhir_path_constraint) =
-           "value.exists() or dataAbsentReason.exists()"];
+  repeated Component component = 29 [(.google.fhir.proto.fhir_path_constraint) = "value.exists() or dataAbsentReason.exists()"];
 
   // field 30 reserved for Observation.component:systolicbp which uses an
   // unsupported slicing on BackboneElement
@@ -1538,10 +1449,8 @@ message Bp {
 // See http://hl7.org/fhir/StructureDefinition/cholesterol
 message Cholesterol {
   option (.google.fhir.proto.structure_definition_kind) = KIND_RESOURCE;
-  option (.google.fhir.proto.fhir_profile_base) =
-      "http://hl7.org/fhir/StructureDefinition/Observation";
-  option (.google.fhir.proto.fhir_structure_definition_url) =
-      "http://hl7.org/fhir/StructureDefinition/cholesterol";
+  option (.google.fhir.proto.fhir_profile_base) = "http://hl7.org/fhir/StructureDefinition/Observation";
+  option (.google.fhir.proto.fhir_structure_definition_url) = "http://hl7.org/fhir/StructureDefinition/cholesterol";
 
   // Logical id of this artifact
   Id id = 1;
@@ -1582,15 +1491,13 @@ message Cholesterol {
   ];
 
   // registered | preliminary | final | amended +
-  ObservationStatusCode status = 11
-      [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
+  ObservationStatusCode status = 11 [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
 
   // Classification of  type of observation
   repeated CodeableConcept category = 12;
 
   // Cholesterol
-  CodeableConcept code = 13
-      [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
+  CodeableConcept code = 13 [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
 
   // Who and/or what this is about
   Reference subject = 14 [
@@ -1654,8 +1561,7 @@ message Cholesterol {
   CodeableConcept method = 24;
 
   // Specimen used for this observation
-  Reference specimen = 25
-      [(.google.fhir.proto.valid_reference_type) = "Specimen"];
+  Reference specimen = 25 [(.google.fhir.proto.valid_reference_type) = "Specimen"];
 
   // (Measurement) Device
   Reference device = 26 [
@@ -1680,8 +1586,7 @@ message Cholesterol {
     // A fixed quantity (no comparator)
     SimpleQuantity high = 5 [
       (.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR,
-      (.google.fhir.proto.fhir_path_constraint) =
-          "code.empty() or system.exists()",
+      (.google.fhir.proto.fhir_path_constraint) = "code.empty() or system.exists()",
       (.google.fhir.proto.fhir_path_constraint) = "comparator.empty()"
     ];
 
@@ -1699,8 +1604,7 @@ message Cholesterol {
   }
   ReferenceRange reference_range = 27 [
     (.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR,
-    (.google.fhir.proto.fhir_path_constraint) =
-        "low.exists() or high.exists() or text.exists()"
+    (.google.fhir.proto.fhir_path_constraint) = "low.exists() or high.exists() or text.exists()"
   ];
 
   // Observation.related not present on profile.
@@ -1718,8 +1622,7 @@ message Cholesterol {
     repeated Extension modifier_extension = 3;
 
     // Type of component observation (code / type)
-    CodeableConcept code = 4
-        [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
+    CodeableConcept code = 4 [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
 
     // Actual component result
     message Value {
@@ -1758,10 +1661,8 @@ message Cholesterol {
 // http://hl7.org/fhir/StructureDefinition/clinicaldocument
 message Clinicaldocument {
   option (.google.fhir.proto.structure_definition_kind) = KIND_RESOURCE;
-  option (.google.fhir.proto.fhir_profile_base) =
-      "http://hl7.org/fhir/StructureDefinition/Composition";
-  option (.google.fhir.proto.fhir_structure_definition_url) =
-      "http://hl7.org/fhir/StructureDefinition/clinicaldocument";
+  option (.google.fhir.proto.fhir_profile_base) = "http://hl7.org/fhir/StructureDefinition/Composition";
+  option (.google.fhir.proto.fhir_structure_definition_url) = "http://hl7.org/fhir/StructureDefinition/clinicaldocument";
 
   // Logical id of this artifact
   Id id = 1;
@@ -1791,12 +1692,10 @@ message Clinicaldocument {
   Identifier identifier = 9;
 
   // preliminary | final | amended | entered-in-error
-  CompositionStatusCode status = 10
-      [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
+  CompositionStatusCode status = 10 [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
 
   // Kind of composition (LOINC if possible)
-  CodeableConcept type = 11
-      [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
+  CodeableConcept type = 11 [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
 
   // Categorization of Composition
   CodeableConcept class_value = 12 [json_name = "class"];
@@ -1812,12 +1711,10 @@ message Clinicaldocument {
   ];
 
   // Context of the Composition
-  Reference encounter = 14
-      [(.google.fhir.proto.valid_reference_type) = "Encounter"];
+  Reference encounter = 14 [(.google.fhir.proto.valid_reference_type) = "Encounter"];
 
   // Composition editing time
-  DateTime date = 15
-      [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
+  DateTime date = 15 [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
 
   // Who and/or what authored the composition
   repeated Reference author = 16 [
@@ -1829,8 +1726,7 @@ message Clinicaldocument {
   ];
 
   // Human Readable name/title
-  String title = 17
-      [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
+  String title = 17 [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
 
   // As defined by affinity domain
   ConfidentialityClassificationCode confidentiality = 18;
@@ -1847,8 +1743,7 @@ message Clinicaldocument {
     repeated Extension modifier_extension = 3;
 
     // personal | professional | legal | official
-    repeated CompositionAttestationModeCode mode = 4
-        [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
+    repeated CompositionAttestationModeCode mode = 4 [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
 
     // When the composition was attested
     DateTime time = 5;
@@ -1863,8 +1758,7 @@ message Clinicaldocument {
   repeated Attester attester = 19;
 
   // Organization which maintains the composition
-  Reference custodian = 20
-      [(.google.fhir.proto.valid_reference_type) = "Organization"];
+  Reference custodian = 20 [(.google.fhir.proto.valid_reference_type) = "Organization"];
 
   // Relationships to other compositions/documents
   message RelatesTo {
@@ -1878,8 +1772,7 @@ message Clinicaldocument {
     repeated Extension modifier_extension = 3;
 
     // replaces | transforms | signs | appends
-    DocumentRelationshipTypeCode code = 4
-        [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
+    DocumentRelationshipTypeCode code = 4 [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
 
     // Target of the relationship
     message Target {
@@ -1887,12 +1780,10 @@ message Clinicaldocument {
 
       oneof target {
         Identifier identifier = 1;
-        Reference reference = 2
-            [(.google.fhir.proto.valid_reference_type) = "Composition"];
+        Reference reference = 2 [(.google.fhir.proto.valid_reference_type) = "Composition"];
       }
     }
-    Target target = 5
-        [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
+    Target target = 5 [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
   }
   repeated RelatesTo relates_to = 21;
 
@@ -1914,8 +1805,7 @@ message Clinicaldocument {
     Period period = 5;
 
     // The event(s) being documented
-    repeated Reference detail = 6
-        [(.google.fhir.proto.valid_reference_type) = "Resource"];
+    repeated Reference detail = 6 [(.google.fhir.proto.valid_reference_type) = "Resource"];
   }
   repeated Event event = 22;
 
@@ -1946,8 +1836,7 @@ message Clinicaldocument {
     CodeableConcept ordered_by = 8;
 
     // A reference to data that supports this section
-    repeated Reference entry = 9
-        [(.google.fhir.proto.valid_reference_type) = "Resource"];
+    repeated Reference entry = 9 [(.google.fhir.proto.valid_reference_type) = "Resource"];
 
     // Why the section is empty
     CodeableConcept empty_reason = 10;
@@ -1956,10 +1845,8 @@ message Clinicaldocument {
     repeated Section section = 11;
   }
   repeated Section section = 23 [
-    (.google.fhir.proto.fhir_path_constraint) =
-        "text.exists() or entry.exists() or section.exists()",
-    (.google.fhir.proto.fhir_path_constraint) =
-        "emptyReason.empty() or entry.empty()"
+    (.google.fhir.proto.fhir_path_constraint) = "text.exists() or entry.exists() or section.exists()",
+    (.google.fhir.proto.fhir_path_constraint) = "emptyReason.empty() or entry.empty()"
   ];
 }
 
@@ -1968,10 +1855,8 @@ message Clinicaldocument {
 // http://hl7.org/fhir/StructureDefinition/devicemetricobservation
 message Devicemetricobservation {
   option (.google.fhir.proto.structure_definition_kind) = KIND_RESOURCE;
-  option (.google.fhir.proto.fhir_profile_base) =
-      "http://hl7.org/fhir/StructureDefinition/Observation";
-  option (.google.fhir.proto.fhir_structure_definition_url) =
-      "http://hl7.org/fhir/StructureDefinition/devicemetricobservation";
+  option (.google.fhir.proto.fhir_profile_base) = "http://hl7.org/fhir/StructureDefinition/Observation";
+  option (.google.fhir.proto.fhir_structure_definition_url) = "http://hl7.org/fhir/StructureDefinition/devicemetricobservation";
 
   // Logical id of this artifact
   Id id = 1;
@@ -2012,15 +1897,13 @@ message Devicemetricobservation {
   ];
 
   // registered | preliminary | final | amended +
-  ObservationStatusCode status = 11
-      [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
+  ObservationStatusCode status = 11 [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
 
   // Classification of  type of observation
   repeated CodeableConcept category = 12;
 
   // Type of observation (code / type)
-  CodeableConcept code = 13
-      [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
+  CodeableConcept code = 13 [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
 
   // Who and/or what this is about
   Reference subject = 14 [
@@ -2040,8 +1923,7 @@ message Devicemetricobservation {
       DateTime date_time = 1;
     }
   }
-  Effective effective = 16
-      [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
+  Effective effective = 16 [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
 
   // Observation.issued not present on profile.
   reserved 17;
@@ -2126,9 +2008,7 @@ message Devicemetricobservation {
     // Text based reference range in an observation
     String text = 9;
   }
-  ReferenceRange reference_range = 27
-      [(.google.fhir.proto.fhir_path_constraint) =
-           "low.exists() or high.exists() or text.exists()"];
+  ReferenceRange reference_range = 27 [(.google.fhir.proto.fhir_path_constraint) = "low.exists() or high.exists() or text.exists()"];
 
   // Resource related to this observation
   message Related {
@@ -2165,8 +2045,7 @@ message Devicemetricobservation {
     repeated Extension modifier_extension = 3;
 
     // Type of component observation (code / type)
-    CodeableConcept code = 4
-        [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
+    CodeableConcept code = 4 [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
 
     // Actual component result
     message Value {
@@ -2205,10 +2084,8 @@ message Devicemetricobservation {
 // http://hl7.org/fhir/StructureDefinition/diagnosticreport-genetics
 message DiagnosticreportGenetics {
   option (.google.fhir.proto.structure_definition_kind) = KIND_RESOURCE;
-  option (.google.fhir.proto.fhir_profile_base) =
-      "http://hl7.org/fhir/StructureDefinition/DiagnosticReport";
-  option (.google.fhir.proto.fhir_structure_definition_url) =
-      "http://hl7.org/fhir/StructureDefinition/diagnosticreport-genetics";
+  option (.google.fhir.proto.fhir_profile_base) = "http://hl7.org/fhir/StructureDefinition/DiagnosticReport";
+  option (.google.fhir.proto.fhir_structure_definition_url) = "http://hl7.org/fhir/StructureDefinition/diagnosticreport-genetics";
 
   // Logical id of this artifact
   Id id = 1;
@@ -2248,15 +2125,13 @@ message DiagnosticreportGenetics {
   ];
 
   // registered | partial | preliminary | final +
-  DiagnosticReportStatusCode status = 11
-      [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
+  DiagnosticReportStatusCode status = 11 [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
 
   // Service category
   CodeableConcept category = 12;
 
   // Name/Code for this diagnostic report
-  CodeableConcept code = 13
-      [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
+  CodeableConcept code = 13 [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
 
   // The subject of the report - usually, but not always, the patient
   Reference subject = 14 [
@@ -2310,12 +2185,10 @@ message DiagnosticreportGenetics {
   repeated Performer performer = 18;
 
   // Specimens this report is based on
-  repeated Reference specimen = 19
-      [(.google.fhir.proto.valid_reference_type) = "Specimen"];
+  repeated Reference specimen = 19 [(.google.fhir.proto.valid_reference_type) = "Specimen"];
 
   // Observations - simple, or complex nested groups
-  repeated Reference result = 20
-      [(.google.fhir.proto.valid_reference_type) = "Observation"];
+  repeated Reference result = 20 [(.google.fhir.proto.valid_reference_type) = "Observation"];
 
   // Reference to full details of imaging associated with the diagnostic report
   repeated Reference imaging_study = 21 [
@@ -2356,29 +2229,23 @@ message DiagnosticreportGenetics {
 
   // AssessedCondition
   repeated Reference assessed_condition = 26 [
-    (.google.fhir.proto.fhir_inlined_extension_url) =
-        "http://hl7.org/fhir/StructureDefinition/DiagnosticReport-geneticsAssessedCondition",
+    (.google.fhir.proto.fhir_inlined_extension_url) = "http://hl7.org/fhir/StructureDefinition/DiagnosticReport-geneticsAssessedCondition",
     json_name = "AssessedCondition",
-    (.google.fhir.proto.fhir_path_constraint) =
-        "extension.exists() != value.exists()"
+    (.google.fhir.proto.fhir_path_constraint) = "extension.exists() != value.exists()"
   ];
 
   // FamilyHistory
   repeated Reference family_member_history = 27 [
-    (.google.fhir.proto.fhir_inlined_extension_url) =
-        "http://hl7.org/fhir/StructureDefinition/DiagnosticReport-geneticsFamilyMemberHistory",
+    (.google.fhir.proto.fhir_inlined_extension_url) = "http://hl7.org/fhir/StructureDefinition/DiagnosticReport-geneticsFamilyMemberHistory",
     json_name = "FamilyMemberHistory",
-    (.google.fhir.proto.fhir_path_constraint) =
-        "extension.exists() != value.exists()"
+    (.google.fhir.proto.fhir_path_constraint) = "extension.exists() != value.exists()"
   ];
 
   // Analysis
   repeated DiagnosticReportAnalysis analysis = 28 [
-    (.google.fhir.proto.fhir_inlined_extension_url) =
-        "http://hl7.org/fhir/StructureDefinition/DiagnosticReport-geneticsAnalysis",
+    (.google.fhir.proto.fhir_inlined_extension_url) = "http://hl7.org/fhir/StructureDefinition/DiagnosticReport-geneticsAnalysis",
     json_name = "Analysis",
-    (.google.fhir.proto.fhir_path_constraint) =
-        "extension.exists() != value.exists()"
+    (.google.fhir.proto.fhir_path_constraint) = "extension.exists() != value.exists()"
   ];
 }
 
@@ -2387,10 +2254,8 @@ message DiagnosticreportGenetics {
 // extension. See http://hl7.org/fhir/StructureDefinition/elementdefinition-de
 message ElementdefinitionDe {
   option (.google.fhir.proto.structure_definition_kind) = KIND_COMPLEX_TYPE;
-  option (.google.fhir.proto.fhir_profile_base) =
-      "http://hl7.org/fhir/StructureDefinition/ElementDefinition";
-  option (.google.fhir.proto.fhir_structure_definition_url) =
-      "http://hl7.org/fhir/StructureDefinition/elementdefinition-de";
+  option (.google.fhir.proto.fhir_profile_base) = "http://hl7.org/fhir/StructureDefinition/ElementDefinition";
+  option (.google.fhir.proto.fhir_structure_definition_url) = "http://hl7.org/fhir/StructureDefinition/elementdefinition-de";
 
   // xml:id (or equivalent in JSON)
   String id = 1;
@@ -2399,8 +2264,7 @@ message ElementdefinitionDe {
   repeated Extension extension = 2;
 
   // Path of the element in the hierarchy of elements
-  String path = 3
-      [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
+  String path = 3 [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
 
   // ElementDefinition.representation not present on profile.
   reserved 4;
@@ -2436,8 +2300,7 @@ message ElementdefinitionDe {
   UnsignedInt min = 14;
 
   // Maximum Cardinality (a number or *)
-  String max = 15 [(.google.fhir.proto.fhir_path_constraint) =
-                       "empty() or ($this = '*') or (toInteger() >= 0)"];
+  String max = 15 [(.google.fhir.proto.fhir_path_constraint) = "empty() or ($this = '*') or (toInteger() >= 0)"];
 
   // Base definition information for tools
   message Base {
@@ -2448,16 +2311,13 @@ message ElementdefinitionDe {
     repeated Extension extension = 2;
 
     // Path that identifies the base element
-    String path = 3
-        [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
+    String path = 3 [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
 
     // Min cardinality of the base element
-    UnsignedInt min = 4
-        [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
+    UnsignedInt min = 4 [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
 
     // Max cardinality of the base element
-    String max = 5
-        [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
+    String max = 5 [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
   }
   Base base = 16;
 
@@ -2473,8 +2333,7 @@ message ElementdefinitionDe {
     repeated Extension extension = 2;
 
     // Data type or Resource (reference to definition)
-    Uri code = 3
-        [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
+    Uri code = 3 [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
 
     // ElementDefinition.type.profile not present on profile.
     reserved 4;
@@ -2488,9 +2347,7 @@ message ElementdefinitionDe {
     // either | independent | specific
     ReferenceVersionRulesCode versioning = 7;
   }
-  repeated TypeRef type = 18
-      [(.google.fhir.proto.fhir_path_constraint) =
-           "aggregation.empty() or (code = 'Reference')"];
+  repeated TypeRef type = 18 [(.google.fhir.proto.fhir_path_constraint) = "aggregation.empty() or (code = 'Reference')"];
 
   // Specified value if missing from instance
   message DefaultValue {
@@ -2560,8 +2417,7 @@ message ElementdefinitionDe {
     repeated Extension extension = 2;
 
     // Describes the purpose of this example
-    String label = 3
-        [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
+    String label = 3 [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
 
     // Value of Example (one of allowed types)
     message Value {
@@ -2608,8 +2464,7 @@ message ElementdefinitionDe {
         Meta meta = 38;
       }
     }
-    Value value = 4
-        [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
+    Value value = 4 [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
   }
   repeated Example example = 24;
 
@@ -2670,16 +2525,13 @@ message ElementdefinitionDe {
     String requirements = 4;
 
     // error | warning
-    ConstraintSeverityCode severity = 5
-        [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
+    ConstraintSeverityCode severity = 5 [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
 
     // Human description of constraint
-    String human = 6
-        [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
+    String human = 6 [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
 
     // FHIRPath expression of constraint
-    String expression = 7
-        [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
+    String expression = 7 [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
 
     // XPath expression of constraint
     String xpath = 8;
@@ -2707,8 +2559,7 @@ message ElementdefinitionDe {
     repeated Extension extension = 2;
 
     // required | extensible | preferred | example
-    BindingStrengthCode strength = 3
-        [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
+    BindingStrengthCode strength = 3 [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
 
     // Human explanation of the value set
     String description = 4;
@@ -2719,17 +2570,14 @@ message ElementdefinitionDe {
 
       oneof value_set {
         Uri uri = 1;
-        Reference reference = 2
-            [(.google.fhir.proto.valid_reference_type) = "ValueSet"];
+        Reference reference = 2 [(.google.fhir.proto.valid_reference_type) = "ValueSet"];
       }
     }
     ValueSet value_set = 5;
   }
   ElementDefinitionBinding binding = 33 [
-    (.google.fhir.proto.fhir_path_constraint) =
-        "valueSet.exists() or description.exists()",
-    (.google.fhir.proto.fhir_path_constraint) =
-        "valueSet.is(uri).not() or valueSet.as(uri).startsWith('http:') or valueSet.as(uri).startsWith('https') or valueSet.as(uri).startsWith('urn:')"
+    (.google.fhir.proto.fhir_path_constraint) = "valueSet.exists() or description.exists()",
+    (.google.fhir.proto.fhir_path_constraint) = "valueSet.is(uri).not() or valueSet.as(uri).startsWith('http:') or valueSet.as(uri).startsWith('https') or valueSet.as(uri).startsWith('urn:')"
   ];
 
   // Map element to another set of definitions
@@ -2741,15 +2589,13 @@ message ElementdefinitionDe {
     repeated Extension extension = 2;
 
     // Reference to mapping declaration
-    Id identity = 3
-        [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
+    Id identity = 3 [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
 
     // Computable language of mapping
     MimeTypeCode language = 4;
 
     // Details of the mapping
-    String map = 5
-        [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
+    String map = 5 [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
 
     // Comments about the mapping or its use
     String comment = 6;
@@ -2758,15 +2604,13 @@ message ElementdefinitionDe {
 
   // Extension
   repeated String question = 35 [
-    (.google.fhir.proto.fhir_inlined_extension_url) =
-        "http://hl7.org/fhir/StructureDefinition/elementdefinition-question",
+    (.google.fhir.proto.fhir_inlined_extension_url) = "http://hl7.org/fhir/StructureDefinition/elementdefinition-question",
     json_name = "Question"
   ];
 
   // Extension
   ElementDefinitionAllowedUnits.Value allowed_units = 36 [
-    (.google.fhir.proto.fhir_inlined_extension_url) =
-        "http://hl7.org/fhir/StructureDefinition/elementdefinition-allowedUnits",
+    (.google.fhir.proto.fhir_inlined_extension_url) = "http://hl7.org/fhir/StructureDefinition/elementdefinition-allowedUnits",
     json_name = "AllowedUnits"
   ];
 }
@@ -2777,10 +2621,8 @@ message ElementdefinitionDe {
 // http://hl7.org/fhir/StructureDefinition/familymemberhistory-genetic
 message FamilymemberhistoryGenetic {
   option (.google.fhir.proto.structure_definition_kind) = KIND_RESOURCE;
-  option (.google.fhir.proto.fhir_profile_base) =
-      "http://hl7.org/fhir/StructureDefinition/FamilyMemberHistory";
-  option (.google.fhir.proto.fhir_structure_definition_url) =
-      "http://hl7.org/fhir/StructureDefinition/familymemberhistory-genetic";
+  option (.google.fhir.proto.fhir_profile_base) = "http://hl7.org/fhir/StructureDefinition/FamilyMemberHistory";
+  option (.google.fhir.proto.fhir_structure_definition_url) = "http://hl7.org/fhir/StructureDefinition/familymemberhistory-genetic";
 
   // Logical id of this artifact
   Id id = 1;
@@ -2816,8 +2658,7 @@ message FamilymemberhistoryGenetic {
   ];
 
   // partial | completed | entered-in-error | health-unknown
-  FamilyHistoryStatusCode status = 11
-      [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
+  FamilyHistoryStatusCode status = 11 [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
 
   // The taking of a family member's history did not occur
   Boolean not_done = 12;
@@ -2838,8 +2679,7 @@ message FamilymemberhistoryGenetic {
   String name = 16;
 
   // Relationship to the subject
-  CodeableConcept relationship = 17
-      [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
+  CodeableConcept relationship = 17 [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
 
   // male | female | other | unknown
   AdministrativeGenderCode gender = 18;
@@ -2911,8 +2751,7 @@ message FamilymemberhistoryGenetic {
     repeated Extension modifier_extension = 3;
 
     // Condition suffered by relation
-    CodeableConcept code = 4
-        [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
+    CodeableConcept code = 4 [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
 
     // deceased | permanent disability | etc.
     CodeableConcept outcome = 5;
@@ -2937,29 +2776,23 @@ message FamilymemberhistoryGenetic {
 
   // Extension
   repeated FamilyMemberHistoryParent parent = 27 [
-    (.google.fhir.proto.fhir_inlined_extension_url) =
-        "http://hl7.org/fhir/StructureDefinition/family-member-history-genetics-parent",
+    (.google.fhir.proto.fhir_inlined_extension_url) = "http://hl7.org/fhir/StructureDefinition/family-member-history-genetics-parent",
     json_name = "Parent",
-    (.google.fhir.proto.fhir_path_constraint) =
-        "extension.exists() != value.exists()"
+    (.google.fhir.proto.fhir_path_constraint) = "extension.exists() != value.exists()"
   ];
 
   // Extension
   repeated FamilyMemberHistorySibling sibling = 28 [
-    (.google.fhir.proto.fhir_inlined_extension_url) =
-        "http://hl7.org/fhir/StructureDefinition/family-member-history-genetics-sibling",
+    (.google.fhir.proto.fhir_inlined_extension_url) = "http://hl7.org/fhir/StructureDefinition/family-member-history-genetics-sibling",
     json_name = "Sibling",
-    (.google.fhir.proto.fhir_path_constraint) =
-        "extension.exists() != value.exists()"
+    (.google.fhir.proto.fhir_path_constraint) = "extension.exists() != value.exists()"
   ];
 
   // Extension
   repeated Reference observation = 29 [
-    (.google.fhir.proto.fhir_inlined_extension_url) =
-        "http://hl7.org/fhir/StructureDefinition/family-member-history-genetics-observation",
+    (.google.fhir.proto.fhir_inlined_extension_url) = "http://hl7.org/fhir/StructureDefinition/family-member-history-genetics-observation",
     json_name = "Observation",
-    (.google.fhir.proto.fhir_path_constraint) =
-        "extension.exists() != value.exists()"
+    (.google.fhir.proto.fhir_path_constraint) = "extension.exists() != value.exists()"
   ];
 }
 
@@ -2968,10 +2801,8 @@ message FamilymemberhistoryGenetic {
 // See http://hl7.org/fhir/StructureDefinition/hdlcholesterol
 message HdlCholesterol {
   option (.google.fhir.proto.structure_definition_kind) = KIND_RESOURCE;
-  option (.google.fhir.proto.fhir_profile_base) =
-      "http://hl7.org/fhir/StructureDefinition/Observation";
-  option (.google.fhir.proto.fhir_structure_definition_url) =
-      "http://hl7.org/fhir/StructureDefinition/hdlcholesterol";
+  option (.google.fhir.proto.fhir_profile_base) = "http://hl7.org/fhir/StructureDefinition/Observation";
+  option (.google.fhir.proto.fhir_structure_definition_url) = "http://hl7.org/fhir/StructureDefinition/hdlcholesterol";
 
   // Logical id of this artifact
   Id id = 1;
@@ -3012,15 +2843,13 @@ message HdlCholesterol {
   ];
 
   // registered | preliminary | final | amended +
-  ObservationStatusCode status = 11
-      [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
+  ObservationStatusCode status = 11 [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
 
   // Classification of  type of observation
   repeated CodeableConcept category = 12;
 
   // HDL Cholesterol
-  CodeableConcept code = 13
-      [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
+  CodeableConcept code = 13 [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
 
   // Who and/or what this is about
   Reference subject = 14 [
@@ -3084,8 +2913,7 @@ message HdlCholesterol {
   CodeableConcept method = 24;
 
   // Specimen used for this observation
-  Reference specimen = 25
-      [(.google.fhir.proto.valid_reference_type) = "Specimen"];
+  Reference specimen = 25 [(.google.fhir.proto.valid_reference_type) = "Specimen"];
 
   // (Measurement) Device
   Reference device = 26 [
@@ -3107,8 +2935,7 @@ message HdlCholesterol {
     // A fixed quantity (no comparator)
     SimpleQuantity low = 4 [
       (.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR,
-      (.google.fhir.proto.fhir_path_constraint) =
-          "code.empty() or system.exists()",
+      (.google.fhir.proto.fhir_path_constraint) = "code.empty() or system.exists()",
       (.google.fhir.proto.fhir_path_constraint) = "comparator.empty()"
     ];
 
@@ -3129,8 +2956,7 @@ message HdlCholesterol {
   }
   ReferenceRange reference_range = 27 [
     (.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR,
-    (.google.fhir.proto.fhir_path_constraint) =
-        "low.exists() or high.exists() or text.exists()"
+    (.google.fhir.proto.fhir_path_constraint) = "low.exists() or high.exists() or text.exists()"
   ];
 
   // Observation.related not present on profile.
@@ -3148,8 +2974,7 @@ message HdlCholesterol {
     repeated Extension modifier_extension = 3;
 
     // Type of component observation (code / type)
-    CodeableConcept code = 4
-        [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
+    CodeableConcept code = 4 [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
 
     // Actual component result
     message Value {
@@ -3187,12 +3012,9 @@ message HdlCholesterol {
 // See http://hl7.org/fhir/StructureDefinition/headcircum
 message Headcircum {
   option (.google.fhir.proto.structure_definition_kind) = KIND_RESOURCE;
-  option (.google.fhir.proto.fhir_profile_base) =
-      "http://hl7.org/fhir/StructureDefinition/vitalsigns";
-  option (.google.fhir.proto.fhir_profile_base) =
-      "http://hl7.org/fhir/StructureDefinition/Observation";
-  option (.google.fhir.proto.fhir_structure_definition_url) =
-      "http://hl7.org/fhir/StructureDefinition/headcircum";
+  option (.google.fhir.proto.fhir_profile_base) = "http://hl7.org/fhir/StructureDefinition/vitalsigns";
+  option (.google.fhir.proto.fhir_profile_base) = "http://hl7.org/fhir/StructureDefinition/Observation";
+  option (.google.fhir.proto.fhir_structure_definition_url) = "http://hl7.org/fhir/StructureDefinition/headcircum";
 
   // Logical id of this artifact
   Id id = 1;
@@ -3233,20 +3055,17 @@ message Headcircum {
   ];
 
   // registered | preliminary | final | amended +
-  ObservationStatusCode status = 11
-      [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
+  ObservationStatusCode status = 11 [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
 
   // Classification of  type of observation
   repeated CodeableConcept category = 12 [
     (.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR,
-    (.google.fhir.proto.fhir_path_constraint) =
-        "where(coding.system='http://hl7.org/fhir/observation-category' and coding.code='vital-signs').exists()"
+    (.google.fhir.proto.fhir_path_constraint) = "where(coding.system='http://hl7.org/fhir/observation-category' and coding.code='vital-signs').exists()"
   ];
 
   // Head Circumference
   message CodeableConceptForCode {
-    option (.google.fhir.proto.fhir_profile_base) =
-        "http://hl7.org/fhir/StructureDefinition/CodeableConcept";
+    option (.google.fhir.proto.fhir_profile_base) = "http://hl7.org/fhir/StructureDefinition/CodeableConcept";
 
     // xml:id (or equivalent in JSON)
     String id = 1;
@@ -3266,8 +3085,7 @@ message Headcircum {
       json_name = "HeadCircumCode"
     ];
   }
-  CodeableConceptForCode code = 13
-      [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
+  CodeableConceptForCode code = 13 [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
 
   // Who and/or what this is about
   Reference subject = 14 [
@@ -3292,8 +3110,7 @@ message Headcircum {
   }
   Effective effective = 16 [
     (.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR,
-    (.google.fhir.proto.fhir_path_constraint) =
-        "($this as dateTime).toString().length() >= 8"
+    (.google.fhir.proto.fhir_path_constraint) = "($this as dateTime).toString().length() >= 8"
   ];
 
   // Date/Time this was made available
@@ -3333,8 +3150,7 @@ message Headcircum {
   CodeableConcept method = 24;
 
   // Specimen used for this observation
-  Reference specimen = 25
-      [(.google.fhir.proto.valid_reference_type) = "Specimen"];
+  Reference specimen = 25 [(.google.fhir.proto.valid_reference_type) = "Specimen"];
 
   // (Measurement) Device
   Reference device = 26 [
@@ -3371,9 +3187,7 @@ message Headcircum {
     // Text based reference range in an observation
     String text = 9;
   }
-  repeated ReferenceRange reference_range = 27
-      [(.google.fhir.proto.fhir_path_constraint) =
-           "low.exists() or high.exists() or text.exists()"];
+  repeated ReferenceRange reference_range = 27 [(.google.fhir.proto.fhir_path_constraint) = "low.exists() or high.exists() or text.exists()"];
 
   // Used when reporting vital signs panel components
   message Related {
@@ -3388,8 +3202,7 @@ message Headcircum {
 
     // has-member | derived-from | sequel-to | replaces | qualified-by |
     // interfered-by
-    ObservationRelationshipTypeCode type = 4
-        [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
+    ObservationRelationshipTypeCode type = 4 [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
 
     // Resource that is related to this one
     Reference target = 5 [
@@ -3411,8 +3224,7 @@ message Headcircum {
     repeated Extension modifier_extension = 3;
 
     // Type of component observation (code / type)
-    CodeableConcept code = 4
-        [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
+    CodeableConcept code = 4 [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
 
     // Vital Sign Value recorded with UCUM
     message Value {
@@ -3433,9 +3245,7 @@ message Headcircum {
     // Provides guide for interpretation of component result
     repeated ReferenceRange reference_range = 8;
   }
-  repeated Component component = 29
-      [(.google.fhir.proto.fhir_path_constraint) =
-           "value.exists() or dataAbsentReason.exists()"];
+  repeated Component component = 29 [(.google.fhir.proto.fhir_path_constraint) = "value.exists() or dataAbsentReason.exists()"];
 }
 
 // Auto-generated from StructureDefinition for Vital Signs Profile.
@@ -3443,12 +3253,9 @@ message Headcircum {
 // See http://hl7.org/fhir/StructureDefinition/heartrate
 message Heartrate {
   option (.google.fhir.proto.structure_definition_kind) = KIND_RESOURCE;
-  option (.google.fhir.proto.fhir_profile_base) =
-      "http://hl7.org/fhir/StructureDefinition/vitalsigns";
-  option (.google.fhir.proto.fhir_profile_base) =
-      "http://hl7.org/fhir/StructureDefinition/Observation";
-  option (.google.fhir.proto.fhir_structure_definition_url) =
-      "http://hl7.org/fhir/StructureDefinition/heartrate";
+  option (.google.fhir.proto.fhir_profile_base) = "http://hl7.org/fhir/StructureDefinition/vitalsigns";
+  option (.google.fhir.proto.fhir_profile_base) = "http://hl7.org/fhir/StructureDefinition/Observation";
+  option (.google.fhir.proto.fhir_structure_definition_url) = "http://hl7.org/fhir/StructureDefinition/heartrate";
 
   // Logical id of this artifact
   Id id = 1;
@@ -3489,20 +3296,17 @@ message Heartrate {
   ];
 
   // registered | preliminary | final | amended +
-  ObservationStatusCode status = 11
-      [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
+  ObservationStatusCode status = 11 [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
 
   // Classification of  type of observation
   repeated CodeableConcept category = 12 [
     (.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR,
-    (.google.fhir.proto.fhir_path_constraint) =
-        "where(coding.system='http://hl7.org/fhir/observation-category' and coding.code='vital-signs').exists()"
+    (.google.fhir.proto.fhir_path_constraint) = "where(coding.system='http://hl7.org/fhir/observation-category' and coding.code='vital-signs').exists()"
   ];
 
   // Heart Rate
   message CodeableConceptForCode {
-    option (.google.fhir.proto.fhir_profile_base) =
-        "http://hl7.org/fhir/StructureDefinition/CodeableConcept";
+    option (.google.fhir.proto.fhir_profile_base) = "http://hl7.org/fhir/StructureDefinition/CodeableConcept";
 
     // xml:id (or equivalent in JSON)
     String id = 1;
@@ -3522,8 +3326,7 @@ message Heartrate {
       json_name = "HeartRateCode"
     ];
   }
-  CodeableConceptForCode code = 13
-      [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
+  CodeableConceptForCode code = 13 [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
 
   // Who and/or what this is about
   Reference subject = 14 [
@@ -3548,8 +3351,7 @@ message Heartrate {
   }
   Effective effective = 16 [
     (.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR,
-    (.google.fhir.proto.fhir_path_constraint) =
-        "($this as dateTime).toString().length() >= 8"
+    (.google.fhir.proto.fhir_path_constraint) = "($this as dateTime).toString().length() >= 8"
   ];
 
   // Date/Time this was made available
@@ -3589,8 +3391,7 @@ message Heartrate {
   CodeableConcept method = 24;
 
   // Specimen used for this observation
-  Reference specimen = 25
-      [(.google.fhir.proto.valid_reference_type) = "Specimen"];
+  Reference specimen = 25 [(.google.fhir.proto.valid_reference_type) = "Specimen"];
 
   // (Measurement) Device
   Reference device = 26 [
@@ -3627,9 +3428,7 @@ message Heartrate {
     // Text based reference range in an observation
     String text = 9;
   }
-  repeated ReferenceRange reference_range = 27
-      [(.google.fhir.proto.fhir_path_constraint) =
-           "low.exists() or high.exists() or text.exists()"];
+  repeated ReferenceRange reference_range = 27 [(.google.fhir.proto.fhir_path_constraint) = "low.exists() or high.exists() or text.exists()"];
 
   // Used when reporting vital signs panel components
   message Related {
@@ -3644,8 +3443,7 @@ message Heartrate {
 
     // has-member | derived-from | sequel-to | replaces | qualified-by |
     // interfered-by
-    ObservationRelationshipTypeCode type = 4
-        [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
+    ObservationRelationshipTypeCode type = 4 [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
 
     // Resource that is related to this one
     Reference target = 5 [
@@ -3667,8 +3465,7 @@ message Heartrate {
     repeated Extension modifier_extension = 3;
 
     // Type of component observation (code / type)
-    CodeableConcept code = 4
-        [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
+    CodeableConcept code = 4 [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
 
     // Vital Sign Value recorded with UCUM
     message Value {
@@ -3689,9 +3486,7 @@ message Heartrate {
     // Provides guide for interpretation of component result
     repeated ReferenceRange reference_range = 8;
   }
-  repeated Component component = 29
-      [(.google.fhir.proto.fhir_path_constraint) =
-           "value.exists() or dataAbsentReason.exists()"];
+  repeated Component component = 29 [(.google.fhir.proto.fhir_path_constraint) = "value.exists() or dataAbsentReason.exists()"];
 }
 
 // Auto-generated from StructureDefinition for Profile for HLA Genotyping
@@ -3700,10 +3495,8 @@ message Heartrate {
 // http://hl7.org/fhir/StructureDefinition/hlaresult
 message Hlaresult {
   option (.google.fhir.proto.structure_definition_kind) = KIND_RESOURCE;
-  option (.google.fhir.proto.fhir_profile_base) =
-      "http://hl7.org/fhir/StructureDefinition/DiagnosticReport";
-  option (.google.fhir.proto.fhir_structure_definition_url) =
-      "http://hl7.org/fhir/StructureDefinition/hlaresult";
+  option (.google.fhir.proto.fhir_profile_base) = "http://hl7.org/fhir/StructureDefinition/DiagnosticReport";
+  option (.google.fhir.proto.fhir_structure_definition_url) = "http://hl7.org/fhir/StructureDefinition/hlaresult";
 
   // Logical id of this artifact
   Id id = 1;
@@ -3743,15 +3536,13 @@ message Hlaresult {
   ];
 
   // registered | partial | preliminary | final +
-  DiagnosticReportStatusCode status = 11
-      [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
+  DiagnosticReportStatusCode status = 11 [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
 
   // Service category
   CodeableConcept category = 12;
 
   // Name/Code for this diagnostic report
-  CodeableConcept code = 13
-      [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
+  CodeableConcept code = 13 [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
 
   // The subject of the report - usually, but not always, the patient
   Reference subject = 14 [
@@ -3805,12 +3596,10 @@ message Hlaresult {
   repeated Performer performer = 18;
 
   // Specimens this report is based on
-  repeated Reference specimen = 19
-      [(.google.fhir.proto.valid_reference_type) = "Specimen"];
+  repeated Reference specimen = 19 [(.google.fhir.proto.valid_reference_type) = "Specimen"];
 
   // Observations - simple, or complex nested groups
-  repeated Reference result = 20
-      [(.google.fhir.proto.valid_reference_type) = "Observation"];
+  repeated Reference result = 20 [(.google.fhir.proto.valid_reference_type) = "Observation"];
 
   // Reference to full details of imaging associated with the diagnostic report
   repeated Reference imaging_study = 21 [
@@ -3851,35 +3640,27 @@ message Hlaresult {
 
   // Allele Database
   CodeableConcept allele_database = 26 [
-    (.google.fhir.proto.fhir_inlined_extension_url) =
-        "http://hl7.org/fhir/StructureDefinition/hla-genotyping-results-allele-database",
-    (.google.fhir.proto.fhir_path_constraint) =
-        "extension.exists() != value.exists()"
+    (.google.fhir.proto.fhir_inlined_extension_url) = "http://hl7.org/fhir/StructureDefinition/hla-genotyping-results-allele-database",
+    (.google.fhir.proto.fhir_path_constraint) = "extension.exists() != value.exists()"
   ];
 
   // Glstring
   DiagnosticReportGlstring glstring = 27 [
-    (.google.fhir.proto.fhir_inlined_extension_url) =
-        "http://hl7.org/fhir/StructureDefinition/hla-genotyping-results-glstring",
-    (.google.fhir.proto.fhir_path_constraint) =
-        "extension.exists() != value.exists()"
+    (.google.fhir.proto.fhir_inlined_extension_url) = "http://hl7.org/fhir/StructureDefinition/hla-genotyping-results-glstring",
+    (.google.fhir.proto.fhir_path_constraint) = "extension.exists() != value.exists()"
   ];
 
   // Haploid
   repeated DiagnosticReportHaploid haploid = 28 [
-    (.google.fhir.proto.fhir_inlined_extension_url) =
-        "http://hl7.org/fhir/StructureDefinition/hla-genotyping-results-haploid",
-    (.google.fhir.proto.fhir_path_constraint) =
-        "extension.exists() != value.exists()"
+    (.google.fhir.proto.fhir_inlined_extension_url) = "http://hl7.org/fhir/StructureDefinition/hla-genotyping-results-haploid",
+    (.google.fhir.proto.fhir_path_constraint) = "extension.exists() != value.exists()"
   ];
 
   // The platform, methodology and software applied at the time of the
   // genotyping
   CodeableConcept method = 29 [
-    (.google.fhir.proto.fhir_inlined_extension_url) =
-        "http://hl7.org/fhir/StructureDefinition/hla-genotyping-results-method",
-    (.google.fhir.proto.fhir_path_constraint) =
-        "extension.exists() != value.exists()"
+    (.google.fhir.proto.fhir_inlined_extension_url) = "http://hl7.org/fhir/StructureDefinition/hla-genotyping-results-method",
+    (.google.fhir.proto.fhir_path_constraint) = "extension.exists() != value.exists()"
   ];
 }
 
@@ -3888,10 +3669,8 @@ message Hlaresult {
 // See http://hl7.org/fhir/StructureDefinition/ldlcholesterol
 message LdlCholesterol {
   option (.google.fhir.proto.structure_definition_kind) = KIND_RESOURCE;
-  option (.google.fhir.proto.fhir_profile_base) =
-      "http://hl7.org/fhir/StructureDefinition/Observation";
-  option (.google.fhir.proto.fhir_structure_definition_url) =
-      "http://hl7.org/fhir/StructureDefinition/ldlcholesterol";
+  option (.google.fhir.proto.fhir_profile_base) = "http://hl7.org/fhir/StructureDefinition/Observation";
+  option (.google.fhir.proto.fhir_structure_definition_url) = "http://hl7.org/fhir/StructureDefinition/ldlcholesterol";
 
   // Logical id of this artifact
   Id id = 1;
@@ -3932,15 +3711,13 @@ message LdlCholesterol {
   ];
 
   // registered | preliminary | final | amended +
-  ObservationStatusCode status = 11
-      [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
+  ObservationStatusCode status = 11 [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
 
   // Classification of  type of observation
   repeated CodeableConcept category = 12;
 
   // LDL Cholesterol -measured or calculated per code
-  CodeableConcept code = 13
-      [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
+  CodeableConcept code = 13 [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
 
   // Who and/or what this is about
   Reference subject = 14 [
@@ -4004,8 +3781,7 @@ message LdlCholesterol {
   CodeableConcept method = 24;
 
   // Specimen used for this observation
-  Reference specimen = 25
-      [(.google.fhir.proto.valid_reference_type) = "Specimen"];
+  Reference specimen = 25 [(.google.fhir.proto.valid_reference_type) = "Specimen"];
 
   // (Measurement) Device
   Reference device = 26 [
@@ -4030,8 +3806,7 @@ message LdlCholesterol {
     // A fixed quantity (no comparator)
     SimpleQuantity high = 5 [
       (.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR,
-      (.google.fhir.proto.fhir_path_constraint) =
-          "code.empty() or system.exists()",
+      (.google.fhir.proto.fhir_path_constraint) = "code.empty() or system.exists()",
       (.google.fhir.proto.fhir_path_constraint) = "comparator.empty()"
     ];
 
@@ -4049,8 +3824,7 @@ message LdlCholesterol {
   }
   ReferenceRange reference_range = 27 [
     (.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR,
-    (.google.fhir.proto.fhir_path_constraint) =
-        "low.exists() or high.exists() or text.exists()"
+    (.google.fhir.proto.fhir_path_constraint) = "low.exists() or high.exists() or text.exists()"
   ];
 
   // Observation.related not present on profile.
@@ -4068,8 +3842,7 @@ message LdlCholesterol {
     repeated Extension modifier_extension = 3;
 
     // Type of component observation (code / type)
-    CodeableConcept code = 4
-        [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
+    CodeableConcept code = 4 [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
 
     // Actual component result
     message Value {
@@ -4107,10 +3880,8 @@ message LdlCholesterol {
 // See http://hl7.org/fhir/StructureDefinition/lipidprofile
 message LipidProfile {
   option (.google.fhir.proto.structure_definition_kind) = KIND_RESOURCE;
-  option (.google.fhir.proto.fhir_profile_base) =
-      "http://hl7.org/fhir/StructureDefinition/DiagnosticReport";
-  option (.google.fhir.proto.fhir_structure_definition_url) =
-      "http://hl7.org/fhir/StructureDefinition/lipidprofile";
+  option (.google.fhir.proto.fhir_profile_base) = "http://hl7.org/fhir/StructureDefinition/DiagnosticReport";
+  option (.google.fhir.proto.fhir_structure_definition_url) = "http://hl7.org/fhir/StructureDefinition/lipidprofile";
 
   // Logical id of this artifact
   Id id = 1;
@@ -4150,15 +3921,13 @@ message LipidProfile {
   ];
 
   // registered | partial | preliminary | final +
-  DiagnosticReportStatusCode status = 11
-      [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
+  DiagnosticReportStatusCode status = 11 [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
 
   // Service category
   CodeableConcept category = 12;
 
   // LOINC Code for Lipid Panel with LDL
-  CodeableConcept code = 13
-      [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
+  CodeableConcept code = 13 [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
 
   // The subject of the report - usually, but not always, the patient
   Reference subject = 14 [
@@ -4212,12 +3981,10 @@ message LipidProfile {
   repeated Performer performer = 18;
 
   // Specimens this report is based on
-  repeated Reference specimen = 19
-      [(.google.fhir.proto.valid_reference_type) = "Specimen"];
+  repeated Reference specimen = 19 [(.google.fhir.proto.valid_reference_type) = "Specimen"];
 
   // Observations - simple, or complex nested groups
-  Reference result = 20
-      [(.google.fhir.proto.valid_reference_type) = "Observation"];
+  Reference result = 20 [(.google.fhir.proto.valid_reference_type) = "Observation"];
 
   // Reference to full details of imaging associated with the diagnostic report
   repeated Reference imaging_study = 21 [
@@ -4278,8 +4045,7 @@ message LipidProfile {
 // resources. See http://hl7.org/fhir/StructureDefinition/MetadataResource
 message MetadataResource {
   option (.google.fhir.proto.structure_definition_kind) = KIND_LOGICAL;
-  option (.google.fhir.proto.fhir_structure_definition_url) =
-      "http://hl7.org/fhir/StructureDefinition/MetadataResource";
+  option (.google.fhir.proto.fhir_structure_definition_url) = "http://hl7.org/fhir/StructureDefinition/MetadataResource";
 
   // Logical id of this artifact
   Id id = 1;
@@ -4318,8 +4084,7 @@ message MetadataResource {
   String title = 12;
 
   // draft | active | retired | unknown
-  PublicationStatusCode status = 13
-      [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
+  PublicationStatusCode status = 13 [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
 
   // For testing purposes, not real usage
   Boolean experimental = 14;
@@ -4348,10 +4113,8 @@ message MetadataResource {
 // See http://hl7.org/fhir/StructureDefinition/observation-genetics
 message ObservationGenetics {
   option (.google.fhir.proto.structure_definition_kind) = KIND_RESOURCE;
-  option (.google.fhir.proto.fhir_profile_base) =
-      "http://hl7.org/fhir/StructureDefinition/Observation";
-  option (.google.fhir.proto.fhir_structure_definition_url) =
-      "http://hl7.org/fhir/StructureDefinition/observation-genetics";
+  option (.google.fhir.proto.fhir_profile_base) = "http://hl7.org/fhir/StructureDefinition/Observation";
+  option (.google.fhir.proto.fhir_structure_definition_url) = "http://hl7.org/fhir/StructureDefinition/observation-genetics";
 
   // Logical id of this artifact
   Id id = 1;
@@ -4392,15 +4155,13 @@ message ObservationGenetics {
   ];
 
   // registered | preliminary | final | amended +
-  ObservationStatusCode status = 11
-      [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
+  ObservationStatusCode status = 11 [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
 
   // Classification of  type of observation
   repeated CodeableConcept category = 12;
 
   // Type of observation (code / type)
-  CodeableConcept code = 13
-      [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
+  CodeableConcept code = 13 [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
 
   // Who and/or what this is about
   Reference subject = 14 [
@@ -4474,8 +4235,7 @@ message ObservationGenetics {
   CodeableConcept method = 24;
 
   // Specimen used for this observation
-  Reference specimen = 25
-      [(.google.fhir.proto.valid_reference_type) = "Specimen"];
+  Reference specimen = 25 [(.google.fhir.proto.valid_reference_type) = "Specimen"];
 
   // (Measurement) Device
   Reference device = 26 [
@@ -4512,9 +4272,7 @@ message ObservationGenetics {
     // Text based reference range in an observation
     String text = 9;
   }
-  repeated ReferenceRange reference_range = 27
-      [(.google.fhir.proto.fhir_path_constraint) =
-           "low.exists() or high.exists() or text.exists()"];
+  repeated ReferenceRange reference_range = 27 [(.google.fhir.proto.fhir_path_constraint) = "low.exists() or high.exists() or text.exists()"];
 
   // Resource related to this observation
   message Related {
@@ -4553,8 +4311,7 @@ message ObservationGenetics {
     repeated Extension modifier_extension = 3;
 
     // Type of component observation (code / type)
-    CodeableConcept code = 4
-        [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
+    CodeableConcept code = 4 [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
 
     // Actual component result
     message Value {
@@ -4588,139 +4345,109 @@ message ObservationGenetics {
 
   // DNA sequence variant
   CodeableConcept dna_sequence_variant_name = 30 [
-    (.google.fhir.proto.fhir_inlined_extension_url) =
-        "http://hl7.org/fhir/StructureDefinition/observation-geneticsDNASequenceVariantName",
+    (.google.fhir.proto.fhir_inlined_extension_url) = "http://hl7.org/fhir/StructureDefinition/observation-geneticsDNASequenceVariantName",
     json_name = "DNASequenceVariantName",
-    (.google.fhir.proto.fhir_path_constraint) =
-        "extension.exists() != value.exists()"
+    (.google.fhir.proto.fhir_path_constraint) = "extension.exists() != value.exists()"
   ];
 
   // DNA sequence variant ID
   CodeableConcept dna_variant_id = 31 [
-    (.google.fhir.proto.fhir_inlined_extension_url) =
-        "http://hl7.org/fhir/StructureDefinition/observation-geneticsDNAVariantId",
+    (.google.fhir.proto.fhir_inlined_extension_url) = "http://hl7.org/fhir/StructureDefinition/observation-geneticsDNAVariantId",
     json_name = "DNAVariantId",
-    (.google.fhir.proto.fhir_path_constraint) =
-        "extension.exists() != value.exists()"
+    (.google.fhir.proto.fhir_path_constraint) = "extension.exists() != value.exists()"
   ];
 
   // DNA sequence variant type
   CodeableConcept dna_sequence_variant_type = 32 [
-    (.google.fhir.proto.fhir_inlined_extension_url) =
-        "http://hl7.org/fhir/StructureDefinition/observation-geneticsDNASequenceVariantType",
+    (.google.fhir.proto.fhir_inlined_extension_url) = "http://hl7.org/fhir/StructureDefinition/observation-geneticsDNASequenceVariantType",
     json_name = "DNASequenceVariantType",
-    (.google.fhir.proto.fhir_path_constraint) =
-        "extension.exists() != value.exists()"
+    (.google.fhir.proto.fhir_path_constraint) = "extension.exists() != value.exists()"
   ];
 
   // Amino acid change
   CodeableConcept amino_acid_change_name = 33 [
-    (.google.fhir.proto.fhir_inlined_extension_url) =
-        "http://hl7.org/fhir/StructureDefinition/observation-geneticsAminoAcidChangeName",
+    (.google.fhir.proto.fhir_inlined_extension_url) = "http://hl7.org/fhir/StructureDefinition/observation-geneticsAminoAcidChangeName",
     json_name = "AminoAcidChangeName",
-    (.google.fhir.proto.fhir_path_constraint) =
-        "extension.exists() != value.exists()"
+    (.google.fhir.proto.fhir_path_constraint) = "extension.exists() != value.exists()"
   ];
 
   // Amino Acid Change Type
   CodeableConcept amino_acid_change_type = 34 [
-    (.google.fhir.proto.fhir_inlined_extension_url) =
-        "http://hl7.org/fhir/StructureDefinition/observation-geneticsAminoAcidChangeType",
+    (.google.fhir.proto.fhir_inlined_extension_url) = "http://hl7.org/fhir/StructureDefinition/observation-geneticsAminoAcidChangeType",
     json_name = "AminoAcidChangeType",
-    (.google.fhir.proto.fhir_path_constraint) =
-        "extension.exists() != value.exists()"
+    (.google.fhir.proto.fhir_path_constraint) = "extension.exists() != value.exists()"
   ];
 
   // HGNC gene symbol
   CodeableConcept gene_symbol = 35 [
-    (.google.fhir.proto.fhir_inlined_extension_url) =
-        "http://hl7.org/fhir/StructureDefinition/observation-geneticsGene",
+    (.google.fhir.proto.fhir_inlined_extension_url) = "http://hl7.org/fhir/StructureDefinition/observation-geneticsGene",
     json_name = "GeneSymbol",
-    (.google.fhir.proto.fhir_path_constraint) =
-        "extension.exists() != value.exists()"
+    (.google.fhir.proto.fhir_path_constraint) = "extension.exists() != value.exists()"
   ];
 
   // DNA region name
   String dna_region_name = 36 [
-    (.google.fhir.proto.fhir_inlined_extension_url) =
-        "http://hl7.org/fhir/StructureDefinition/observation-geneticsDNARegionName",
+    (.google.fhir.proto.fhir_inlined_extension_url) = "http://hl7.org/fhir/StructureDefinition/observation-geneticsDNARegionName",
     json_name = "DNARegionName",
-    (.google.fhir.proto.fhir_path_constraint) =
-        "extension.exists() != value.exists()"
+    (.google.fhir.proto.fhir_path_constraint) = "extension.exists() != value.exists()"
   ];
 
   // Name of allele
   CodeableConcept allele_name = 37 [
-    (.google.fhir.proto.fhir_inlined_extension_url) =
-        "http://hl7.org/fhir/StructureDefinition/observation-geneticsAlleleName",
+    (.google.fhir.proto.fhir_inlined_extension_url) = "http://hl7.org/fhir/StructureDefinition/observation-geneticsAlleleName",
     json_name = "AlleleName",
-    (.google.fhir.proto.fhir_path_constraint) =
-        "extension.exists() != value.exists()"
+    (.google.fhir.proto.fhir_path_constraint) = "extension.exists() != value.exists()"
   ];
 
   // The level of occurrence of a single DNA sequence variant within a set of
   // chromosomes: Heteroplasmic / Homoplasmic / Homozygous / Heterozygous /
   // Hemizygous
   CodeableConcept allelic_state = 38 [
-    (.google.fhir.proto.fhir_inlined_extension_url) =
-        "http://hl7.org/fhir/StructureDefinition/observation-geneticsAllelicState",
+    (.google.fhir.proto.fhir_inlined_extension_url) = "http://hl7.org/fhir/StructureDefinition/observation-geneticsAllelicState",
     json_name = "AllelicState",
-    (.google.fhir.proto.fhir_path_constraint) =
-        "extension.exists() != value.exists()"
+    (.google.fhir.proto.fhir_path_constraint) = "extension.exists() != value.exists()"
   ];
 
   // Allele frequency
   Decimal allelic_frequency = 39 [
-    (.google.fhir.proto.fhir_inlined_extension_url) =
-        "http://hl7.org/fhir/StructureDefinition/observation-geneticsAllelicFrequency",
+    (.google.fhir.proto.fhir_inlined_extension_url) = "http://hl7.org/fhir/StructureDefinition/observation-geneticsAllelicFrequency",
     json_name = "AllelicFrequency",
-    (.google.fhir.proto.fhir_path_constraint) =
-        "extension.exists() != value.exists()"
+    (.google.fhir.proto.fhir_path_constraint) = "extension.exists() != value.exists()"
   ];
 
   // Copy number variation
   CodeableConcept copy_number_event = 40 [
-    (.google.fhir.proto.fhir_inlined_extension_url) =
-        "http://hl7.org/fhir/StructureDefinition/observation-geneticsCopyNumberEvent",
+    (.google.fhir.proto.fhir_inlined_extension_url) = "http://hl7.org/fhir/StructureDefinition/observation-geneticsCopyNumberEvent",
     json_name = "CopyNumberEvent",
-    (.google.fhir.proto.fhir_path_constraint) =
-        "extension.exists() != value.exists()"
+    (.google.fhir.proto.fhir_path_constraint) = "extension.exists() != value.exists()"
   ];
 
   // Genomic source class
   CodeableConcept genomic_source_class = 41 [
-    (.google.fhir.proto.fhir_inlined_extension_url) =
-        "http://hl7.org/fhir/StructureDefinition/observation-geneticsGenomicSourceClass",
+    (.google.fhir.proto.fhir_inlined_extension_url) = "http://hl7.org/fhir/StructureDefinition/observation-geneticsGenomicSourceClass",
     json_name = "GenomicSourceClass",
-    (.google.fhir.proto.fhir_path_constraint) =
-        "extension.exists() != value.exists()"
+    (.google.fhir.proto.fhir_path_constraint) = "extension.exists() != value.exists()"
   ];
 
   // Phase set identifier (UUID/OID)
   Uri phase_set = 42 [
-    (.google.fhir.proto.fhir_inlined_extension_url) =
-        "http://hl7.org/fhir/StructureDefinition/observation-geneticsPhaseSet",
+    (.google.fhir.proto.fhir_inlined_extension_url) = "http://hl7.org/fhir/StructureDefinition/observation-geneticsPhaseSet",
     json_name = "PhaseSet",
-    (.google.fhir.proto.fhir_path_constraint) =
-        "extension.exists() != value.exists()"
+    (.google.fhir.proto.fhir_path_constraint) = "extension.exists() != value.exists()"
   ];
 
   // Sequence
   repeated Reference sequence = 43 [
-    (.google.fhir.proto.fhir_inlined_extension_url) =
-        "http://hl7.org/fhir/StructureDefinition/observation-geneticsSequence",
+    (.google.fhir.proto.fhir_inlined_extension_url) = "http://hl7.org/fhir/StructureDefinition/observation-geneticsSequence",
     json_name = "Sequence",
-    (.google.fhir.proto.fhir_path_constraint) =
-        "extension.exists() != value.exists()"
+    (.google.fhir.proto.fhir_path_constraint) = "extension.exists() != value.exists()"
   ];
 
   // Clinical interpretations for variant
   Reference interpretation_slice = 44 [
-    (.google.fhir.proto.fhir_inlined_extension_url) =
-        "http://hl7.org/fhir/StructureDefinition/observation-geneticsInterpretation",
+    (.google.fhir.proto.fhir_inlined_extension_url) = "http://hl7.org/fhir/StructureDefinition/observation-geneticsInterpretation",
     json_name = "InterpretationSlice",
-    (.google.fhir.proto.fhir_path_constraint) =
-        "extension.exists() != value.exists()"
+    (.google.fhir.proto.fhir_path_constraint) = "extension.exists() != value.exists()"
   ];
 }
 
@@ -4729,12 +4456,9 @@ message ObservationGenetics {
 // See http://hl7.org/fhir/StructureDefinition/oxygensat
 message Oxygensat {
   option (.google.fhir.proto.structure_definition_kind) = KIND_RESOURCE;
-  option (.google.fhir.proto.fhir_profile_base) =
-      "http://hl7.org/fhir/StructureDefinition/vitalsigns";
-  option (.google.fhir.proto.fhir_profile_base) =
-      "http://hl7.org/fhir/StructureDefinition/Observation";
-  option (.google.fhir.proto.fhir_structure_definition_url) =
-      "http://hl7.org/fhir/StructureDefinition/oxygensat";
+  option (.google.fhir.proto.fhir_profile_base) = "http://hl7.org/fhir/StructureDefinition/vitalsigns";
+  option (.google.fhir.proto.fhir_profile_base) = "http://hl7.org/fhir/StructureDefinition/Observation";
+  option (.google.fhir.proto.fhir_structure_definition_url) = "http://hl7.org/fhir/StructureDefinition/oxygensat";
 
   // Logical id of this artifact
   Id id = 1;
@@ -4775,20 +4499,17 @@ message Oxygensat {
   ];
 
   // registered | preliminary | final | amended +
-  ObservationStatusCode status = 11
-      [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
+  ObservationStatusCode status = 11 [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
 
   // Classification of  type of observation
   repeated CodeableConcept category = 12 [
     (.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR,
-    (.google.fhir.proto.fhir_path_constraint) =
-        "where(coding.system='http://hl7.org/fhir/observation-category' and coding.code='vital-signs').exists()"
+    (.google.fhir.proto.fhir_path_constraint) = "where(coding.system='http://hl7.org/fhir/observation-category' and coding.code='vital-signs').exists()"
   ];
 
   // Oxygen Saturation
   message CodeableConceptForCode {
-    option (.google.fhir.proto.fhir_profile_base) =
-        "http://hl7.org/fhir/StructureDefinition/CodeableConcept";
+    option (.google.fhir.proto.fhir_profile_base) = "http://hl7.org/fhir/StructureDefinition/CodeableConcept";
 
     // xml:id (or equivalent in JSON)
     String id = 1;
@@ -4808,8 +4529,7 @@ message Oxygensat {
       json_name = "OxygenSatCode"
     ];
   }
-  CodeableConceptForCode code = 13
-      [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
+  CodeableConceptForCode code = 13 [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
 
   // Who and/or what this is about
   Reference subject = 14 [
@@ -4834,8 +4554,7 @@ message Oxygensat {
   }
   Effective effective = 16 [
     (.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR,
-    (.google.fhir.proto.fhir_path_constraint) =
-        "($this as dateTime).toString().length() >= 8"
+    (.google.fhir.proto.fhir_path_constraint) = "($this as dateTime).toString().length() >= 8"
   ];
 
   // Date/Time this was made available
@@ -4875,8 +4594,7 @@ message Oxygensat {
   CodeableConcept method = 24;
 
   // Specimen used for this observation
-  Reference specimen = 25
-      [(.google.fhir.proto.valid_reference_type) = "Specimen"];
+  Reference specimen = 25 [(.google.fhir.proto.valid_reference_type) = "Specimen"];
 
   // (Measurement) Device
   Reference device = 26 [
@@ -4913,9 +4631,7 @@ message Oxygensat {
     // Text based reference range in an observation
     String text = 9;
   }
-  repeated ReferenceRange reference_range = 27
-      [(.google.fhir.proto.fhir_path_constraint) =
-           "low.exists() or high.exists() or text.exists()"];
+  repeated ReferenceRange reference_range = 27 [(.google.fhir.proto.fhir_path_constraint) = "low.exists() or high.exists() or text.exists()"];
 
   // Used when reporting vital signs panel components
   message Related {
@@ -4930,8 +4646,7 @@ message Oxygensat {
 
     // has-member | derived-from | sequel-to | replaces | qualified-by |
     // interfered-by
-    ObservationRelationshipTypeCode type = 4
-        [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
+    ObservationRelationshipTypeCode type = 4 [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
 
     // Resource that is related to this one
     Reference target = 5 [
@@ -4953,8 +4668,7 @@ message Oxygensat {
     repeated Extension modifier_extension = 3;
 
     // Type of component observation (code / type)
-    CodeableConcept code = 4
-        [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
+    CodeableConcept code = 4 [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
 
     // Vital Sign Value recorded with UCUM
     message Value {
@@ -4975,9 +4689,7 @@ message Oxygensat {
     // Provides guide for interpretation of component result
     repeated ReferenceRange reference_range = 8;
   }
-  repeated Component component = 29
-      [(.google.fhir.proto.fhir_path_constraint) =
-           "value.exists() or dataAbsentReason.exists()"];
+  repeated Component component = 29 [(.google.fhir.proto.fhir_path_constraint) = "value.exists() or dataAbsentReason.exists()"];
 }
 
 // Auto-generated from StructureDefinition for ProcedureRequest-Genetics.
@@ -4985,10 +4697,8 @@ message Oxygensat {
 // See http://hl7.org/fhir/StructureDefinition/procedurerequest-genetics
 message ProcedurerequestGenetics {
   option (.google.fhir.proto.structure_definition_kind) = KIND_RESOURCE;
-  option (.google.fhir.proto.fhir_profile_base) =
-      "http://hl7.org/fhir/StructureDefinition/ProcedureRequest";
-  option (.google.fhir.proto.fhir_structure_definition_url) =
-      "http://hl7.org/fhir/StructureDefinition/procedurerequest-genetics";
+  option (.google.fhir.proto.fhir_profile_base) = "http://hl7.org/fhir/StructureDefinition/ProcedureRequest";
+  option (.google.fhir.proto.fhir_structure_definition_url) = "http://hl7.org/fhir/StructureDefinition/procedurerequest-genetics";
 
   // Logical id of this artifact
   Id id = 1;
@@ -5024,23 +4734,19 @@ message ProcedurerequestGenetics {
   ];
 
   // What request fulfills
-  repeated Reference based_on = 11
-      [(.google.fhir.proto.valid_reference_type) = "Resource"];
+  repeated Reference based_on = 11 [(.google.fhir.proto.valid_reference_type) = "Resource"];
 
   // What request replaces
-  repeated Reference replaces = 12
-      [(.google.fhir.proto.valid_reference_type) = "Resource"];
+  repeated Reference replaces = 12 [(.google.fhir.proto.valid_reference_type) = "Resource"];
 
   // Composite Request ID
   Identifier requisition = 13;
 
   // draft | active | suspended | completed | entered-in-error | cancelled
-  RequestStatusCode status = 14
-      [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
+  RequestStatusCode status = 14 [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
 
   // proposal | plan | order +
-  RequestIntentCode intent = 15
-      [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
+  RequestIntentCode intent = 15 [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
 
   // routine | urgent | asap | stat
   RequestPriorityCode priority = 16;
@@ -5052,8 +4758,7 @@ message ProcedurerequestGenetics {
   repeated CodeableConcept category = 18;
 
   // What is being requested/ordered
-  CodeableConcept code = 19
-      [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
+  CodeableConcept code = 19 [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
 
   // Individual the service is ordered for
   Reference subject = 20 [
@@ -5116,8 +4821,7 @@ message ProcedurerequestGenetics {
     ];
 
     // Organization agent is acting for
-    Reference on_behalf_of = 5
-        [(.google.fhir.proto.valid_reference_type) = "Organization"];
+    Reference on_behalf_of = 5 [(.google.fhir.proto.valid_reference_type) = "Organization"];
   }
   Requester requester = 25;
 
@@ -5144,12 +4848,10 @@ message ProcedurerequestGenetics {
   ];
 
   // Additional clinical information
-  repeated Reference supporting_info = 30
-      [(.google.fhir.proto.valid_reference_type) = "Resource"];
+  repeated Reference supporting_info = 30 [(.google.fhir.proto.valid_reference_type) = "Resource"];
 
   // Procedure Samples
-  repeated Reference specimen = 31
-      [(.google.fhir.proto.valid_reference_type) = "Specimen"];
+  repeated Reference specimen = 31 [(.google.fhir.proto.valid_reference_type) = "Specimen"];
 
   // Location on Body
   repeated CodeableConcept body_site = 32;
@@ -5158,16 +4860,13 @@ message ProcedurerequestGenetics {
   repeated Annotation note = 33;
 
   // Request provenance
-  repeated Reference relevant_history = 34
-      [(.google.fhir.proto.valid_reference_type) = "Provenance"];
+  repeated Reference relevant_history = 34 [(.google.fhir.proto.valid_reference_type) = "Provenance"];
 
   // The items the orderer requested
   repeated DiagnosticReportItem item = 35 [
-    (.google.fhir.proto.fhir_inlined_extension_url) =
-        "http://hl7.org/fhir/StructureDefinition/procedurerequest-geneticsItem",
+    (.google.fhir.proto.fhir_inlined_extension_url) = "http://hl7.org/fhir/StructureDefinition/procedurerequest-geneticsItem",
     json_name = "Item",
-    (.google.fhir.proto.fhir_path_constraint) =
-        "extension.exists() != value.exists()"
+    (.google.fhir.proto.fhir_path_constraint) = "extension.exists() != value.exists()"
   ];
 }
 
@@ -5176,12 +4875,9 @@ message ProcedurerequestGenetics {
 // See http://hl7.org/fhir/StructureDefinition/resprate
 message Resprate {
   option (.google.fhir.proto.structure_definition_kind) = KIND_RESOURCE;
-  option (.google.fhir.proto.fhir_profile_base) =
-      "http://hl7.org/fhir/StructureDefinition/vitalsigns";
-  option (.google.fhir.proto.fhir_profile_base) =
-      "http://hl7.org/fhir/StructureDefinition/Observation";
-  option (.google.fhir.proto.fhir_structure_definition_url) =
-      "http://hl7.org/fhir/StructureDefinition/resprate";
+  option (.google.fhir.proto.fhir_profile_base) = "http://hl7.org/fhir/StructureDefinition/vitalsigns";
+  option (.google.fhir.proto.fhir_profile_base) = "http://hl7.org/fhir/StructureDefinition/Observation";
+  option (.google.fhir.proto.fhir_structure_definition_url) = "http://hl7.org/fhir/StructureDefinition/resprate";
 
   // Logical id of this artifact
   Id id = 1;
@@ -5222,20 +4918,17 @@ message Resprate {
   ];
 
   // registered | preliminary | final | amended +
-  ObservationStatusCode status = 11
-      [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
+  ObservationStatusCode status = 11 [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
 
   // Classification of  type of observation
   repeated CodeableConcept category = 12 [
     (.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR,
-    (.google.fhir.proto.fhir_path_constraint) =
-        "where(coding.system='http://hl7.org/fhir/observation-category' and coding.code='vital-signs').exists()"
+    (.google.fhir.proto.fhir_path_constraint) = "where(coding.system='http://hl7.org/fhir/observation-category' and coding.code='vital-signs').exists()"
   ];
 
   // Respiratory Rate
   message CodeableConceptForCode {
-    option (.google.fhir.proto.fhir_profile_base) =
-        "http://hl7.org/fhir/StructureDefinition/CodeableConcept";
+    option (.google.fhir.proto.fhir_profile_base) = "http://hl7.org/fhir/StructureDefinition/CodeableConcept";
 
     // xml:id (or equivalent in JSON)
     String id = 1;
@@ -5255,8 +4948,7 @@ message Resprate {
       json_name = "RespRateCode"
     ];
   }
-  CodeableConceptForCode code = 13
-      [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
+  CodeableConceptForCode code = 13 [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
 
   // Who and/or what this is about
   Reference subject = 14 [
@@ -5281,8 +4973,7 @@ message Resprate {
   }
   Effective effective = 16 [
     (.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR,
-    (.google.fhir.proto.fhir_path_constraint) =
-        "($this as dateTime).toString().length() >= 8"
+    (.google.fhir.proto.fhir_path_constraint) = "($this as dateTime).toString().length() >= 8"
   ];
 
   // Date/Time this was made available
@@ -5322,8 +5013,7 @@ message Resprate {
   CodeableConcept method = 24;
 
   // Specimen used for this observation
-  Reference specimen = 25
-      [(.google.fhir.proto.valid_reference_type) = "Specimen"];
+  Reference specimen = 25 [(.google.fhir.proto.valid_reference_type) = "Specimen"];
 
   // (Measurement) Device
   Reference device = 26 [
@@ -5360,9 +5050,7 @@ message Resprate {
     // Text based reference range in an observation
     String text = 9;
   }
-  repeated ReferenceRange reference_range = 27
-      [(.google.fhir.proto.fhir_path_constraint) =
-           "low.exists() or high.exists() or text.exists()"];
+  repeated ReferenceRange reference_range = 27 [(.google.fhir.proto.fhir_path_constraint) = "low.exists() or high.exists() or text.exists()"];
 
   // Used when reporting vital signs panel components
   message Related {
@@ -5377,8 +5065,7 @@ message Resprate {
 
     // has-member | derived-from | sequel-to | replaces | qualified-by |
     // interfered-by
-    ObservationRelationshipTypeCode type = 4
-        [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
+    ObservationRelationshipTypeCode type = 4 [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
 
     // Resource that is related to this one
     Reference target = 5 [
@@ -5400,8 +5087,7 @@ message Resprate {
     repeated Extension modifier_extension = 3;
 
     // Type of component observation (code / type)
-    CodeableConcept code = 4
-        [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
+    CodeableConcept code = 4 [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
 
     // Vital Sign Value recorded with UCUM
     message Value {
@@ -5422,9 +5108,7 @@ message Resprate {
     // Provides guide for interpretation of component result
     repeated ReferenceRange reference_range = 8;
   }
-  repeated Component component = 29
-      [(.google.fhir.proto.fhir_path_constraint) =
-           "value.exists() or dataAbsentReason.exists()"];
+  repeated Component component = 29 [(.google.fhir.proto.fhir_path_constraint) = "value.exists() or dataAbsentReason.exists()"];
 }
 
 // Auto-generated from StructureDefinition for Shareable CodeSystem.
@@ -5432,10 +5116,8 @@ message Resprate {
 // See http://hl7.org/fhir/StructureDefinition/shareablecodesystem
 message Shareablecodesystem {
   option (.google.fhir.proto.structure_definition_kind) = KIND_RESOURCE;
-  option (.google.fhir.proto.fhir_profile_base) =
-      "http://hl7.org/fhir/StructureDefinition/CodeSystem";
-  option (.google.fhir.proto.fhir_structure_definition_url) =
-      "http://hl7.org/fhir/StructureDefinition/shareablecodesystem";
+  option (.google.fhir.proto.fhir_profile_base) = "http://hl7.org/fhir/StructureDefinition/CodeSystem";
+  option (.google.fhir.proto.fhir_structure_definition_url) = "http://hl7.org/fhir/StructureDefinition/shareablecodesystem";
 
   // Logical id of this artifact
   Id id = 1;
@@ -5468,37 +5150,31 @@ message Shareablecodesystem {
   Identifier identifier = 10;
 
   // Business version of the code system (Coding.version)
-  String version = 11
-      [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
+  String version = 11 [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
 
   // Name for this code system (computer friendly)
-  String name = 12
-      [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
+  String name = 12 [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
 
   // Name for this code system (human friendly)
   String title = 13;
 
   // draft | active | retired | unknown
-  PublicationStatusCode status = 14
-      [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
+  PublicationStatusCode status = 14 [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
 
   // For testing purposes, not real usage
-  Boolean experimental = 15
-      [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
+  Boolean experimental = 15 [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
 
   // Date this was last changed
   DateTime date = 16;
 
   // Name of the publisher (organization or individual)
-  String publisher = 17
-      [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
+  String publisher = 17 [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
 
   // Contact details for the publisher
   repeated ContactDetail contact = 18;
 
   // Natural language description of the code system
-  Markdown description = 19
-      [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
+  Markdown description = 19 [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
 
   // Context the content is intended to support
   repeated UsageContext use_context = 20;
@@ -5513,8 +5189,7 @@ message Shareablecodesystem {
   Markdown copyright = 23;
 
   // If code comparison is case sensitive
-  Boolean case_sensitive = 24
-      [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
+  Boolean case_sensitive = 24 [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
 
   // Canonical URL for value set with entire code system
   Uri value_set = 25;
@@ -5529,8 +5204,7 @@ message Shareablecodesystem {
   Boolean version_needed = 28;
 
   // not-present | example | fragment | complete
-  CodeSystemContentModeCode content = 29
-      [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
+  CodeSystemContentModeCode content = 29 [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
 
   // Total concepts in the code system
   UnsignedInt count = 30;
@@ -5547,19 +5221,16 @@ message Shareablecodesystem {
     repeated Extension modifier_extension = 3;
 
     // Code that identifies the filter
-    Code code = 4
-        [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
+    Code code = 4 [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
 
     // How or why the filter is used
     String description = 5;
 
     // Operators that can be used with filter
-    repeated FilterOperatorCode operator = 6
-        [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
+    repeated FilterOperatorCode operator = 6 [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
 
     // What to use for the value
-    String value = 7
-        [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
+    String value = 7 [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
   }
   repeated Filter filter = 31;
 
@@ -5576,8 +5247,7 @@ message Shareablecodesystem {
 
     // Identifies the property on the concepts, and when referred to in
     // operations
-    Code code = 4
-        [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
+    Code code = 4 [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
 
     // Formal identifier for the property
     Uri uri = 5;
@@ -5586,8 +5256,7 @@ message Shareablecodesystem {
     String description = 6;
 
     // code | Coding | string | integer | boolean | dateTime
-    PropertyTypeCode type = 7
-        [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
+    PropertyTypeCode type = 7 [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
   }
   repeated Property property = 32;
 
@@ -5603,8 +5272,7 @@ message Shareablecodesystem {
     repeated Extension modifier_extension = 3;
 
     // Code that identifies concept
-    Code code = 4
-        [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
+    Code code = 4 [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
 
     // Text to display to the user
     String display = 5;
@@ -5630,8 +5298,7 @@ message Shareablecodesystem {
       Coding use = 5;
 
       // The text value for this designation
-      String value = 6
-          [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
+      String value = 6 [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
     }
     repeated Designation designation = 7;
 
@@ -5647,8 +5314,7 @@ message Shareablecodesystem {
       repeated Extension modifier_extension = 3;
 
       // Reference to CodeSystem.property.code
-      Code code = 4
-          [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
+      Code code = 4 [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
 
       // Value of the property for this concept
       message Value {
@@ -5663,16 +5329,14 @@ message Shareablecodesystem {
           DateTime date_time = 6;
         }
       }
-      Value value = 5
-          [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
+      Value value = 5 [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
     }
     repeated ConceptProperty property = 8;
 
     // Child Concepts (is-a/contains/categorizes)
     repeated ConceptDefinition concept = 9;
   }
-  repeated ConceptDefinition concept = 33
-      [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
+  repeated ConceptDefinition concept = 33 [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
 }
 
 // Auto-generated from StructureDefinition for Shareable ValueSet.
@@ -5680,10 +5344,8 @@ message Shareablecodesystem {
 // See http://hl7.org/fhir/StructureDefinition/shareablevalueset
 message Shareablevalueset {
   option (.google.fhir.proto.structure_definition_kind) = KIND_RESOURCE;
-  option (.google.fhir.proto.fhir_profile_base) =
-      "http://hl7.org/fhir/StructureDefinition/ValueSet";
-  option (.google.fhir.proto.fhir_structure_definition_url) =
-      "http://hl7.org/fhir/StructureDefinition/shareablevalueset";
+  option (.google.fhir.proto.fhir_profile_base) = "http://hl7.org/fhir/StructureDefinition/ValueSet";
+  option (.google.fhir.proto.fhir_structure_definition_url) = "http://hl7.org/fhir/StructureDefinition/shareablevalueset";
 
   // Logical id of this artifact
   Id id = 1;
@@ -5716,37 +5378,31 @@ message Shareablevalueset {
   repeated Identifier identifier = 10;
 
   // Business version of the value set
-  String version = 11
-      [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
+  String version = 11 [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
 
   // Name for this value set (computer friendly)
-  String name = 12
-      [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
+  String name = 12 [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
 
   // Name for this value set (human friendly)
   String title = 13;
 
   // draft | active | retired | unknown
-  PublicationStatusCode status = 14
-      [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
+  PublicationStatusCode status = 14 [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
 
   // For testing purposes, not real usage
-  Boolean experimental = 15
-      [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
+  Boolean experimental = 15 [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
 
   // Date this was last changed
   DateTime date = 16;
 
   // Name of the publisher (organization or individual)
-  String publisher = 17
-      [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
+  String publisher = 17 [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
 
   // Contact details for the publisher
   repeated ContactDetail contact = 18;
 
   // Natural language description of the value set
-  Markdown description = 19
-      [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
+  Markdown description = 19 [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
 
   // Context the content is intended to support
   repeated UsageContext use_context = 20;
@@ -5813,8 +5469,7 @@ message Shareablevalueset {
         repeated Extension modifier_extension = 3;
 
         // Code or expression from system
-        Code code = 4
-            [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
+        Code code = 4 [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
 
         // Text to display for this code for this value set in this valueset
         String display = 5;
@@ -5837,8 +5492,7 @@ message Shareablevalueset {
           Coding use = 5;
 
           // The text value for this designation
-          String value = 6
-              [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
+          String value = 6 [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
         }
         repeated Designation designation = 6;
       }
@@ -5856,17 +5510,14 @@ message Shareablevalueset {
         repeated Extension modifier_extension = 3;
 
         // A property defined by the code system
-        Code property = 4
-            [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
+        Code property = 4 [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
 
         // = | is-a | descendent-of | is-not-a | regex | in | not-in |
         // generalizes | exists
-        FilterOperatorCode op = 5
-            [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
+        FilterOperatorCode op = 5 [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
 
         // Code from the system, or regex criteria, or boolean value for exists
-        Code value = 6
-            [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
+        Code value = 6 [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
       }
       repeated Filter filter = 7;
 
@@ -5875,12 +5526,9 @@ message Shareablevalueset {
     }
     repeated ConceptSet include = 6 [
       (.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR,
-      (.google.fhir.proto.fhir_path_constraint) =
-          "(concept.exists() or filter.exists()) implies system.exists()",
-      (.google.fhir.proto.fhir_path_constraint) =
-          "concept.empty() or filter.empty()",
-      (.google.fhir.proto.fhir_path_constraint) =
-          "valueSet.exists() or system.exists()"
+      (.google.fhir.proto.fhir_path_constraint) = "(concept.exists() or filter.exists()) implies system.exists()",
+      (.google.fhir.proto.fhir_path_constraint) = "concept.empty() or filter.empty()",
+      (.google.fhir.proto.fhir_path_constraint) = "valueSet.exists() or system.exists()"
     ];
 
     // Explicitly exclude codes from a code system or other value sets
@@ -5900,12 +5548,10 @@ message Shareablevalueset {
     repeated Extension modifier_extension = 3;
 
     // Uniquely identifies this expansion
-    Uri identifier = 4
-        [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
+    Uri identifier = 4 [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
 
     // Time ValueSet expansion happened
-    DateTime timestamp = 5
-        [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
+    DateTime timestamp = 5 [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
 
     // Total number of codes in the expansion
     Integer total = 6;
@@ -5925,8 +5571,7 @@ message Shareablevalueset {
       repeated Extension modifier_extension = 3;
 
       // Name as assigned by the server
-      String name = 4
-          [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
+      String name = 4 [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
 
       // Value of the named parameter
       message Value {
@@ -5981,12 +5626,9 @@ message Shareablevalueset {
       repeated Contains contains = 11;
     }
     repeated Contains contains = 9 [
-      (.google.fhir.proto.fhir_path_constraint) =
-          "code.exists() or display.exists()",
-      (.google.fhir.proto.fhir_path_constraint) =
-          "code.exists() or abstract = true",
-      (.google.fhir.proto.fhir_path_constraint) =
-          "code.empty() or system.exists()"
+      (.google.fhir.proto.fhir_path_constraint) = "code.exists() or display.exists()",
+      (.google.fhir.proto.fhir_path_constraint) = "code.exists() or abstract = true",
+      (.google.fhir.proto.fhir_path_constraint) = "code.empty() or system.exists()"
     ];
   }
   Expansion expansion = 27;
@@ -5997,10 +5639,8 @@ message Shareablevalueset {
 // See http://hl7.org/fhir/StructureDefinition/triglyceride
 message Triglyceride {
   option (.google.fhir.proto.structure_definition_kind) = KIND_RESOURCE;
-  option (.google.fhir.proto.fhir_profile_base) =
-      "http://hl7.org/fhir/StructureDefinition/Observation";
-  option (.google.fhir.proto.fhir_structure_definition_url) =
-      "http://hl7.org/fhir/StructureDefinition/triglyceride";
+  option (.google.fhir.proto.fhir_profile_base) = "http://hl7.org/fhir/StructureDefinition/Observation";
+  option (.google.fhir.proto.fhir_structure_definition_url) = "http://hl7.org/fhir/StructureDefinition/triglyceride";
 
   // Logical id of this artifact
   Id id = 1;
@@ -6041,15 +5681,13 @@ message Triglyceride {
   ];
 
   // registered | preliminary | final | amended +
-  ObservationStatusCode status = 11
-      [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
+  ObservationStatusCode status = 11 [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
 
   // Classification of  type of observation
   repeated CodeableConcept category = 12;
 
   // Triglyceride
-  CodeableConcept code = 13
-      [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
+  CodeableConcept code = 13 [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
 
   // Who and/or what this is about
   Reference subject = 14 [
@@ -6113,8 +5751,7 @@ message Triglyceride {
   CodeableConcept method = 24;
 
   // Specimen used for this observation
-  Reference specimen = 25
-      [(.google.fhir.proto.valid_reference_type) = "Specimen"];
+  Reference specimen = 25 [(.google.fhir.proto.valid_reference_type) = "Specimen"];
 
   // (Measurement) Device
   Reference device = 26 [
@@ -6137,8 +5774,7 @@ message Triglyceride {
     reserved 4;
 
     // High Range, if relevant
-    SimpleQuantity high = 5
-        [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
+    SimpleQuantity high = 5 [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
 
     // Observation.referenceRange.type not present on profile.
     reserved 6;
@@ -6154,8 +5790,7 @@ message Triglyceride {
   }
   ReferenceRange reference_range = 27 [
     (.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR,
-    (.google.fhir.proto.fhir_path_constraint) =
-        "low.exists() or high.exists() or text.exists()"
+    (.google.fhir.proto.fhir_path_constraint) = "low.exists() or high.exists() or text.exists()"
   ];
 
   // Observation.related not present on profile.
@@ -6173,8 +5808,7 @@ message Triglyceride {
     repeated Extension modifier_extension = 3;
 
     // Type of component observation (code / type)
-    CodeableConcept code = 4
-        [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
+    CodeableConcept code = 4 [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
 
     // Actual component result
     message Value {
@@ -6212,10 +5846,8 @@ message Triglyceride {
 // See http://hl7.org/fhir/StructureDefinition/vitalsigns
 message Vitalsigns {
   option (.google.fhir.proto.structure_definition_kind) = KIND_RESOURCE;
-  option (.google.fhir.proto.fhir_profile_base) =
-      "http://hl7.org/fhir/StructureDefinition/Observation";
-  option (.google.fhir.proto.fhir_structure_definition_url) =
-      "http://hl7.org/fhir/StructureDefinition/vitalsigns";
+  option (.google.fhir.proto.fhir_profile_base) = "http://hl7.org/fhir/StructureDefinition/Observation";
+  option (.google.fhir.proto.fhir_structure_definition_url) = "http://hl7.org/fhir/StructureDefinition/vitalsigns";
 
   // Logical id of this artifact
   Id id = 1;
@@ -6256,19 +5888,16 @@ message Vitalsigns {
   ];
 
   // registered | preliminary | final | amended +
-  ObservationStatusCode status = 11
-      [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
+  ObservationStatusCode status = 11 [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
 
   // Classification of  type of observation
   repeated CodeableConcept category = 12 [
     (.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR,
-    (.google.fhir.proto.fhir_path_constraint) =
-        "where(coding.system='http://hl7.org/fhir/observation-category' and coding.code='vital-signs').exists()"
+    (.google.fhir.proto.fhir_path_constraint) = "where(coding.system='http://hl7.org/fhir/observation-category' and coding.code='vital-signs').exists()"
   ];
 
   // Coded Responses from C-CDA Vital Sign Results
-  CodeableConcept code = 13
-      [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
+  CodeableConcept code = 13 [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
 
   // Who and/or what this is about
   Reference subject = 14 [
@@ -6293,8 +5922,7 @@ message Vitalsigns {
   }
   Effective effective = 16 [
     (.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR,
-    (.google.fhir.proto.fhir_path_constraint) =
-        "($this as dateTime).toString().length() >= 8"
+    (.google.fhir.proto.fhir_path_constraint) = "($this as dateTime).toString().length() >= 8"
   ];
 
   // Date/Time this was made available
@@ -6334,8 +5962,7 @@ message Vitalsigns {
   CodeableConcept method = 24;
 
   // Specimen used for this observation
-  Reference specimen = 25
-      [(.google.fhir.proto.valid_reference_type) = "Specimen"];
+  Reference specimen = 25 [(.google.fhir.proto.valid_reference_type) = "Specimen"];
 
   // (Measurement) Device
   Reference device = 26 [
@@ -6372,9 +5999,7 @@ message Vitalsigns {
     // Text based reference range in an observation
     String text = 9;
   }
-  repeated ReferenceRange reference_range = 27
-      [(.google.fhir.proto.fhir_path_constraint) =
-           "low.exists() or high.exists() or text.exists()"];
+  repeated ReferenceRange reference_range = 27 [(.google.fhir.proto.fhir_path_constraint) = "low.exists() or high.exists() or text.exists()"];
 
   // Used when reporting vital signs panel components
   message Related {
@@ -6389,8 +6014,7 @@ message Vitalsigns {
 
     // has-member | derived-from | sequel-to | replaces | qualified-by |
     // interfered-by
-    ObservationRelationshipTypeCode type = 4
-        [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
+    ObservationRelationshipTypeCode type = 4 [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
 
     // Resource that is related to this one
     Reference target = 5 [
@@ -6412,8 +6036,7 @@ message Vitalsigns {
     repeated Extension modifier_extension = 3;
 
     // Type of component observation (code / type)
-    CodeableConcept code = 4
-        [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
+    CodeableConcept code = 4 [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
 
     // Vital Sign Value recorded with UCUM
     message Value {
@@ -6434,9 +6057,7 @@ message Vitalsigns {
     // Provides guide for interpretation of component result
     repeated ReferenceRange reference_range = 8;
   }
-  repeated Component component = 29
-      [(.google.fhir.proto.fhir_path_constraint) =
-           "value.exists() or dataAbsentReason.exists()"];
+  repeated Component component = 29 [(.google.fhir.proto.fhir_path_constraint) = "value.exists() or dataAbsentReason.exists()"];
 }
 
 // Auto-generated from StructureDefinition for Vital Signs Profile.
@@ -6444,12 +6065,9 @@ message Vitalsigns {
 // See http://hl7.org/fhir/StructureDefinition/vitalspanel
 message Vitalspanel {
   option (.google.fhir.proto.structure_definition_kind) = KIND_RESOURCE;
-  option (.google.fhir.proto.fhir_profile_base) =
-      "http://hl7.org/fhir/StructureDefinition/vitalsigns";
-  option (.google.fhir.proto.fhir_profile_base) =
-      "http://hl7.org/fhir/StructureDefinition/Observation";
-  option (.google.fhir.proto.fhir_structure_definition_url) =
-      "http://hl7.org/fhir/StructureDefinition/vitalspanel";
+  option (.google.fhir.proto.fhir_profile_base) = "http://hl7.org/fhir/StructureDefinition/vitalsigns";
+  option (.google.fhir.proto.fhir_profile_base) = "http://hl7.org/fhir/StructureDefinition/Observation";
+  option (.google.fhir.proto.fhir_structure_definition_url) = "http://hl7.org/fhir/StructureDefinition/vitalspanel";
 
   // Logical id of this artifact
   Id id = 1;
@@ -6490,20 +6108,17 @@ message Vitalspanel {
   ];
 
   // registered | preliminary | final | amended +
-  ObservationStatusCode status = 11
-      [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
+  ObservationStatusCode status = 11 [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
 
   // Classification of  type of observation
   repeated CodeableConcept category = 12 [
     (.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR,
-    (.google.fhir.proto.fhir_path_constraint) =
-        "where(coding.system='http://hl7.org/fhir/observation-category' and coding.code='vital-signs').exists()"
+    (.google.fhir.proto.fhir_path_constraint) = "where(coding.system='http://hl7.org/fhir/observation-category' and coding.code='vital-signs').exists()"
   ];
 
   // Vital Signs Panel
   message CodeableConceptForCode {
-    option (.google.fhir.proto.fhir_profile_base) =
-        "http://hl7.org/fhir/StructureDefinition/CodeableConcept";
+    option (.google.fhir.proto.fhir_profile_base) = "http://hl7.org/fhir/StructureDefinition/CodeableConcept";
 
     // xml:id (or equivalent in JSON)
     String id = 1;
@@ -6523,8 +6138,7 @@ message Vitalspanel {
       json_name = "BodyWeightCode"
     ];
   }
-  CodeableConceptForCode code = 13
-      [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
+  CodeableConceptForCode code = 13 [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
 
   // Who and/or what this is about
   Reference subject = 14 [
@@ -6549,8 +6163,7 @@ message Vitalspanel {
   }
   Effective effective = 16 [
     (.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR,
-    (.google.fhir.proto.fhir_path_constraint) =
-        "($this as dateTime).toString().length() >= 8"
+    (.google.fhir.proto.fhir_path_constraint) = "($this as dateTime).toString().length() >= 8"
   ];
 
   // Date/Time this was made available
@@ -6583,8 +6196,7 @@ message Vitalspanel {
   CodeableConcept method = 24;
 
   // Specimen used for this observation
-  Reference specimen = 25
-      [(.google.fhir.proto.valid_reference_type) = "Specimen"];
+  Reference specimen = 25 [(.google.fhir.proto.valid_reference_type) = "Specimen"];
 
   // (Measurement) Device
   Reference device = 26 [
@@ -6621,9 +6233,7 @@ message Vitalspanel {
     // Text based reference range in an observation
     String text = 9;
   }
-  repeated ReferenceRange reference_range = 27
-      [(.google.fhir.proto.fhir_path_constraint) =
-           "low.exists() or high.exists() or text.exists()"];
+  repeated ReferenceRange reference_range = 27 [(.google.fhir.proto.fhir_path_constraint) = "low.exists() or high.exists() or text.exists()"];
 
   // Used when reporting vital signs panel components
   message Related {
@@ -6638,8 +6248,7 @@ message Vitalspanel {
 
     // has-member | derived-from | sequel-to | replaces | qualified-by |
     // interfered-by
-    ObservationRelationshipTypeCode type = 4
-        [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
+    ObservationRelationshipTypeCode type = 4 [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
 
     // Resource that is related to this one
     Reference target = 5 [
@@ -6647,8 +6256,7 @@ message Vitalspanel {
       (.google.fhir.proto.valid_reference_type) = "Observation"
     ];
   }
-  repeated Related related = 28
-      [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
+  repeated Related related = 28 [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
 
   // Used when reporting systolic and diastolic blood pressure.
   message Component {
@@ -6662,8 +6270,7 @@ message Vitalspanel {
     repeated Extension modifier_extension = 3;
 
     // Type of component observation (code / type)
-    CodeableConcept code = 4
-        [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
+    CodeableConcept code = 4 [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
 
     // Vital Sign Value recorded with UCUM
     message Value {
@@ -6684,7 +6291,5 @@ message Vitalspanel {
     // Provides guide for interpretation of component result
     repeated ReferenceRange reference_range = 8;
   }
-  repeated Component component = 29
-      [(.google.fhir.proto.fhir_path_constraint) =
-           "value.exists() or dataAbsentReason.exists()"];
+  repeated Component component = 29 [(.google.fhir.proto.fhir_path_constraint) = "value.exists() or dataAbsentReason.exists()"];
 }

@@ -21,18 +21,17 @@ import "proto/google/fhir/proto/annotations.proto";
 import "proto/google/fhir/proto/r5/core/codes.proto";
 import "proto/google/fhir/proto/r5/core/datatypes.proto";
 
+option go_package = "github.com/google/fhir/go/proto/google/fhir/proto/r5/core/resources/patient_go_proto";
 option java_multiple_files = true;
 option java_package = "com.google.fhir.r5.core";
 option (.google.fhir.proto.fhir_version) = R5;
-option go_package = "github.com/google/fhir/go/proto/google/fhir/proto/r5/core/resources/patient_go_proto";
 
 // Auto-generated from StructureDefinition for Patient.
 // Information about an individual or animal receiving health care services.
 // See http://hl7.org/fhir/StructureDefinition/Patient
 message Patient {
   option (.google.fhir.proto.structure_definition_kind) = KIND_RESOURCE;
-  option (.google.fhir.proto.fhir_structure_definition_url) =
-      "http://hl7.org/fhir/StructureDefinition/Patient";
+  option (.google.fhir.proto.fhir_structure_definition_url) = "http://hl7.org/fhir/StructureDefinition/Patient";
 
   // Logical id of this artifact
   Id id = 1;
@@ -77,10 +76,8 @@ message Patient {
   // male | female | other | unknown
   message GenderCode {
     option (.google.fhir.proto.structure_definition_kind) = KIND_PRIMITIVE_TYPE;
-    option (.google.fhir.proto.fhir_valueset_url) =
-        "http://hl7.org/fhir/ValueSet/administrative-gender";
-    option (.google.fhir.proto.fhir_profile_base) =
-        "http://hl7.org/fhir/StructureDefinition/code";
+    option (.google.fhir.proto.fhir_valueset_url) = "http://hl7.org/fhir/ValueSet/administrative-gender";
+    option (.google.fhir.proto.fhir_profile_base) = "http://hl7.org/fhir/StructureDefinition/code";
 
     AdministrativeGenderCode.Value value = 1;
 
@@ -126,8 +123,7 @@ message Patient {
 
   // A contact party (e.g. guardian, partner, friend) for the patient
   message Contact {
-    option (.google.fhir.proto.fhir_path_message_constraint) =
-        "name.exists() or telecom.exists() or address.exists() or organization.exists()";
+    option (.google.fhir.proto.fhir_path_message_constraint) = "name.exists() or telecom.exists() or address.exists() or organization.exists()";
 
     // Unique id for inter-element referencing
     String id = 1;
@@ -152,12 +148,9 @@ message Patient {
 
     // male | female | other | unknown
     message GenderCode {
-      option (.google.fhir.proto.structure_definition_kind) =
-          KIND_PRIMITIVE_TYPE;
-      option (.google.fhir.proto.fhir_valueset_url) =
-          "http://hl7.org/fhir/ValueSet/administrative-gender";
-      option (.google.fhir.proto.fhir_profile_base) =
-          "http://hl7.org/fhir/StructureDefinition/code";
+      option (.google.fhir.proto.structure_definition_kind) = KIND_PRIMITIVE_TYPE;
+      option (.google.fhir.proto.fhir_valueset_url) = "http://hl7.org/fhir/ValueSet/administrative-gender";
+      option (.google.fhir.proto.fhir_profile_base) = "http://hl7.org/fhir/StructureDefinition/code";
 
       AdministrativeGenderCode.Value value = 1;
 
@@ -168,8 +161,7 @@ message Patient {
     GenderCode gender = 8;
 
     // Organization that is associated with the contact
-    Reference organization = 9
-        [(.google.fhir.proto.valid_reference_type) = "Organization"];
+    Reference organization = 9 [(.google.fhir.proto.valid_reference_type) = "Organization"];
 
     // The period during which this contact person or organization is valid to
     // be contacted relating to this patient
@@ -191,8 +183,7 @@ message Patient {
 
     // The language which can be used to communicate with the patient about his
     // or her health
-    CodeableConcept language = 4
-        [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
+    CodeableConcept language = 4 [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
 
     // Language preference indicator
     Boolean preferred = 5;
@@ -207,8 +198,7 @@ message Patient {
   ];
 
   // Organization that is the custodian of the patient record
-  Reference managing_organization = 24
-      [(.google.fhir.proto.valid_reference_type) = "Organization"];
+  Reference managing_organization = 24 [(.google.fhir.proto.valid_reference_type) = "Organization"];
 
   // Link to a Patient or RelatedPerson resource that concerns the same actual
   // individual
@@ -231,12 +221,9 @@ message Patient {
 
     // replaced-by | replaces | refer | seealso
     message TypeCode {
-      option (.google.fhir.proto.structure_definition_kind) =
-          KIND_PRIMITIVE_TYPE;
-      option (.google.fhir.proto.fhir_valueset_url) =
-          "http://hl7.org/fhir/ValueSet/link-type";
-      option (.google.fhir.proto.fhir_profile_base) =
-          "http://hl7.org/fhir/StructureDefinition/code";
+      option (.google.fhir.proto.structure_definition_kind) = KIND_PRIMITIVE_TYPE;
+      option (.google.fhir.proto.fhir_valueset_url) = "http://hl7.org/fhir/ValueSet/link-type";
+      option (.google.fhir.proto.fhir_profile_base) = "http://hl7.org/fhir/StructureDefinition/code";
 
       LinkTypeCode.Value value = 1;
 
@@ -244,8 +231,7 @@ message Patient {
 
       repeated Extension extension = 3;
     }
-    TypeCode type = 5
-        [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
+    TypeCode type = 5 [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
   }
   repeated Link link = 25;
 }

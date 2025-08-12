@@ -21,20 +21,18 @@ import "proto/google/fhir/proto/annotations.proto";
 import "proto/google/fhir/proto/r5/core/codes.proto";
 import "proto/google/fhir/proto/r5/core/datatypes.proto";
 
+option go_package = "github.com/google/fhir/go/proto/google/fhir/proto/r5/core/resources/concept_map_go_proto";
 option java_multiple_files = true;
 option java_package = "com.google.fhir.r5.core";
 option (.google.fhir.proto.fhir_version) = R5;
-option go_package = "github.com/google/fhir/go/proto/google/fhir/proto/r5/core/resources/concept_map_go_proto";
 
 // Auto-generated from StructureDefinition for ConceptMap.
 // A map from one set of concepts to one or more other concepts.
 // See http://hl7.org/fhir/StructureDefinition/ConceptMap
 message ConceptMap {
   option (.google.fhir.proto.structure_definition_kind) = KIND_RESOURCE;
-  option (.google.fhir.proto.fhir_structure_definition_url) =
-      "http://hl7.org/fhir/StructureDefinition/ConceptMap";
-  option (.google.fhir.proto.fhir_path_message_warning_constraint) =
-      "name.exists() implies name.matches('^[A-Z]([A-Za-z0-9_]){1,254}$')";
+  option (.google.fhir.proto.fhir_structure_definition_url) = "http://hl7.org/fhir/StructureDefinition/ConceptMap";
+  option (.google.fhir.proto.fhir_path_message_warning_constraint) = "name.exists() implies name.matches('^[A-Z]([A-Za-z0-9_]){1,254}$')";
 
   // Logical id of this artifact
   Id id = 1;
@@ -66,8 +64,7 @@ message ConceptMap {
 
   // Canonical identifier for this concept map, represented as a URI (globally
   // unique)
-  Uri url = 10 [(.google.fhir.proto.fhir_path_warning_constraint) =
-                    "exists() implies matches('^[^|# ]+$')"];
+  Uri url = 10 [(.google.fhir.proto.fhir_path_warning_constraint) = "exists() implies matches('^[^|# ]+$')"];
 
   // Additional identifier for the concept map
   repeated Identifier identifier = 28;
@@ -95,10 +92,8 @@ message ConceptMap {
   // draft | active | retired | unknown
   message StatusCode {
     option (.google.fhir.proto.structure_definition_kind) = KIND_PRIMITIVE_TYPE;
-    option (.google.fhir.proto.fhir_valueset_url) =
-        "http://hl7.org/fhir/ValueSet/publication-status";
-    option (.google.fhir.proto.fhir_profile_base) =
-        "http://hl7.org/fhir/StructureDefinition/code";
+    option (.google.fhir.proto.fhir_valueset_url) = "http://hl7.org/fhir/ValueSet/publication-status";
+    option (.google.fhir.proto.fhir_profile_base) = "http://hl7.org/fhir/StructureDefinition/code";
 
     PublicationStatusCode.Value value = 1;
 
@@ -106,8 +101,7 @@ message ConceptMap {
 
     repeated Extension extension = 3;
   }
-  StatusCode status = 15
-      [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
+  StatusCode status = 15 [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
 
   // For testing purposes, not real usage
   Boolean experimental = 16;
@@ -168,8 +162,7 @@ message ConceptMap {
 
   // Additional properties of the mapping
   message Property {
-    option (.google.fhir.proto.fhir_path_message_constraint) =
-        "type = 'code' implies system.exists()";
+    option (.google.fhir.proto.fhir_path_message_constraint) = "type = 'code' implies system.exists()";
 
     // Unique id for inter-element referencing
     String id = 1;
@@ -182,8 +175,7 @@ message ConceptMap {
 
     // Identifies the property on the mappings, and when referred to in the
     // $translate operation
-    Code code = 4
-        [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
+    Code code = 4 [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
 
     // Formal identifier for the property
     Uri uri = 5;
@@ -193,12 +185,9 @@ message ConceptMap {
 
     // Coding | string | integer | boolean | dateTime | decimal | code
     message TypeCode {
-      option (.google.fhir.proto.structure_definition_kind) =
-          KIND_PRIMITIVE_TYPE;
-      option (.google.fhir.proto.fhir_valueset_url) =
-          "http://hl7.org/fhir/ValueSet/conceptmap-property-type";
-      option (.google.fhir.proto.fhir_profile_base) =
-          "http://hl7.org/fhir/StructureDefinition/code";
+      option (.google.fhir.proto.structure_definition_kind) = KIND_PRIMITIVE_TYPE;
+      option (.google.fhir.proto.fhir_valueset_url) = "http://hl7.org/fhir/ValueSet/conceptmap-property-type";
+      option (.google.fhir.proto.fhir_profile_base) = "http://hl7.org/fhir/StructureDefinition/code";
 
       ConceptMapPropertyTypeCode.Value value = 1;
 
@@ -206,8 +195,7 @@ message ConceptMap {
 
       repeated Extension extension = 3;
     }
-    TypeCode type = 7
-        [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
+    TypeCode type = 7 [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
 
     // The CodeSystem from which code values come
     Canonical system = 8;
@@ -226,8 +214,7 @@ message ConceptMap {
     repeated Extension modifier_extension = 3;
 
     // Identifies this additional attribute through this resource
-    Code code = 4
-        [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
+    Code code = 4 [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
 
     // Formal identifier for the data element referred to in this attribte
     Uri uri = 5;
@@ -238,12 +225,9 @@ message ConceptMap {
 
     // code | Coding | string | boolean | Quantity
     message TypeCode {
-      option (.google.fhir.proto.structure_definition_kind) =
-          KIND_PRIMITIVE_TYPE;
-      option (.google.fhir.proto.fhir_valueset_url) =
-          "http://hl7.org/fhir/ValueSet/conceptmap-attribute-type";
-      option (.google.fhir.proto.fhir_profile_base) =
-          "http://hl7.org/fhir/StructureDefinition/code";
+      option (.google.fhir.proto.structure_definition_kind) = KIND_PRIMITIVE_TYPE;
+      option (.google.fhir.proto.fhir_valueset_url) = "http://hl7.org/fhir/ValueSet/conceptmap-attribute-type";
+      option (.google.fhir.proto.fhir_profile_base) = "http://hl7.org/fhir/StructureDefinition/code";
 
       ConceptMapAttributeTypeCode.Value value = 1;
 
@@ -251,8 +235,7 @@ message ConceptMap {
 
       repeated Extension extension = 3;
     }
-    TypeCode type = 7
-        [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
+    TypeCode type = 7 [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
   }
   repeated AdditionalAttribute additional_attribute = 41;
 
@@ -297,10 +280,8 @@ message ConceptMap {
 
     // Mappings for a concept from the source set
     message SourceElement {
-      option (.google.fhir.proto.fhir_path_message_constraint) =
-          "(noMap.exists() and noMap=true) implies target.empty()";
-      option (.google.fhir.proto.fhir_path_message_constraint) =
-          "(code.exists() and valueSet.empty()) or (code.empty() and valueSet.exists())";
+      option (.google.fhir.proto.fhir_path_message_constraint) = "(noMap.exists() and noMap=true) implies target.empty()";
+      option (.google.fhir.proto.fhir_path_message_constraint) = "(code.exists() and valueSet.empty()) or (code.empty() and valueSet.exists())";
 
       // Unique id for inter-element referencing
       String id = 1;
@@ -325,10 +306,8 @@ message ConceptMap {
 
       // Concept in target system for element
       message TargetElement {
-        option (.google.fhir.proto.fhir_path_message_constraint) =
-            "comment.exists() or (%resource.status = 'draft') or relationship.empty() or ((relationship != 'source-is-broader-than-target') and (relationship != 'not-related-to'))";
-        option (.google.fhir.proto.fhir_path_message_constraint) =
-            "(code.exists() and valueSet.empty()) or (code.empty() and valueSet.exists())";
+        option (.google.fhir.proto.fhir_path_message_constraint) = "comment.exists() or (%resource.status = 'draft') or relationship.empty() or ((relationship != 'source-is-broader-than-target') and (relationship != 'not-related-to'))";
+        option (.google.fhir.proto.fhir_path_message_constraint) = "(code.exists() and valueSet.empty()) or (code.empty() and valueSet.exists())";
 
         // Unique id for inter-element referencing
         String id = 1;
@@ -351,12 +330,9 @@ message ConceptMap {
         // related-to | equivalent | source-is-narrower-than-target |
         // source-is-broader-than-target | not-related-to
         message RelationshipCode {
-          option (.google.fhir.proto.structure_definition_kind) =
-              KIND_PRIMITIVE_TYPE;
-          option (.google.fhir.proto.fhir_valueset_url) =
-              "http://hl7.org/fhir/ValueSet/concept-map-relationship";
-          option (.google.fhir.proto.fhir_profile_base) =
-              "http://hl7.org/fhir/StructureDefinition/code";
+          option (.google.fhir.proto.structure_definition_kind) = KIND_PRIMITIVE_TYPE;
+          option (.google.fhir.proto.fhir_valueset_url) = "http://hl7.org/fhir/ValueSet/concept-map-relationship";
+          option (.google.fhir.proto.fhir_profile_base) = "http://hl7.org/fhir/StructureDefinition/code";
 
           ConceptMapRelationshipCode.Value value = 1;
 
@@ -364,8 +340,7 @@ message ConceptMap {
 
           repeated Extension extension = 3;
         }
-        RelationshipCode relationship = 11
-            [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
+        RelationshipCode relationship = 11 [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
 
         // Description of status/issues in mapping
         String comment = 7;
@@ -382,8 +357,7 @@ message ConceptMap {
           repeated Extension modifier_extension = 3;
 
           // Reference to ConceptMap.property.code
-          Code code = 4
-              [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
+          Code code = 4 [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
 
           // Value of the property for this concept
           message ValueX {
@@ -399,15 +373,13 @@ message ConceptMap {
               Code code = 7;
             }
           }
-          ValueX value = 5
-              [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
+          ValueX value = 5 [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
         }
         repeated MappingProperty property = 12;
 
         // Other properties required for this mapping
         message OtherElement {
-          option (.google.fhir.proto.fhir_path_message_constraint) =
-              "(value.exists() and valueSet.empty()) or (value.empty() and valueSet.exists())";
+          option (.google.fhir.proto.fhir_path_message_constraint) = "(value.exists() and valueSet.empty()) or (value.empty() and valueSet.exists())";
 
           // Unique id for inter-element referencing
           String id = 1;
@@ -420,8 +392,7 @@ message ConceptMap {
 
           // A reference to a mapping attribute defined in
           // ConceptMap.additionalAttribute
-          Code attribute = 8
-              [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
+          Code attribute = 8 [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
 
           // Value of the referenced data element
           message ValueX {
@@ -448,22 +419,16 @@ message ConceptMap {
       }
       repeated TargetElement target = 6;
     }
-    repeated SourceElement element = 8
-        [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
+    repeated SourceElement element = 8 [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
 
     // What to do when there is no mapping target for the source concept and
     // ConceptMap.group.element.noMap is not true
     message Unmapped {
-      option (.google.fhir.proto.fhir_path_message_constraint) =
-          "(mode = 'fixed') implies ((code.exists() and valueSet.empty()) or (code.empty() and valueSet.exists()))";
-      option (.google.fhir.proto.fhir_path_message_constraint) =
-          "(mode = 'other-map') implies otherMap.exists()";
-      option (.google.fhir.proto.fhir_path_message_constraint) =
-          "(mode != 'fixed') implies (code.empty() and display.empty() and valueSet.empty())";
-      option (.google.fhir.proto.fhir_path_message_constraint) =
-          "(mode != 'other-map') implies relationship.exists()";
-      option (.google.fhir.proto.fhir_path_message_constraint) =
-          "(mode != 'other-map') implies otherMap.empty()";
+      option (.google.fhir.proto.fhir_path_message_constraint) = "(mode = 'fixed') implies ((code.exists() and valueSet.empty()) or (code.empty() and valueSet.exists()))";
+      option (.google.fhir.proto.fhir_path_message_constraint) = "(mode = 'other-map') implies otherMap.exists()";
+      option (.google.fhir.proto.fhir_path_message_constraint) = "(mode != 'fixed') implies (code.empty() and display.empty() and valueSet.empty())";
+      option (.google.fhir.proto.fhir_path_message_constraint) = "(mode != 'other-map') implies relationship.exists()";
+      option (.google.fhir.proto.fhir_path_message_constraint) = "(mode != 'other-map') implies otherMap.empty()";
 
       // Unique id for inter-element referencing
       String id = 1;
@@ -476,12 +441,9 @@ message ConceptMap {
 
       // use-source-code | fixed | other-map
       message ModeCode {
-        option (.google.fhir.proto.structure_definition_kind) =
-            KIND_PRIMITIVE_TYPE;
-        option (.google.fhir.proto.fhir_valueset_url) =
-            "http://hl7.org/fhir/ValueSet/conceptmap-unmapped-mode";
-        option (.google.fhir.proto.fhir_profile_base) =
-            "http://hl7.org/fhir/StructureDefinition/code";
+        option (.google.fhir.proto.structure_definition_kind) = KIND_PRIMITIVE_TYPE;
+        option (.google.fhir.proto.fhir_valueset_url) = "http://hl7.org/fhir/ValueSet/conceptmap-unmapped-mode";
+        option (.google.fhir.proto.fhir_profile_base) = "http://hl7.org/fhir/StructureDefinition/code";
 
         ConceptMapGroupUnmappedModeCode.Value value = 1;
 
@@ -489,8 +451,7 @@ message ConceptMap {
 
         repeated Extension extension = 3;
       }
-      ModeCode mode = 4
-          [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
+      ModeCode mode = 4 [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
 
       // Fixed code when mode = fixed
       Code code = 5;
@@ -504,12 +465,9 @@ message ConceptMap {
       // related-to | equivalent | source-is-narrower-than-target |
       // source-is-broader-than-target | not-related-to
       message RelationshipCode {
-        option (.google.fhir.proto.structure_definition_kind) =
-            KIND_PRIMITIVE_TYPE;
-        option (.google.fhir.proto.fhir_valueset_url) =
-            "http://hl7.org/fhir/ValueSet/concept-map-relationship";
-        option (.google.fhir.proto.fhir_profile_base) =
-            "http://hl7.org/fhir/StructureDefinition/code";
+        option (.google.fhir.proto.structure_definition_kind) = KIND_PRIMITIVE_TYPE;
+        option (.google.fhir.proto.fhir_valueset_url) = "http://hl7.org/fhir/ValueSet/concept-map-relationship";
+        option (.google.fhir.proto.fhir_profile_base) = "http://hl7.org/fhir/StructureDefinition/code";
 
         ConceptMapRelationshipCode.Value value = 1;
 

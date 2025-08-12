@@ -21,18 +21,17 @@ import "proto/google/fhir/proto/annotations.proto";
 import "proto/google/fhir/proto/r5/core/codes.proto";
 import "proto/google/fhir/proto/r5/core/datatypes.proto";
 
+option go_package = "github.com/google/fhir/go/proto/google/fhir/proto/r5/core/resources/medication_statement_go_proto";
 option java_multiple_files = true;
 option java_package = "com.google.fhir.r5.core";
 option (.google.fhir.proto.fhir_version) = R5;
-option go_package = "github.com/google/fhir/go/proto/google/fhir/proto/r5/core/resources/medication_statement_go_proto";
 
 // Auto-generated from StructureDefinition for MedicationStatement.
 // Record of medication being taken by a patient.
 // See http://hl7.org/fhir/StructureDefinition/MedicationStatement
 message MedicationStatement {
   option (.google.fhir.proto.structure_definition_kind) = KIND_RESOURCE;
-  option (.google.fhir.proto.fhir_structure_definition_url) =
-      "http://hl7.org/fhir/StructureDefinition/MedicationStatement";
+  option (.google.fhir.proto.fhir_structure_definition_url) = "http://hl7.org/fhir/StructureDefinition/MedicationStatement";
 
   // Logical id of this artifact
   Id id = 1;
@@ -74,10 +73,8 @@ message MedicationStatement {
   // recorded | entered-in-error | draft
   message StatusCode {
     option (.google.fhir.proto.structure_definition_kind) = KIND_PRIMITIVE_TYPE;
-    option (.google.fhir.proto.fhir_valueset_url) =
-        "http://hl7.org/fhir/ValueSet/medication-statement-status";
-    option (.google.fhir.proto.fhir_profile_base) =
-        "http://hl7.org/fhir/StructureDefinition/code";
+    option (.google.fhir.proto.fhir_valueset_url) = "http://hl7.org/fhir/ValueSet/medication-statement-status";
+    option (.google.fhir.proto.fhir_profile_base) = "http://hl7.org/fhir/StructureDefinition/code";
 
     MedicationStatementStatusCodes.Value value = 1;
 
@@ -85,15 +82,13 @@ message MedicationStatement {
 
     repeated Extension extension = 3;
   }
-  StatusCode status = 13
-      [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
+  StatusCode status = 13 [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
 
   // Type of medication statement
   repeated CodeableConcept category = 27;
 
   // What medication was taken
-  CodeableReference medication = 28
-      [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
+  CodeableReference medication = 28 [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
 
   // Who is/was taking  the medication
   Reference subject = 17 [
@@ -103,8 +98,7 @@ message MedicationStatement {
   ];
 
   // Encounter associated with MedicationStatement
-  Reference encounter = 29
-      [(.google.fhir.proto.valid_reference_type) = "Encounter"];
+  Reference encounter = 29 [(.google.fhir.proto.valid_reference_type) = "Encounter"];
 
   // The date/time or interval when the medication is/was/will be taken
   message EffectiveX {
@@ -132,8 +126,7 @@ message MedicationStatement {
   ];
 
   // Link to information used to derive the MedicationStatement
-  repeated Reference derived_from = 22
-      [(.google.fhir.proto.valid_reference_type) = "Resource"];
+  repeated Reference derived_from = 22 [(.google.fhir.proto.valid_reference_type) = "Resource"];
 
   // Reason for why the medication is being/was taken
   repeated CodeableReference reason = 31;
@@ -166,8 +159,7 @@ message MedicationStatement {
     repeated Extension modifier_extension = 3;
 
     // Type of adherence
-    CodeableConcept code = 4
-        [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
+    CodeableConcept code = 4 [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
 
     // Details of the reason for the current use of the medication
     CodeableConcept reason = 5;

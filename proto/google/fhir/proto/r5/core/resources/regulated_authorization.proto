@@ -20,10 +20,10 @@ import "google/protobuf/any.proto";
 import "proto/google/fhir/proto/annotations.proto";
 import "proto/google/fhir/proto/r5/core/datatypes.proto";
 
+option go_package = "github.com/google/fhir/go/proto/google/fhir/proto/r5/core/resources/regulated_authorization_go_proto";
 option java_multiple_files = true;
 option java_package = "com.google.fhir.r5.core";
 option (.google.fhir.proto.fhir_version) = R5;
-option go_package = "github.com/google/fhir/go/proto/google/fhir/proto/r5/core/resources/regulated_authorization_go_proto";
 
 // Auto-generated from StructureDefinition for RegulatedAuthorization.
 // Regulatory approval, clearance or licencing related to a regulated product,
@@ -31,8 +31,7 @@ option go_package = "github.com/google/fhir/go/proto/google/fhir/proto/r5/core/r
 // Product. See http://hl7.org/fhir/StructureDefinition/RegulatedAuthorization
 message RegulatedAuthorization {
   option (.google.fhir.proto.structure_definition_kind) = KIND_RESOURCE;
-  option (.google.fhir.proto.fhir_structure_definition_url) =
-      "http://hl7.org/fhir/StructureDefinition/RegulatedAuthorization";
+  option (.google.fhir.proto.fhir_structure_definition_url) = "http://hl7.org/fhir/StructureDefinition/RegulatedAuthorization";
 
   // Logical id of this artifact
   Id id = 1;
@@ -118,16 +117,13 @@ message RegulatedAuthorization {
   repeated CodeableConcept basis = 20;
 
   // The organization that has been granted this authorization, by the regulator
-  Reference holder = 21
-      [(.google.fhir.proto.valid_reference_type) = "Organization"];
+  Reference holder = 21 [(.google.fhir.proto.valid_reference_type) = "Organization"];
 
   // The regulatory authority or authorizing body granting the authorization
-  Reference regulator = 22
-      [(.google.fhir.proto.valid_reference_type) = "Organization"];
+  Reference regulator = 22 [(.google.fhir.proto.valid_reference_type) = "Organization"];
 
   // Additional information or supporting documentation about the authorization
-  repeated Reference attached_document = 23
-      [(.google.fhir.proto.valid_reference_type) = "DocumentReference"];
+  repeated Reference attached_document = 23 [(.google.fhir.proto.valid_reference_type) = "DocumentReference"];
 
   // The case or regulatory procedure for granting or amending a regulated
   // authorization. Note: This area is subject to ongoing review and the

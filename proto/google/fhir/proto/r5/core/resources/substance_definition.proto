@@ -20,10 +20,10 @@ import "google/protobuf/any.proto";
 import "proto/google/fhir/proto/annotations.proto";
 import "proto/google/fhir/proto/r5/core/datatypes.proto";
 
+option go_package = "github.com/google/fhir/go/proto/google/fhir/proto/r5/core/resources/substance_definition_go_proto";
 option java_multiple_files = true;
 option java_package = "com.google.fhir.r5.core";
 option (.google.fhir.proto.fhir_version) = R5;
-option go_package = "github.com/google/fhir/go/proto/google/fhir/proto/r5/core/resources/substance_definition_go_proto";
 
 // Auto-generated from StructureDefinition for SubstanceDefinition.
 // The detailed description of a substance, typically at a level beyond what is
@@ -31,8 +31,7 @@ option go_package = "github.com/google/fhir/go/proto/google/fhir/proto/r5/core/r
 // http://hl7.org/fhir/StructureDefinition/SubstanceDefinition
 message SubstanceDefinition {
   option (.google.fhir.proto.structure_definition_kind) = KIND_RESOURCE;
-  option (.google.fhir.proto.fhir_structure_definition_url) =
-      "http://hl7.org/fhir/StructureDefinition/SubstanceDefinition";
+  option (.google.fhir.proto.fhir_structure_definition_url) = "http://hl7.org/fhir/StructureDefinition/SubstanceDefinition";
 
   // Logical id of this artifact
   Id id = 1;
@@ -87,20 +86,17 @@ message SubstanceDefinition {
   Markdown description = 16;
 
   // Supporting literature
-  repeated Reference information_source = 17
-      [(.google.fhir.proto.valid_reference_type) = "Citation"];
+  repeated Reference information_source = 17 [(.google.fhir.proto.valid_reference_type) = "Citation"];
 
   // Textual comment about the substance's catalogue or registry record
   repeated Annotation note = 18;
 
   // The entity that creates, makes, produces or fabricates the substance
-  repeated Reference manufacturer = 19
-      [(.google.fhir.proto.valid_reference_type) = "Organization"];
+  repeated Reference manufacturer = 19 [(.google.fhir.proto.valid_reference_type) = "Organization"];
 
   // An entity that is the source for the substance. It may be different from
   // the manufacturer
-  repeated Reference supplier = 20
-      [(.google.fhir.proto.valid_reference_type) = "Organization"];
+  repeated Reference supplier = 20 [(.google.fhir.proto.valid_reference_type) = "Organization"];
 
   // Moiety, for structural modifications
   message Moiety {
@@ -188,8 +184,7 @@ message SubstanceDefinition {
     repeated Extension modifier_extension = 3;
 
     // A code expressing the type of property
-    CodeableConcept type = 4
-        [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
+    CodeableConcept type = 4 [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
 
     // A value for the property
     message ValueX {
@@ -208,9 +203,7 @@ message SubstanceDefinition {
   repeated Property property = 23;
 
   // General information detailing this substance
-  Reference reference_information = 24
-      [(.google.fhir.proto.valid_reference_type) =
-           "SubstanceReferenceInformation"];
+  Reference reference_information = 24 [(.google.fhir.proto.valid_reference_type) = "SubstanceReferenceInformation"];
 
   // The average mass of a molecule of a compound
   message MolecularWeight {
@@ -230,8 +223,7 @@ message SubstanceDefinition {
     CodeableConcept type = 5;
 
     // Used to capture quantitative values for a variety of elements
-    Quantity amount = 6
-        [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
+    Quantity amount = 6 [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
   }
   repeated MolecularWeight molecular_weight = 25;
 
@@ -266,8 +258,7 @@ message SubstanceDefinition {
     repeated CodeableConcept technique = 9;
 
     // Source of information for the structure
-    repeated Reference source_document = 10
-        [(.google.fhir.proto.valid_reference_type) = "DocumentReference"];
+    repeated Reference source_document = 10 [(.google.fhir.proto.valid_reference_type) = "DocumentReference"];
 
     // A depiction of the structure of the substance
     message Representation {
@@ -292,8 +283,7 @@ message SubstanceDefinition {
 
       // An attachment with the structural representation e.g. a structure
       // graphic or AnIML file
-      Reference document = 7
-          [(.google.fhir.proto.valid_reference_type) = "DocumentReference"];
+      Reference document = 7 [(.google.fhir.proto.valid_reference_type) = "DocumentReference"];
     }
     repeated Representation representation = 11;
   }
@@ -323,8 +313,7 @@ message SubstanceDefinition {
     repeated Annotation note = 7;
 
     // Supporting literature
-    repeated Reference source = 8
-        [(.google.fhir.proto.valid_reference_type) = "DocumentReference"];
+    repeated Reference source = 8 [(.google.fhir.proto.valid_reference_type) = "DocumentReference"];
   }
   repeated CodeType code = 27;
 
@@ -340,8 +329,7 @@ message SubstanceDefinition {
     repeated Extension modifier_extension = 3;
 
     // The actual name
-    String name = 4
-        [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
+    String name = 4 [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
 
     // Name type e.g. 'systematic',  'scientific, 'brand'
     CodeableConcept type = 5;
@@ -391,8 +379,7 @@ message SubstanceDefinition {
     repeated Official official = 13;
 
     // Supporting literature
-    repeated Reference source = 14
-        [(.google.fhir.proto.valid_reference_type) = "DocumentReference"];
+    repeated Reference source = 14 [(.google.fhir.proto.valid_reference_type) = "DocumentReference"];
   }
   repeated Name name = 28;
 
@@ -412,16 +399,14 @@ message SubstanceDefinition {
       option (.google.fhir.proto.is_choice_type) = true;
 
       oneof choice {
-        Reference reference = 1
-            [(.google.fhir.proto.valid_reference_type) = "SubstanceDefinition"];
+        Reference reference = 1 [(.google.fhir.proto.valid_reference_type) = "SubstanceDefinition"];
         CodeableConcept codeable_concept = 2;
       }
     }
     SubstanceDefinitionX substance_definition = 4;
 
     // For example "salt to parent", "active moiety"
-    CodeableConcept type = 5
-        [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
+    CodeableConcept type = 5 [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
 
     // For example where an enzyme strongly bonds with a particular substance,
     // this is a defining relationship for that enzyme, out of several possible
@@ -449,22 +434,18 @@ message SubstanceDefinition {
     CodeableConcept comparator = 9;
 
     // Supporting literature
-    repeated Reference source = 10
-        [(.google.fhir.proto.valid_reference_type) = "DocumentReference"];
+    repeated Reference source = 10 [(.google.fhir.proto.valid_reference_type) = "DocumentReference"];
   }
   repeated Relationship relationship = 29;
 
   // Data items specific to nucleic acids
-  Reference nucleic_acid = 30
-      [(.google.fhir.proto.valid_reference_type) = "SubstanceNucleicAcid"];
+  Reference nucleic_acid = 30 [(.google.fhir.proto.valid_reference_type) = "SubstanceNucleicAcid"];
 
   // Data items specific to polymers
-  Reference polymer = 31
-      [(.google.fhir.proto.valid_reference_type) = "SubstancePolymer"];
+  Reference polymer = 31 [(.google.fhir.proto.valid_reference_type) = "SubstancePolymer"];
 
   // Data items specific to proteins
-  Reference protein = 32
-      [(.google.fhir.proto.valid_reference_type) = "SubstanceProtein"];
+  Reference protein = 32 [(.google.fhir.proto.valid_reference_type) = "SubstanceProtein"];
 
   // Material or taxonomic/anatomical source
   message SourceMaterial {

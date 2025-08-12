@@ -21,18 +21,17 @@ import "proto/google/fhir/proto/annotations.proto";
 import "proto/google/fhir/proto/r5/core/codes.proto";
 import "proto/google/fhir/proto/r5/core/datatypes.proto";
 
+option go_package = "github.com/google/fhir/go/proto/google/fhir/proto/r5/core/resources/imaging_selection_go_proto";
 option java_multiple_files = true;
 option java_package = "com.google.fhir.r5.core";
 option (.google.fhir.proto.fhir_version) = R5;
-option go_package = "github.com/google/fhir/go/proto/google/fhir/proto/r5/core/resources/imaging_selection_go_proto";
 
 // Auto-generated from StructureDefinition for ImagingSelection.
 // A selection of DICOM SOP instances and/or frames.
 // See http://hl7.org/fhir/StructureDefinition/ImagingSelection
 message ImagingSelection {
   option (.google.fhir.proto.structure_definition_kind) = KIND_RESOURCE;
-  option (.google.fhir.proto.fhir_structure_definition_url) =
-      "http://hl7.org/fhir/StructureDefinition/ImagingSelection";
+  option (.google.fhir.proto.fhir_structure_definition_url) = "http://hl7.org/fhir/StructureDefinition/ImagingSelection";
 
   // Logical id of this artifact
   Id id = 1;
@@ -68,10 +67,8 @@ message ImagingSelection {
   // available | entered-in-error | unknown
   message StatusCode {
     option (.google.fhir.proto.structure_definition_kind) = KIND_PRIMITIVE_TYPE;
-    option (.google.fhir.proto.fhir_valueset_url) =
-        "http://hl7.org/fhir/ValueSet/imagingselection-status";
-    option (.google.fhir.proto.fhir_profile_base) =
-        "http://hl7.org/fhir/StructureDefinition/code";
+    option (.google.fhir.proto.fhir_valueset_url) = "http://hl7.org/fhir/ValueSet/imagingselection-status";
+    option (.google.fhir.proto.fhir_profile_base) = "http://hl7.org/fhir/StructureDefinition/code";
 
     ImagingSelectionStatusCode.Value value = 1;
 
@@ -79,8 +76,7 @@ message ImagingSelection {
 
     repeated Extension extension = 3;
   }
-  StatusCode status = 11
-      [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
+  StatusCode status = 11 [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
 
   // Subject of the selected instances
   Reference subject = 12 [
@@ -140,8 +136,7 @@ message ImagingSelection {
   repeated CodeableConcept category = 16;
 
   // Imaging Selection purpose text or code
-  CodeableConcept code = 17
-      [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
+  CodeableConcept code = 17 [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
 
   // DICOM Study Instance UID
   Id study_uid = 18;
@@ -154,8 +149,7 @@ message ImagingSelection {
 
   // The network service providing retrieval for the images referenced in the
   // imaging selection
-  repeated Reference endpoint = 20
-      [(.google.fhir.proto.valid_reference_type) = "Endpoint"];
+  repeated Reference endpoint = 20 [(.google.fhir.proto.valid_reference_type) = "Endpoint"];
 
   // DICOM Series Instance UID
   Id series_uid = 21;
@@ -170,8 +164,7 @@ message ImagingSelection {
   CodeableReference body_site = 24;
 
   // Related resource that is the focus for the imaging selection
-  repeated Reference focus = 25
-      [(.google.fhir.proto.valid_reference_type) = "ImagingSelection"];
+  repeated Reference focus = 25 [(.google.fhir.proto.valid_reference_type) = "ImagingSelection"];
 
   // The selected instances
   message Instance {
@@ -209,12 +202,9 @@ message ImagingSelection {
 
       // point | polyline | interpolated | circle | ellipse
       message RegionTypeCode {
-        option (.google.fhir.proto.structure_definition_kind) =
-            KIND_PRIMITIVE_TYPE;
-        option (.google.fhir.proto.fhir_valueset_url) =
-            "http://hl7.org/fhir/ValueSet/imagingselection-2dgraphictype";
-        option (.google.fhir.proto.fhir_profile_base) =
-            "http://hl7.org/fhir/StructureDefinition/code";
+        option (.google.fhir.proto.structure_definition_kind) = KIND_PRIMITIVE_TYPE;
+        option (.google.fhir.proto.fhir_valueset_url) = "http://hl7.org/fhir/ValueSet/imagingselection-2dgraphictype";
+        option (.google.fhir.proto.fhir_profile_base) = "http://hl7.org/fhir/StructureDefinition/code";
 
         ImagingSelection2DGraphicTypeCode.Value value = 1;
 
@@ -222,12 +212,10 @@ message ImagingSelection {
 
         repeated Extension extension = 3;
       }
-      RegionTypeCode region_type = 4
-          [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
+      RegionTypeCode region_type = 4 [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
 
       // Specifies the coordinates that define the image region
-      repeated Decimal coordinate = 5
-          [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
+      repeated Decimal coordinate = 5 [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
     }
     repeated ImageRegion2D image_region2_d = 8;
 
@@ -244,12 +232,9 @@ message ImagingSelection {
 
       // point | multipoint | polyline | polygon | ellipse | ellipsoid
       message RegionTypeCode {
-        option (.google.fhir.proto.structure_definition_kind) =
-            KIND_PRIMITIVE_TYPE;
-        option (.google.fhir.proto.fhir_valueset_url) =
-            "http://hl7.org/fhir/ValueSet/imagingselection-3dgraphictype";
-        option (.google.fhir.proto.fhir_profile_base) =
-            "http://hl7.org/fhir/StructureDefinition/code";
+        option (.google.fhir.proto.structure_definition_kind) = KIND_PRIMITIVE_TYPE;
+        option (.google.fhir.proto.fhir_valueset_url) = "http://hl7.org/fhir/ValueSet/imagingselection-3dgraphictype";
+        option (.google.fhir.proto.fhir_profile_base) = "http://hl7.org/fhir/StructureDefinition/code";
 
         ImagingSelection3DGraphicTypeCode.Value value = 1;
 
@@ -257,12 +242,10 @@ message ImagingSelection {
 
         repeated Extension extension = 3;
       }
-      RegionTypeCode region_type = 4
-          [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
+      RegionTypeCode region_type = 4 [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
 
       // Specifies the coordinates that define the image region
-      repeated Decimal coordinate = 5
-          [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
+      repeated Decimal coordinate = 5 [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
     }
     repeated ImageRegion3D image_region3_d = 9;
   }

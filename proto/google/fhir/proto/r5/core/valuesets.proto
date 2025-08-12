@@ -18,26 +18,21 @@ package google.fhir.r5.core;
 
 import "proto/google/fhir/proto/annotations.proto";
 
+option go_package = "github.com/google/fhir/go/proto/google/fhir/proto/r5/core/valuesets_go_proto";
 option java_multiple_files = true;
 option java_package = "com.google.fhir.r5.core";
-option go_package = "github.com/google/fhir/go/proto/google/fhir/proto/r5/core/valuesets_go_proto";
 
 // Codes identifying the lifecycle stage of an adverse event.
 // See http://hl7.org/fhir/ValueSet/adverse-event-status
 message AdverseEventStatusValueSet {
   enum Value {
-    option (.google.fhir.proto.enum_valueset_url) =
-        "http://hl7.org/fhir/ValueSet/adverse-event-status";
+    option (.google.fhir.proto.enum_valueset_url) = "http://hl7.org/fhir/ValueSet/adverse-event-status";
 
     INVALID_UNINITIALIZED = 0;
-    IN_PROGRESS = 1 [(.google.fhir.proto.source_code_system) =
-                         "http://hl7.org/fhir/event-status"];
-    COMPLETED = 2 [(.google.fhir.proto.source_code_system) =
-                       "http://hl7.org/fhir/event-status"];
-    ENTERED_IN_ERROR = 3 [(.google.fhir.proto.source_code_system) =
-                              "http://hl7.org/fhir/event-status"];
-    UNKNOWN = 4 [(.google.fhir.proto.source_code_system) =
-                     "http://hl7.org/fhir/event-status"];
+    IN_PROGRESS = 1 [(.google.fhir.proto.source_code_system) = "http://hl7.org/fhir/event-status"];
+    COMPLETED = 2 [(.google.fhir.proto.source_code_system) = "http://hl7.org/fhir/event-status"];
+    ENTERED_IN_ERROR = 3 [(.google.fhir.proto.source_code_system) = "http://hl7.org/fhir/event-status"];
+    UNKNOWN = 4 [(.google.fhir.proto.source_code_system) = "http://hl7.org/fhir/event-status"];
   }
 }
 
@@ -45,20 +40,14 @@ message AdverseEventStatusValueSet {
 // appointment. See http://hl7.org/fhir/ValueSet/appointmentresponse-status
 message AppointmentResponseStatusValueSet {
   enum Value {
-    option (.google.fhir.proto.enum_valueset_url) =
-        "http://hl7.org/fhir/ValueSet/appointmentresponse-status";
+    option (.google.fhir.proto.enum_valueset_url) = "http://hl7.org/fhir/ValueSet/appointmentresponse-status";
 
     INVALID_UNINITIALIZED = 0;
-    ACCEPTED = 1 [(.google.fhir.proto.source_code_system) =
-                      "http://hl7.org/fhir/participationstatus"];
-    DECLINED = 2 [(.google.fhir.proto.source_code_system) =
-                      "http://hl7.org/fhir/participationstatus"];
-    TENTATIVE = 3 [(.google.fhir.proto.source_code_system) =
-                       "http://hl7.org/fhir/participationstatus"];
-    NEEDS_ACTION = 4 [(.google.fhir.proto.source_code_system) =
-                          "http://hl7.org/fhir/participationstatus"];
-    ENTERED_IN_ERROR = 5 [(.google.fhir.proto.source_code_system) =
-                              "http://hl7.org/fhir/appointmentstatus"];
+    ACCEPTED = 1 [(.google.fhir.proto.source_code_system) = "http://hl7.org/fhir/participationstatus"];
+    DECLINED = 2 [(.google.fhir.proto.source_code_system) = "http://hl7.org/fhir/participationstatus"];
+    TENTATIVE = 3 [(.google.fhir.proto.source_code_system) = "http://hl7.org/fhir/participationstatus"];
+    NEEDS_ACTION = 4 [(.google.fhir.proto.source_code_system) = "http://hl7.org/fhir/participationstatus"];
+    ENTERED_IN_ERROR = 5 [(.google.fhir.proto.source_code_system) = "http://hl7.org/fhir/appointmentstatus"];
   }
 }
 
@@ -66,12 +55,10 @@ message AppointmentResponseStatusValueSet {
 // circumference See http://hl7.org/fhir/ValueSet/ucum-bodylength
 message BodyLengthUnitsValueSet {
   enum Value {
-    option (.google.fhir.proto.enum_valueset_url) =
-        "http://hl7.org/fhir/ValueSet/ucum-bodylength";
+    option (.google.fhir.proto.enum_valueset_url) = "http://hl7.org/fhir/ValueSet/ucum-bodylength";
 
     INVALID_UNINITIALIZED = 0;
-    CM = 1
-        [(.google.fhir.proto.source_code_system) = "http://unitsofmeasure.org"];
+    CM = 1 [(.google.fhir.proto.source_code_system) = "http://unitsofmeasure.org"];
     IN_I = 2 [
       (.google.fhir.proto.fhir_original_code) = "[in_i]",
       (.google.fhir.proto.source_code_system) = "http://unitsofmeasure.org"
@@ -83,8 +70,7 @@ message BodyLengthUnitsValueSet {
 // See http://hl7.org/fhir/ValueSet/ucum-bodytemp
 message BodyTemperatureUnitsValueSet {
   enum Value {
-    option (.google.fhir.proto.enum_valueset_url) =
-        "http://hl7.org/fhir/ValueSet/ucum-bodytemp";
+    option (.google.fhir.proto.enum_valueset_url) = "http://hl7.org/fhir/ValueSet/ucum-bodytemp";
 
     INVALID_UNINITIALIZED = 0;
     CEL = 1 [
@@ -102,18 +88,15 @@ message BodyTemperatureUnitsValueSet {
 // See http://hl7.org/fhir/ValueSet/ucum-bodyweight
 message BodyWeightUnitsValueSet {
   enum Value {
-    option (.google.fhir.proto.enum_valueset_url) =
-        "http://hl7.org/fhir/ValueSet/ucum-bodyweight";
+    option (.google.fhir.proto.enum_valueset_url) = "http://hl7.org/fhir/ValueSet/ucum-bodyweight";
 
     INVALID_UNINITIALIZED = 0;
-    KG = 1
-        [(.google.fhir.proto.source_code_system) = "http://unitsofmeasure.org"];
+    KG = 1 [(.google.fhir.proto.source_code_system) = "http://unitsofmeasure.org"];
     LB_AV = 2 [
       (.google.fhir.proto.fhir_original_code) = "[lb_av]",
       (.google.fhir.proto.source_code_system) = "http://unitsofmeasure.org"
     ];
-    G = 3
-        [(.google.fhir.proto.source_code_system) = "http://unitsofmeasure.org"];
+    G = 3 [(.google.fhir.proto.source_code_system) = "http://unitsofmeasure.org"];
   }
 }
 
@@ -121,20 +104,14 @@ message BodyWeightUnitsValueSet {
 // care plan. See http://hl7.org/fhir/ValueSet/care-plan-intent
 message CarePlanIntentValueSet {
   enum Value {
-    option (.google.fhir.proto.enum_valueset_url) =
-        "http://hl7.org/fhir/ValueSet/care-plan-intent";
+    option (.google.fhir.proto.enum_valueset_url) = "http://hl7.org/fhir/ValueSet/care-plan-intent";
 
     INVALID_UNINITIALIZED = 0;
-    PROPOSAL = 1 [(.google.fhir.proto.source_code_system) =
-                      "http://hl7.org/fhir/request-intent"];
-    PLAN = 2 [(.google.fhir.proto.source_code_system) =
-                  "http://hl7.org/fhir/request-intent"];
-    ORDER = 3 [(.google.fhir.proto.source_code_system) =
-                   "http://hl7.org/fhir/request-intent"];
-    OPTION = 4 [(.google.fhir.proto.source_code_system) =
-                    "http://hl7.org/fhir/request-intent"];
-    DIRECTIVE = 5 [(.google.fhir.proto.source_code_system) =
-                       "http://hl7.org/fhir/request-intent"];
+    PROPOSAL = 1 [(.google.fhir.proto.source_code_system) = "http://hl7.org/fhir/request-intent"];
+    PLAN = 2 [(.google.fhir.proto.source_code_system) = "http://hl7.org/fhir/request-intent"];
+    ORDER = 3 [(.google.fhir.proto.source_code_system) = "http://hl7.org/fhir/request-intent"];
+    OPTION = 4 [(.google.fhir.proto.source_code_system) = "http://hl7.org/fhir/request-intent"];
+    DIRECTIVE = 5 [(.google.fhir.proto.source_code_system) = "http://hl7.org/fhir/request-intent"];
   }
 }
 
@@ -143,306 +120,157 @@ message CarePlanIntentValueSet {
 // (```#RRGGBB``` in Hex). See http://hl7.org/fhir/ValueSet/color-codes
 message ColorCodesOrRGBValueSet {
   enum Value {
-    option (.google.fhir.proto.enum_valueset_url) =
-        "http://hl7.org/fhir/ValueSet/color-codes";
+    option (.google.fhir.proto.enum_valueset_url) = "http://hl7.org/fhir/ValueSet/color-codes";
 
     INVALID_UNINITIALIZED = 0;
-    ALICEBLUE = 1 [(.google.fhir.proto.source_code_system) =
-                       "http://hl7.org/fhir/color-names"];
-    ANTIQUEWHITE = 2 [(.google.fhir.proto.source_code_system) =
-                          "http://hl7.org/fhir/color-names"];
-    AQUA = 3 [(.google.fhir.proto.source_code_system) =
-                  "http://hl7.org/fhir/color-names"];
-    AQUAMARINE = 4 [(.google.fhir.proto.source_code_system) =
-                        "http://hl7.org/fhir/color-names"];
-    AZURE = 5 [(.google.fhir.proto.source_code_system) =
-                   "http://hl7.org/fhir/color-names"];
-    BEIGE = 6 [(.google.fhir.proto.source_code_system) =
-                   "http://hl7.org/fhir/color-names"];
-    BISQUE = 7 [(.google.fhir.proto.source_code_system) =
-                    "http://hl7.org/fhir/color-names"];
-    BLACK = 8 [(.google.fhir.proto.source_code_system) =
-                   "http://hl7.org/fhir/color-names"];
-    BLANCHEDALMOND = 9 [(.google.fhir.proto.source_code_system) =
-                            "http://hl7.org/fhir/color-names"];
-    BLUE = 10 [(.google.fhir.proto.source_code_system) =
-                   "http://hl7.org/fhir/color-names"];
-    BLUEVIOLET = 11 [(.google.fhir.proto.source_code_system) =
-                         "http://hl7.org/fhir/color-names"];
-    BROWN = 12 [(.google.fhir.proto.source_code_system) =
-                    "http://hl7.org/fhir/color-names"];
-    BURLYWOOD = 13 [(.google.fhir.proto.source_code_system) =
-                        "http://hl7.org/fhir/color-names"];
-    CADETBLUE = 14 [(.google.fhir.proto.source_code_system) =
-                        "http://hl7.org/fhir/color-names"];
-    CHARTREUSE = 15 [(.google.fhir.proto.source_code_system) =
-                         "http://hl7.org/fhir/color-names"];
-    CHOCOLATE = 16 [(.google.fhir.proto.source_code_system) =
-                        "http://hl7.org/fhir/color-names"];
-    CORAL = 17 [(.google.fhir.proto.source_code_system) =
-                    "http://hl7.org/fhir/color-names"];
-    CORNFLOWERBLUE = 18 [(.google.fhir.proto.source_code_system) =
-                             "http://hl7.org/fhir/color-names"];
-    CORNSILK = 19 [(.google.fhir.proto.source_code_system) =
-                       "http://hl7.org/fhir/color-names"];
-    CRIMSON = 20 [(.google.fhir.proto.source_code_system) =
-                      "http://hl7.org/fhir/color-names"];
-    CYAN = 21 [(.google.fhir.proto.source_code_system) =
-                   "http://hl7.org/fhir/color-names"];
-    DARKBLUE = 22 [(.google.fhir.proto.source_code_system) =
-                       "http://hl7.org/fhir/color-names"];
-    DARKCYAN = 23 [(.google.fhir.proto.source_code_system) =
-                       "http://hl7.org/fhir/color-names"];
-    DARKGOLDENROD = 24 [(.google.fhir.proto.source_code_system) =
-                            "http://hl7.org/fhir/color-names"];
-    DARKGRAY = 25 [(.google.fhir.proto.source_code_system) =
-                       "http://hl7.org/fhir/color-names"];
-    DARKGREEN = 26 [(.google.fhir.proto.source_code_system) =
-                        "http://hl7.org/fhir/color-names"];
-    DARKGREY = 27 [(.google.fhir.proto.source_code_system) =
-                       "http://hl7.org/fhir/color-names"];
-    DARKKHAKI = 28 [(.google.fhir.proto.source_code_system) =
-                        "http://hl7.org/fhir/color-names"];
-    DARKMAGENTA = 29 [(.google.fhir.proto.source_code_system) =
-                          "http://hl7.org/fhir/color-names"];
-    DARKOLIVEGREEN = 30 [(.google.fhir.proto.source_code_system) =
-                             "http://hl7.org/fhir/color-names"];
-    DARKORANGE = 31 [(.google.fhir.proto.source_code_system) =
-                         "http://hl7.org/fhir/color-names"];
-    DARKORCHID = 32 [(.google.fhir.proto.source_code_system) =
-                         "http://hl7.org/fhir/color-names"];
-    DARKRED = 33 [(.google.fhir.proto.source_code_system) =
-                      "http://hl7.org/fhir/color-names"];
-    DARKSALMON = 34 [(.google.fhir.proto.source_code_system) =
-                         "http://hl7.org/fhir/color-names"];
-    DARKSEAGREEN = 35 [(.google.fhir.proto.source_code_system) =
-                           "http://hl7.org/fhir/color-names"];
-    DARKSLATEBLUE = 36 [(.google.fhir.proto.source_code_system) =
-                            "http://hl7.org/fhir/color-names"];
-    DARKSLATEGRAY = 37 [(.google.fhir.proto.source_code_system) =
-                            "http://hl7.org/fhir/color-names"];
-    DARKSLATEGREY = 38 [(.google.fhir.proto.source_code_system) =
-                            "http://hl7.org/fhir/color-names"];
-    DARKTURQUOISE = 39 [(.google.fhir.proto.source_code_system) =
-                            "http://hl7.org/fhir/color-names"];
-    DARKVIOLET = 40 [(.google.fhir.proto.source_code_system) =
-                         "http://hl7.org/fhir/color-names"];
-    DEEPPINK = 41 [(.google.fhir.proto.source_code_system) =
-                       "http://hl7.org/fhir/color-names"];
-    DEEPSKYBLUE = 42 [(.google.fhir.proto.source_code_system) =
-                          "http://hl7.org/fhir/color-names"];
-    DIMGRAY = 43 [(.google.fhir.proto.source_code_system) =
-                      "http://hl7.org/fhir/color-names"];
-    DIMGREY = 44 [(.google.fhir.proto.source_code_system) =
-                      "http://hl7.org/fhir/color-names"];
-    DODGERBLUE = 45 [(.google.fhir.proto.source_code_system) =
-                         "http://hl7.org/fhir/color-names"];
-    FIREBRICK = 46 [(.google.fhir.proto.source_code_system) =
-                        "http://hl7.org/fhir/color-names"];
-    FLORALWHITE = 47 [(.google.fhir.proto.source_code_system) =
-                          "http://hl7.org/fhir/color-names"];
-    FORESTGREEN = 48 [(.google.fhir.proto.source_code_system) =
-                          "http://hl7.org/fhir/color-names"];
-    FUCHSIA = 49 [(.google.fhir.proto.source_code_system) =
-                      "http://hl7.org/fhir/color-names"];
-    GAINSBORO = 50 [(.google.fhir.proto.source_code_system) =
-                        "http://hl7.org/fhir/color-names"];
-    GHOSTWHITE = 51 [(.google.fhir.proto.source_code_system) =
-                         "http://hl7.org/fhir/color-names"];
-    GOLD = 52 [(.google.fhir.proto.source_code_system) =
-                   "http://hl7.org/fhir/color-names"];
-    GOLDENROD = 53 [(.google.fhir.proto.source_code_system) =
-                        "http://hl7.org/fhir/color-names"];
-    GRAY = 54 [(.google.fhir.proto.source_code_system) =
-                   "http://hl7.org/fhir/color-names"];
-    GREEN = 55 [(.google.fhir.proto.source_code_system) =
-                    "http://hl7.org/fhir/color-names"];
-    GREENYELLOW = 56 [(.google.fhir.proto.source_code_system) =
-                          "http://hl7.org/fhir/color-names"];
-    GREY = 57 [(.google.fhir.proto.source_code_system) =
-                   "http://hl7.org/fhir/color-names"];
-    HONEYDEW = 58 [(.google.fhir.proto.source_code_system) =
-                       "http://hl7.org/fhir/color-names"];
-    HOTPINK = 59 [(.google.fhir.proto.source_code_system) =
-                      "http://hl7.org/fhir/color-names"];
-    INDIANRED = 60 [(.google.fhir.proto.source_code_system) =
-                        "http://hl7.org/fhir/color-names"];
-    INDIGO = 61 [(.google.fhir.proto.source_code_system) =
-                     "http://hl7.org/fhir/color-names"];
-    IVORY = 62 [(.google.fhir.proto.source_code_system) =
-                    "http://hl7.org/fhir/color-names"];
-    KHAKI = 63 [(.google.fhir.proto.source_code_system) =
-                    "http://hl7.org/fhir/color-names"];
-    LAVENDER = 64 [(.google.fhir.proto.source_code_system) =
-                       "http://hl7.org/fhir/color-names"];
-    LAVENDERBLUSH = 65 [(.google.fhir.proto.source_code_system) =
-                            "http://hl7.org/fhir/color-names"];
-    LAWNGREEN = 66 [(.google.fhir.proto.source_code_system) =
-                        "http://hl7.org/fhir/color-names"];
-    LEMONCHIFFON = 67 [(.google.fhir.proto.source_code_system) =
-                           "http://hl7.org/fhir/color-names"];
-    LIGHTBLUE = 68 [(.google.fhir.proto.source_code_system) =
-                        "http://hl7.org/fhir/color-names"];
-    LIGHTCORAL = 69 [(.google.fhir.proto.source_code_system) =
-                         "http://hl7.org/fhir/color-names"];
-    LIGHTCYAN = 70 [(.google.fhir.proto.source_code_system) =
-                        "http://hl7.org/fhir/color-names"];
-    LIGHTGOLDENRODYELLOW = 71 [(.google.fhir.proto.source_code_system) =
-                                   "http://hl7.org/fhir/color-names"];
-    LIGHTGRAY = 72 [(.google.fhir.proto.source_code_system) =
-                        "http://hl7.org/fhir/color-names"];
-    LIGHTGREEN = 73 [(.google.fhir.proto.source_code_system) =
-                         "http://hl7.org/fhir/color-names"];
-    LIGHTGREY = 74 [(.google.fhir.proto.source_code_system) =
-                        "http://hl7.org/fhir/color-names"];
-    LIGHTPINK = 75 [(.google.fhir.proto.source_code_system) =
-                        "http://hl7.org/fhir/color-names"];
-    LIGHTSALMON = 76 [(.google.fhir.proto.source_code_system) =
-                          "http://hl7.org/fhir/color-names"];
-    LIGHTSEAGREEN = 77 [(.google.fhir.proto.source_code_system) =
-                            "http://hl7.org/fhir/color-names"];
-    LIGHTSKYBLUE = 78 [(.google.fhir.proto.source_code_system) =
-                           "http://hl7.org/fhir/color-names"];
-    LIGHTSLATEGRAY = 79 [(.google.fhir.proto.source_code_system) =
-                             "http://hl7.org/fhir/color-names"];
-    LIGHTSLATEGREY = 80 [(.google.fhir.proto.source_code_system) =
-                             "http://hl7.org/fhir/color-names"];
-    LIGHTSTEELBLUE = 81 [(.google.fhir.proto.source_code_system) =
-                             "http://hl7.org/fhir/color-names"];
-    LIGHTYELLOW = 82 [(.google.fhir.proto.source_code_system) =
-                          "http://hl7.org/fhir/color-names"];
-    LIME = 83 [(.google.fhir.proto.source_code_system) =
-                   "http://hl7.org/fhir/color-names"];
-    LIMEGREEN = 84 [(.google.fhir.proto.source_code_system) =
-                        "http://hl7.org/fhir/color-names"];
-    LINEN = 85 [(.google.fhir.proto.source_code_system) =
-                    "http://hl7.org/fhir/color-names"];
-    MAGENTA = 86 [(.google.fhir.proto.source_code_system) =
-                      "http://hl7.org/fhir/color-names"];
-    MAROON = 87 [(.google.fhir.proto.source_code_system) =
-                     "http://hl7.org/fhir/color-names"];
-    MEDIUMAQUAMARINE = 88 [(.google.fhir.proto.source_code_system) =
-                               "http://hl7.org/fhir/color-names"];
-    MEDIUMBLUE = 89 [(.google.fhir.proto.source_code_system) =
-                         "http://hl7.org/fhir/color-names"];
-    MEDIUMORCHID = 90 [(.google.fhir.proto.source_code_system) =
-                           "http://hl7.org/fhir/color-names"];
-    MEDIUMPURPLE = 91 [(.google.fhir.proto.source_code_system) =
-                           "http://hl7.org/fhir/color-names"];
-    MEDIUMSEAGREEN = 92 [(.google.fhir.proto.source_code_system) =
-                             "http://hl7.org/fhir/color-names"];
-    MEDIUMSLATEBLUE = 93 [(.google.fhir.proto.source_code_system) =
-                              "http://hl7.org/fhir/color-names"];
-    MEDIUMSPRINGGREEN = 94 [(.google.fhir.proto.source_code_system) =
-                                "http://hl7.org/fhir/color-names"];
-    MEDIUMTURQUOISE = 95 [(.google.fhir.proto.source_code_system) =
-                              "http://hl7.org/fhir/color-names"];
-    MEDIUMVIOLETRED = 96 [(.google.fhir.proto.source_code_system) =
-                              "http://hl7.org/fhir/color-names"];
-    MIDNIGHTBLUE = 97 [(.google.fhir.proto.source_code_system) =
-                           "http://hl7.org/fhir/color-names"];
-    MINTCREAM = 98 [(.google.fhir.proto.source_code_system) =
-                        "http://hl7.org/fhir/color-names"];
-    MISTYROSE = 99 [(.google.fhir.proto.source_code_system) =
-                        "http://hl7.org/fhir/color-names"];
-    MOCCASIN = 100 [(.google.fhir.proto.source_code_system) =
-                        "http://hl7.org/fhir/color-names"];
-    NAVAJOWHITE = 101 [(.google.fhir.proto.source_code_system) =
-                           "http://hl7.org/fhir/color-names"];
-    NAVY = 102 [(.google.fhir.proto.source_code_system) =
-                    "http://hl7.org/fhir/color-names"];
-    OLDLACE = 103 [(.google.fhir.proto.source_code_system) =
-                       "http://hl7.org/fhir/color-names"];
-    OLIVE = 104 [(.google.fhir.proto.source_code_system) =
-                     "http://hl7.org/fhir/color-names"];
-    OLIVEDRAB = 105 [(.google.fhir.proto.source_code_system) =
-                         "http://hl7.org/fhir/color-names"];
-    ORANGE = 106 [(.google.fhir.proto.source_code_system) =
-                      "http://hl7.org/fhir/color-names"];
-    ORANGERED = 107 [(.google.fhir.proto.source_code_system) =
-                         "http://hl7.org/fhir/color-names"];
-    ORCHID = 108 [(.google.fhir.proto.source_code_system) =
-                      "http://hl7.org/fhir/color-names"];
-    PALEGOLDENROD = 109 [(.google.fhir.proto.source_code_system) =
-                             "http://hl7.org/fhir/color-names"];
-    PALEGREEN = 110 [(.google.fhir.proto.source_code_system) =
-                         "http://hl7.org/fhir/color-names"];
-    PALETURQUOISE = 111 [(.google.fhir.proto.source_code_system) =
-                             "http://hl7.org/fhir/color-names"];
-    PALEVIOLETRED = 112 [(.google.fhir.proto.source_code_system) =
-                             "http://hl7.org/fhir/color-names"];
-    PAPAYAWHIP = 113 [(.google.fhir.proto.source_code_system) =
-                          "http://hl7.org/fhir/color-names"];
-    PEACHPUFF = 114 [(.google.fhir.proto.source_code_system) =
-                         "http://hl7.org/fhir/color-names"];
-    PERU = 115 [(.google.fhir.proto.source_code_system) =
-                    "http://hl7.org/fhir/color-names"];
-    PINK = 116 [(.google.fhir.proto.source_code_system) =
-                    "http://hl7.org/fhir/color-names"];
-    PLUM = 117 [(.google.fhir.proto.source_code_system) =
-                    "http://hl7.org/fhir/color-names"];
-    POWDERBLUE = 118 [(.google.fhir.proto.source_code_system) =
-                          "http://hl7.org/fhir/color-names"];
-    PURPLE = 119 [(.google.fhir.proto.source_code_system) =
-                      "http://hl7.org/fhir/color-names"];
-    REBECCAPURPLE = 120 [(.google.fhir.proto.source_code_system) =
-                             "http://hl7.org/fhir/color-names"];
-    RED = 121 [(.google.fhir.proto.source_code_system) =
-                   "http://hl7.org/fhir/color-names"];
-    ROSYBROWN = 122 [(.google.fhir.proto.source_code_system) =
-                         "http://hl7.org/fhir/color-names"];
-    ROYALBLUE = 123 [(.google.fhir.proto.source_code_system) =
-                         "http://hl7.org/fhir/color-names"];
-    SADDLEBROWN = 124 [(.google.fhir.proto.source_code_system) =
-                           "http://hl7.org/fhir/color-names"];
-    SALMON = 125 [(.google.fhir.proto.source_code_system) =
-                      "http://hl7.org/fhir/color-names"];
-    SANDYBROWN = 126 [(.google.fhir.proto.source_code_system) =
-                          "http://hl7.org/fhir/color-names"];
-    SEAGREEN = 127 [(.google.fhir.proto.source_code_system) =
-                        "http://hl7.org/fhir/color-names"];
-    SEASHELL = 128 [(.google.fhir.proto.source_code_system) =
-                        "http://hl7.org/fhir/color-names"];
-    SIENNA = 129 [(.google.fhir.proto.source_code_system) =
-                      "http://hl7.org/fhir/color-names"];
-    SILVER = 130 [(.google.fhir.proto.source_code_system) =
-                      "http://hl7.org/fhir/color-names"];
-    SKYBLUE = 131 [(.google.fhir.proto.source_code_system) =
-                       "http://hl7.org/fhir/color-names"];
-    SLATEBLUE = 132 [(.google.fhir.proto.source_code_system) =
-                         "http://hl7.org/fhir/color-names"];
-    SLATEGRAY = 133 [(.google.fhir.proto.source_code_system) =
-                         "http://hl7.org/fhir/color-names"];
-    SLATEGREY = 134 [(.google.fhir.proto.source_code_system) =
-                         "http://hl7.org/fhir/color-names"];
-    SNOW = 135 [(.google.fhir.proto.source_code_system) =
-                    "http://hl7.org/fhir/color-names"];
-    SPRINGGREEN = 136 [(.google.fhir.proto.source_code_system) =
-                           "http://hl7.org/fhir/color-names"];
-    STEELBLUE = 137 [(.google.fhir.proto.source_code_system) =
-                         "http://hl7.org/fhir/color-names"];
-    TAN = 138 [(.google.fhir.proto.source_code_system) =
-                   "http://hl7.org/fhir/color-names"];
-    TEAL = 139 [(.google.fhir.proto.source_code_system) =
-                    "http://hl7.org/fhir/color-names"];
-    THISTLE = 140 [(.google.fhir.proto.source_code_system) =
-                       "http://hl7.org/fhir/color-names"];
-    TOMATO = 141 [(.google.fhir.proto.source_code_system) =
-                      "http://hl7.org/fhir/color-names"];
-    TURQUOISE = 142 [(.google.fhir.proto.source_code_system) =
-                         "http://hl7.org/fhir/color-names"];
-    VIOLET = 143 [(.google.fhir.proto.source_code_system) =
-                      "http://hl7.org/fhir/color-names"];
-    WHEAT = 144 [(.google.fhir.proto.source_code_system) =
-                     "http://hl7.org/fhir/color-names"];
-    WHITE = 145 [(.google.fhir.proto.source_code_system) =
-                     "http://hl7.org/fhir/color-names"];
-    WHITESMOKE = 146 [(.google.fhir.proto.source_code_system) =
-                          "http://hl7.org/fhir/color-names"];
-    YELLOW = 147 [(.google.fhir.proto.source_code_system) =
-                      "http://hl7.org/fhir/color-names"];
-    YELLOWGREEN = 148 [(.google.fhir.proto.source_code_system) =
-                           "http://hl7.org/fhir/color-names"];
+    ALICEBLUE = 1 [(.google.fhir.proto.source_code_system) = "http://hl7.org/fhir/color-names"];
+    ANTIQUEWHITE = 2 [(.google.fhir.proto.source_code_system) = "http://hl7.org/fhir/color-names"];
+    AQUA = 3 [(.google.fhir.proto.source_code_system) = "http://hl7.org/fhir/color-names"];
+    AQUAMARINE = 4 [(.google.fhir.proto.source_code_system) = "http://hl7.org/fhir/color-names"];
+    AZURE = 5 [(.google.fhir.proto.source_code_system) = "http://hl7.org/fhir/color-names"];
+    BEIGE = 6 [(.google.fhir.proto.source_code_system) = "http://hl7.org/fhir/color-names"];
+    BISQUE = 7 [(.google.fhir.proto.source_code_system) = "http://hl7.org/fhir/color-names"];
+    BLACK = 8 [(.google.fhir.proto.source_code_system) = "http://hl7.org/fhir/color-names"];
+    BLANCHEDALMOND = 9 [(.google.fhir.proto.source_code_system) = "http://hl7.org/fhir/color-names"];
+    BLUE = 10 [(.google.fhir.proto.source_code_system) = "http://hl7.org/fhir/color-names"];
+    BLUEVIOLET = 11 [(.google.fhir.proto.source_code_system) = "http://hl7.org/fhir/color-names"];
+    BROWN = 12 [(.google.fhir.proto.source_code_system) = "http://hl7.org/fhir/color-names"];
+    BURLYWOOD = 13 [(.google.fhir.proto.source_code_system) = "http://hl7.org/fhir/color-names"];
+    CADETBLUE = 14 [(.google.fhir.proto.source_code_system) = "http://hl7.org/fhir/color-names"];
+    CHARTREUSE = 15 [(.google.fhir.proto.source_code_system) = "http://hl7.org/fhir/color-names"];
+    CHOCOLATE = 16 [(.google.fhir.proto.source_code_system) = "http://hl7.org/fhir/color-names"];
+    CORAL = 17 [(.google.fhir.proto.source_code_system) = "http://hl7.org/fhir/color-names"];
+    CORNFLOWERBLUE = 18 [(.google.fhir.proto.source_code_system) = "http://hl7.org/fhir/color-names"];
+    CORNSILK = 19 [(.google.fhir.proto.source_code_system) = "http://hl7.org/fhir/color-names"];
+    CRIMSON = 20 [(.google.fhir.proto.source_code_system) = "http://hl7.org/fhir/color-names"];
+    CYAN = 21 [(.google.fhir.proto.source_code_system) = "http://hl7.org/fhir/color-names"];
+    DARKBLUE = 22 [(.google.fhir.proto.source_code_system) = "http://hl7.org/fhir/color-names"];
+    DARKCYAN = 23 [(.google.fhir.proto.source_code_system) = "http://hl7.org/fhir/color-names"];
+    DARKGOLDENROD = 24 [(.google.fhir.proto.source_code_system) = "http://hl7.org/fhir/color-names"];
+    DARKGRAY = 25 [(.google.fhir.proto.source_code_system) = "http://hl7.org/fhir/color-names"];
+    DARKGREEN = 26 [(.google.fhir.proto.source_code_system) = "http://hl7.org/fhir/color-names"];
+    DARKGREY = 27 [(.google.fhir.proto.source_code_system) = "http://hl7.org/fhir/color-names"];
+    DARKKHAKI = 28 [(.google.fhir.proto.source_code_system) = "http://hl7.org/fhir/color-names"];
+    DARKMAGENTA = 29 [(.google.fhir.proto.source_code_system) = "http://hl7.org/fhir/color-names"];
+    DARKOLIVEGREEN = 30 [(.google.fhir.proto.source_code_system) = "http://hl7.org/fhir/color-names"];
+    DARKORANGE = 31 [(.google.fhir.proto.source_code_system) = "http://hl7.org/fhir/color-names"];
+    DARKORCHID = 32 [(.google.fhir.proto.source_code_system) = "http://hl7.org/fhir/color-names"];
+    DARKRED = 33 [(.google.fhir.proto.source_code_system) = "http://hl7.org/fhir/color-names"];
+    DARKSALMON = 34 [(.google.fhir.proto.source_code_system) = "http://hl7.org/fhir/color-names"];
+    DARKSEAGREEN = 35 [(.google.fhir.proto.source_code_system) = "http://hl7.org/fhir/color-names"];
+    DARKSLATEBLUE = 36 [(.google.fhir.proto.source_code_system) = "http://hl7.org/fhir/color-names"];
+    DARKSLATEGRAY = 37 [(.google.fhir.proto.source_code_system) = "http://hl7.org/fhir/color-names"];
+    DARKSLATEGREY = 38 [(.google.fhir.proto.source_code_system) = "http://hl7.org/fhir/color-names"];
+    DARKTURQUOISE = 39 [(.google.fhir.proto.source_code_system) = "http://hl7.org/fhir/color-names"];
+    DARKVIOLET = 40 [(.google.fhir.proto.source_code_system) = "http://hl7.org/fhir/color-names"];
+    DEEPPINK = 41 [(.google.fhir.proto.source_code_system) = "http://hl7.org/fhir/color-names"];
+    DEEPSKYBLUE = 42 [(.google.fhir.proto.source_code_system) = "http://hl7.org/fhir/color-names"];
+    DIMGRAY = 43 [(.google.fhir.proto.source_code_system) = "http://hl7.org/fhir/color-names"];
+    DIMGREY = 44 [(.google.fhir.proto.source_code_system) = "http://hl7.org/fhir/color-names"];
+    DODGERBLUE = 45 [(.google.fhir.proto.source_code_system) = "http://hl7.org/fhir/color-names"];
+    FIREBRICK = 46 [(.google.fhir.proto.source_code_system) = "http://hl7.org/fhir/color-names"];
+    FLORALWHITE = 47 [(.google.fhir.proto.source_code_system) = "http://hl7.org/fhir/color-names"];
+    FORESTGREEN = 48 [(.google.fhir.proto.source_code_system) = "http://hl7.org/fhir/color-names"];
+    FUCHSIA = 49 [(.google.fhir.proto.source_code_system) = "http://hl7.org/fhir/color-names"];
+    GAINSBORO = 50 [(.google.fhir.proto.source_code_system) = "http://hl7.org/fhir/color-names"];
+    GHOSTWHITE = 51 [(.google.fhir.proto.source_code_system) = "http://hl7.org/fhir/color-names"];
+    GOLD = 52 [(.google.fhir.proto.source_code_system) = "http://hl7.org/fhir/color-names"];
+    GOLDENROD = 53 [(.google.fhir.proto.source_code_system) = "http://hl7.org/fhir/color-names"];
+    GRAY = 54 [(.google.fhir.proto.source_code_system) = "http://hl7.org/fhir/color-names"];
+    GREEN = 55 [(.google.fhir.proto.source_code_system) = "http://hl7.org/fhir/color-names"];
+    GREENYELLOW = 56 [(.google.fhir.proto.source_code_system) = "http://hl7.org/fhir/color-names"];
+    GREY = 57 [(.google.fhir.proto.source_code_system) = "http://hl7.org/fhir/color-names"];
+    HONEYDEW = 58 [(.google.fhir.proto.source_code_system) = "http://hl7.org/fhir/color-names"];
+    HOTPINK = 59 [(.google.fhir.proto.source_code_system) = "http://hl7.org/fhir/color-names"];
+    INDIANRED = 60 [(.google.fhir.proto.source_code_system) = "http://hl7.org/fhir/color-names"];
+    INDIGO = 61 [(.google.fhir.proto.source_code_system) = "http://hl7.org/fhir/color-names"];
+    IVORY = 62 [(.google.fhir.proto.source_code_system) = "http://hl7.org/fhir/color-names"];
+    KHAKI = 63 [(.google.fhir.proto.source_code_system) = "http://hl7.org/fhir/color-names"];
+    LAVENDER = 64 [(.google.fhir.proto.source_code_system) = "http://hl7.org/fhir/color-names"];
+    LAVENDERBLUSH = 65 [(.google.fhir.proto.source_code_system) = "http://hl7.org/fhir/color-names"];
+    LAWNGREEN = 66 [(.google.fhir.proto.source_code_system) = "http://hl7.org/fhir/color-names"];
+    LEMONCHIFFON = 67 [(.google.fhir.proto.source_code_system) = "http://hl7.org/fhir/color-names"];
+    LIGHTBLUE = 68 [(.google.fhir.proto.source_code_system) = "http://hl7.org/fhir/color-names"];
+    LIGHTCORAL = 69 [(.google.fhir.proto.source_code_system) = "http://hl7.org/fhir/color-names"];
+    LIGHTCYAN = 70 [(.google.fhir.proto.source_code_system) = "http://hl7.org/fhir/color-names"];
+    LIGHTGOLDENRODYELLOW = 71 [(.google.fhir.proto.source_code_system) = "http://hl7.org/fhir/color-names"];
+    LIGHTGRAY = 72 [(.google.fhir.proto.source_code_system) = "http://hl7.org/fhir/color-names"];
+    LIGHTGREEN = 73 [(.google.fhir.proto.source_code_system) = "http://hl7.org/fhir/color-names"];
+    LIGHTGREY = 74 [(.google.fhir.proto.source_code_system) = "http://hl7.org/fhir/color-names"];
+    LIGHTPINK = 75 [(.google.fhir.proto.source_code_system) = "http://hl7.org/fhir/color-names"];
+    LIGHTSALMON = 76 [(.google.fhir.proto.source_code_system) = "http://hl7.org/fhir/color-names"];
+    LIGHTSEAGREEN = 77 [(.google.fhir.proto.source_code_system) = "http://hl7.org/fhir/color-names"];
+    LIGHTSKYBLUE = 78 [(.google.fhir.proto.source_code_system) = "http://hl7.org/fhir/color-names"];
+    LIGHTSLATEGRAY = 79 [(.google.fhir.proto.source_code_system) = "http://hl7.org/fhir/color-names"];
+    LIGHTSLATEGREY = 80 [(.google.fhir.proto.source_code_system) = "http://hl7.org/fhir/color-names"];
+    LIGHTSTEELBLUE = 81 [(.google.fhir.proto.source_code_system) = "http://hl7.org/fhir/color-names"];
+    LIGHTYELLOW = 82 [(.google.fhir.proto.source_code_system) = "http://hl7.org/fhir/color-names"];
+    LIME = 83 [(.google.fhir.proto.source_code_system) = "http://hl7.org/fhir/color-names"];
+    LIMEGREEN = 84 [(.google.fhir.proto.source_code_system) = "http://hl7.org/fhir/color-names"];
+    LINEN = 85 [(.google.fhir.proto.source_code_system) = "http://hl7.org/fhir/color-names"];
+    MAGENTA = 86 [(.google.fhir.proto.source_code_system) = "http://hl7.org/fhir/color-names"];
+    MAROON = 87 [(.google.fhir.proto.source_code_system) = "http://hl7.org/fhir/color-names"];
+    MEDIUMAQUAMARINE = 88 [(.google.fhir.proto.source_code_system) = "http://hl7.org/fhir/color-names"];
+    MEDIUMBLUE = 89 [(.google.fhir.proto.source_code_system) = "http://hl7.org/fhir/color-names"];
+    MEDIUMORCHID = 90 [(.google.fhir.proto.source_code_system) = "http://hl7.org/fhir/color-names"];
+    MEDIUMPURPLE = 91 [(.google.fhir.proto.source_code_system) = "http://hl7.org/fhir/color-names"];
+    MEDIUMSEAGREEN = 92 [(.google.fhir.proto.source_code_system) = "http://hl7.org/fhir/color-names"];
+    MEDIUMSLATEBLUE = 93 [(.google.fhir.proto.source_code_system) = "http://hl7.org/fhir/color-names"];
+    MEDIUMSPRINGGREEN = 94 [(.google.fhir.proto.source_code_system) = "http://hl7.org/fhir/color-names"];
+    MEDIUMTURQUOISE = 95 [(.google.fhir.proto.source_code_system) = "http://hl7.org/fhir/color-names"];
+    MEDIUMVIOLETRED = 96 [(.google.fhir.proto.source_code_system) = "http://hl7.org/fhir/color-names"];
+    MIDNIGHTBLUE = 97 [(.google.fhir.proto.source_code_system) = "http://hl7.org/fhir/color-names"];
+    MINTCREAM = 98 [(.google.fhir.proto.source_code_system) = "http://hl7.org/fhir/color-names"];
+    MISTYROSE = 99 [(.google.fhir.proto.source_code_system) = "http://hl7.org/fhir/color-names"];
+    MOCCASIN = 100 [(.google.fhir.proto.source_code_system) = "http://hl7.org/fhir/color-names"];
+    NAVAJOWHITE = 101 [(.google.fhir.proto.source_code_system) = "http://hl7.org/fhir/color-names"];
+    NAVY = 102 [(.google.fhir.proto.source_code_system) = "http://hl7.org/fhir/color-names"];
+    OLDLACE = 103 [(.google.fhir.proto.source_code_system) = "http://hl7.org/fhir/color-names"];
+    OLIVE = 104 [(.google.fhir.proto.source_code_system) = "http://hl7.org/fhir/color-names"];
+    OLIVEDRAB = 105 [(.google.fhir.proto.source_code_system) = "http://hl7.org/fhir/color-names"];
+    ORANGE = 106 [(.google.fhir.proto.source_code_system) = "http://hl7.org/fhir/color-names"];
+    ORANGERED = 107 [(.google.fhir.proto.source_code_system) = "http://hl7.org/fhir/color-names"];
+    ORCHID = 108 [(.google.fhir.proto.source_code_system) = "http://hl7.org/fhir/color-names"];
+    PALEGOLDENROD = 109 [(.google.fhir.proto.source_code_system) = "http://hl7.org/fhir/color-names"];
+    PALEGREEN = 110 [(.google.fhir.proto.source_code_system) = "http://hl7.org/fhir/color-names"];
+    PALETURQUOISE = 111 [(.google.fhir.proto.source_code_system) = "http://hl7.org/fhir/color-names"];
+    PALEVIOLETRED = 112 [(.google.fhir.proto.source_code_system) = "http://hl7.org/fhir/color-names"];
+    PAPAYAWHIP = 113 [(.google.fhir.proto.source_code_system) = "http://hl7.org/fhir/color-names"];
+    PEACHPUFF = 114 [(.google.fhir.proto.source_code_system) = "http://hl7.org/fhir/color-names"];
+    PERU = 115 [(.google.fhir.proto.source_code_system) = "http://hl7.org/fhir/color-names"];
+    PINK = 116 [(.google.fhir.proto.source_code_system) = "http://hl7.org/fhir/color-names"];
+    PLUM = 117 [(.google.fhir.proto.source_code_system) = "http://hl7.org/fhir/color-names"];
+    POWDERBLUE = 118 [(.google.fhir.proto.source_code_system) = "http://hl7.org/fhir/color-names"];
+    PURPLE = 119 [(.google.fhir.proto.source_code_system) = "http://hl7.org/fhir/color-names"];
+    REBECCAPURPLE = 120 [(.google.fhir.proto.source_code_system) = "http://hl7.org/fhir/color-names"];
+    RED = 121 [(.google.fhir.proto.source_code_system) = "http://hl7.org/fhir/color-names"];
+    ROSYBROWN = 122 [(.google.fhir.proto.source_code_system) = "http://hl7.org/fhir/color-names"];
+    ROYALBLUE = 123 [(.google.fhir.proto.source_code_system) = "http://hl7.org/fhir/color-names"];
+    SADDLEBROWN = 124 [(.google.fhir.proto.source_code_system) = "http://hl7.org/fhir/color-names"];
+    SALMON = 125 [(.google.fhir.proto.source_code_system) = "http://hl7.org/fhir/color-names"];
+    SANDYBROWN = 126 [(.google.fhir.proto.source_code_system) = "http://hl7.org/fhir/color-names"];
+    SEAGREEN = 127 [(.google.fhir.proto.source_code_system) = "http://hl7.org/fhir/color-names"];
+    SEASHELL = 128 [(.google.fhir.proto.source_code_system) = "http://hl7.org/fhir/color-names"];
+    SIENNA = 129 [(.google.fhir.proto.source_code_system) = "http://hl7.org/fhir/color-names"];
+    SILVER = 130 [(.google.fhir.proto.source_code_system) = "http://hl7.org/fhir/color-names"];
+    SKYBLUE = 131 [(.google.fhir.proto.source_code_system) = "http://hl7.org/fhir/color-names"];
+    SLATEBLUE = 132 [(.google.fhir.proto.source_code_system) = "http://hl7.org/fhir/color-names"];
+    SLATEGRAY = 133 [(.google.fhir.proto.source_code_system) = "http://hl7.org/fhir/color-names"];
+    SLATEGREY = 134 [(.google.fhir.proto.source_code_system) = "http://hl7.org/fhir/color-names"];
+    SNOW = 135 [(.google.fhir.proto.source_code_system) = "http://hl7.org/fhir/color-names"];
+    SPRINGGREEN = 136 [(.google.fhir.proto.source_code_system) = "http://hl7.org/fhir/color-names"];
+    STEELBLUE = 137 [(.google.fhir.proto.source_code_system) = "http://hl7.org/fhir/color-names"];
+    TAN = 138 [(.google.fhir.proto.source_code_system) = "http://hl7.org/fhir/color-names"];
+    TEAL = 139 [(.google.fhir.proto.source_code_system) = "http://hl7.org/fhir/color-names"];
+    THISTLE = 140 [(.google.fhir.proto.source_code_system) = "http://hl7.org/fhir/color-names"];
+    TOMATO = 141 [(.google.fhir.proto.source_code_system) = "http://hl7.org/fhir/color-names"];
+    TURQUOISE = 142 [(.google.fhir.proto.source_code_system) = "http://hl7.org/fhir/color-names"];
+    VIOLET = 143 [(.google.fhir.proto.source_code_system) = "http://hl7.org/fhir/color-names"];
+    WHEAT = 144 [(.google.fhir.proto.source_code_system) = "http://hl7.org/fhir/color-names"];
+    WHITE = 145 [(.google.fhir.proto.source_code_system) = "http://hl7.org/fhir/color-names"];
+    WHITESMOKE = 146 [(.google.fhir.proto.source_code_system) = "http://hl7.org/fhir/color-names"];
+    YELLOW = 147 [(.google.fhir.proto.source_code_system) = "http://hl7.org/fhir/color-names"];
+    YELLOWGREEN = 148 [(.google.fhir.proto.source_code_system) = "http://hl7.org/fhir/color-names"];
   }
 }
 
@@ -450,8 +278,7 @@ message ColorCodesOrRGBValueSet {
 // http://tools.ietf.org/html/bcp47) See http://hl7.org/fhir/ValueSet/languages
 message CommonLanguagesValueSet {
   enum Value {
-    option (.google.fhir.proto.enum_valueset_url) =
-        "http://hl7.org/fhir/ValueSet/languages";
+    option (.google.fhir.proto.enum_valueset_url) = "http://hl7.org/fhir/ValueSet/languages";
 
     INVALID_UNINITIALIZED = 0;
     AR = 1 [(.google.fhir.proto.source_code_system) = "urn:ietf:bcp:47"];
@@ -684,18 +511,13 @@ message CommonLanguagesValueSet {
 // See http://hl7.org/fhir/ValueSet/detectedissue-status
 message DetectedIssueStatusValueSet {
   enum Value {
-    option (.google.fhir.proto.enum_valueset_url) =
-        "http://hl7.org/fhir/ValueSet/detectedissue-status";
+    option (.google.fhir.proto.enum_valueset_url) = "http://hl7.org/fhir/ValueSet/detectedissue-status";
 
     INVALID_UNINITIALIZED = 0;
-    PRELIMINARY = 1 [(.google.fhir.proto.source_code_system) =
-                         "http://hl7.org/fhir/observation-status"];
-    FINAL = 2 [(.google.fhir.proto.source_code_system) =
-                   "http://hl7.org/fhir/observation-status"];
-    ENTERED_IN_ERROR = 3 [(.google.fhir.proto.source_code_system) =
-                              "http://hl7.org/fhir/observation-status"];
-    MITIGATED = 4 [(.google.fhir.proto.source_code_system) =
-                       "http://hl7.org/fhir/detectedissue-status"];
+    PRELIMINARY = 1 [(.google.fhir.proto.source_code_system) = "http://hl7.org/fhir/observation-status"];
+    FINAL = 2 [(.google.fhir.proto.source_code_system) = "http://hl7.org/fhir/observation-status"];
+    ENTERED_IN_ERROR = 3 [(.google.fhir.proto.source_code_system) = "http://hl7.org/fhir/observation-status"];
+    MITIGATED = 4 [(.google.fhir.proto.source_code_system) = "http://hl7.org/fhir/detectedissue-status"];
   }
 }
 
@@ -703,144 +525,116 @@ message DetectedIssueStatusValueSet {
 // See http://hl7.org/fhir/ValueSet/event-timing
 message EventTimingValueSet {
   enum Value {
-    option (.google.fhir.proto.enum_valueset_url) =
-        "http://hl7.org/fhir/ValueSet/event-timing";
+    option (.google.fhir.proto.enum_valueset_url) = "http://hl7.org/fhir/ValueSet/event-timing";
 
     INVALID_UNINITIALIZED = 0;
     MORN = 1 [
       (.google.fhir.proto.fhir_original_code) = "MORN",
-      (.google.fhir.proto.source_code_system) =
-          "http://hl7.org/fhir/event-timing"
+      (.google.fhir.proto.source_code_system) = "http://hl7.org/fhir/event-timing"
     ];
     MORN_EARLY = 2 [
       (.google.fhir.proto.fhir_original_code) = "MORN.early",
-      (.google.fhir.proto.source_code_system) =
-          "http://hl7.org/fhir/event-timing"
+      (.google.fhir.proto.source_code_system) = "http://hl7.org/fhir/event-timing"
     ];
     MORN_LATE = 3 [
       (.google.fhir.proto.fhir_original_code) = "MORN.late",
-      (.google.fhir.proto.source_code_system) =
-          "http://hl7.org/fhir/event-timing"
+      (.google.fhir.proto.source_code_system) = "http://hl7.org/fhir/event-timing"
     ];
     NOON = 4 [
       (.google.fhir.proto.fhir_original_code) = "NOON",
-      (.google.fhir.proto.source_code_system) =
-          "http://hl7.org/fhir/event-timing"
+      (.google.fhir.proto.source_code_system) = "http://hl7.org/fhir/event-timing"
     ];
     AFT = 5 [
       (.google.fhir.proto.fhir_original_code) = "AFT",
-      (.google.fhir.proto.source_code_system) =
-          "http://hl7.org/fhir/event-timing"
+      (.google.fhir.proto.source_code_system) = "http://hl7.org/fhir/event-timing"
     ];
     AFT_EARLY = 6 [
       (.google.fhir.proto.fhir_original_code) = "AFT.early",
-      (.google.fhir.proto.source_code_system) =
-          "http://hl7.org/fhir/event-timing"
+      (.google.fhir.proto.source_code_system) = "http://hl7.org/fhir/event-timing"
     ];
     AFT_LATE = 7 [
       (.google.fhir.proto.fhir_original_code) = "AFT.late",
-      (.google.fhir.proto.source_code_system) =
-          "http://hl7.org/fhir/event-timing"
+      (.google.fhir.proto.source_code_system) = "http://hl7.org/fhir/event-timing"
     ];
     EVE = 8 [
       (.google.fhir.proto.fhir_original_code) = "EVE",
-      (.google.fhir.proto.source_code_system) =
-          "http://hl7.org/fhir/event-timing"
+      (.google.fhir.proto.source_code_system) = "http://hl7.org/fhir/event-timing"
     ];
     EVE_EARLY = 9 [
       (.google.fhir.proto.fhir_original_code) = "EVE.early",
-      (.google.fhir.proto.source_code_system) =
-          "http://hl7.org/fhir/event-timing"
+      (.google.fhir.proto.source_code_system) = "http://hl7.org/fhir/event-timing"
     ];
     EVE_LATE = 10 [
       (.google.fhir.proto.fhir_original_code) = "EVE.late",
-      (.google.fhir.proto.source_code_system) =
-          "http://hl7.org/fhir/event-timing"
+      (.google.fhir.proto.source_code_system) = "http://hl7.org/fhir/event-timing"
     ];
     NIGHT = 11 [
       (.google.fhir.proto.fhir_original_code) = "NIGHT",
-      (.google.fhir.proto.source_code_system) =
-          "http://hl7.org/fhir/event-timing"
+      (.google.fhir.proto.source_code_system) = "http://hl7.org/fhir/event-timing"
     ];
     PHS = 12 [
       (.google.fhir.proto.fhir_original_code) = "PHS",
-      (.google.fhir.proto.source_code_system) =
-          "http://hl7.org/fhir/event-timing"
+      (.google.fhir.proto.source_code_system) = "http://hl7.org/fhir/event-timing"
     ];
     IMD = 27 [
       (.google.fhir.proto.fhir_original_code) = "IMD",
-      (.google.fhir.proto.source_code_system) =
-          "http://hl7.org/fhir/event-timing"
+      (.google.fhir.proto.source_code_system) = "http://hl7.org/fhir/event-timing"
     ];
     HS = 13 [
       (.google.fhir.proto.fhir_original_code) = "HS",
-      (.google.fhir.proto.source_code_system) =
-          "http://terminology.hl7.org/CodeSystem/v3-TimingEvent"
+      (.google.fhir.proto.source_code_system) = "http://terminology.hl7.org/CodeSystem/v3-TimingEvent"
     ];
     WAKE = 14 [
       (.google.fhir.proto.fhir_original_code) = "WAKE",
-      (.google.fhir.proto.source_code_system) =
-          "http://terminology.hl7.org/CodeSystem/v3-TimingEvent"
+      (.google.fhir.proto.source_code_system) = "http://terminology.hl7.org/CodeSystem/v3-TimingEvent"
     ];
     C = 15 [
       (.google.fhir.proto.fhir_original_code) = "C",
-      (.google.fhir.proto.source_code_system) =
-          "http://terminology.hl7.org/CodeSystem/v3-TimingEvent"
+      (.google.fhir.proto.source_code_system) = "http://terminology.hl7.org/CodeSystem/v3-TimingEvent"
     ];
     CM = 16 [
       (.google.fhir.proto.fhir_original_code) = "CM",
-      (.google.fhir.proto.source_code_system) =
-          "http://terminology.hl7.org/CodeSystem/v3-TimingEvent"
+      (.google.fhir.proto.source_code_system) = "http://terminology.hl7.org/CodeSystem/v3-TimingEvent"
     ];
     CD = 17 [
       (.google.fhir.proto.fhir_original_code) = "CD",
-      (.google.fhir.proto.source_code_system) =
-          "http://terminology.hl7.org/CodeSystem/v3-TimingEvent"
+      (.google.fhir.proto.source_code_system) = "http://terminology.hl7.org/CodeSystem/v3-TimingEvent"
     ];
     CV = 18 [
       (.google.fhir.proto.fhir_original_code) = "CV",
-      (.google.fhir.proto.source_code_system) =
-          "http://terminology.hl7.org/CodeSystem/v3-TimingEvent"
+      (.google.fhir.proto.source_code_system) = "http://terminology.hl7.org/CodeSystem/v3-TimingEvent"
     ];
     AC = 19 [
       (.google.fhir.proto.fhir_original_code) = "AC",
-      (.google.fhir.proto.source_code_system) =
-          "http://terminology.hl7.org/CodeSystem/v3-TimingEvent"
+      (.google.fhir.proto.source_code_system) = "http://terminology.hl7.org/CodeSystem/v3-TimingEvent"
     ];
     ACM = 20 [
       (.google.fhir.proto.fhir_original_code) = "ACM",
-      (.google.fhir.proto.source_code_system) =
-          "http://terminology.hl7.org/CodeSystem/v3-TimingEvent"
+      (.google.fhir.proto.source_code_system) = "http://terminology.hl7.org/CodeSystem/v3-TimingEvent"
     ];
     ACD = 21 [
       (.google.fhir.proto.fhir_original_code) = "ACD",
-      (.google.fhir.proto.source_code_system) =
-          "http://terminology.hl7.org/CodeSystem/v3-TimingEvent"
+      (.google.fhir.proto.source_code_system) = "http://terminology.hl7.org/CodeSystem/v3-TimingEvent"
     ];
     ACV = 22 [
       (.google.fhir.proto.fhir_original_code) = "ACV",
-      (.google.fhir.proto.source_code_system) =
-          "http://terminology.hl7.org/CodeSystem/v3-TimingEvent"
+      (.google.fhir.proto.source_code_system) = "http://terminology.hl7.org/CodeSystem/v3-TimingEvent"
     ];
     PC = 23 [
       (.google.fhir.proto.fhir_original_code) = "PC",
-      (.google.fhir.proto.source_code_system) =
-          "http://terminology.hl7.org/CodeSystem/v3-TimingEvent"
+      (.google.fhir.proto.source_code_system) = "http://terminology.hl7.org/CodeSystem/v3-TimingEvent"
     ];
     PCM = 24 [
       (.google.fhir.proto.fhir_original_code) = "PCM",
-      (.google.fhir.proto.source_code_system) =
-          "http://terminology.hl7.org/CodeSystem/v3-TimingEvent"
+      (.google.fhir.proto.source_code_system) = "http://terminology.hl7.org/CodeSystem/v3-TimingEvent"
     ];
     PCD = 25 [
       (.google.fhir.proto.fhir_original_code) = "PCD",
-      (.google.fhir.proto.source_code_system) =
-          "http://terminology.hl7.org/CodeSystem/v3-TimingEvent"
+      (.google.fhir.proto.source_code_system) = "http://terminology.hl7.org/CodeSystem/v3-TimingEvent"
     ];
     PCV = 26 [
       (.google.fhir.proto.fhir_original_code) = "PCV",
-      (.google.fhir.proto.source_code_system) =
-          "http://terminology.hl7.org/CodeSystem/v3-TimingEvent"
+      (.google.fhir.proto.source_code_system) = "http://terminology.hl7.org/CodeSystem/v3-TimingEvent"
     ];
   }
 }
@@ -852,16 +646,11 @@ message EventTimingValueSet {
 // http://hl7.org/fhir/ValueSet/immunization-evaluation-status
 message ImmunizationEvaluationStatusCodesValueSet {
   enum Value {
-    option (.google.fhir.proto.enum_valueset_url) =
-        "http://hl7.org/fhir/ValueSet/immunization-evaluation-status";
+    option (.google.fhir.proto.enum_valueset_url) = "http://hl7.org/fhir/ValueSet/immunization-evaluation-status";
 
     INVALID_UNINITIALIZED = 0;
-    COMPLETED = 1
-        [(.google.fhir.proto.source_code_system) =
-             "http://hl7.org/fhir/CodeSystem/medication-admin-status"];
-    ENTERED_IN_ERROR = 2
-        [(.google.fhir.proto.source_code_system) =
-             "http://hl7.org/fhir/CodeSystem/medication-admin-status"];
+    COMPLETED = 1 [(.google.fhir.proto.source_code_system) = "http://hl7.org/fhir/CodeSystem/medication-admin-status"];
+    ENTERED_IN_ERROR = 2 [(.google.fhir.proto.source_code_system) = "http://hl7.org/fhir/CodeSystem/medication-admin-status"];
   }
 }
 
@@ -871,16 +660,12 @@ message ImmunizationEvaluationStatusCodesValueSet {
 // See http://hl7.org/fhir/ValueSet/immunization-status
 message ImmunizationStatusCodesValueSet {
   enum Value {
-    option (.google.fhir.proto.enum_valueset_url) =
-        "http://hl7.org/fhir/ValueSet/immunization-status";
+    option (.google.fhir.proto.enum_valueset_url) = "http://hl7.org/fhir/ValueSet/immunization-status";
 
     INVALID_UNINITIALIZED = 0;
-    COMPLETED = 1 [(.google.fhir.proto.source_code_system) =
-                       "http://hl7.org/fhir/event-status"];
-    ENTERED_IN_ERROR = 2 [(.google.fhir.proto.source_code_system) =
-                              "http://hl7.org/fhir/event-status"];
-    NOT_DONE = 3 [(.google.fhir.proto.source_code_system) =
-                      "http://hl7.org/fhir/event-status"];
+    COMPLETED = 1 [(.google.fhir.proto.source_code_system) = "http://hl7.org/fhir/event-status"];
+    ENTERED_IN_ERROR = 2 [(.google.fhir.proto.source_code_system) = "http://hl7.org/fhir/event-status"];
+    NOT_DONE = 3 [(.google.fhir.proto.source_code_system) = "http://hl7.org/fhir/event-status"];
   }
 }
 
@@ -888,16 +673,12 @@ message ImmunizationStatusCodesValueSet {
 // See http://hl7.org/fhir/ValueSet/interaction-trigger
 message InteractionTriggerValueSet {
   enum Value {
-    option (.google.fhir.proto.enum_valueset_url) =
-        "http://hl7.org/fhir/ValueSet/interaction-trigger";
+    option (.google.fhir.proto.enum_valueset_url) = "http://hl7.org/fhir/ValueSet/interaction-trigger";
 
     INVALID_UNINITIALIZED = 0;
-    CREATE = 1 [(.google.fhir.proto.source_code_system) =
-                    "http://hl7.org/fhir/restful-interaction"];
-    UPDATE = 2 [(.google.fhir.proto.source_code_system) =
-                    "http://hl7.org/fhir/restful-interaction"];
-    DELETE = 3 [(.google.fhir.proto.source_code_system) =
-                    "http://hl7.org/fhir/restful-interaction"];
+    CREATE = 1 [(.google.fhir.proto.source_code_system) = "http://hl7.org/fhir/restful-interaction"];
+    UPDATE = 2 [(.google.fhir.proto.source_code_system) = "http://hl7.org/fhir/restful-interaction"];
+    DELETE = 3 [(.google.fhir.proto.source_code_system) = "http://hl7.org/fhir/restful-interaction"];
   }
 }
 
@@ -905,8 +686,7 @@ message InteractionTriggerValueSet {
 // See http://hl7.org/fhir/ValueSet/lipid-ldl-codes
 message LDLCodesValueSet {
   enum Value {
-    option (.google.fhir.proto.enum_valueset_url) =
-        "http://hl7.org/fhir/ValueSet/lipid-ldl-codes";
+    option (.google.fhir.proto.enum_valueset_url) = "http://hl7.org/fhir/ValueSet/lipid-ldl-codes";
 
     INVALID_UNINITIALIZED = 0;
     LDL_CHOLESTEROL_ASSAY = 1 [
@@ -924,86 +704,47 @@ message LDLCodesValueSet {
 // See http://hl7.org/fhir/ValueSet/related-artifact-type-all
 message RelatedArtifactTypeExpandedValueSet {
   enum Value {
-    option (.google.fhir.proto.enum_valueset_url) =
-        "http://hl7.org/fhir/ValueSet/related-artifact-type-all";
+    option (.google.fhir.proto.enum_valueset_url) = "http://hl7.org/fhir/ValueSet/related-artifact-type-all";
 
     INVALID_UNINITIALIZED = 0;
-    DOCUMENTATION = 1 [(.google.fhir.proto.source_code_system) =
-                           "http://hl7.org/fhir/related-artifact-type"];
-    JUSTIFICATION = 2 [(.google.fhir.proto.source_code_system) =
-                           "http://hl7.org/fhir/related-artifact-type"];
-    CITATION = 3 [(.google.fhir.proto.source_code_system) =
-                      "http://hl7.org/fhir/related-artifact-type"];
-    PREDECESSOR = 4 [(.google.fhir.proto.source_code_system) =
-                         "http://hl7.org/fhir/related-artifact-type"];
-    SUCCESSOR = 5 [(.google.fhir.proto.source_code_system) =
-                       "http://hl7.org/fhir/related-artifact-type"];
-    DERIVED_FROM = 6 [(.google.fhir.proto.source_code_system) =
-                          "http://hl7.org/fhir/related-artifact-type"];
-    DEPENDS_ON = 7 [(.google.fhir.proto.source_code_system) =
-                        "http://hl7.org/fhir/related-artifact-type"];
-    COMPOSED_OF = 8 [(.google.fhir.proto.source_code_system) =
-                         "http://hl7.org/fhir/related-artifact-type"];
-    PART_OF = 9 [(.google.fhir.proto.source_code_system) =
-                     "http://hl7.org/fhir/related-artifact-type"];
-    AMENDS = 10 [(.google.fhir.proto.source_code_system) =
-                     "http://hl7.org/fhir/related-artifact-type"];
-    AMENDED_WITH = 11 [(.google.fhir.proto.source_code_system) =
-                           "http://hl7.org/fhir/related-artifact-type"];
-    APPENDS = 12 [(.google.fhir.proto.source_code_system) =
-                      "http://hl7.org/fhir/related-artifact-type"];
-    APPENDED_WITH = 13 [(.google.fhir.proto.source_code_system) =
-                            "http://hl7.org/fhir/related-artifact-type"];
-    CITES = 14 [(.google.fhir.proto.source_code_system) =
-                    "http://hl7.org/fhir/related-artifact-type"];
-    CITED_BY = 15 [(.google.fhir.proto.source_code_system) =
-                       "http://hl7.org/fhir/related-artifact-type"];
-    COMMENTS_ON = 16 [(.google.fhir.proto.source_code_system) =
-                          "http://hl7.org/fhir/related-artifact-type"];
-    COMMENT_IN = 17 [(.google.fhir.proto.source_code_system) =
-                         "http://hl7.org/fhir/related-artifact-type"];
-    CONTAINS = 18 [(.google.fhir.proto.source_code_system) =
-                       "http://hl7.org/fhir/related-artifact-type"];
-    CONTAINED_IN = 19 [(.google.fhir.proto.source_code_system) =
-                           "http://hl7.org/fhir/related-artifact-type"];
-    CORRECTS = 20 [(.google.fhir.proto.source_code_system) =
-                       "http://hl7.org/fhir/related-artifact-type"];
-    CORRECTION_IN = 21 [(.google.fhir.proto.source_code_system) =
-                            "http://hl7.org/fhir/related-artifact-type"];
-    REPLACES = 22 [(.google.fhir.proto.source_code_system) =
-                       "http://hl7.org/fhir/related-artifact-type"];
-    REPLACED_WITH = 23 [(.google.fhir.proto.source_code_system) =
-                            "http://hl7.org/fhir/related-artifact-type"];
-    RETRACTS = 24 [(.google.fhir.proto.source_code_system) =
-                       "http://hl7.org/fhir/related-artifact-type"];
-    RETRACTED_BY = 25 [(.google.fhir.proto.source_code_system) =
-                           "http://hl7.org/fhir/related-artifact-type"];
-    SIGNS = 26 [(.google.fhir.proto.source_code_system) =
-                    "http://hl7.org/fhir/related-artifact-type"];
-    SIMILAR_TO = 27 [(.google.fhir.proto.source_code_system) =
-                         "http://hl7.org/fhir/related-artifact-type"];
-    SUPPORTS = 28 [(.google.fhir.proto.source_code_system) =
-                       "http://hl7.org/fhir/related-artifact-type"];
-    SUPPORTED_WITH = 29 [(.google.fhir.proto.source_code_system) =
-                             "http://hl7.org/fhir/related-artifact-type"];
-    TRANSFORMS = 30 [(.google.fhir.proto.source_code_system) =
-                         "http://hl7.org/fhir/related-artifact-type"];
-    TRANSFORMED_INTO = 31 [(.google.fhir.proto.source_code_system) =
-                               "http://hl7.org/fhir/related-artifact-type"];
-    TRANSFORMED_WITH = 32 [(.google.fhir.proto.source_code_system) =
-                               "http://hl7.org/fhir/related-artifact-type"];
-    DOCUMENTS = 33 [(.google.fhir.proto.source_code_system) =
-                        "http://hl7.org/fhir/related-artifact-type"];
-    SPECIFICATION_OF = 34 [(.google.fhir.proto.source_code_system) =
-                               "http://hl7.org/fhir/related-artifact-type"];
-    CREATED_WITH = 35 [(.google.fhir.proto.source_code_system) =
-                           "http://hl7.org/fhir/related-artifact-type"];
-    CITE_AS = 36 [(.google.fhir.proto.source_code_system) =
-                      "http://hl7.org/fhir/related-artifact-type"];
-    REPRINT = 37 [(.google.fhir.proto.source_code_system) =
-                      "http://hl7.org/fhir/related-artifact-type-expanded"];
-    REPRINT_OF = 38 [(.google.fhir.proto.source_code_system) =
-                         "http://hl7.org/fhir/related-artifact-type-expanded"];
+    DOCUMENTATION = 1 [(.google.fhir.proto.source_code_system) = "http://hl7.org/fhir/related-artifact-type"];
+    JUSTIFICATION = 2 [(.google.fhir.proto.source_code_system) = "http://hl7.org/fhir/related-artifact-type"];
+    CITATION = 3 [(.google.fhir.proto.source_code_system) = "http://hl7.org/fhir/related-artifact-type"];
+    PREDECESSOR = 4 [(.google.fhir.proto.source_code_system) = "http://hl7.org/fhir/related-artifact-type"];
+    SUCCESSOR = 5 [(.google.fhir.proto.source_code_system) = "http://hl7.org/fhir/related-artifact-type"];
+    DERIVED_FROM = 6 [(.google.fhir.proto.source_code_system) = "http://hl7.org/fhir/related-artifact-type"];
+    DEPENDS_ON = 7 [(.google.fhir.proto.source_code_system) = "http://hl7.org/fhir/related-artifact-type"];
+    COMPOSED_OF = 8 [(.google.fhir.proto.source_code_system) = "http://hl7.org/fhir/related-artifact-type"];
+    PART_OF = 9 [(.google.fhir.proto.source_code_system) = "http://hl7.org/fhir/related-artifact-type"];
+    AMENDS = 10 [(.google.fhir.proto.source_code_system) = "http://hl7.org/fhir/related-artifact-type"];
+    AMENDED_WITH = 11 [(.google.fhir.proto.source_code_system) = "http://hl7.org/fhir/related-artifact-type"];
+    APPENDS = 12 [(.google.fhir.proto.source_code_system) = "http://hl7.org/fhir/related-artifact-type"];
+    APPENDED_WITH = 13 [(.google.fhir.proto.source_code_system) = "http://hl7.org/fhir/related-artifact-type"];
+    CITES = 14 [(.google.fhir.proto.source_code_system) = "http://hl7.org/fhir/related-artifact-type"];
+    CITED_BY = 15 [(.google.fhir.proto.source_code_system) = "http://hl7.org/fhir/related-artifact-type"];
+    COMMENTS_ON = 16 [(.google.fhir.proto.source_code_system) = "http://hl7.org/fhir/related-artifact-type"];
+    COMMENT_IN = 17 [(.google.fhir.proto.source_code_system) = "http://hl7.org/fhir/related-artifact-type"];
+    CONTAINS = 18 [(.google.fhir.proto.source_code_system) = "http://hl7.org/fhir/related-artifact-type"];
+    CONTAINED_IN = 19 [(.google.fhir.proto.source_code_system) = "http://hl7.org/fhir/related-artifact-type"];
+    CORRECTS = 20 [(.google.fhir.proto.source_code_system) = "http://hl7.org/fhir/related-artifact-type"];
+    CORRECTION_IN = 21 [(.google.fhir.proto.source_code_system) = "http://hl7.org/fhir/related-artifact-type"];
+    REPLACES = 22 [(.google.fhir.proto.source_code_system) = "http://hl7.org/fhir/related-artifact-type"];
+    REPLACED_WITH = 23 [(.google.fhir.proto.source_code_system) = "http://hl7.org/fhir/related-artifact-type"];
+    RETRACTS = 24 [(.google.fhir.proto.source_code_system) = "http://hl7.org/fhir/related-artifact-type"];
+    RETRACTED_BY = 25 [(.google.fhir.proto.source_code_system) = "http://hl7.org/fhir/related-artifact-type"];
+    SIGNS = 26 [(.google.fhir.proto.source_code_system) = "http://hl7.org/fhir/related-artifact-type"];
+    SIMILAR_TO = 27 [(.google.fhir.proto.source_code_system) = "http://hl7.org/fhir/related-artifact-type"];
+    SUPPORTS = 28 [(.google.fhir.proto.source_code_system) = "http://hl7.org/fhir/related-artifact-type"];
+    SUPPORTED_WITH = 29 [(.google.fhir.proto.source_code_system) = "http://hl7.org/fhir/related-artifact-type"];
+    TRANSFORMS = 30 [(.google.fhir.proto.source_code_system) = "http://hl7.org/fhir/related-artifact-type"];
+    TRANSFORMED_INTO = 31 [(.google.fhir.proto.source_code_system) = "http://hl7.org/fhir/related-artifact-type"];
+    TRANSFORMED_WITH = 32 [(.google.fhir.proto.source_code_system) = "http://hl7.org/fhir/related-artifact-type"];
+    DOCUMENTS = 33 [(.google.fhir.proto.source_code_system) = "http://hl7.org/fhir/related-artifact-type"];
+    SPECIFICATION_OF = 34 [(.google.fhir.proto.source_code_system) = "http://hl7.org/fhir/related-artifact-type"];
+    CREATED_WITH = 35 [(.google.fhir.proto.source_code_system) = "http://hl7.org/fhir/related-artifact-type"];
+    CITE_AS = 36 [(.google.fhir.proto.source_code_system) = "http://hl7.org/fhir/related-artifact-type"];
+    REPRINT = 37 [(.google.fhir.proto.source_code_system) = "http://hl7.org/fhir/related-artifact-type-expanded"];
+    REPRINT_OF = 38 [(.google.fhir.proto.source_code_system) = "http://hl7.org/fhir/related-artifact-type-expanded"];
   }
 }
 
@@ -1011,8 +752,7 @@ message RelatedArtifactTypeExpandedValueSet {
 // See http://hl7.org/fhir/ValueSet/request-resource-types
 message RequestResourceTypesValueSet {
   enum Value {
-    option (.google.fhir.proto.enum_valueset_url) =
-        "http://hl7.org/fhir/ValueSet/request-resource-types";
+    option (.google.fhir.proto.enum_valueset_url) = "http://hl7.org/fhir/ValueSet/request-resource-types";
 
     INVALID_UNINITIALIZED = 0;
     APPOINTMENT = 1 [
@@ -1090,8 +830,7 @@ message RequestResourceTypesValueSet {
 // See http://hl7.org/fhir/ValueSet/resource-types
 message ResourceTypeValueSet {
   enum Value {
-    option (.google.fhir.proto.enum_valueset_url) =
-        "http://hl7.org/fhir/ValueSet/resource-types";
+    option (.google.fhir.proto.enum_valueset_url) = "http://hl7.org/fhir/ValueSet/resource-types";
 
     INVALID_UNINITIALIZED = 0;
     ACCOUNT = 1 [
@@ -1107,8 +846,7 @@ message ResourceTypeValueSet {
       (.google.fhir.proto.source_code_system) = "http://hl7.org/fhir/fhir-types"
     ];
     ADMINISTRABLE_PRODUCT_DEFINITION = 150 [
-      (.google.fhir.proto.fhir_original_code) =
-          "AdministrableProductDefinition",
+      (.google.fhir.proto.fhir_original_code) = "AdministrableProductDefinition",
       (.google.fhir.proto.source_code_system) = "http://hl7.org/fhir/fhir-types"
     ];
     ADVERSE_EVENT = 3 [
@@ -1148,8 +886,7 @@ message ResourceTypeValueSet {
       (.google.fhir.proto.source_code_system) = "http://hl7.org/fhir/fhir-types"
     ];
     BIOLOGICALLY_DERIVED_PRODUCT_DISPENSE = 152 [
-      (.google.fhir.proto.fhir_original_code) =
-          "BiologicallyDerivedProductDispense",
+      (.google.fhir.proto.fhir_original_code) = "BiologicallyDerivedProductDispense",
       (.google.fhir.proto.source_code_system) = "http://hl7.org/fhir/fhir-types"
     ];
     BODY_STRUCTURE = 11 [
@@ -1735,18 +1472,13 @@ message ResourceTypeValueSet {
 // See http://hl7.org/fhir/ValueSet/system-restful-interaction
 message SystemRestfulInteractionValueSet {
   enum Value {
-    option (.google.fhir.proto.enum_valueset_url) =
-        "http://hl7.org/fhir/ValueSet/system-restful-interaction";
+    option (.google.fhir.proto.enum_valueset_url) = "http://hl7.org/fhir/ValueSet/system-restful-interaction";
 
     INVALID_UNINITIALIZED = 0;
-    TRANSACTION = 1 [(.google.fhir.proto.source_code_system) =
-                         "http://hl7.org/fhir/restful-interaction"];
-    BATCH = 2 [(.google.fhir.proto.source_code_system) =
-                   "http://hl7.org/fhir/restful-interaction"];
-    SEARCH_SYSTEM = 3 [(.google.fhir.proto.source_code_system) =
-                           "http://hl7.org/fhir/restful-interaction"];
-    HISTORY_SYSTEM = 4 [(.google.fhir.proto.source_code_system) =
-                            "http://hl7.org/fhir/restful-interaction"];
+    TRANSACTION = 1 [(.google.fhir.proto.source_code_system) = "http://hl7.org/fhir/restful-interaction"];
+    BATCH = 2 [(.google.fhir.proto.source_code_system) = "http://hl7.org/fhir/restful-interaction"];
+    SEARCH_SYSTEM = 3 [(.google.fhir.proto.source_code_system) = "http://hl7.org/fhir/restful-interaction"];
+    HISTORY_SYSTEM = 4 [(.google.fhir.proto.source_code_system) = "http://hl7.org/fhir/restful-interaction"];
   }
 }
 
@@ -1754,28 +1486,18 @@ message SystemRestfulInteractionValueSet {
 // See http://hl7.org/fhir/ValueSet/task-intent
 message TaskIntentValueSet {
   enum Value {
-    option (.google.fhir.proto.enum_valueset_url) =
-        "http://hl7.org/fhir/ValueSet/task-intent";
+    option (.google.fhir.proto.enum_valueset_url) = "http://hl7.org/fhir/ValueSet/task-intent";
 
     INVALID_UNINITIALIZED = 0;
-    UNKNOWN = 1 [(.google.fhir.proto.source_code_system) =
-                     "http://hl7.org/fhir/task-intent"];
-    PROPOSAL = 2 [(.google.fhir.proto.source_code_system) =
-                      "http://hl7.org/fhir/request-intent"];
-    PLAN = 3 [(.google.fhir.proto.source_code_system) =
-                  "http://hl7.org/fhir/request-intent"];
-    ORDER = 4 [(.google.fhir.proto.source_code_system) =
-                   "http://hl7.org/fhir/request-intent"];
-    ORIGINAL_ORDER = 5 [(.google.fhir.proto.source_code_system) =
-                            "http://hl7.org/fhir/request-intent"];
-    REFLEX_ORDER = 6 [(.google.fhir.proto.source_code_system) =
-                          "http://hl7.org/fhir/request-intent"];
-    FILLER_ORDER = 7 [(.google.fhir.proto.source_code_system) =
-                          "http://hl7.org/fhir/request-intent"];
-    INSTANCE_ORDER = 8 [(.google.fhir.proto.source_code_system) =
-                            "http://hl7.org/fhir/request-intent"];
-    OPTION = 9 [(.google.fhir.proto.source_code_system) =
-                    "http://hl7.org/fhir/request-intent"];
+    UNKNOWN = 1 [(.google.fhir.proto.source_code_system) = "http://hl7.org/fhir/task-intent"];
+    PROPOSAL = 2 [(.google.fhir.proto.source_code_system) = "http://hl7.org/fhir/request-intent"];
+    PLAN = 3 [(.google.fhir.proto.source_code_system) = "http://hl7.org/fhir/request-intent"];
+    ORDER = 4 [(.google.fhir.proto.source_code_system) = "http://hl7.org/fhir/request-intent"];
+    ORIGINAL_ORDER = 5 [(.google.fhir.proto.source_code_system) = "http://hl7.org/fhir/request-intent"];
+    REFLEX_ORDER = 6 [(.google.fhir.proto.source_code_system) = "http://hl7.org/fhir/request-intent"];
+    FILLER_ORDER = 7 [(.google.fhir.proto.source_code_system) = "http://hl7.org/fhir/request-intent"];
+    INSTANCE_ORDER = 8 [(.google.fhir.proto.source_code_system) = "http://hl7.org/fhir/request-intent"];
+    OPTION = 9 [(.google.fhir.proto.source_code_system) = "http://hl7.org/fhir/request-intent"];
   }
 }
 
@@ -1783,28 +1505,18 @@ message TaskIntentValueSet {
 // See http://hl7.org/fhir/ValueSet/transport-intent
 message TransportIntentValueSet {
   enum Value {
-    option (.google.fhir.proto.enum_valueset_url) =
-        "http://hl7.org/fhir/ValueSet/transport-intent";
+    option (.google.fhir.proto.enum_valueset_url) = "http://hl7.org/fhir/ValueSet/transport-intent";
 
     INVALID_UNINITIALIZED = 0;
-    UNKNOWN = 1 [(.google.fhir.proto.source_code_system) =
-                     "http://hl7.org/fhir/transport-intent"];
-    PROPOSAL = 2 [(.google.fhir.proto.source_code_system) =
-                      "http://hl7.org/fhir/request-intent"];
-    PLAN = 3 [(.google.fhir.proto.source_code_system) =
-                  "http://hl7.org/fhir/request-intent"];
-    ORDER = 4 [(.google.fhir.proto.source_code_system) =
-                   "http://hl7.org/fhir/request-intent"];
-    ORIGINAL_ORDER = 5 [(.google.fhir.proto.source_code_system) =
-                            "http://hl7.org/fhir/request-intent"];
-    REFLEX_ORDER = 6 [(.google.fhir.proto.source_code_system) =
-                          "http://hl7.org/fhir/request-intent"];
-    FILLER_ORDER = 7 [(.google.fhir.proto.source_code_system) =
-                          "http://hl7.org/fhir/request-intent"];
-    INSTANCE_ORDER = 8 [(.google.fhir.proto.source_code_system) =
-                            "http://hl7.org/fhir/request-intent"];
-    OPTION = 9 [(.google.fhir.proto.source_code_system) =
-                    "http://hl7.org/fhir/request-intent"];
+    UNKNOWN = 1 [(.google.fhir.proto.source_code_system) = "http://hl7.org/fhir/transport-intent"];
+    PROPOSAL = 2 [(.google.fhir.proto.source_code_system) = "http://hl7.org/fhir/request-intent"];
+    PLAN = 3 [(.google.fhir.proto.source_code_system) = "http://hl7.org/fhir/request-intent"];
+    ORDER = 4 [(.google.fhir.proto.source_code_system) = "http://hl7.org/fhir/request-intent"];
+    ORIGINAL_ORDER = 5 [(.google.fhir.proto.source_code_system) = "http://hl7.org/fhir/request-intent"];
+    REFLEX_ORDER = 6 [(.google.fhir.proto.source_code_system) = "http://hl7.org/fhir/request-intent"];
+    FILLER_ORDER = 7 [(.google.fhir.proto.source_code_system) = "http://hl7.org/fhir/request-intent"];
+    INSTANCE_ORDER = 8 [(.google.fhir.proto.source_code_system) = "http://hl7.org/fhir/request-intent"];
+    OPTION = 9 [(.google.fhir.proto.source_code_system) = "http://hl7.org/fhir/request-intent"];
   }
 }
 
@@ -1812,28 +1524,18 @@ message TransportIntentValueSet {
 // See http://hl7.org/fhir/ValueSet/type-restful-interaction
 message TypeRestfulInteractionValueSet {
   enum Value {
-    option (.google.fhir.proto.enum_valueset_url) =
-        "http://hl7.org/fhir/ValueSet/type-restful-interaction";
+    option (.google.fhir.proto.enum_valueset_url) = "http://hl7.org/fhir/ValueSet/type-restful-interaction";
 
     INVALID_UNINITIALIZED = 0;
-    READ = 1 [(.google.fhir.proto.source_code_system) =
-                  "http://hl7.org/fhir/restful-interaction"];
-    VREAD = 2 [(.google.fhir.proto.source_code_system) =
-                   "http://hl7.org/fhir/restful-interaction"];
-    UPDATE = 3 [(.google.fhir.proto.source_code_system) =
-                    "http://hl7.org/fhir/restful-interaction"];
-    PATCH = 4 [(.google.fhir.proto.source_code_system) =
-                   "http://hl7.org/fhir/restful-interaction"];
-    DELETE = 5 [(.google.fhir.proto.source_code_system) =
-                    "http://hl7.org/fhir/restful-interaction"];
-    HISTORY_INSTANCE = 6 [(.google.fhir.proto.source_code_system) =
-                              "http://hl7.org/fhir/restful-interaction"];
-    HISTORY_TYPE = 7 [(.google.fhir.proto.source_code_system) =
-                          "http://hl7.org/fhir/restful-interaction"];
-    CREATE = 8 [(.google.fhir.proto.source_code_system) =
-                    "http://hl7.org/fhir/restful-interaction"];
-    SEARCH_TYPE = 9 [(.google.fhir.proto.source_code_system) =
-                         "http://hl7.org/fhir/restful-interaction"];
+    READ = 1 [(.google.fhir.proto.source_code_system) = "http://hl7.org/fhir/restful-interaction"];
+    VREAD = 2 [(.google.fhir.proto.source_code_system) = "http://hl7.org/fhir/restful-interaction"];
+    UPDATE = 3 [(.google.fhir.proto.source_code_system) = "http://hl7.org/fhir/restful-interaction"];
+    PATCH = 4 [(.google.fhir.proto.source_code_system) = "http://hl7.org/fhir/restful-interaction"];
+    DELETE = 5 [(.google.fhir.proto.source_code_system) = "http://hl7.org/fhir/restful-interaction"];
+    HISTORY_INSTANCE = 6 [(.google.fhir.proto.source_code_system) = "http://hl7.org/fhir/restful-interaction"];
+    HISTORY_TYPE = 7 [(.google.fhir.proto.source_code_system) = "http://hl7.org/fhir/restful-interaction"];
+    CREATE = 8 [(.google.fhir.proto.source_code_system) = "http://hl7.org/fhir/restful-interaction"];
+    SEARCH_TYPE = 9 [(.google.fhir.proto.source_code_system) = "http://hl7.org/fhir/restful-interaction"];
   }
 }
 
@@ -1841,24 +1543,16 @@ message TypeRestfulInteractionValueSet {
 // See http://hl7.org/fhir/ValueSet/units-of-time
 message UnitsOfTimeValueSet {
   enum Value {
-    option (.google.fhir.proto.enum_valueset_url) =
-        "http://hl7.org/fhir/ValueSet/units-of-time";
+    option (.google.fhir.proto.enum_valueset_url) = "http://hl7.org/fhir/ValueSet/units-of-time";
 
     INVALID_UNINITIALIZED = 0;
-    S = 1
-        [(.google.fhir.proto.source_code_system) = "http://unitsofmeasure.org"];
-    MIN = 2
-        [(.google.fhir.proto.source_code_system) = "http://unitsofmeasure.org"];
-    H = 3
-        [(.google.fhir.proto.source_code_system) = "http://unitsofmeasure.org"];
-    D = 4
-        [(.google.fhir.proto.source_code_system) = "http://unitsofmeasure.org"];
-    WK = 5
-        [(.google.fhir.proto.source_code_system) = "http://unitsofmeasure.org"];
-    MO = 6
-        [(.google.fhir.proto.source_code_system) = "http://unitsofmeasure.org"];
-    A = 7
-        [(.google.fhir.proto.source_code_system) = "http://unitsofmeasure.org"];
+    S = 1 [(.google.fhir.proto.source_code_system) = "http://unitsofmeasure.org"];
+    MIN = 2 [(.google.fhir.proto.source_code_system) = "http://unitsofmeasure.org"];
+    H = 3 [(.google.fhir.proto.source_code_system) = "http://unitsofmeasure.org"];
+    D = 4 [(.google.fhir.proto.source_code_system) = "http://unitsofmeasure.org"];
+    WK = 5 [(.google.fhir.proto.source_code_system) = "http://unitsofmeasure.org"];
+    MO = 6 [(.google.fhir.proto.source_code_system) = "http://unitsofmeasure.org"];
+    A = 7 [(.google.fhir.proto.source_code_system) = "http://unitsofmeasure.org"];
   }
 }
 
@@ -1866,24 +1560,16 @@ message UnitsOfTimeValueSet {
 // See http://hl7.org/fhir/ValueSet/value-filter-comparator
 message ValueFilterComparatorValueSet {
   enum Value {
-    option (.google.fhir.proto.enum_valueset_url) =
-        "http://hl7.org/fhir/ValueSet/value-filter-comparator";
+    option (.google.fhir.proto.enum_valueset_url) = "http://hl7.org/fhir/ValueSet/value-filter-comparator";
 
     INVALID_UNINITIALIZED = 0;
-    EQ = 1 [(.google.fhir.proto.source_code_system) =
-                "http://hl7.org/fhir/search-comparator"];
-    GT = 2 [(.google.fhir.proto.source_code_system) =
-                "http://hl7.org/fhir/search-comparator"];
-    LT = 3 [(.google.fhir.proto.source_code_system) =
-                "http://hl7.org/fhir/search-comparator"];
-    GE = 4 [(.google.fhir.proto.source_code_system) =
-                "http://hl7.org/fhir/search-comparator"];
-    LE = 5 [(.google.fhir.proto.source_code_system) =
-                "http://hl7.org/fhir/search-comparator"];
-    SA = 6 [(.google.fhir.proto.source_code_system) =
-                "http://hl7.org/fhir/search-comparator"];
-    EB = 7 [(.google.fhir.proto.source_code_system) =
-                "http://hl7.org/fhir/search-comparator"];
+    EQ = 1 [(.google.fhir.proto.source_code_system) = "http://hl7.org/fhir/search-comparator"];
+    GT = 2 [(.google.fhir.proto.source_code_system) = "http://hl7.org/fhir/search-comparator"];
+    LT = 3 [(.google.fhir.proto.source_code_system) = "http://hl7.org/fhir/search-comparator"];
+    GE = 4 [(.google.fhir.proto.source_code_system) = "http://hl7.org/fhir/search-comparator"];
+    LE = 5 [(.google.fhir.proto.source_code_system) = "http://hl7.org/fhir/search-comparator"];
+    SA = 6 [(.google.fhir.proto.source_code_system) = "http://hl7.org/fhir/search-comparator"];
+    EB = 7 [(.google.fhir.proto.source_code_system) = "http://hl7.org/fhir/search-comparator"];
   }
 }
 
@@ -1891,8 +1577,7 @@ message ValueFilterComparatorValueSet {
 // types See http://hl7.org/fhir/ValueSet/version-independent-all-resource-types
 message VersionIndependentResourceTypesAllValueSet {
   enum Value {
-    option (.google.fhir.proto.enum_valueset_url) =
-        "http://hl7.org/fhir/ValueSet/version-independent-all-resource-types";
+    option (.google.fhir.proto.enum_valueset_url) = "http://hl7.org/fhir/ValueSet/version-independent-all-resource-types";
 
     INVALID_UNINITIALIZED = 0;
     ACCOUNT = 1 [
@@ -1908,8 +1593,7 @@ message VersionIndependentResourceTypesAllValueSet {
       (.google.fhir.proto.source_code_system) = "http://hl7.org/fhir/fhir-types"
     ];
     ADMINISTRABLE_PRODUCT_DEFINITION = 4 [
-      (.google.fhir.proto.fhir_original_code) =
-          "AdministrableProductDefinition",
+      (.google.fhir.proto.fhir_original_code) = "AdministrableProductDefinition",
       (.google.fhir.proto.source_code_system) = "http://hl7.org/fhir/fhir-types"
     ];
     ADVERSE_EVENT = 5 [
@@ -1949,8 +1633,7 @@ message VersionIndependentResourceTypesAllValueSet {
       (.google.fhir.proto.source_code_system) = "http://hl7.org/fhir/fhir-types"
     ];
     BIOLOGICALLY_DERIVED_PRODUCT_DISPENSE = 14 [
-      (.google.fhir.proto.fhir_original_code) =
-          "BiologicallyDerivedProductDispense",
+      (.google.fhir.proto.fhir_original_code) = "BiologicallyDerivedProductDispense",
       (.google.fhir.proto.source_code_system) = "http://hl7.org/fhir/fhir-types"
     ];
     BODY_STRUCTURE = 15 [
@@ -2547,211 +2230,167 @@ message VersionIndependentResourceTypesAllValueSet {
     ];
     BODY_SITE = 163 [
       (.google.fhir.proto.fhir_original_code) = "BodySite",
-      (.google.fhir.proto.source_code_system) =
-          "http://hl7.org/fhir/fhir-old-types"
+      (.google.fhir.proto.source_code_system) = "http://hl7.org/fhir/fhir-old-types"
     ];
     CATALOG_ENTRY = 164 [
       (.google.fhir.proto.fhir_original_code) = "CatalogEntry",
-      (.google.fhir.proto.source_code_system) =
-          "http://hl7.org/fhir/fhir-old-types"
+      (.google.fhir.proto.source_code_system) = "http://hl7.org/fhir/fhir-old-types"
     ];
     CONFORMANCE = 165 [
       (.google.fhir.proto.fhir_original_code) = "Conformance",
-      (.google.fhir.proto.source_code_system) =
-          "http://hl7.org/fhir/fhir-old-types"
+      (.google.fhir.proto.source_code_system) = "http://hl7.org/fhir/fhir-old-types"
     ];
     DATA_ELEMENT = 166 [
       (.google.fhir.proto.fhir_original_code) = "DataElement",
-      (.google.fhir.proto.source_code_system) =
-          "http://hl7.org/fhir/fhir-old-types"
+      (.google.fhir.proto.source_code_system) = "http://hl7.org/fhir/fhir-old-types"
     ];
     DEVICE_COMPONENT = 167 [
       (.google.fhir.proto.fhir_original_code) = "DeviceComponent",
-      (.google.fhir.proto.source_code_system) =
-          "http://hl7.org/fhir/fhir-old-types"
+      (.google.fhir.proto.source_code_system) = "http://hl7.org/fhir/fhir-old-types"
     ];
     DEVICE_USE_REQUEST = 168 [
       (.google.fhir.proto.fhir_original_code) = "DeviceUseRequest",
-      (.google.fhir.proto.source_code_system) =
-          "http://hl7.org/fhir/fhir-old-types"
+      (.google.fhir.proto.source_code_system) = "http://hl7.org/fhir/fhir-old-types"
     ];
     DEVICE_USE_STATEMENT = 169 [
       (.google.fhir.proto.fhir_original_code) = "DeviceUseStatement",
-      (.google.fhir.proto.source_code_system) =
-          "http://hl7.org/fhir/fhir-old-types"
+      (.google.fhir.proto.source_code_system) = "http://hl7.org/fhir/fhir-old-types"
     ];
     DIAGNOSTIC_ORDER = 170 [
       (.google.fhir.proto.fhir_original_code) = "DiagnosticOrder",
-      (.google.fhir.proto.source_code_system) =
-          "http://hl7.org/fhir/fhir-old-types"
+      (.google.fhir.proto.source_code_system) = "http://hl7.org/fhir/fhir-old-types"
     ];
     DOCUMENT_MANIFEST = 171 [
       (.google.fhir.proto.fhir_original_code) = "DocumentManifest",
-      (.google.fhir.proto.source_code_system) =
-          "http://hl7.org/fhir/fhir-old-types"
+      (.google.fhir.proto.source_code_system) = "http://hl7.org/fhir/fhir-old-types"
     ];
     EFFECT_EVIDENCE_SYNTHESIS = 172 [
       (.google.fhir.proto.fhir_original_code) = "EffectEvidenceSynthesis",
-      (.google.fhir.proto.source_code_system) =
-          "http://hl7.org/fhir/fhir-old-types"
+      (.google.fhir.proto.source_code_system) = "http://hl7.org/fhir/fhir-old-types"
     ];
     ELIGIBILITY_REQUEST = 173 [
       (.google.fhir.proto.fhir_original_code) = "EligibilityRequest",
-      (.google.fhir.proto.source_code_system) =
-          "http://hl7.org/fhir/fhir-old-types"
+      (.google.fhir.proto.source_code_system) = "http://hl7.org/fhir/fhir-old-types"
     ];
     ELIGIBILITY_RESPONSE = 174 [
       (.google.fhir.proto.fhir_original_code) = "EligibilityResponse",
-      (.google.fhir.proto.source_code_system) =
-          "http://hl7.org/fhir/fhir-old-types"
+      (.google.fhir.proto.source_code_system) = "http://hl7.org/fhir/fhir-old-types"
     ];
     EXPANSION_PROFILE = 175 [
       (.google.fhir.proto.fhir_original_code) = "ExpansionProfile",
-      (.google.fhir.proto.source_code_system) =
-          "http://hl7.org/fhir/fhir-old-types"
+      (.google.fhir.proto.source_code_system) = "http://hl7.org/fhir/fhir-old-types"
     ];
     IMAGING_MANIFEST = 176 [
       (.google.fhir.proto.fhir_original_code) = "ImagingManifest",
-      (.google.fhir.proto.source_code_system) =
-          "http://hl7.org/fhir/fhir-old-types"
+      (.google.fhir.proto.source_code_system) = "http://hl7.org/fhir/fhir-old-types"
     ];
     IMAGING_OBJECT_SELECTION = 177 [
       (.google.fhir.proto.fhir_original_code) = "ImagingObjectSelection",
-      (.google.fhir.proto.source_code_system) =
-          "http://hl7.org/fhir/fhir-old-types"
+      (.google.fhir.proto.source_code_system) = "http://hl7.org/fhir/fhir-old-types"
     ];
     MEDIA = 178 [
       (.google.fhir.proto.fhir_original_code) = "Media",
-      (.google.fhir.proto.source_code_system) =
-          "http://hl7.org/fhir/fhir-old-types"
+      (.google.fhir.proto.source_code_system) = "http://hl7.org/fhir/fhir-old-types"
     ];
     MEDICATION_ORDER = 179 [
       (.google.fhir.proto.fhir_original_code) = "MedicationOrder",
-      (.google.fhir.proto.source_code_system) =
-          "http://hl7.org/fhir/fhir-old-types"
+      (.google.fhir.proto.source_code_system) = "http://hl7.org/fhir/fhir-old-types"
     ];
     MEDICATION_USAGE = 180 [
       (.google.fhir.proto.fhir_original_code) = "MedicationUsage",
-      (.google.fhir.proto.source_code_system) =
-          "http://hl7.org/fhir/fhir-old-types"
+      (.google.fhir.proto.source_code_system) = "http://hl7.org/fhir/fhir-old-types"
     ];
     MEDICINAL_PRODUCT = 181 [
       (.google.fhir.proto.fhir_original_code) = "MedicinalProduct",
-      (.google.fhir.proto.source_code_system) =
-          "http://hl7.org/fhir/fhir-old-types"
+      (.google.fhir.proto.source_code_system) = "http://hl7.org/fhir/fhir-old-types"
     ];
     MEDICINAL_PRODUCT_AUTHORIZATION = 182 [
       (.google.fhir.proto.fhir_original_code) = "MedicinalProductAuthorization",
-      (.google.fhir.proto.source_code_system) =
-          "http://hl7.org/fhir/fhir-old-types"
+      (.google.fhir.proto.source_code_system) = "http://hl7.org/fhir/fhir-old-types"
     ];
     MEDICINAL_PRODUCT_CONTRAINDICATION = 183 [
-      (.google.fhir.proto.fhir_original_code) =
-          "MedicinalProductContraindication",
-      (.google.fhir.proto.source_code_system) =
-          "http://hl7.org/fhir/fhir-old-types"
+      (.google.fhir.proto.fhir_original_code) = "MedicinalProductContraindication",
+      (.google.fhir.proto.source_code_system) = "http://hl7.org/fhir/fhir-old-types"
     ];
     MEDICINAL_PRODUCT_INDICATION = 184 [
       (.google.fhir.proto.fhir_original_code) = "MedicinalProductIndication",
-      (.google.fhir.proto.source_code_system) =
-          "http://hl7.org/fhir/fhir-old-types"
+      (.google.fhir.proto.source_code_system) = "http://hl7.org/fhir/fhir-old-types"
     ];
     MEDICINAL_PRODUCT_INGREDIENT = 185 [
       (.google.fhir.proto.fhir_original_code) = "MedicinalProductIngredient",
-      (.google.fhir.proto.source_code_system) =
-          "http://hl7.org/fhir/fhir-old-types"
+      (.google.fhir.proto.source_code_system) = "http://hl7.org/fhir/fhir-old-types"
     ];
     MEDICINAL_PRODUCT_INTERACTION = 186 [
       (.google.fhir.proto.fhir_original_code) = "MedicinalProductInteraction",
-      (.google.fhir.proto.source_code_system) =
-          "http://hl7.org/fhir/fhir-old-types"
+      (.google.fhir.proto.source_code_system) = "http://hl7.org/fhir/fhir-old-types"
     ];
     MEDICINAL_PRODUCT_MANUFACTURED = 187 [
       (.google.fhir.proto.fhir_original_code) = "MedicinalProductManufactured",
-      (.google.fhir.proto.source_code_system) =
-          "http://hl7.org/fhir/fhir-old-types"
+      (.google.fhir.proto.source_code_system) = "http://hl7.org/fhir/fhir-old-types"
     ];
     MEDICINAL_PRODUCT_PACKAGED = 188 [
       (.google.fhir.proto.fhir_original_code) = "MedicinalProductPackaged",
-      (.google.fhir.proto.source_code_system) =
-          "http://hl7.org/fhir/fhir-old-types"
+      (.google.fhir.proto.source_code_system) = "http://hl7.org/fhir/fhir-old-types"
     ];
     MEDICINAL_PRODUCT_PHARMACEUTICAL = 189 [
-      (.google.fhir.proto.fhir_original_code) =
-          "MedicinalProductPharmaceutical",
-      (.google.fhir.proto.source_code_system) =
-          "http://hl7.org/fhir/fhir-old-types"
+      (.google.fhir.proto.fhir_original_code) = "MedicinalProductPharmaceutical",
+      (.google.fhir.proto.source_code_system) = "http://hl7.org/fhir/fhir-old-types"
     ];
     MEDICINAL_PRODUCT_UNDESIRABLE_EFFECT = 190 [
-      (.google.fhir.proto.fhir_original_code) =
-          "MedicinalProductUndesirableEffect",
-      (.google.fhir.proto.source_code_system) =
-          "http://hl7.org/fhir/fhir-old-types"
+      (.google.fhir.proto.fhir_original_code) = "MedicinalProductUndesirableEffect",
+      (.google.fhir.proto.source_code_system) = "http://hl7.org/fhir/fhir-old-types"
     ];
     ORDER = 191 [
       (.google.fhir.proto.fhir_original_code) = "Order",
-      (.google.fhir.proto.source_code_system) =
-          "http://hl7.org/fhir/fhir-old-types"
+      (.google.fhir.proto.source_code_system) = "http://hl7.org/fhir/fhir-old-types"
     ];
     ORDER_RESPONSE = 192 [
       (.google.fhir.proto.fhir_original_code) = "OrderResponse",
-      (.google.fhir.proto.source_code_system) =
-          "http://hl7.org/fhir/fhir-old-types"
+      (.google.fhir.proto.source_code_system) = "http://hl7.org/fhir/fhir-old-types"
     ];
     PROCEDURE_REQUEST = 193 [
       (.google.fhir.proto.fhir_original_code) = "ProcedureRequest",
-      (.google.fhir.proto.source_code_system) =
-          "http://hl7.org/fhir/fhir-old-types"
+      (.google.fhir.proto.source_code_system) = "http://hl7.org/fhir/fhir-old-types"
     ];
     PROCESS_REQUEST = 194 [
       (.google.fhir.proto.fhir_original_code) = "ProcessRequest",
-      (.google.fhir.proto.source_code_system) =
-          "http://hl7.org/fhir/fhir-old-types"
+      (.google.fhir.proto.source_code_system) = "http://hl7.org/fhir/fhir-old-types"
     ];
     PROCESS_RESPONSE = 195 [
       (.google.fhir.proto.fhir_original_code) = "ProcessResponse",
-      (.google.fhir.proto.source_code_system) =
-          "http://hl7.org/fhir/fhir-old-types"
+      (.google.fhir.proto.source_code_system) = "http://hl7.org/fhir/fhir-old-types"
     ];
     REFERRAL_REQUEST = 196 [
       (.google.fhir.proto.fhir_original_code) = "ReferralRequest",
-      (.google.fhir.proto.source_code_system) =
-          "http://hl7.org/fhir/fhir-old-types"
+      (.google.fhir.proto.source_code_system) = "http://hl7.org/fhir/fhir-old-types"
     ];
     REQUEST_GROUP = 197 [
       (.google.fhir.proto.fhir_original_code) = "RequestGroup",
-      (.google.fhir.proto.source_code_system) =
-          "http://hl7.org/fhir/fhir-old-types"
+      (.google.fhir.proto.source_code_system) = "http://hl7.org/fhir/fhir-old-types"
     ];
     RESEARCH_DEFINITION = 198 [
       (.google.fhir.proto.fhir_original_code) = "ResearchDefinition",
-      (.google.fhir.proto.source_code_system) =
-          "http://hl7.org/fhir/fhir-old-types"
+      (.google.fhir.proto.source_code_system) = "http://hl7.org/fhir/fhir-old-types"
     ];
     RESEARCH_ELEMENT_DEFINITION = 199 [
       (.google.fhir.proto.fhir_original_code) = "ResearchElementDefinition",
-      (.google.fhir.proto.source_code_system) =
-          "http://hl7.org/fhir/fhir-old-types"
+      (.google.fhir.proto.source_code_system) = "http://hl7.org/fhir/fhir-old-types"
     ];
     RISK_EVIDENCE_SYNTHESIS = 200 [
       (.google.fhir.proto.fhir_original_code) = "RiskEvidenceSynthesis",
-      (.google.fhir.proto.source_code_system) =
-          "http://hl7.org/fhir/fhir-old-types"
+      (.google.fhir.proto.source_code_system) = "http://hl7.org/fhir/fhir-old-types"
     ];
     SEQUENCE = 201 [
       (.google.fhir.proto.fhir_original_code) = "Sequence",
-      (.google.fhir.proto.source_code_system) =
-          "http://hl7.org/fhir/fhir-old-types"
+      (.google.fhir.proto.source_code_system) = "http://hl7.org/fhir/fhir-old-types"
     ];
     SERVICE_DEFINITION = 202 [
       (.google.fhir.proto.fhir_original_code) = "ServiceDefinition",
-      (.google.fhir.proto.source_code_system) =
-          "http://hl7.org/fhir/fhir-old-types"
+      (.google.fhir.proto.source_code_system) = "http://hl7.org/fhir/fhir-old-types"
     ];
     SUBSTANCE_SPECIFICATION = 203 [
       (.google.fhir.proto.fhir_original_code) = "SubstanceSpecification",
-      (.google.fhir.proto.source_code_system) =
-          "http://hl7.org/fhir/fhir-old-types"
+      (.google.fhir.proto.source_code_system) = "http://hl7.org/fhir/fhir-old-types"
     ];
   }
 }
@@ -2760,24 +2399,20 @@ message VersionIndependentResourceTypesAllValueSet {
 // See http://hl7.org/fhir/ValueSet/ucum-vitals-common
 message VitalSignsUnitsValueSet {
   enum Value {
-    option (.google.fhir.proto.enum_valueset_url) =
-        "http://hl7.org/fhir/ValueSet/ucum-vitals-common";
+    option (.google.fhir.proto.enum_valueset_url) = "http://hl7.org/fhir/ValueSet/ucum-vitals-common";
 
     INVALID_UNINITIALIZED = 0;
     PERCENT = 1 [
       (.google.fhir.proto.fhir_original_code) = "%",
       (.google.fhir.proto.source_code_system) = "http://unitsofmeasure.org"
     ];
-    CM = 2
-        [(.google.fhir.proto.source_code_system) = "http://unitsofmeasure.org"];
+    CM = 2 [(.google.fhir.proto.source_code_system) = "http://unitsofmeasure.org"];
     IN_I = 3 [
       (.google.fhir.proto.fhir_original_code) = "[in_i]",
       (.google.fhir.proto.source_code_system) = "http://unitsofmeasure.org"
     ];
-    KG = 4
-        [(.google.fhir.proto.source_code_system) = "http://unitsofmeasure.org"];
-    G = 5
-        [(.google.fhir.proto.source_code_system) = "http://unitsofmeasure.org"];
+    KG = 4 [(.google.fhir.proto.source_code_system) = "http://unitsofmeasure.org"];
+    G = 5 [(.google.fhir.proto.source_code_system) = "http://unitsofmeasure.org"];
     LB_AV = 6 [
       (.google.fhir.proto.fhir_original_code) = "[lb_av]",
       (.google.fhir.proto.source_code_system) = "http://unitsofmeasure.org"
@@ -2802,7 +2437,6 @@ message VitalSignsUnitsValueSet {
       (.google.fhir.proto.fhir_original_code) = "kg/m2",
       (.google.fhir.proto.source_code_system) = "http://unitsofmeasure.org"
     ];
-    M2 = 12
-        [(.google.fhir.proto.source_code_system) = "http://unitsofmeasure.org"];
+    M2 = 12 [(.google.fhir.proto.source_code_system) = "http://unitsofmeasure.org"];
   }
 }

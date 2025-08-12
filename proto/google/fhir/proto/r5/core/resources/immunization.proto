@@ -21,18 +21,17 @@ import "proto/google/fhir/proto/annotations.proto";
 import "proto/google/fhir/proto/r5/core/datatypes.proto";
 import "proto/google/fhir/proto/r5/core/valuesets.proto";
 
+option go_package = "github.com/google/fhir/go/proto/google/fhir/proto/r5/core/resources/immunization_go_proto";
 option java_multiple_files = true;
 option java_package = "com.google.fhir.r5.core";
 option (.google.fhir.proto.fhir_version) = R5;
-option go_package = "github.com/google/fhir/go/proto/google/fhir/proto/r5/core/resources/immunization_go_proto";
 
 // Auto-generated from StructureDefinition for Immunization.
 // Immunization event information.
 // See http://hl7.org/fhir/StructureDefinition/Immunization
 message Immunization {
   option (.google.fhir.proto.structure_definition_kind) = KIND_RESOURCE;
-  option (.google.fhir.proto.fhir_structure_definition_url) =
-      "http://hl7.org/fhir/StructureDefinition/Immunization";
+  option (.google.fhir.proto.fhir_structure_definition_url) = "http://hl7.org/fhir/StructureDefinition/Immunization";
 
   // Logical id of this artifact
   Id id = 1;
@@ -76,10 +75,8 @@ message Immunization {
   // completed | entered-in-error | not-done
   message StatusCode {
     option (.google.fhir.proto.structure_definition_kind) = KIND_PRIMITIVE_TYPE;
-    option (.google.fhir.proto.fhir_valueset_url) =
-        "http://hl7.org/fhir/ValueSet/immunization-status";
-    option (.google.fhir.proto.fhir_profile_base) =
-        "http://hl7.org/fhir/StructureDefinition/code";
+    option (.google.fhir.proto.fhir_valueset_url) = "http://hl7.org/fhir/ValueSet/immunization-status";
+    option (.google.fhir.proto.fhir_profile_base) = "http://hl7.org/fhir/StructureDefinition/code";
 
     ImmunizationStatusCodesValueSet.Value value = 1;
 
@@ -87,15 +84,13 @@ message Immunization {
 
     repeated Extension extension = 3;
   }
-  StatusCode status = 11
-      [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
+  StatusCode status = 11 [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
 
   // Reason for current status
   CodeableConcept status_reason = 12;
 
   // Vaccine administered
-  CodeableConcept vaccine_code = 13
-      [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
+  CodeableConcept vaccine_code = 13 [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
 
   // Product that was administered
   CodeableReference administered_product = 39;
@@ -116,12 +111,10 @@ message Immunization {
   ];
 
   // Encounter immunization was part of
-  Reference encounter = 15
-      [(.google.fhir.proto.valid_reference_type) = "Encounter"];
+  Reference encounter = 15 [(.google.fhir.proto.valid_reference_type) = "Encounter"];
 
   // Additional information in support of the immunization
-  repeated Reference supporting_information = 41
-      [(.google.fhir.proto.valid_reference_type) = "Resource"];
+  repeated Reference supporting_information = 41 [(.google.fhir.proto.valid_reference_type) = "Resource"];
 
   // Vaccine administration date
   message OccurrenceX {
@@ -132,8 +125,7 @@ message Immunization {
       String string_value = 2 [json_name = "string"];
     }
   }
-  OccurrenceX occurrence = 16
-      [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
+  OccurrenceX occurrence = 16 [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
 
   // Indicates context the data was captured in
   Boolean primary_source = 18;
@@ -142,8 +134,7 @@ message Immunization {
   CodeableReference information_source = 42;
 
   // Where immunization occurred
-  Reference location = 20
-      [(.google.fhir.proto.valid_reference_type) = "Location"];
+  Reference location = 20 [(.google.fhir.proto.valid_reference_type) = "Location"];
 
   // Body site vaccine  was administered
   CodeableConcept site = 24;
@@ -204,12 +195,10 @@ message Immunization {
     repeated Extension modifier_extension = 3;
 
     // The program that eligibility is declared for
-    CodeableConcept program = 4
-        [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
+    CodeableConcept program = 4 [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
 
     // The patient's eligibility status for the program
-    CodeableConcept program_status = 5
-        [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
+    CodeableConcept program_status = 5 [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
   }
   repeated ProgramEligibility program_eligibility = 44;
 
@@ -253,15 +242,13 @@ message Immunization {
     String series = 4;
 
     // Who is responsible for publishing the recommendations
-    Reference authority = 5
-        [(.google.fhir.proto.valid_reference_type) = "Organization"];
+    Reference authority = 5 [(.google.fhir.proto.valid_reference_type) = "Organization"];
 
     // Vaccine preventatable disease being targeted
     repeated CodeableConcept target_disease = 6;
 
     // Dose number within series
-    String dose_number = 9
-        [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
+    String dose_number = 9 [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
 
     // Recommended number of doses for immunity
     String series_doses = 10;

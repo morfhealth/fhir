@@ -21,18 +21,17 @@ import "proto/google/fhir/proto/annotations.proto";
 import "proto/google/fhir/proto/r5/core/codes.proto";
 import "proto/google/fhir/proto/r5/core/datatypes.proto";
 
+option go_package = "github.com/google/fhir/go/proto/google/fhir/proto/r5/core/resources/allergy_intolerance_go_proto";
 option java_multiple_files = true;
 option java_package = "com.google.fhir.r5.core";
 option (.google.fhir.proto.fhir_version) = R5;
-option go_package = "github.com/google/fhir/go/proto/google/fhir/proto/r5/core/resources/allergy_intolerance_go_proto";
 
 // Auto-generated from StructureDefinition for AllergyIntolerance.
 // Allergy or Intolerance (generally: Risk of adverse reaction to a substance).
 // See http://hl7.org/fhir/StructureDefinition/AllergyIntolerance
 message AllergyIntolerance {
   option (.google.fhir.proto.structure_definition_kind) = KIND_RESOURCE;
-  option (.google.fhir.proto.fhir_structure_definition_url) =
-      "http://hl7.org/fhir/StructureDefinition/AllergyIntolerance";
+  option (.google.fhir.proto.fhir_structure_definition_url) = "http://hl7.org/fhir/StructureDefinition/AllergyIntolerance";
 
   // Logical id of this artifact
   Id id = 1;
@@ -77,10 +76,8 @@ message AllergyIntolerance {
   // food | medication | environment | biologic
   message CategoryCode {
     option (.google.fhir.proto.structure_definition_kind) = KIND_PRIMITIVE_TYPE;
-    option (.google.fhir.proto.fhir_valueset_url) =
-        "http://hl7.org/fhir/ValueSet/allergy-intolerance-category";
-    option (.google.fhir.proto.fhir_profile_base) =
-        "http://hl7.org/fhir/StructureDefinition/code";
+    option (.google.fhir.proto.fhir_valueset_url) = "http://hl7.org/fhir/ValueSet/allergy-intolerance-category";
+    option (.google.fhir.proto.fhir_profile_base) = "http://hl7.org/fhir/StructureDefinition/code";
 
     AllergyIntoleranceCategoryCode.Value value = 1;
 
@@ -93,10 +90,8 @@ message AllergyIntolerance {
   // low | high | unable-to-assess
   message CriticalityCode {
     option (.google.fhir.proto.structure_definition_kind) = KIND_PRIMITIVE_TYPE;
-    option (.google.fhir.proto.fhir_valueset_url) =
-        "http://hl7.org/fhir/ValueSet/allergy-intolerance-criticality";
-    option (.google.fhir.proto.fhir_profile_base) =
-        "http://hl7.org/fhir/StructureDefinition/code";
+    option (.google.fhir.proto.fhir_valueset_url) = "http://hl7.org/fhir/ValueSet/allergy-intolerance-criticality";
+    option (.google.fhir.proto.fhir_profile_base) = "http://hl7.org/fhir/StructureDefinition/code";
 
     AllergyIntoleranceCriticalityCode.Value value = 1;
 
@@ -116,8 +111,7 @@ message AllergyIntolerance {
   ];
 
   // Encounter when the allergy or intolerance was asserted
-  Reference encounter = 18
-      [(.google.fhir.proto.valid_reference_type) = "Encounter"];
+  Reference encounter = 18 [(.google.fhir.proto.valid_reference_type) = "Encounter"];
 
   // When allergy or intolerance was identified
   message OnsetX {
@@ -188,8 +182,7 @@ message AllergyIntolerance {
     CodeableConcept substance = 4;
 
     // Clinical symptoms/signs associated with the Event
-    repeated CodeableReference manifestation = 11
-        [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
+    repeated CodeableReference manifestation = 11 [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
 
     // Description of the event as a whole
     String description = 6;
@@ -199,12 +192,9 @@ message AllergyIntolerance {
 
     // mild | moderate | severe (of event as a whole)
     message SeverityCode {
-      option (.google.fhir.proto.structure_definition_kind) =
-          KIND_PRIMITIVE_TYPE;
-      option (.google.fhir.proto.fhir_valueset_url) =
-          "http://hl7.org/fhir/ValueSet/reaction-event-severity";
-      option (.google.fhir.proto.fhir_profile_base) =
-          "http://hl7.org/fhir/StructureDefinition/code";
+      option (.google.fhir.proto.structure_definition_kind) = KIND_PRIMITIVE_TYPE;
+      option (.google.fhir.proto.fhir_valueset_url) = "http://hl7.org/fhir/ValueSet/reaction-event-severity";
+      option (.google.fhir.proto.fhir_profile_base) = "http://hl7.org/fhir/StructureDefinition/code";
 
       AllergyIntoleranceSeverityCode.Value value = 1;
 

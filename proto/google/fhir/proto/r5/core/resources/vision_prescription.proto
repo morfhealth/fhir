@@ -21,18 +21,17 @@ import "proto/google/fhir/proto/annotations.proto";
 import "proto/google/fhir/proto/r5/core/codes.proto";
 import "proto/google/fhir/proto/r5/core/datatypes.proto";
 
+option go_package = "github.com/google/fhir/go/proto/google/fhir/proto/r5/core/resources/vision_prescription_go_proto";
 option java_multiple_files = true;
 option java_package = "com.google.fhir.r5.core";
 option (.google.fhir.proto.fhir_version) = R5;
-option go_package = "github.com/google/fhir/go/proto/google/fhir/proto/r5/core/resources/vision_prescription_go_proto";
 
 // Auto-generated from StructureDefinition for VisionPrescription.
 // Prescription for vision correction products for a patient.
 // See http://hl7.org/fhir/StructureDefinition/VisionPrescription
 message VisionPrescription {
   option (.google.fhir.proto.structure_definition_kind) = KIND_RESOURCE;
-  option (.google.fhir.proto.fhir_structure_definition_url) =
-      "http://hl7.org/fhir/StructureDefinition/VisionPrescription";
+  option (.google.fhir.proto.fhir_structure_definition_url) = "http://hl7.org/fhir/StructureDefinition/VisionPrescription";
 
   // Logical id of this artifact
   Id id = 1;
@@ -68,10 +67,8 @@ message VisionPrescription {
   // active | cancelled | draft | entered-in-error
   message StatusCode {
     option (.google.fhir.proto.structure_definition_kind) = KIND_PRIMITIVE_TYPE;
-    option (.google.fhir.proto.fhir_valueset_url) =
-        "http://hl7.org/fhir/ValueSet/fm-status";
-    option (.google.fhir.proto.fhir_profile_base) =
-        "http://hl7.org/fhir/StructureDefinition/code";
+    option (.google.fhir.proto.fhir_valueset_url) = "http://hl7.org/fhir/ValueSet/fm-status";
+    option (.google.fhir.proto.fhir_profile_base) = "http://hl7.org/fhir/StructureDefinition/code";
 
     FinancialResourceStatusCode.Value value = 1;
 
@@ -79,12 +76,10 @@ message VisionPrescription {
 
     repeated Extension extension = 3;
   }
-  StatusCode status = 11
-      [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
+  StatusCode status = 11 [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
 
   // Response creation date
-  DateTime created = 12
-      [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
+  DateTime created = 12 [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
 
   // Who prescription is for
   Reference patient = 13 [
@@ -93,12 +88,10 @@ message VisionPrescription {
   ];
 
   // Created during encounter / admission / stay
-  Reference encounter = 14
-      [(.google.fhir.proto.valid_reference_type) = "Encounter"];
+  Reference encounter = 14 [(.google.fhir.proto.valid_reference_type) = "Encounter"];
 
   // When prescription was authorized
-  DateTime date_written = 15
-      [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
+  DateTime date_written = 15 [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
 
   // Who authorized the vision prescription
   Reference prescriber = 16 [
@@ -119,17 +112,13 @@ message VisionPrescription {
     repeated Extension modifier_extension = 3;
 
     // Product to be supplied
-    CodeableConcept product = 4
-        [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
+    CodeableConcept product = 4 [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
 
     // right | left
     message EyeCode {
-      option (.google.fhir.proto.structure_definition_kind) =
-          KIND_PRIMITIVE_TYPE;
-      option (.google.fhir.proto.fhir_valueset_url) =
-          "http://hl7.org/fhir/ValueSet/vision-eye-codes";
-      option (.google.fhir.proto.fhir_profile_base) =
-          "http://hl7.org/fhir/StructureDefinition/code";
+      option (.google.fhir.proto.structure_definition_kind) = KIND_PRIMITIVE_TYPE;
+      option (.google.fhir.proto.fhir_valueset_url) = "http://hl7.org/fhir/ValueSet/vision-eye-codes";
+      option (.google.fhir.proto.fhir_profile_base) = "http://hl7.org/fhir/StructureDefinition/code";
 
       VisionEyesCode.Value value = 1;
 
@@ -137,8 +126,7 @@ message VisionPrescription {
 
       repeated Extension extension = 3;
     }
-    EyeCode eye = 5
-        [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
+    EyeCode eye = 5 [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
 
     // Power of the lens
     Decimal sphere = 6;
@@ -161,17 +149,13 @@ message VisionPrescription {
       repeated Extension modifier_extension = 3;
 
       // Amount of adjustment
-      Decimal amount = 4
-          [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
+      Decimal amount = 4 [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
 
       // up | down | in | out
       message BaseCode {
-        option (.google.fhir.proto.structure_definition_kind) =
-            KIND_PRIMITIVE_TYPE;
-        option (.google.fhir.proto.fhir_valueset_url) =
-            "http://hl7.org/fhir/ValueSet/vision-base-codes";
-        option (.google.fhir.proto.fhir_profile_base) =
-            "http://hl7.org/fhir/StructureDefinition/code";
+        option (.google.fhir.proto.structure_definition_kind) = KIND_PRIMITIVE_TYPE;
+        option (.google.fhir.proto.fhir_valueset_url) = "http://hl7.org/fhir/ValueSet/vision-base-codes";
+        option (.google.fhir.proto.fhir_profile_base) = "http://hl7.org/fhir/StructureDefinition/code";
 
         VisionBaseCode.Value value = 1;
 
@@ -179,8 +163,7 @@ message VisionPrescription {
 
         repeated Extension extension = 3;
       }
-      BaseCode base = 5
-          [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
+      BaseCode base = 5 [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
     }
     repeated Prism prism = 9;
 
@@ -208,6 +191,5 @@ message VisionPrescription {
     // Notes for coatings
     repeated Annotation note = 17;
   }
-  repeated LensSpecification lens_specification = 17
-      [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
+  repeated LensSpecification lens_specification = 17 [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
 }

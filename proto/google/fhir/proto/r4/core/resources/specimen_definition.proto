@@ -21,18 +21,17 @@ import "proto/google/fhir/proto/annotations.proto";
 import "proto/google/fhir/proto/r4/core/codes.proto";
 import "proto/google/fhir/proto/r4/core/datatypes.proto";
 
+option go_package = "github.com/google/fhir/go/proto/google/fhir/proto/r4/core/resources/specimen_definition_go_proto";
 option java_multiple_files = true;
 option java_package = "com.google.fhir.r4.core";
 option (.google.fhir.proto.fhir_version) = R4;
-option go_package = "github.com/google/fhir/go/proto/google/fhir/proto/r4/core/resources/specimen_definition_go_proto";
 
 // Auto-generated from StructureDefinition for SpecimenDefinition.
 // Kind of specimen.
 // See http://hl7.org/fhir/StructureDefinition/SpecimenDefinition
 message SpecimenDefinition {
   option (.google.fhir.proto.structure_definition_kind) = KIND_RESOURCE;
-  option (.google.fhir.proto.fhir_structure_definition_url) =
-      "http://hl7.org/fhir/StructureDefinition/SpecimenDefinition";
+  option (.google.fhir.proto.fhir_structure_definition_url) = "http://hl7.org/fhir/StructureDefinition/SpecimenDefinition";
 
   // Logical id of this artifact
   Id id = 1;
@@ -96,12 +95,9 @@ message SpecimenDefinition {
 
     // preferred | alternate
     message PreferenceCode {
-      option (.google.fhir.proto.structure_definition_kind) =
-          KIND_PRIMITIVE_TYPE;
-      option (.google.fhir.proto.fhir_valueset_url) =
-          "http://hl7.org/fhir/ValueSet/specimen-contained-preference";
-      option (.google.fhir.proto.fhir_profile_base) =
-          "http://hl7.org/fhir/StructureDefinition/code";
+      option (.google.fhir.proto.structure_definition_kind) = KIND_PRIMITIVE_TYPE;
+      option (.google.fhir.proto.fhir_valueset_url) = "http://hl7.org/fhir/ValueSet/specimen-contained-preference";
+      option (.google.fhir.proto.fhir_profile_base) = "http://hl7.org/fhir/StructureDefinition/code";
 
       SpecimenContainedPreferenceCode.Value value = 1;
 
@@ -109,8 +105,7 @@ message SpecimenDefinition {
 
       repeated Extension extension = 3;
     }
-    PreferenceCode preference = 6
-        [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
+    PreferenceCode preference = 6 [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
 
     // The specimen's container
     message Container {
@@ -166,12 +161,10 @@ message SpecimenDefinition {
 
           oneof choice {
             CodeableConcept codeable_concept = 1;
-            Reference reference = 2
-                [(.google.fhir.proto.valid_reference_type) = "Substance"];
+            Reference reference = 2 [(.google.fhir.proto.valid_reference_type) = "Substance"];
           }
         }
-        AdditiveX additive = 4
-            [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
+        AdditiveX additive = 4 [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
       }
       repeated Additive additive = 10;
 

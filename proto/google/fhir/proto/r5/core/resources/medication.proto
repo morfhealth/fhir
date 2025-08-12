@@ -21,18 +21,17 @@ import "proto/google/fhir/proto/annotations.proto";
 import "proto/google/fhir/proto/r5/core/codes.proto";
 import "proto/google/fhir/proto/r5/core/datatypes.proto";
 
+option go_package = "github.com/google/fhir/go/proto/google/fhir/proto/r5/core/resources/medication_go_proto";
 option java_multiple_files = true;
 option java_package = "com.google.fhir.r5.core";
 option (.google.fhir.proto.fhir_version) = R5;
-option go_package = "github.com/google/fhir/go/proto/google/fhir/proto/r5/core/resources/medication_go_proto";
 
 // Auto-generated from StructureDefinition for Medication.
 // Definition of a Medication.
 // See http://hl7.org/fhir/StructureDefinition/Medication
 message Medication {
   option (.google.fhir.proto.structure_definition_kind) = KIND_RESOURCE;
-  option (.google.fhir.proto.fhir_structure_definition_url) =
-      "http://hl7.org/fhir/StructureDefinition/Medication";
+  option (.google.fhir.proto.fhir_structure_definition_url) = "http://hl7.org/fhir/StructureDefinition/Medication";
 
   // Logical id of this artifact
   Id id = 1;
@@ -71,10 +70,8 @@ message Medication {
   // active | inactive | entered-in-error
   message StatusCode {
     option (.google.fhir.proto.structure_definition_kind) = KIND_PRIMITIVE_TYPE;
-    option (.google.fhir.proto.fhir_valueset_url) =
-        "http://hl7.org/fhir/ValueSet/medication-status";
-    option (.google.fhir.proto.fhir_profile_base) =
-        "http://hl7.org/fhir/StructureDefinition/code";
+    option (.google.fhir.proto.fhir_valueset_url) = "http://hl7.org/fhir/ValueSet/medication-status";
+    option (.google.fhir.proto.fhir_profile_base) = "http://hl7.org/fhir/StructureDefinition/code";
 
     MedicationStatusCode.Value value = 1;
 
@@ -85,8 +82,7 @@ message Medication {
   StatusCode status = 12;
 
   // Organization that has authorization to market medication
-  Reference marketing_authorization_holder = 18
-      [(.google.fhir.proto.valid_reference_type) = "Organization"];
+  Reference marketing_authorization_holder = 18 [(.google.fhir.proto.valid_reference_type) = "Organization"];
 
   // powder | tablets | capsule +
   CodeableConcept dose_form = 19;
@@ -108,8 +104,7 @@ message Medication {
 
     // The ingredient (substance or medication) that the ingredient.strength
     // relates to
-    CodeableReference item = 7
-        [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
+    CodeableReference item = 7 [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
 
     // Active ingredient indicator
     Boolean is_active = 5;
@@ -148,6 +143,5 @@ message Medication {
   Batch batch = 17;
 
   // Knowledge about this medication
-  Reference definition = 21
-      [(.google.fhir.proto.valid_reference_type) = "MedicationKnowledge"];
+  Reference definition = 21 [(.google.fhir.proto.valid_reference_type) = "MedicationKnowledge"];
 }

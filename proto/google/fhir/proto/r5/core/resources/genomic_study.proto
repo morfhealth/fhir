@@ -21,18 +21,17 @@ import "proto/google/fhir/proto/annotations.proto";
 import "proto/google/fhir/proto/r5/core/codes.proto";
 import "proto/google/fhir/proto/r5/core/datatypes.proto";
 
+option go_package = "github.com/google/fhir/go/proto/google/fhir/proto/r5/core/resources/genomic_study_go_proto";
 option java_multiple_files = true;
 option java_package = "com.google.fhir.r5.core";
 option (.google.fhir.proto.fhir_version) = R5;
-option go_package = "github.com/google/fhir/go/proto/google/fhir/proto/r5/core/resources/genomic_study_go_proto";
 
 // Auto-generated from StructureDefinition for GenomicStudy.
 // Genomic Study.
 // See http://hl7.org/fhir/StructureDefinition/GenomicStudy
 message GenomicStudy {
   option (.google.fhir.proto.structure_definition_kind) = KIND_RESOURCE;
-  option (.google.fhir.proto.fhir_structure_definition_url) =
-      "http://hl7.org/fhir/StructureDefinition/GenomicStudy";
+  option (.google.fhir.proto.fhir_structure_definition_url) = "http://hl7.org/fhir/StructureDefinition/GenomicStudy";
 
   // Logical id of this artifact
   Id id = 1;
@@ -68,10 +67,8 @@ message GenomicStudy {
   // registered | available | cancelled | entered-in-error | unknown
   message StatusCode {
     option (.google.fhir.proto.structure_definition_kind) = KIND_PRIMITIVE_TYPE;
-    option (.google.fhir.proto.fhir_valueset_url) =
-        "http://hl7.org/fhir/ValueSet/genomicstudy-status";
-    option (.google.fhir.proto.fhir_profile_base) =
-        "http://hl7.org/fhir/StructureDefinition/code";
+    option (.google.fhir.proto.fhir_valueset_url) = "http://hl7.org/fhir/ValueSet/genomicstudy-status";
+    option (.google.fhir.proto.fhir_profile_base) = "http://hl7.org/fhir/StructureDefinition/code";
 
     GenomicStudyStatusCode.Value value = 1;
 
@@ -79,8 +76,7 @@ message GenomicStudy {
 
     repeated Extension extension = 3;
   }
-  StatusCode status = 11
-      [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
+  StatusCode status = 11 [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
 
   // The type of the study (e.g., Familial variant segregation, Functional
   // variation detection, or Gene expression profiling)
@@ -97,8 +93,7 @@ message GenomicStudy {
   ];
 
   // The healthcare event with which this genomics study is associated
-  Reference encounter = 14
-      [(.google.fhir.proto.valid_reference_type) = "Encounter"];
+  Reference encounter = 14 [(.google.fhir.proto.valid_reference_type) = "Encounter"];
 
   // When the genomic study was started
   DateTime start_date = 15;
@@ -173,12 +168,10 @@ message GenomicStudy {
 
     // What the genomic analysis is about, when it is not about the subject of
     // record
-    repeated Reference focus = 11
-        [(.google.fhir.proto.valid_reference_type) = "Resource"];
+    repeated Reference focus = 11 [(.google.fhir.proto.valid_reference_type) = "Resource"];
 
     // The specimen used in the analysis event
-    repeated Reference specimen = 12
-        [(.google.fhir.proto.valid_reference_type) = "Specimen"];
+    repeated Reference specimen = 12 [(.google.fhir.proto.valid_reference_type) = "Specimen"];
 
     // The date of the analysis event
     DateTime date = 13;
@@ -216,8 +209,7 @@ message GenomicStudy {
       repeated Extension modifier_extension = 3;
 
       // File containing input data
-      Reference file = 4
-          [(.google.fhir.proto.valid_reference_type) = "DocumentReference"];
+      Reference file = 4 [(.google.fhir.proto.valid_reference_type) = "DocumentReference"];
 
       // Type of input data (e.g., BAM, CRAM, or FASTA)
       CodeableConcept type = 5;
@@ -228,8 +220,7 @@ message GenomicStudy {
 
         oneof choice {
           Identifier identifier = 1;
-          Reference reference = 2
-              [(.google.fhir.proto.valid_reference_type) = "GenomicStudy"];
+          Reference reference = 2 [(.google.fhir.proto.valid_reference_type) = "GenomicStudy"];
         }
       }
       GeneratedByX generated_by = 6;
@@ -248,8 +239,7 @@ message GenomicStudy {
       repeated Extension modifier_extension = 3;
 
       // File containing output data
-      Reference file = 4
-          [(.google.fhir.proto.valid_reference_type) = "DocumentReference"];
+      Reference file = 4 [(.google.fhir.proto.valid_reference_type) = "DocumentReference"];
 
       // Type of output data (e.g., VCF, MAF, or BAM)
       CodeableConcept type = 5;
@@ -294,8 +284,7 @@ message GenomicStudy {
       repeated Extension modifier_extension = 3;
 
       // Device used for the analysis
-      Reference device = 4
-          [(.google.fhir.proto.valid_reference_type) = "Device"];
+      Reference device = 4 [(.google.fhir.proto.valid_reference_type) = "Device"];
 
       // Specific function for the device used for the analysis
       CodeableConcept function = 5;

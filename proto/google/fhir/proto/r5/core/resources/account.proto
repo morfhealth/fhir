@@ -21,18 +21,17 @@ import "proto/google/fhir/proto/annotations.proto";
 import "proto/google/fhir/proto/r5/core/codes.proto";
 import "proto/google/fhir/proto/r5/core/datatypes.proto";
 
+option go_package = "github.com/google/fhir/go/proto/google/fhir/proto/r5/core/resources/account_go_proto";
 option java_multiple_files = true;
 option java_package = "com.google.fhir.r5.core";
 option (.google.fhir.proto.fhir_version) = R5;
-option go_package = "github.com/google/fhir/go/proto/google/fhir/proto/r5/core/resources/account_go_proto";
 
 // Auto-generated from StructureDefinition for Account.
 // Tracks balance, charges, for patient or cost center.
 // See http://hl7.org/fhir/StructureDefinition/Account
 message Account {
   option (.google.fhir.proto.structure_definition_kind) = KIND_RESOURCE;
-  option (.google.fhir.proto.fhir_structure_definition_url) =
-      "http://hl7.org/fhir/StructureDefinition/Account";
+  option (.google.fhir.proto.fhir_structure_definition_url) = "http://hl7.org/fhir/StructureDefinition/Account";
 
   // Logical id of this artifact
   Id id = 1;
@@ -68,10 +67,8 @@ message Account {
   // active | inactive | entered-in-error | on-hold | unknown
   message StatusCode {
     option (.google.fhir.proto.structure_definition_kind) = KIND_PRIMITIVE_TYPE;
-    option (.google.fhir.proto.fhir_valueset_url) =
-        "http://hl7.org/fhir/ValueSet/account-status";
-    option (.google.fhir.proto.fhir_profile_base) =
-        "http://hl7.org/fhir/StructureDefinition/code";
+    option (.google.fhir.proto.fhir_valueset_url) = "http://hl7.org/fhir/ValueSet/account-status";
+    option (.google.fhir.proto.fhir_profile_base) = "http://hl7.org/fhir/StructureDefinition/code";
 
     AccountStatusCode.Value value = 1;
 
@@ -79,8 +76,7 @@ message Account {
 
     repeated Extension extension = 3;
   }
-  StatusCode status = 11
-      [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
+  StatusCode status = 11 [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
 
   // Tracks the lifecycle of the account through the billing process
   CodeableConcept billing_status = 21;
@@ -130,8 +126,7 @@ message Account {
   repeated Coverage coverage = 16;
 
   // Entity managing the Account
-  Reference owner = 17
-      [(.google.fhir.proto.valid_reference_type) = "Organization"];
+  Reference owner = 17 [(.google.fhir.proto.valid_reference_type) = "Organization"];
 
   // Explanation of purpose/use
   Markdown description = 22;
@@ -165,8 +160,7 @@ message Account {
 
   // The list of diagnoses relevant to this account
   message Diagnosis {
-    option (.google.fhir.proto.fhir_path_message_constraint) =
-        "condition.reference.empty().not() implies dateOfDiagnosis.empty()";
+    option (.google.fhir.proto.fhir_path_message_constraint) = "condition.reference.empty().not() implies dateOfDiagnosis.empty()";
 
     // Unique id for inter-element referencing
     String id = 1;
@@ -181,8 +175,7 @@ message Account {
     PositiveInt sequence = 4;
 
     // The diagnosis relevant to the account
-    CodeableReference condition = 5
-        [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
+    CodeableReference condition = 5 [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
 
     // Date of the diagnosis (when coded diagnosis)
     DateTime date_of_diagnosis = 6;
@@ -201,8 +194,7 @@ message Account {
 
   // The list of procedures relevant to this account
   message Procedure {
-    option (.google.fhir.proto.fhir_path_message_constraint) =
-        "code.reference.empty().not() implies dateOfService.empty()";
+    option (.google.fhir.proto.fhir_path_message_constraint) = "code.reference.empty().not() implies dateOfService.empty()";
 
     // Unique id for inter-element referencing
     String id = 1;
@@ -217,8 +209,7 @@ message Account {
     PositiveInt sequence = 4;
 
     // The procedure relevant to the account
-    CodeableReference code = 5
-        [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
+    CodeableReference code = 5 [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
 
     // Date of the procedure (when coded procedure)
     DateTime date_of_service = 6;
@@ -230,8 +221,7 @@ message Account {
     repeated CodeableConcept package_code = 8;
 
     // Any devices that were associated with the procedure
-    repeated Reference device = 9
-        [(.google.fhir.proto.valid_reference_type) = "Device"];
+    repeated Reference device = 9 [(.google.fhir.proto.valid_reference_type) = "Device"];
   }
   repeated Procedure procedure = 24;
 
@@ -281,8 +271,7 @@ message Account {
     Boolean estimate = 6;
 
     // Calculated amount
-    Money amount = 7
-        [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
+    Money amount = 7 [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
   }
   repeated Balance balance = 27;
 

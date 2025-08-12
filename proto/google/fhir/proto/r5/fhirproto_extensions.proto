@@ -28,10 +28,8 @@ option (.google.fhir.proto.fhir_version) = R5;
 // See https://g.co/fhir/StructureDefinition/primitiveHasNoValue
 message PrimitiveHasNoValue {
   option (.google.fhir.proto.structure_definition_kind) = KIND_COMPLEX_TYPE;
-  option (.google.fhir.proto.fhir_profile_base) =
-      "http://hl7.org/fhir/StructureDefinition/Extension";
-  option (.google.fhir.proto.fhir_structure_definition_url) =
-      "https://g.co/fhir/StructureDefinition/primitiveHasNoValue";
+  option (.google.fhir.proto.fhir_profile_base) = "http://hl7.org/fhir/StructureDefinition/Extension";
+  option (.google.fhir.proto.fhir_structure_definition_url) = "https://g.co/fhir/StructureDefinition/primitiveHasNoValue";
 
   // Unique id for inter-element referencing
   core.String id = 1;
@@ -45,19 +43,15 @@ message PrimitiveHasNoValue {
 // See https://g.co/fhir/StructureDefinition/base64Binary-separatorStride
 message Base64BinarySeparatorStride {
   option (.google.fhir.proto.structure_definition_kind) = KIND_COMPLEX_TYPE;
-  option (.google.fhir.proto.fhir_profile_base) =
-      "http://hl7.org/fhir/StructureDefinition/Extension";
-  option (.google.fhir.proto.fhir_structure_definition_url) =
-      "https://g.co/fhir/StructureDefinition/base64Binary-separatorStride";
+  option (.google.fhir.proto.fhir_profile_base) = "http://hl7.org/fhir/StructureDefinition/Extension";
+  option (.google.fhir.proto.fhir_structure_definition_url) = "https://g.co/fhir/StructureDefinition/base64Binary-separatorStride";
 
   // Unique id for inter-element referencing
   core.String id = 1;
 
   // The separator, usually a sequence of spaces.
-  core.String separator = 4
-      [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
+  core.String separator = 4 [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
 
   // The stride.
-  core.PositiveInt stride = 5
-      [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
+  core.PositiveInt stride = 5 [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
 }

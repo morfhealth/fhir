@@ -21,18 +21,17 @@ import "proto/google/fhir/proto/annotations.proto";
 import "proto/google/fhir/proto/r5/core/codes.proto";
 import "proto/google/fhir/proto/r5/core/datatypes.proto";
 
+option go_package = "github.com/google/fhir/go/proto/google/fhir/proto/r5/core/resources/communication_go_proto";
 option java_multiple_files = true;
 option java_package = "com.google.fhir.r5.core";
 option (.google.fhir.proto.fhir_version) = R5;
-option go_package = "github.com/google/fhir/go/proto/google/fhir/proto/r5/core/resources/communication_go_proto";
 
 // Auto-generated from StructureDefinition for Communication.
 // A clinical or business level record of information being transmitted or
 // shared. See http://hl7.org/fhir/StructureDefinition/Communication
 message Communication {
   option (.google.fhir.proto.structure_definition_kind) = KIND_RESOURCE;
-  option (.google.fhir.proto.fhir_structure_definition_url) =
-      "http://hl7.org/fhir/StructureDefinition/Communication";
+  option (.google.fhir.proto.fhir_structure_definition_url) = "http://hl7.org/fhir/StructureDefinition/Communication";
 
   // Logical id of this artifact
   Id id = 1;
@@ -72,25 +71,20 @@ message Communication {
   repeated Uri instantiates_uri = 12;
 
   // Request fulfilled by this communication
-  repeated Reference based_on = 13
-      [(.google.fhir.proto.valid_reference_type) = "Resource"];
+  repeated Reference based_on = 13 [(.google.fhir.proto.valid_reference_type) = "Resource"];
 
   // Part of referenced event (e.g. Communication, Procedure)
-  repeated Reference part_of = 14
-      [(.google.fhir.proto.valid_reference_type) = "Resource"];
+  repeated Reference part_of = 14 [(.google.fhir.proto.valid_reference_type) = "Resource"];
 
   // Reply to
-  repeated Reference in_response_to = 15
-      [(.google.fhir.proto.valid_reference_type) = "Communication"];
+  repeated Reference in_response_to = 15 [(.google.fhir.proto.valid_reference_type) = "Communication"];
 
   // preparation | in-progress | not-done | on-hold | stopped | completed |
   // entered-in-error | unknown
   message StatusCode {
     option (.google.fhir.proto.structure_definition_kind) = KIND_PRIMITIVE_TYPE;
-    option (.google.fhir.proto.fhir_valueset_url) =
-        "http://hl7.org/fhir/ValueSet/event-status";
-    option (.google.fhir.proto.fhir_profile_base) =
-        "http://hl7.org/fhir/StructureDefinition/code";
+    option (.google.fhir.proto.fhir_valueset_url) = "http://hl7.org/fhir/ValueSet/event-status";
+    option (.google.fhir.proto.fhir_profile_base) = "http://hl7.org/fhir/StructureDefinition/code";
 
     EventStatusCode.Value value = 1;
 
@@ -98,8 +92,7 @@ message Communication {
 
     repeated Extension extension = 3;
   }
-  StatusCode status = 16
-      [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
+  StatusCode status = 16 [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
 
   // Reason for current status
   CodeableConcept status_reason = 17;
@@ -110,10 +103,8 @@ message Communication {
   // routine | urgent | asap | stat
   message PriorityCode {
     option (.google.fhir.proto.structure_definition_kind) = KIND_PRIMITIVE_TYPE;
-    option (.google.fhir.proto.fhir_valueset_url) =
-        "http://hl7.org/fhir/ValueSet/request-priority";
-    option (.google.fhir.proto.fhir_profile_base) =
-        "http://hl7.org/fhir/StructureDefinition/code";
+    option (.google.fhir.proto.fhir_valueset_url) = "http://hl7.org/fhir/ValueSet/request-priority";
+    option (.google.fhir.proto.fhir_profile_base) = "http://hl7.org/fhir/StructureDefinition/code";
 
     RequestPriorityCode.Value value = 1;
 
@@ -136,12 +127,10 @@ message Communication {
   CodeableConcept topic = 22;
 
   // Resources that pertain to this communication
-  repeated Reference about = 23
-      [(.google.fhir.proto.valid_reference_type) = "Resource"];
+  repeated Reference about = 23 [(.google.fhir.proto.valid_reference_type) = "Resource"];
 
   // The Encounter during which this Communication was created
-  Reference encounter = 24
-      [(.google.fhir.proto.valid_reference_type) = "Encounter"];
+  Reference encounter = 24 [(.google.fhir.proto.valid_reference_type) = "Encounter"];
 
   // When sent
   DateTime sent = 25;
@@ -197,13 +186,11 @@ message Communication {
 
       oneof choice {
         Attachment attachment = 2;
-        Reference reference = 3
-            [(.google.fhir.proto.valid_reference_type) = "Resource"];
+        Reference reference = 3 [(.google.fhir.proto.valid_reference_type) = "Resource"];
         CodeableConcept codeable_concept = 4;
       }
     }
-    ContentX content = 4
-        [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
+    ContentX content = 4 [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
   }
   repeated Payload payload = 31;
 

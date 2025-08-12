@@ -22,18 +22,17 @@ import "proto/google/fhir/proto/r5/core/codes.proto";
 import "proto/google/fhir/proto/r5/core/datatypes.proto";
 import "proto/google/fhir/proto/r5/core/valuesets.proto";
 
+option go_package = "github.com/google/fhir/go/proto/google/fhir/proto/r5/core/resources/care_plan_go_proto";
 option java_multiple_files = true;
 option java_package = "com.google.fhir.r5.core";
 option (.google.fhir.proto.fhir_version) = R5;
-option go_package = "github.com/google/fhir/go/proto/google/fhir/proto/r5/core/resources/care_plan_go_proto";
 
 // Auto-generated from StructureDefinition for CarePlan.
 // Healthcare plan for patient or group.
 // See http://hl7.org/fhir/StructureDefinition/CarePlan
 message CarePlan {
   option (.google.fhir.proto.structure_definition_kind) = KIND_RESOURCE;
-  option (.google.fhir.proto.fhir_structure_definition_url) =
-      "http://hl7.org/fhir/StructureDefinition/CarePlan";
+  option (.google.fhir.proto.fhir_structure_definition_url) = "http://hl7.org/fhir/StructureDefinition/CarePlan";
 
   // Logical id of this artifact
   Id id = 1;
@@ -81,20 +80,16 @@ message CarePlan {
   ];
 
   // CarePlan replaced by this CarePlan
-  repeated Reference replaces = 14
-      [(.google.fhir.proto.valid_reference_type) = "CarePlan"];
+  repeated Reference replaces = 14 [(.google.fhir.proto.valid_reference_type) = "CarePlan"];
 
   // Part of referenced CarePlan
-  repeated Reference part_of = 15
-      [(.google.fhir.proto.valid_reference_type) = "CarePlan"];
+  repeated Reference part_of = 15 [(.google.fhir.proto.valid_reference_type) = "CarePlan"];
 
   // draft | active | on-hold | revoked | completed | entered-in-error | unknown
   message StatusCode {
     option (.google.fhir.proto.structure_definition_kind) = KIND_PRIMITIVE_TYPE;
-    option (.google.fhir.proto.fhir_valueset_url) =
-        "http://hl7.org/fhir/ValueSet/request-status";
-    option (.google.fhir.proto.fhir_profile_base) =
-        "http://hl7.org/fhir/StructureDefinition/code";
+    option (.google.fhir.proto.fhir_valueset_url) = "http://hl7.org/fhir/ValueSet/request-status";
+    option (.google.fhir.proto.fhir_profile_base) = "http://hl7.org/fhir/StructureDefinition/code";
 
     RequestStatusCode.Value value = 1;
 
@@ -102,16 +97,13 @@ message CarePlan {
 
     repeated Extension extension = 3;
   }
-  StatusCode status = 16
-      [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
+  StatusCode status = 16 [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
 
   // proposal | plan | order | option | directive
   message IntentCode {
     option (.google.fhir.proto.structure_definition_kind) = KIND_PRIMITIVE_TYPE;
-    option (.google.fhir.proto.fhir_valueset_url) =
-        "http://hl7.org/fhir/ValueSet/care-plan-intent";
-    option (.google.fhir.proto.fhir_profile_base) =
-        "http://hl7.org/fhir/StructureDefinition/code";
+    option (.google.fhir.proto.fhir_valueset_url) = "http://hl7.org/fhir/ValueSet/care-plan-intent";
+    option (.google.fhir.proto.fhir_profile_base) = "http://hl7.org/fhir/StructureDefinition/code";
 
     CarePlanIntentValueSet.Value value = 1;
 
@@ -119,8 +111,7 @@ message CarePlan {
 
     repeated Extension extension = 3;
   }
-  IntentCode intent = 17
-      [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
+  IntentCode intent = 17 [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
 
   // Type of plan
   repeated CodeableConcept category = 18;
@@ -139,8 +130,7 @@ message CarePlan {
   ];
 
   // The Encounter during which this CarePlan was created
-  Reference encounter = 22
-      [(.google.fhir.proto.valid_reference_type) = "Encounter"];
+  Reference encounter = 22 [(.google.fhir.proto.valid_reference_type) = "Encounter"];
 
   // Time period plan covers
   Period period = 23;
@@ -171,19 +161,16 @@ message CarePlan {
   ];
 
   // Who's involved in plan?
-  repeated Reference care_team = 27
-      [(.google.fhir.proto.valid_reference_type) = "CareTeam"];
+  repeated Reference care_team = 27 [(.google.fhir.proto.valid_reference_type) = "CareTeam"];
 
   // Health issues this plan addresses
   repeated CodeableReference addresses = 34;
 
   // Information considered as part of plan
-  repeated Reference supporting_info = 29
-      [(.google.fhir.proto.valid_reference_type) = "Resource"];
+  repeated Reference supporting_info = 29 [(.google.fhir.proto.valid_reference_type) = "Resource"];
 
   // Desired outcome of plan
-  repeated Reference goal = 30
-      [(.google.fhir.proto.valid_reference_type) = "Goal"];
+  repeated Reference goal = 30 [(.google.fhir.proto.valid_reference_type) = "Goal"];
 
   // Action to occur or has occurred as part of plan
   message Activity {

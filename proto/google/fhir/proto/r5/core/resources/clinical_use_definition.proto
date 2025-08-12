@@ -21,10 +21,10 @@ import "proto/google/fhir/proto/annotations.proto";
 import "proto/google/fhir/proto/r5/core/codes.proto";
 import "proto/google/fhir/proto/r5/core/datatypes.proto";
 
+option go_package = "github.com/google/fhir/go/proto/google/fhir/proto/r5/core/resources/clinical_use_definition_go_proto";
 option java_multiple_files = true;
 option java_package = "com.google.fhir.r5.core";
 option (.google.fhir.proto.fhir_version) = R5;
-option go_package = "github.com/google/fhir/go/proto/google/fhir/proto/r5/core/resources/clinical_use_definition_go_proto";
 
 // Auto-generated from StructureDefinition for ClinicalUseDefinition.
 // A single issue - either an indication, contraindication, interaction or an
@@ -32,10 +32,8 @@ option go_package = "github.com/google/fhir/go/proto/google/fhir/proto/r5/core/r
 // See http://hl7.org/fhir/StructureDefinition/ClinicalUseDefinition
 message ClinicalUseDefinition {
   option (.google.fhir.proto.structure_definition_kind) = KIND_RESOURCE;
-  option (.google.fhir.proto.fhir_structure_definition_url) =
-      "http://hl7.org/fhir/StructureDefinition/ClinicalUseDefinition";
-  option (.google.fhir.proto.fhir_path_message_constraint) =
-      "(ClinicalUseDefinition.indication.count() + ClinicalUseDefinition.contraindication.count() + ClinicalUseDefinition.interaction.count() + ClinicalUseDefinition.undesirableEffect.count() + ClinicalUseDefinition.warning.count())  < 2";
+  option (.google.fhir.proto.fhir_structure_definition_url) = "http://hl7.org/fhir/StructureDefinition/ClinicalUseDefinition";
+  option (.google.fhir.proto.fhir_path_message_constraint) = "(ClinicalUseDefinition.indication.count() + ClinicalUseDefinition.contraindication.count() + ClinicalUseDefinition.interaction.count() + ClinicalUseDefinition.undesirableEffect.count() + ClinicalUseDefinition.warning.count())  < 2";
 
   // Logical id of this artifact
   Id id = 1;
@@ -71,10 +69,8 @@ message ClinicalUseDefinition {
   // indication | contraindication | interaction | undesirable-effect | warning
   message TypeCode {
     option (.google.fhir.proto.structure_definition_kind) = KIND_PRIMITIVE_TYPE;
-    option (.google.fhir.proto.fhir_valueset_url) =
-        "http://hl7.org/fhir/ValueSet/clinical-use-definition-type";
-    option (.google.fhir.proto.fhir_profile_base) =
-        "http://hl7.org/fhir/StructureDefinition/code";
+    option (.google.fhir.proto.fhir_valueset_url) = "http://hl7.org/fhir/ValueSet/clinical-use-definition-type";
+    option (.google.fhir.proto.fhir_profile_base) = "http://hl7.org/fhir/StructureDefinition/code";
 
     ClinicalUseDefinitionTypeCode.Value value = 1;
 
@@ -82,8 +78,7 @@ message ClinicalUseDefinition {
 
     repeated Extension extension = 3;
   }
-  TypeCode type = 11
-      [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
+  TypeCode type = 11 [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
 
   // A categorisation of the issue, primarily for dividing warnings into subject
   // heading areas such as "Pregnancy", "Overdose"
@@ -128,8 +123,7 @@ message ClinicalUseDefinition {
     repeated CodeableReference comorbidity = 6;
 
     // The indication which this is a contraidication for
-    repeated Reference indication = 7
-        [(.google.fhir.proto.valid_reference_type) = "ClinicalUseDefinition"];
+    repeated Reference indication = 7 [(.google.fhir.proto.valid_reference_type) = "ClinicalUseDefinition"];
 
     // An expression that returns true or false, indicating whether the
     // indication is applicable or not, after having applied its other elements
@@ -149,13 +143,11 @@ message ClinicalUseDefinition {
 
       // The type of relationship between the product
       // indication/contraindication and another therapy
-      CodeableConcept relationship_type = 4
-          [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
+      CodeableConcept relationship_type = 4 [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
 
       // Reference to a specific medication, substance etc. as part of an
       // indication or contraindication
-      CodeableReference treatment = 5
-          [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
+      CodeableReference treatment = 5 [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
     }
     repeated OtherTherapy other_therapy = 9;
   }
@@ -197,8 +189,7 @@ message ClinicalUseDefinition {
 
     // An unwanted side effect or negative outcome of the subject of this
     // resource when being used for this indication
-    repeated Reference undesirable_effect = 9
-        [(.google.fhir.proto.valid_reference_type) = "ClinicalUseDefinition"];
+    repeated Reference undesirable_effect = 9 [(.google.fhir.proto.valid_reference_type) = "ClinicalUseDefinition"];
 
     // An expression that returns true or false, indicating whether the
     // indication is applicable or not, after having applied its other elements
@@ -240,20 +231,17 @@ message ClinicalUseDefinition {
 
         oneof choice {
           Reference reference = 1 [
-            (.google.fhir.proto.valid_reference_type) =
-                "MedicinalProductDefinition",
+            (.google.fhir.proto.valid_reference_type) = "MedicinalProductDefinition",
             (.google.fhir.proto.valid_reference_type) = "Medication",
             (.google.fhir.proto.valid_reference_type) = "Substance",
             (.google.fhir.proto.valid_reference_type) = "NutritionProduct",
-            (.google.fhir.proto.valid_reference_type) =
-                "BiologicallyDerivedProduct",
+            (.google.fhir.proto.valid_reference_type) = "BiologicallyDerivedProduct",
             (.google.fhir.proto.valid_reference_type) = "ObservationDefinition"
           ];
           CodeableConcept codeable_concept = 2;
         }
       }
-      ItemX item = 4
-          [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
+      ItemX item = 4 [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
     }
     repeated Interactant interactant = 4;
 
@@ -274,8 +262,7 @@ message ClinicalUseDefinition {
   Interaction interaction = 17;
 
   // The population group to which this applies
-  repeated Reference population = 18
-      [(.google.fhir.proto.valid_reference_type) = "Group"];
+  repeated Reference population = 18 [(.google.fhir.proto.valid_reference_type) = "Group"];
 
   // Logic used by the clinical use definition
   repeated Canonical library = 19;

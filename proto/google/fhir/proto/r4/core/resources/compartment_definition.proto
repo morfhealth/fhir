@@ -21,20 +21,18 @@ import "proto/google/fhir/proto/annotations.proto";
 import "proto/google/fhir/proto/r4/core/codes.proto";
 import "proto/google/fhir/proto/r4/core/datatypes.proto";
 
+option go_package = "github.com/google/fhir/go/proto/google/fhir/proto/r4/core/resources/compartment_definition_go_proto";
 option java_multiple_files = true;
 option java_package = "com.google.fhir.r4.core";
 option (.google.fhir.proto.fhir_version) = R4;
-option go_package = "github.com/google/fhir/go/proto/google/fhir/proto/r4/core/resources/compartment_definition_go_proto";
 
 // Auto-generated from StructureDefinition for CompartmentDefinition.
 // Compartment Definition for a resource.
 // See http://hl7.org/fhir/StructureDefinition/CompartmentDefinition
 message CompartmentDefinition {
   option (.google.fhir.proto.structure_definition_kind) = KIND_RESOURCE;
-  option (.google.fhir.proto.fhir_structure_definition_url) =
-      "http://hl7.org/fhir/StructureDefinition/CompartmentDefinition";
-  option (.google.fhir.proto.fhir_path_message_warning_constraint) =
-      "name.matches('[A-Z]([A-Za-z0-9_]){0,254}')";
+  option (.google.fhir.proto.fhir_structure_definition_url) = "http://hl7.org/fhir/StructureDefinition/CompartmentDefinition";
+  option (.google.fhir.proto.fhir_path_message_warning_constraint) = "name.matches('[A-Z]([A-Za-z0-9_]){0,254}')";
 
   // Logical id of this artifact
   Id id = 1;
@@ -72,16 +70,13 @@ message CompartmentDefinition {
   String version = 11;
 
   // Name for this compartment definition (computer friendly)
-  String name = 12
-      [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
+  String name = 12 [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
 
   // draft | active | retired | unknown
   message StatusCode {
     option (.google.fhir.proto.structure_definition_kind) = KIND_PRIMITIVE_TYPE;
-    option (.google.fhir.proto.fhir_valueset_url) =
-        "http://hl7.org/fhir/ValueSet/publication-status";
-    option (.google.fhir.proto.fhir_profile_base) =
-        "http://hl7.org/fhir/StructureDefinition/code";
+    option (.google.fhir.proto.fhir_valueset_url) = "http://hl7.org/fhir/ValueSet/publication-status";
+    option (.google.fhir.proto.fhir_profile_base) = "http://hl7.org/fhir/StructureDefinition/code";
 
     PublicationStatusCode.Value value = 1;
 
@@ -89,8 +84,7 @@ message CompartmentDefinition {
 
     repeated Extension extension = 3;
   }
-  StatusCode status = 13
-      [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
+  StatusCode status = 13 [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
 
   // For testing purposes, not real usage
   Boolean experimental = 14;
@@ -116,10 +110,8 @@ message CompartmentDefinition {
   // Patient | Encounter | RelatedPerson | Practitioner | Device
   message CodeType {
     option (.google.fhir.proto.structure_definition_kind) = KIND_PRIMITIVE_TYPE;
-    option (.google.fhir.proto.fhir_valueset_url) =
-        "http://hl7.org/fhir/ValueSet/compartment-type";
-    option (.google.fhir.proto.fhir_profile_base) =
-        "http://hl7.org/fhir/StructureDefinition/code";
+    option (.google.fhir.proto.fhir_valueset_url) = "http://hl7.org/fhir/ValueSet/compartment-type";
+    option (.google.fhir.proto.fhir_profile_base) = "http://hl7.org/fhir/StructureDefinition/code";
 
     CompartmentTypeCode.Value value = 1;
 
@@ -127,12 +119,10 @@ message CompartmentDefinition {
 
     repeated Extension extension = 3;
   }
-  CodeType code = 21
-      [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
+  CodeType code = 21 [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
 
   // Whether the search syntax is supported
-  Boolean search = 22
-      [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
+  Boolean search = 22 [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
 
   // How a resource is related to the compartment
   message Resource {
@@ -147,12 +137,9 @@ message CompartmentDefinition {
 
     // Name of resource type
     message CodeType {
-      option (.google.fhir.proto.structure_definition_kind) =
-          KIND_PRIMITIVE_TYPE;
-      option (.google.fhir.proto.fhir_valueset_url) =
-          "http://hl7.org/fhir/ValueSet/resource-types";
-      option (.google.fhir.proto.fhir_profile_base) =
-          "http://hl7.org/fhir/StructureDefinition/code";
+      option (.google.fhir.proto.structure_definition_kind) = KIND_PRIMITIVE_TYPE;
+      option (.google.fhir.proto.fhir_valueset_url) = "http://hl7.org/fhir/ValueSet/resource-types";
+      option (.google.fhir.proto.fhir_profile_base) = "http://hl7.org/fhir/StructureDefinition/code";
 
       ResourceTypeCode.Value value = 1;
 
@@ -160,8 +147,7 @@ message CompartmentDefinition {
 
       repeated Extension extension = 3;
     }
-    CodeType code = 4
-        [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
+    CodeType code = 4 [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
 
     // Search Parameter Name, or chained parameters
     repeated String param = 5;

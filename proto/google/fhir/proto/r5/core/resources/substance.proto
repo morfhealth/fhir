@@ -21,18 +21,17 @@ import "proto/google/fhir/proto/annotations.proto";
 import "proto/google/fhir/proto/r5/core/codes.proto";
 import "proto/google/fhir/proto/r5/core/datatypes.proto";
 
+option go_package = "github.com/google/fhir/go/proto/google/fhir/proto/r5/core/resources/substance_go_proto";
 option java_multiple_files = true;
 option java_package = "com.google.fhir.r5.core";
 option (.google.fhir.proto.fhir_version) = R5;
-option go_package = "github.com/google/fhir/go/proto/google/fhir/proto/r5/core/resources/substance_go_proto";
 
 // Auto-generated from StructureDefinition for Substance.
 // A homogeneous material with a definite composition.
 // See http://hl7.org/fhir/StructureDefinition/Substance
 message Substance {
   option (.google.fhir.proto.structure_definition_kind) = KIND_RESOURCE;
-  option (.google.fhir.proto.fhir_structure_definition_url) =
-      "http://hl7.org/fhir/StructureDefinition/Substance";
+  option (.google.fhir.proto.fhir_structure_definition_url) = "http://hl7.org/fhir/StructureDefinition/Substance";
 
   // Logical id of this artifact
   Id id = 1;
@@ -66,16 +65,13 @@ message Substance {
   repeated Identifier identifier = 10;
 
   // Is this an instance of a substance or a kind of one
-  Boolean instance = 17
-      [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
+  Boolean instance = 17 [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
 
   // active | inactive | entered-in-error
   message StatusCode {
     option (.google.fhir.proto.structure_definition_kind) = KIND_PRIMITIVE_TYPE;
-    option (.google.fhir.proto.fhir_valueset_url) =
-        "http://hl7.org/fhir/ValueSet/substance-status";
-    option (.google.fhir.proto.fhir_profile_base) =
-        "http://hl7.org/fhir/StructureDefinition/code";
+    option (.google.fhir.proto.fhir_valueset_url) = "http://hl7.org/fhir/ValueSet/substance-status";
+    option (.google.fhir.proto.fhir_profile_base) = "http://hl7.org/fhir/StructureDefinition/code";
 
     FHIRSubstanceStatusCode.Value value = 1;
 
@@ -89,8 +85,7 @@ message Substance {
   repeated CodeableConcept category = 12;
 
   // What substance this is
-  CodeableReference code = 18
-      [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
+  CodeableReference code = 18 [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
 
   // Textual description of the substance, comments
   Markdown description = 19;
@@ -121,12 +116,10 @@ message Substance {
 
       oneof choice {
         CodeableConcept codeable_concept = 1;
-        Reference reference = 2
-            [(.google.fhir.proto.valid_reference_type) = "Substance"];
+        Reference reference = 2 [(.google.fhir.proto.valid_reference_type) = "Substance"];
       }
     }
-    SubstanceX substance = 5
-        [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
+    SubstanceX substance = 5 [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
   }
   repeated Ingredient ingredient = 16;
 }

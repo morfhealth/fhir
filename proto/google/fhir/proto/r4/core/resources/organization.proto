@@ -20,20 +20,18 @@ import "google/protobuf/any.proto";
 import "proto/google/fhir/proto/annotations.proto";
 import "proto/google/fhir/proto/r4/core/datatypes.proto";
 
+option go_package = "github.com/google/fhir/go/proto/google/fhir/proto/r4/core/resources/organization_go_proto";
 option java_multiple_files = true;
 option java_package = "com.google.fhir.r4.core";
 option (.google.fhir.proto.fhir_version) = R4;
-option go_package = "github.com/google/fhir/go/proto/google/fhir/proto/r4/core/resources/organization_go_proto";
 
 // Auto-generated from StructureDefinition for Organization.
 // A grouping of people or organizations with a common purpose.
 // See http://hl7.org/fhir/StructureDefinition/Organization
 message Organization {
   option (.google.fhir.proto.structure_definition_kind) = KIND_RESOURCE;
-  option (.google.fhir.proto.fhir_structure_definition_url) =
-      "http://hl7.org/fhir/StructureDefinition/Organization";
-  option (.google.fhir.proto.fhir_path_message_constraint) =
-      "(identifier.count() + name.count()) > 0";
+  option (.google.fhir.proto.fhir_structure_definition_url) = "http://hl7.org/fhir/StructureDefinition/Organization";
+  option (.google.fhir.proto.fhir_path_message_constraint) = "(identifier.count() + name.count()) > 0";
 
   // Logical id of this artifact
   Id id = 1;
@@ -80,17 +78,13 @@ message Organization {
   repeated String alias = 14;
 
   // A contact detail for the organization
-  repeated ContactPoint telecom = 15
-      [(.google.fhir.proto.fhir_path_constraint) =
-           "where(use = 'home').empty()"];
+  repeated ContactPoint telecom = 15 [(.google.fhir.proto.fhir_path_constraint) = "where(use = 'home').empty()"];
 
   // An address for the organization
-  repeated Address address = 16 [(.google.fhir.proto.fhir_path_constraint) =
-                                     "where(use = 'home').empty()"];
+  repeated Address address = 16 [(.google.fhir.proto.fhir_path_constraint) = "where(use = 'home').empty()"];
 
   // The organization of which this organization forms a part
-  Reference part_of = 17
-      [(.google.fhir.proto.valid_reference_type) = "Organization"];
+  Reference part_of = 17 [(.google.fhir.proto.valid_reference_type) = "Organization"];
 
   // Contact for the organization for a certain purpose
   message Contact {
@@ -119,6 +113,5 @@ message Organization {
 
   // Technical endpoints providing access to services operated for the
   // organization
-  repeated Reference endpoint = 19
-      [(.google.fhir.proto.valid_reference_type) = "Endpoint"];
+  repeated Reference endpoint = 19 [(.google.fhir.proto.valid_reference_type) = "Endpoint"];
 }

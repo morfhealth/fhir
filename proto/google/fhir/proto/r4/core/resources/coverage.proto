@@ -21,18 +21,17 @@ import "proto/google/fhir/proto/annotations.proto";
 import "proto/google/fhir/proto/r4/core/codes.proto";
 import "proto/google/fhir/proto/r4/core/datatypes.proto";
 
+option go_package = "github.com/google/fhir/go/proto/google/fhir/proto/r4/core/resources/coverage_go_proto";
 option java_multiple_files = true;
 option java_package = "com.google.fhir.r4.core";
 option (.google.fhir.proto.fhir_version) = R4;
-option go_package = "github.com/google/fhir/go/proto/google/fhir/proto/r4/core/resources/coverage_go_proto";
 
 // Auto-generated from StructureDefinition for Coverage.
 // Insurance or medical plan or a payment agreement.
 // See http://hl7.org/fhir/StructureDefinition/Coverage
 message Coverage {
   option (.google.fhir.proto.structure_definition_kind) = KIND_RESOURCE;
-  option (.google.fhir.proto.fhir_structure_definition_url) =
-      "http://hl7.org/fhir/StructureDefinition/Coverage";
+  option (.google.fhir.proto.fhir_structure_definition_url) = "http://hl7.org/fhir/StructureDefinition/Coverage";
 
   // Logical id of this artifact
   Id id = 1;
@@ -68,10 +67,8 @@ message Coverage {
   // active | cancelled | draft | entered-in-error
   message StatusCode {
     option (.google.fhir.proto.structure_definition_kind) = KIND_PRIMITIVE_TYPE;
-    option (.google.fhir.proto.fhir_valueset_url) =
-        "http://hl7.org/fhir/ValueSet/fm-status";
-    option (.google.fhir.proto.fhir_profile_base) =
-        "http://hl7.org/fhir/StructureDefinition/code";
+    option (.google.fhir.proto.fhir_valueset_url) = "http://hl7.org/fhir/ValueSet/fm-status";
+    option (.google.fhir.proto.fhir_profile_base) = "http://hl7.org/fhir/StructureDefinition/code";
 
     FinancialResourceStatusCode.Value value = 1;
 
@@ -79,8 +76,7 @@ message Coverage {
 
     repeated Extension extension = 3;
   }
-  StatusCode status = 11
-      [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
+  StatusCode status = 11 [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
 
   // Coverage category such as medical or accident
   CodeableConcept type = 12;
@@ -136,12 +132,10 @@ message Coverage {
     repeated Extension modifier_extension = 3;
 
     // Type of class such as 'group' or 'plan'
-    CodeableConcept type = 4
-        [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
+    CodeableConcept type = 4 [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
 
     // Value associated with the type
-    String value = 5
-        [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
+    String value = 5 [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
 
     // Human readable description of the type and value
     String name = 6;
@@ -177,8 +171,7 @@ message Coverage {
         Money money = 2;
       }
     }
-    ValueX value = 5
-        [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
+    ValueX value = 5 [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
 
     // Exceptions for patient payments
     message Exemption {
@@ -192,8 +185,7 @@ message Coverage {
       repeated Extension modifier_extension = 3;
 
       // Exception category
-      CodeableConcept type = 4
-          [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
+      CodeableConcept type = 4 [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
 
       // The effective period of the exception
       Period period = 5;
@@ -206,6 +198,5 @@ message Coverage {
   Boolean subrogation = 25;
 
   // Contract details
-  repeated Reference contract = 26
-      [(.google.fhir.proto.valid_reference_type) = "Contract"];
+  repeated Reference contract = 26 [(.google.fhir.proto.valid_reference_type) = "Contract"];
 }

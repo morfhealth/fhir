@@ -21,22 +21,19 @@ import "proto/google/fhir/proto/annotations.proto";
 import "proto/google/fhir/proto/r5/core/codes.proto";
 import "proto/google/fhir/proto/r5/core/datatypes.proto";
 
+option go_package = "github.com/google/fhir/go/proto/google/fhir/proto/r5/core/resources/service_request_go_proto";
 option java_multiple_files = true;
 option java_package = "com.google.fhir.r5.core";
 option (.google.fhir.proto.fhir_version) = R5;
-option go_package = "github.com/google/fhir/go/proto/google/fhir/proto/r5/core/resources/service_request_go_proto";
 
 // Auto-generated from StructureDefinition for ServiceRequest.
 // A request for a service to be performed.
 // See http://hl7.org/fhir/StructureDefinition/ServiceRequest
 message ServiceRequest {
   option (.google.fhir.proto.structure_definition_kind) = KIND_RESOURCE;
-  option (.google.fhir.proto.fhir_structure_definition_url) =
-      "http://hl7.org/fhir/StructureDefinition/ServiceRequest";
-  option (.google.fhir.proto.fhir_path_message_constraint) =
-      "bodySite.exists() implies bodyStructure.empty()";
-  option (.google.fhir.proto.fhir_path_message_constraint) =
-      "orderDetail.empty() or code.exists()";
+  option (.google.fhir.proto.fhir_structure_definition_url) = "http://hl7.org/fhir/StructureDefinition/ServiceRequest";
+  option (.google.fhir.proto.fhir_path_message_constraint) = "bodySite.exists() implies bodyStructure.empty()";
+  option (.google.fhir.proto.fhir_path_message_constraint) = "orderDetail.empty() or code.exists()";
 
   // Logical id of this artifact
   Id id = 1;
@@ -83,8 +80,7 @@ message ServiceRequest {
   ];
 
   // What request replaces
-  repeated Reference replaces = 14
-      [(.google.fhir.proto.valid_reference_type) = "ServiceRequest"];
+  repeated Reference replaces = 14 [(.google.fhir.proto.valid_reference_type) = "ServiceRequest"];
 
   // Composite Request ID
   Identifier requisition = 15;
@@ -92,10 +88,8 @@ message ServiceRequest {
   // draft | active | on-hold | revoked | completed | entered-in-error | unknown
   message StatusCode {
     option (.google.fhir.proto.structure_definition_kind) = KIND_PRIMITIVE_TYPE;
-    option (.google.fhir.proto.fhir_valueset_url) =
-        "http://hl7.org/fhir/ValueSet/request-status";
-    option (.google.fhir.proto.fhir_profile_base) =
-        "http://hl7.org/fhir/StructureDefinition/code";
+    option (.google.fhir.proto.fhir_valueset_url) = "http://hl7.org/fhir/ValueSet/request-status";
+    option (.google.fhir.proto.fhir_profile_base) = "http://hl7.org/fhir/StructureDefinition/code";
 
     RequestStatusCode.Value value = 1;
 
@@ -103,16 +97,13 @@ message ServiceRequest {
 
     repeated Extension extension = 3;
   }
-  StatusCode status = 16
-      [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
+  StatusCode status = 16 [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
 
   // proposal | plan | directive | order +
   message IntentCode {
     option (.google.fhir.proto.structure_definition_kind) = KIND_PRIMITIVE_TYPE;
-    option (.google.fhir.proto.fhir_valueset_url) =
-        "http://hl7.org/fhir/ValueSet/request-intent";
-    option (.google.fhir.proto.fhir_profile_base) =
-        "http://hl7.org/fhir/StructureDefinition/code";
+    option (.google.fhir.proto.fhir_valueset_url) = "http://hl7.org/fhir/ValueSet/request-intent";
+    option (.google.fhir.proto.fhir_profile_base) = "http://hl7.org/fhir/StructureDefinition/code";
 
     RequestIntentCode.Value value = 1;
 
@@ -120,8 +111,7 @@ message ServiceRequest {
 
     repeated Extension extension = 3;
   }
-  IntentCode intent = 17
-      [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
+  IntentCode intent = 17 [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
 
   // Classification of service
   repeated CodeableConcept category = 18;
@@ -129,10 +119,8 @@ message ServiceRequest {
   // routine | urgent | asap | stat
   message PriorityCode {
     option (.google.fhir.proto.structure_definition_kind) = KIND_PRIMITIVE_TYPE;
-    option (.google.fhir.proto.fhir_valueset_url) =
-        "http://hl7.org/fhir/ValueSet/request-priority";
-    option (.google.fhir.proto.fhir_profile_base) =
-        "http://hl7.org/fhir/StructureDefinition/code";
+    option (.google.fhir.proto.fhir_valueset_url) = "http://hl7.org/fhir/ValueSet/request-priority";
+    option (.google.fhir.proto.fhir_profile_base) = "http://hl7.org/fhir/StructureDefinition/code";
 
     RequestPriorityCode.Value value = 1;
 
@@ -174,8 +162,7 @@ message ServiceRequest {
       repeated Extension modifier_extension = 3;
 
       // The detail of the order being requested
-      CodeableConcept code = 4
-          [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
+      CodeableConcept code = 4 [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
 
       // The value for the order detail
       message ValueX {
@@ -191,11 +178,9 @@ message ServiceRequest {
           Period period = 7;
         }
       }
-      ValueX value = 5
-          [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
+      ValueX value = 5 [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
     }
-    repeated Parameter parameter = 5
-        [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
+    repeated Parameter parameter = 5 [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
   }
   repeated OrderDetail order_detail = 44;
 
@@ -222,12 +207,10 @@ message ServiceRequest {
 
   // What the service request is about, when it is not about the subject of
   // record
-  repeated Reference focus = 45
-      [(.google.fhir.proto.valid_reference_type) = "Resource"];
+  repeated Reference focus = 45 [(.google.fhir.proto.valid_reference_type) = "Resource"];
 
   // Encounter in which the request was created
-  Reference encounter = 25
-      [(.google.fhir.proto.valid_reference_type) = "Encounter"];
+  Reference encounter = 25 [(.google.fhir.proto.valid_reference_type) = "Encounter"];
 
   // When service should occur
   message OccurrenceX {
@@ -296,15 +279,13 @@ message ServiceRequest {
   repeated CodeableReference supporting_info = 48;
 
   // Procedure Samples
-  repeated Reference specimen = 38
-      [(.google.fhir.proto.valid_reference_type) = "Specimen"];
+  repeated Reference specimen = 38 [(.google.fhir.proto.valid_reference_type) = "Specimen"];
 
   // Coded location on Body
   repeated CodeableConcept body_site = 39;
 
   // BodyStructure-based location on the body
-  Reference body_structure = 49
-      [(.google.fhir.proto.valid_reference_type) = "BodyStructure"];
+  Reference body_structure = 49 [(.google.fhir.proto.valid_reference_type) = "BodyStructure"];
 
   // Comments
   repeated Annotation note = 40;
@@ -326,8 +307,7 @@ message ServiceRequest {
 
       oneof choice {
         Markdown markdown = 1;
-        Reference reference = 2
-            [(.google.fhir.proto.valid_reference_type) = "DocumentReference"];
+        Reference reference = 2 [(.google.fhir.proto.valid_reference_type) = "DocumentReference"];
       }
     }
     InstructionX instruction = 4;
@@ -335,6 +315,5 @@ message ServiceRequest {
   repeated PatientInstruction patient_instruction = 50;
 
   // Request provenance
-  repeated Reference relevant_history = 42
-      [(.google.fhir.proto.valid_reference_type) = "Provenance"];
+  repeated Reference relevant_history = 42 [(.google.fhir.proto.valid_reference_type) = "Provenance"];
 }

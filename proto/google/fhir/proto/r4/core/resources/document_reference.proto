@@ -21,18 +21,17 @@ import "proto/google/fhir/proto/annotations.proto";
 import "proto/google/fhir/proto/r4/core/codes.proto";
 import "proto/google/fhir/proto/r4/core/datatypes.proto";
 
+option go_package = "github.com/google/fhir/go/proto/google/fhir/proto/r4/core/resources/document_reference_go_proto";
 option java_multiple_files = true;
 option java_package = "com.google.fhir.r4.core";
 option (.google.fhir.proto.fhir_version) = R4;
-option go_package = "github.com/google/fhir/go/proto/google/fhir/proto/r4/core/resources/document_reference_go_proto";
 
 // Auto-generated from StructureDefinition for DocumentReference.
 // A reference to a document.
 // See http://hl7.org/fhir/StructureDefinition/DocumentReference
 message DocumentReference {
   option (.google.fhir.proto.structure_definition_kind) = KIND_RESOURCE;
-  option (.google.fhir.proto.fhir_structure_definition_url) =
-      "http://hl7.org/fhir/StructureDefinition/DocumentReference";
+  option (.google.fhir.proto.fhir_structure_definition_url) = "http://hl7.org/fhir/StructureDefinition/DocumentReference";
 
   // Logical id of this artifact
   Id id = 1;
@@ -71,10 +70,8 @@ message DocumentReference {
   // current | superseded | entered-in-error
   message StatusCode {
     option (.google.fhir.proto.structure_definition_kind) = KIND_PRIMITIVE_TYPE;
-    option (.google.fhir.proto.fhir_valueset_url) =
-        "http://hl7.org/fhir/ValueSet/document-reference-status";
-    option (.google.fhir.proto.fhir_profile_base) =
-        "http://hl7.org/fhir/StructureDefinition/code";
+    option (.google.fhir.proto.fhir_valueset_url) = "http://hl7.org/fhir/ValueSet/document-reference-status";
+    option (.google.fhir.proto.fhir_profile_base) = "http://hl7.org/fhir/StructureDefinition/code";
 
     DocumentReferenceStatusCode.Value value = 1;
 
@@ -82,16 +79,13 @@ message DocumentReference {
 
     repeated Extension extension = 3;
   }
-  StatusCode status = 12
-      [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
+  StatusCode status = 12 [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
 
   // preliminary | final | amended | entered-in-error
   message DocStatusCode {
     option (.google.fhir.proto.structure_definition_kind) = KIND_PRIMITIVE_TYPE;
-    option (.google.fhir.proto.fhir_valueset_url) =
-        "http://hl7.org/fhir/ValueSet/composition-status";
-    option (.google.fhir.proto.fhir_profile_base) =
-        "http://hl7.org/fhir/StructureDefinition/code";
+    option (.google.fhir.proto.fhir_valueset_url) = "http://hl7.org/fhir/ValueSet/composition-status";
+    option (.google.fhir.proto.fhir_profile_base) = "http://hl7.org/fhir/StructureDefinition/code";
 
     CompositionStatusCode.Value value = 1;
 
@@ -136,8 +130,7 @@ message DocumentReference {
   ];
 
   // Organization which maintains the document
-  Reference custodian = 20
-      [(.google.fhir.proto.valid_reference_type) = "Organization"];
+  Reference custodian = 20 [(.google.fhir.proto.valid_reference_type) = "Organization"];
 
   // Relationships to other documents
   message RelatesTo {
@@ -152,12 +145,9 @@ message DocumentReference {
 
     // replaces | transforms | signs | appends
     message CodeType {
-      option (.google.fhir.proto.structure_definition_kind) =
-          KIND_PRIMITIVE_TYPE;
-      option (.google.fhir.proto.fhir_valueset_url) =
-          "http://hl7.org/fhir/ValueSet/document-relationship-type";
-      option (.google.fhir.proto.fhir_profile_base) =
-          "http://hl7.org/fhir/StructureDefinition/code";
+      option (.google.fhir.proto.structure_definition_kind) = KIND_PRIMITIVE_TYPE;
+      option (.google.fhir.proto.fhir_valueset_url) = "http://hl7.org/fhir/ValueSet/document-relationship-type";
+      option (.google.fhir.proto.fhir_profile_base) = "http://hl7.org/fhir/StructureDefinition/code";
 
       DocumentRelationshipTypeCode.Value value = 1;
 
@@ -165,8 +155,7 @@ message DocumentReference {
 
       repeated Extension extension = 3;
     }
-    CodeType code = 4
-        [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
+    CodeType code = 4 [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
 
     // Target of the relationship
     Reference target = 5 [
@@ -194,14 +183,12 @@ message DocumentReference {
     repeated Extension modifier_extension = 3;
 
     // Where to access the document
-    Attachment attachment = 4
-        [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
+    Attachment attachment = 4 [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
 
     // Format/content rules for the document
     Coding format = 5;
   }
-  repeated Content content = 24
-      [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
+  repeated Content content = 24 [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
 
   // Clinical context of document
   message Context {
@@ -234,12 +221,10 @@ message DocumentReference {
     CodeableConcept practice_setting = 8;
 
     // Patient demographics from source
-    Reference source_patient_info = 9
-        [(.google.fhir.proto.valid_reference_type) = "Patient"];
+    Reference source_patient_info = 9 [(.google.fhir.proto.valid_reference_type) = "Patient"];
 
     // Related identifiers or resources
-    repeated Reference related = 10
-        [(.google.fhir.proto.valid_reference_type) = "Resource"];
+    repeated Reference related = 10 [(.google.fhir.proto.valid_reference_type) = "Resource"];
   }
   Context context = 25;
 }

@@ -30,18 +30,12 @@ option (.google.fhir.proto.fhir_version) = R4;
 // See http://hl7.org/fhir/StructureDefinition/heartrate
 message ObservationHeartrate {
   option (.google.fhir.proto.structure_definition_kind) = KIND_RESOURCE;
-  option (.google.fhir.proto.fhir_profile_base) =
-      "http://hl7.org/fhir/StructureDefinition/vitalsigns";
-  option (.google.fhir.proto.fhir_profile_base) =
-      "http://hl7.org/fhir/StructureDefinition/Observation";
-  option (.google.fhir.proto.fhir_structure_definition_url) =
-      "http://hl7.org/fhir/StructureDefinition/heartrate";
-  option (.google.fhir.proto.fhir_path_message_constraint) =
-      "dataAbsentReason.empty() or value.empty()";
-  option (.google.fhir.proto.fhir_path_message_constraint) =
-      "value.empty() or component.code.where(coding.intersect(%resource.code.coding).exists()).empty()";
-  option (.google.fhir.proto.fhir_path_message_constraint) =
-      "(component.empty() and hasMember.empty()) implies (dataAbsentReason.exists() or value.exists())";
+  option (.google.fhir.proto.fhir_profile_base) = "http://hl7.org/fhir/StructureDefinition/vitalsigns";
+  option (.google.fhir.proto.fhir_profile_base) = "http://hl7.org/fhir/StructureDefinition/Observation";
+  option (.google.fhir.proto.fhir_structure_definition_url) = "http://hl7.org/fhir/StructureDefinition/heartrate";
+  option (.google.fhir.proto.fhir_path_message_constraint) = "dataAbsentReason.empty() or value.empty()";
+  option (.google.fhir.proto.fhir_path_message_constraint) = "value.empty() or component.code.where(coding.intersect(%resource.code.coding).exists()).empty()";
+  option (.google.fhir.proto.fhir_path_message_constraint) = "(component.empty() and hasMember.empty()) implies (dataAbsentReason.exists() or value.exists())";
   option (.google.fhir.proto.search_parameter) = {
     name: "amino-acid-change"
     type: STRING
@@ -312,10 +306,8 @@ message ObservationHeartrate {
   // registered | preliminary | final | amended +
   message StatusCode {
     option (.google.fhir.proto.structure_definition_kind) = KIND_PRIMITIVE_TYPE;
-    option (.google.fhir.proto.fhir_valueset_url) =
-        "http://hl7.org/fhir/ValueSet/observation-status";
-    option (.google.fhir.proto.fhir_profile_base) =
-        "http://hl7.org/fhir/StructureDefinition/code";
+    option (.google.fhir.proto.fhir_valueset_url) = "http://hl7.org/fhir/ValueSet/observation-status";
+    option (.google.fhir.proto.fhir_profile_base) = "http://hl7.org/fhir/StructureDefinition/code";
 
     ObservationStatusCode.Value value = 1;
 
@@ -323,17 +315,14 @@ message ObservationHeartrate {
 
     repeated Extension extension = 3;
   }
-  StatusCode status = 13
-      [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
+  StatusCode status = 13 [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
 
   // Classification of  type of observation
-  repeated CodeableConcept category = 14
-      [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
+  repeated CodeableConcept category = 14 [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
 
   // Heart Rate
   message CodeableConceptForCode {
-    option (.google.fhir.proto.fhir_profile_base) =
-        "http://hl7.org/fhir/StructureDefinition/CodeableConcept";
+    option (.google.fhir.proto.fhir_profile_base) = "http://hl7.org/fhir/StructureDefinition/CodeableConcept";
 
     // Unique id for inter-element referencing
     String id = 1;
@@ -353,8 +342,7 @@ message ObservationHeartrate {
       json_name = "HeartRateCode"
     ];
   }
-  CodeableConceptForCode code = 15
-      [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
+  CodeableConceptForCode code = 15 [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
 
   // Who and/or what the observation is about
   Reference subject = 16 [
@@ -363,17 +351,14 @@ message ObservationHeartrate {
   ];
 
   // What the observation is about, when it is not about the subject of record
-  repeated Reference focus = 17
-      [(.google.fhir.proto.valid_reference_type) = "Resource"];
+  repeated Reference focus = 17 [(.google.fhir.proto.valid_reference_type) = "Resource"];
 
   // Healthcare event during which this observation is made
-  Reference encounter = 18
-      [(.google.fhir.proto.valid_reference_type) = "Encounter"];
+  Reference encounter = 18 [(.google.fhir.proto.valid_reference_type) = "Encounter"];
 
   // Often just a dateTime for Vital Signs
   message EffectiveX {
-    option (.google.fhir.proto.fhir_path_message_constraint) =
-        "($this as dateTime).toString().length() >= 8";
+    option (.google.fhir.proto.fhir_path_message_constraint) = "($this as dateTime).toString().length() >= 8";
     option (.google.fhir.proto.is_choice_type) = true;
 
     oneof choice {
@@ -381,8 +366,7 @@ message ObservationHeartrate {
       Period period = 2;
     }
   }
-  EffectiveX effective = 19
-      [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
+  EffectiveX effective = 19 [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
 
   // Date/Time this version was made available
   Instant issued = 20;
@@ -425,8 +409,7 @@ message ObservationHeartrate {
   CodeableConcept method = 27;
 
   // Specimen used for this observation
-  Reference specimen = 28
-      [(.google.fhir.proto.valid_reference_type) = "Specimen"];
+  Reference specimen = 28 [(.google.fhir.proto.valid_reference_type) = "Specimen"];
 
   // (Measurement) Device
   Reference device = 29 [
@@ -436,8 +419,7 @@ message ObservationHeartrate {
 
   // Provides guide for interpretation
   message ReferenceRange {
-    option (.google.fhir.proto.fhir_path_message_constraint) =
-        "low.exists() or high.exists() or text.exists()";
+    option (.google.fhir.proto.fhir_path_message_constraint) = "low.exists() or high.exists() or text.exists()";
 
     // Unique id for inter-element referencing
     String id = 1;
@@ -487,8 +469,7 @@ message ObservationHeartrate {
 
   // Used when reporting systolic and diastolic blood pressure.
   message Component {
-    option (.google.fhir.proto.fhir_path_message_constraint) =
-        "value.exists() or dataAbsentReason.exists()";
+    option (.google.fhir.proto.fhir_path_message_constraint) = "value.exists() or dataAbsentReason.exists()";
 
     // Unique id for inter-element referencing
     String id = 1;
@@ -500,8 +481,7 @@ message ObservationHeartrate {
     repeated Extension modifier_extension = 3;
 
     // Type of component observation (code / type)
-    CodeableConcept code = 4
-        [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
+    CodeableConcept code = 4 [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
 
     // Vital Sign Value recorded with UCUM
     message ValueX {

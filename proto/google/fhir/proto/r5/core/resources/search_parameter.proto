@@ -22,26 +22,21 @@ import "proto/google/fhir/proto/r5/core/codes.proto";
 import "proto/google/fhir/proto/r5/core/datatypes.proto";
 import "proto/google/fhir/proto/r5/core/valuesets.proto";
 
+option go_package = "github.com/google/fhir/go/proto/google/fhir/proto/r5/core/resources/search_parameter_go_proto";
 option java_multiple_files = true;
 option java_package = "com.google.fhir.r5.core";
 option (.google.fhir.proto.fhir_version) = R5;
-option go_package = "github.com/google/fhir/go/proto/google/fhir/proto/r5/core/resources/search_parameter_go_proto";
 
 // Auto-generated from StructureDefinition for SearchParameter.
 // Search parameter for a resource.
 // See http://hl7.org/fhir/StructureDefinition/SearchParameter
 message SearchParameter {
   option (.google.fhir.proto.structure_definition_kind) = KIND_RESOURCE;
-  option (.google.fhir.proto.fhir_structure_definition_url) =
-      "http://hl7.org/fhir/StructureDefinition/SearchParameter";
-  option (.google.fhir.proto.fhir_path_message_constraint) =
-      "expression.empty() or processingMode.exists()";
-  option (.google.fhir.proto.fhir_path_message_constraint) =
-      "chain.empty() or type = 'reference'";
-  option (.google.fhir.proto.fhir_path_message_constraint) =
-      "comparator.empty() or (type in ('number' | 'date' | 'quantity' | 'special'))";
-  option (.google.fhir.proto.fhir_path_message_warning_constraint) =
-      "name.exists() implies name.matches('^[A-Z]([A-Za-z0-9_]){1,254}$')";
+  option (.google.fhir.proto.fhir_structure_definition_url) = "http://hl7.org/fhir/StructureDefinition/SearchParameter";
+  option (.google.fhir.proto.fhir_path_message_constraint) = "expression.empty() or processingMode.exists()";
+  option (.google.fhir.proto.fhir_path_message_constraint) = "chain.empty() or type = 'reference'";
+  option (.google.fhir.proto.fhir_path_message_constraint) = "comparator.empty() or (type in ('number' | 'date' | 'quantity' | 'special'))";
+  option (.google.fhir.proto.fhir_path_message_warning_constraint) = "name.exists() implies name.matches('^[A-Z]([A-Za-z0-9_]){1,254}$')";
 
   // Logical id of this artifact
   Id id = 1;
@@ -75,8 +70,7 @@ message SearchParameter {
   // (globally unique)
   Uri url = 10 [
     (.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR,
-    (.google.fhir.proto.fhir_path_warning_constraint) =
-        "exists() implies matches('^[^|# ]+$')"
+    (.google.fhir.proto.fhir_path_warning_constraint) = "exists() implies matches('^[^|# ]+$')"
   ];
 
   // Additional identifier for the search parameter (business identifier)
@@ -97,8 +91,7 @@ message SearchParameter {
   VersionAlgorithmX version_algorithm = 37;
 
   // Name for this search parameter (computer friendly)
-  String name = 12
-      [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
+  String name = 12 [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
 
   // Name for this search parameter (human friendly)
   String title = 38;
@@ -109,10 +102,8 @@ message SearchParameter {
   // draft | active | retired | unknown
   message StatusCode {
     option (.google.fhir.proto.structure_definition_kind) = KIND_PRIMITIVE_TYPE;
-    option (.google.fhir.proto.fhir_valueset_url) =
-        "http://hl7.org/fhir/ValueSet/publication-status";
-    option (.google.fhir.proto.fhir_profile_base) =
-        "http://hl7.org/fhir/StructureDefinition/code";
+    option (.google.fhir.proto.fhir_valueset_url) = "http://hl7.org/fhir/ValueSet/publication-status";
+    option (.google.fhir.proto.fhir_profile_base) = "http://hl7.org/fhir/StructureDefinition/code";
 
     PublicationStatusCode.Value value = 1;
 
@@ -120,8 +111,7 @@ message SearchParameter {
 
     repeated Extension extension = 3;
   }
-  StatusCode status = 14
-      [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
+  StatusCode status = 14 [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
 
   // For testing purposes, not real usage
   Boolean experimental = 15;
@@ -136,8 +126,7 @@ message SearchParameter {
   repeated ContactDetail contact = 18;
 
   // Natural language description of the search parameter
-  Markdown description = 19
-      [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
+  Markdown description = 19 [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
 
   // The context that the content is intended to support
   repeated UsageContext use_context = 20;
@@ -155,16 +144,13 @@ message SearchParameter {
   String copyright_label = 40;
 
   // Recommended name for parameter in search url
-  Code code = 23
-      [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
+  Code code = 23 [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
 
   // The resource type(s) this search parameter applies to
   message BaseCode {
     option (.google.fhir.proto.structure_definition_kind) = KIND_PRIMITIVE_TYPE;
-    option (.google.fhir.proto.fhir_valueset_url) =
-        "http://hl7.org/fhir/ValueSet/version-independent-all-resource-types";
-    option (.google.fhir.proto.fhir_profile_base) =
-        "http://hl7.org/fhir/StructureDefinition/code";
+    option (.google.fhir.proto.fhir_valueset_url) = "http://hl7.org/fhir/ValueSet/version-independent-all-resource-types";
+    option (.google.fhir.proto.fhir_profile_base) = "http://hl7.org/fhir/StructureDefinition/code";
 
     VersionIndependentResourceTypesAllValueSet.Value value = 1;
 
@@ -172,17 +158,14 @@ message SearchParameter {
 
     repeated Extension extension = 3;
   }
-  repeated BaseCode base = 41
-      [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
+  repeated BaseCode base = 41 [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
 
   // number | date | string | token | reference | composite | quantity | uri |
   // special
   message TypeCode {
     option (.google.fhir.proto.structure_definition_kind) = KIND_PRIMITIVE_TYPE;
-    option (.google.fhir.proto.fhir_valueset_url) =
-        "http://hl7.org/fhir/ValueSet/search-param-type";
-    option (.google.fhir.proto.fhir_profile_base) =
-        "http://hl7.org/fhir/StructureDefinition/code";
+    option (.google.fhir.proto.fhir_valueset_url) = "http://hl7.org/fhir/ValueSet/search-param-type";
+    option (.google.fhir.proto.fhir_profile_base) = "http://hl7.org/fhir/StructureDefinition/code";
 
     SearchParamTypeCode.Value value = 1;
 
@@ -190,8 +173,7 @@ message SearchParameter {
 
     repeated Extension extension = 3;
   }
-  TypeCode type = 25
-      [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
+  TypeCode type = 25 [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
 
   // FHIRPath expression that extracts the values
   String expression = 26;
@@ -199,10 +181,8 @@ message SearchParameter {
   // normal | phonetic | other
   message ProcessingModeCode {
     option (.google.fhir.proto.structure_definition_kind) = KIND_PRIMITIVE_TYPE;
-    option (.google.fhir.proto.fhir_valueset_url) =
-        "http://hl7.org/fhir/ValueSet/search-processingmode";
-    option (.google.fhir.proto.fhir_profile_base) =
-        "http://hl7.org/fhir/StructureDefinition/code";
+    option (.google.fhir.proto.fhir_valueset_url) = "http://hl7.org/fhir/ValueSet/search-processingmode";
+    option (.google.fhir.proto.fhir_profile_base) = "http://hl7.org/fhir/StructureDefinition/code";
 
     SearchProcessingModeTypeCode.Value value = 1;
 
@@ -218,10 +198,8 @@ message SearchParameter {
   // Types of resource (if a resource reference)
   message TargetCode {
     option (.google.fhir.proto.structure_definition_kind) = KIND_PRIMITIVE_TYPE;
-    option (.google.fhir.proto.fhir_valueset_url) =
-        "http://hl7.org/fhir/ValueSet/version-independent-all-resource-types";
-    option (.google.fhir.proto.fhir_profile_base) =
-        "http://hl7.org/fhir/StructureDefinition/code";
+    option (.google.fhir.proto.fhir_valueset_url) = "http://hl7.org/fhir/ValueSet/version-independent-all-resource-types";
+    option (.google.fhir.proto.fhir_profile_base) = "http://hl7.org/fhir/StructureDefinition/code";
 
     VersionIndependentResourceTypesAllValueSet.Value value = 1;
 
@@ -240,10 +218,8 @@ message SearchParameter {
   // eq | ne | gt | lt | ge | le | sa | eb | ap
   message ComparatorCode {
     option (.google.fhir.proto.structure_definition_kind) = KIND_PRIMITIVE_TYPE;
-    option (.google.fhir.proto.fhir_valueset_url) =
-        "http://hl7.org/fhir/ValueSet/search-comparator";
-    option (.google.fhir.proto.fhir_profile_base) =
-        "http://hl7.org/fhir/StructureDefinition/code";
+    option (.google.fhir.proto.fhir_valueset_url) = "http://hl7.org/fhir/ValueSet/search-comparator";
+    option (.google.fhir.proto.fhir_profile_base) = "http://hl7.org/fhir/StructureDefinition/code";
 
     SearchComparatorCode.Value value = 1;
 
@@ -257,10 +233,8 @@ message SearchParameter {
   // type | identifier | of-type | code-text | text-advanced | iterate
   message ModifierCode {
     option (.google.fhir.proto.structure_definition_kind) = KIND_PRIMITIVE_TYPE;
-    option (.google.fhir.proto.fhir_valueset_url) =
-        "http://hl7.org/fhir/ValueSet/search-modifier-code";
-    option (.google.fhir.proto.fhir_profile_base) =
-        "http://hl7.org/fhir/StructureDefinition/code";
+    option (.google.fhir.proto.fhir_valueset_url) = "http://hl7.org/fhir/ValueSet/search-modifier-code";
+    option (.google.fhir.proto.fhir_profile_base) = "http://hl7.org/fhir/StructureDefinition/code";
 
     SearchModifierCode.Value value = 1;
 
@@ -285,12 +259,10 @@ message SearchParameter {
     repeated Extension modifier_extension = 3;
 
     // Defines how the part works
-    Canonical definition = 4
-        [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
+    Canonical definition = 4 [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
 
     // Subexpression relative to main expression
-    String expression = 5
-        [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
+    String expression = 5 [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
   }
   repeated Component component = 35;
 }

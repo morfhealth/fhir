@@ -21,18 +21,17 @@ import "proto/google/fhir/proto/annotations.proto";
 import "proto/google/fhir/proto/r5/core/codes.proto";
 import "proto/google/fhir/proto/r5/core/datatypes.proto";
 
+option go_package = "github.com/google/fhir/go/proto/google/fhir/proto/r5/core/resources/procedure_go_proto";
 option java_multiple_files = true;
 option java_package = "com.google.fhir.r5.core";
 option (.google.fhir.proto.fhir_version) = R5;
-option go_package = "github.com/google/fhir/go/proto/google/fhir/proto/r5/core/resources/procedure_go_proto";
 
 // Auto-generated from StructureDefinition for Procedure.
 // An action that is being or was performed on an individual or entity.
 // See http://hl7.org/fhir/StructureDefinition/Procedure
 message Procedure {
   option (.google.fhir.proto.structure_definition_kind) = KIND_RESOURCE;
-  option (.google.fhir.proto.fhir_structure_definition_url) =
-      "http://hl7.org/fhir/StructureDefinition/Procedure";
+  option (.google.fhir.proto.fhir_structure_definition_url) = "http://hl7.org/fhir/StructureDefinition/Procedure";
 
   // Logical id of this artifact
   Id id = 1;
@@ -88,10 +87,8 @@ message Procedure {
   // entered-in-error | unknown
   message StatusCode {
     option (.google.fhir.proto.structure_definition_kind) = KIND_PRIMITIVE_TYPE;
-    option (.google.fhir.proto.fhir_valueset_url) =
-        "http://hl7.org/fhir/ValueSet/event-status";
-    option (.google.fhir.proto.fhir_profile_base) =
-        "http://hl7.org/fhir/StructureDefinition/code";
+    option (.google.fhir.proto.fhir_valueset_url) = "http://hl7.org/fhir/ValueSet/event-status";
+    option (.google.fhir.proto.fhir_profile_base) = "http://hl7.org/fhir/StructureDefinition/code";
 
     EventStatusCode.Value value = 1;
 
@@ -99,8 +96,7 @@ message Procedure {
 
     repeated Extension extension = 3;
   }
-  StatusCode status = 15
-      [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
+  StatusCode status = 15 [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
 
   // Reason for current status
   CodeableConcept status_reason = 16;
@@ -136,8 +132,7 @@ message Procedure {
   ];
 
   // The Encounter during which this Procedure was created
-  Reference encounter = 20
-      [(.google.fhir.proto.valid_reference_type) = "Encounter"];
+  Reference encounter = 20 [(.google.fhir.proto.valid_reference_type) = "Encounter"];
 
   // When the procedure occurred or is occurring
   message OccurrenceX {
@@ -184,8 +179,7 @@ message Procedure {
 
   // Who performed the procedure and what they did
   message Performer {
-    option (.google.fhir.proto.fhir_path_message_constraint) =
-        "onBehalfOf.exists() and actor.resolve().exists() implies actor.resolve().where($this is Practitioner or $this is PractitionerRole).empty()";
+    option (.google.fhir.proto.fhir_path_message_constraint) = "onBehalfOf.exists() and actor.resolve().exists() implies actor.resolve().where($this is Practitioner or $this is PractitionerRole).empty()";
 
     // Unique id for inter-element referencing
     String id = 1;
@@ -213,8 +207,7 @@ message Procedure {
     ];
 
     // Organization the device or practitioner was acting for
-    Reference on_behalf_of = 6
-        [(.google.fhir.proto.valid_reference_type) = "Organization"];
+    Reference on_behalf_of = 6 [(.google.fhir.proto.valid_reference_type) = "Organization"];
 
     // When the performer performed the procedure
     Period period = 7;
@@ -222,8 +215,7 @@ message Procedure {
   repeated Performer performer = 24;
 
   // Where the procedure happened
-  Reference location = 25
-      [(.google.fhir.proto.valid_reference_type) = "Location"];
+  Reference location = 25 [(.google.fhir.proto.valid_reference_type) = "Location"];
 
   // The justification that the procedure was performed
   repeated CodeableReference reason = 43;
@@ -276,6 +268,5 @@ message Procedure {
   repeated CodeableReference used = 45;
 
   // Extra information relevant to the procedure
-  repeated Reference supporting_info = 46
-      [(.google.fhir.proto.valid_reference_type) = "Resource"];
+  repeated Reference supporting_info = 46 [(.google.fhir.proto.valid_reference_type) = "Resource"];
 }

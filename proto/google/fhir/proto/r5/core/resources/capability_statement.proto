@@ -22,36 +22,26 @@ import "proto/google/fhir/proto/r5/core/codes.proto";
 import "proto/google/fhir/proto/r5/core/datatypes.proto";
 import "proto/google/fhir/proto/r5/core/valuesets.proto";
 
+option go_package = "github.com/google/fhir/go/proto/google/fhir/proto/r5/core/resources/capability_statement_go_proto";
 option java_multiple_files = true;
 option java_package = "com.google.fhir.r5.core";
 option (.google.fhir.proto.fhir_version) = R5;
-option go_package = "github.com/google/fhir/go/proto/google/fhir/proto/r5/core/resources/capability_statement_go_proto";
 
 // Auto-generated from StructureDefinition for CapabilityStatement.
 // A statement of system capabilities.
 // See http://hl7.org/fhir/StructureDefinition/CapabilityStatement
 message CapabilityStatement {
   option (.google.fhir.proto.structure_definition_kind) = KIND_RESOURCE;
-  option (.google.fhir.proto.fhir_structure_definition_url) =
-      "http://hl7.org/fhir/StructureDefinition/CapabilityStatement";
-  option (.google.fhir.proto.fhir_path_message_constraint) =
-      "rest.exists() or messaging.exists() or document.exists()";
-  option (.google.fhir.proto.fhir_path_message_constraint) =
-      "(description.count() + software.count() + implementation.count()) > 0";
-  option (.google.fhir.proto.fhir_path_message_constraint) =
-      "messaging.endpoint.empty() or kind = 'instance'";
-  option (.google.fhir.proto.fhir_path_message_constraint) =
-      "rest.mode.isDistinct()";
-  option (.google.fhir.proto.fhir_path_message_constraint) =
-      "document.select(profile&mode).isDistinct()";
-  option (.google.fhir.proto.fhir_path_message_constraint) =
-      "(kind != 'instance') or implementation.exists()";
-  option (.google.fhir.proto.fhir_path_message_constraint) =
-      "(kind != 'capability') or (implementation.exists().not() and software.exists())";
-  option (.google.fhir.proto.fhir_path_message_constraint) =
-      "(kind!='requirements') or (implementation.exists().not() and software.exists().not())";
-  option (.google.fhir.proto.fhir_path_message_warning_constraint) =
-      "name.exists() implies name.matches('^[A-Z]([A-Za-z0-9_]){1,254}$')";
+  option (.google.fhir.proto.fhir_structure_definition_url) = "http://hl7.org/fhir/StructureDefinition/CapabilityStatement";
+  option (.google.fhir.proto.fhir_path_message_constraint) = "rest.exists() or messaging.exists() or document.exists()";
+  option (.google.fhir.proto.fhir_path_message_constraint) = "(description.count() + software.count() + implementation.count()) > 0";
+  option (.google.fhir.proto.fhir_path_message_constraint) = "messaging.endpoint.empty() or kind = 'instance'";
+  option (.google.fhir.proto.fhir_path_message_constraint) = "rest.mode.isDistinct()";
+  option (.google.fhir.proto.fhir_path_message_constraint) = "document.select(profile&mode).isDistinct()";
+  option (.google.fhir.proto.fhir_path_message_constraint) = "(kind != 'instance') or implementation.exists()";
+  option (.google.fhir.proto.fhir_path_message_constraint) = "(kind != 'capability') or (implementation.exists().not() and software.exists())";
+  option (.google.fhir.proto.fhir_path_message_constraint) = "(kind!='requirements') or (implementation.exists().not() and software.exists().not())";
+  option (.google.fhir.proto.fhir_path_message_warning_constraint) = "name.exists() implies name.matches('^[A-Z]([A-Za-z0-9_]){1,254}$')";
 
   // Logical id of this artifact
   Id id = 1;
@@ -83,8 +73,7 @@ message CapabilityStatement {
 
   // Canonical identifier for this capability statement, represented as a URI
   // (globally unique)
-  Uri url = 10 [(.google.fhir.proto.fhir_path_warning_constraint) =
-                    "exists() implies matches('^[^|# ]+$')"];
+  Uri url = 10 [(.google.fhir.proto.fhir_path_warning_constraint) = "exists() implies matches('^[^|# ]+$')"];
 
   // Additional identifier for the CapabilityStatement (business identifier)
   repeated Identifier identifier = 36;
@@ -112,10 +101,8 @@ message CapabilityStatement {
   // draft | active | retired | unknown
   message StatusCode {
     option (.google.fhir.proto.structure_definition_kind) = KIND_PRIMITIVE_TYPE;
-    option (.google.fhir.proto.fhir_valueset_url) =
-        "http://hl7.org/fhir/ValueSet/publication-status";
-    option (.google.fhir.proto.fhir_profile_base) =
-        "http://hl7.org/fhir/StructureDefinition/code";
+    option (.google.fhir.proto.fhir_valueset_url) = "http://hl7.org/fhir/ValueSet/publication-status";
+    option (.google.fhir.proto.fhir_profile_base) = "http://hl7.org/fhir/StructureDefinition/code";
 
     PublicationStatusCode.Value value = 1;
 
@@ -123,15 +110,13 @@ message CapabilityStatement {
 
     repeated Extension extension = 3;
   }
-  StatusCode status = 14
-      [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
+  StatusCode status = 14 [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
 
   // For testing purposes, not real usage
   Boolean experimental = 15;
 
   // Date last changed
-  DateTime date = 16
-      [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
+  DateTime date = 16 [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
 
   // Name of the publisher/steward (organization or individual)
   String publisher = 17;
@@ -160,10 +145,8 @@ message CapabilityStatement {
   // instance | capability | requirements
   message KindCode {
     option (.google.fhir.proto.structure_definition_kind) = KIND_PRIMITIVE_TYPE;
-    option (.google.fhir.proto.fhir_valueset_url) =
-        "http://hl7.org/fhir/ValueSet/capability-statement-kind";
-    option (.google.fhir.proto.fhir_profile_base) =
-        "http://hl7.org/fhir/StructureDefinition/code";
+    option (.google.fhir.proto.fhir_valueset_url) = "http://hl7.org/fhir/ValueSet/capability-statement-kind";
+    option (.google.fhir.proto.fhir_profile_base) = "http://hl7.org/fhir/StructureDefinition/code";
 
     CapabilityStatementKindCode.Value value = 1;
 
@@ -171,8 +154,7 @@ message CapabilityStatement {
 
     repeated Extension extension = 3;
   }
-  KindCode kind = 24
-      [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
+  KindCode kind = 24 [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
 
   // Canonical URL of another capability statement this implements
   repeated Canonical instantiates = 25;
@@ -192,8 +174,7 @@ message CapabilityStatement {
     repeated Extension modifier_extension = 3;
 
     // A name the software is known by
-    String name = 4
-        [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
+    String name = 4 [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
 
     // Version covered by this statement
     String version = 5;
@@ -215,25 +196,21 @@ message CapabilityStatement {
     repeated Extension modifier_extension = 3;
 
     // Describes this specific instance
-    Markdown description = 7
-        [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
+    Markdown description = 7 [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
 
     // Base URL for the installation
     Url url = 5;
 
     // Organization that manages the data
-    Reference custodian = 6
-        [(.google.fhir.proto.valid_reference_type) = "Organization"];
+    Reference custodian = 6 [(.google.fhir.proto.valid_reference_type) = "Organization"];
   }
   Implementation implementation = 28;
 
   // FHIR Version the system supports
   message FhirVersionCode {
     option (.google.fhir.proto.structure_definition_kind) = KIND_PRIMITIVE_TYPE;
-    option (.google.fhir.proto.fhir_valueset_url) =
-        "http://hl7.org/fhir/ValueSet/FHIR-version";
-    option (.google.fhir.proto.fhir_profile_base) =
-        "http://hl7.org/fhir/StructureDefinition/code";
+    option (.google.fhir.proto.fhir_valueset_url) = "http://hl7.org/fhir/ValueSet/FHIR-version";
+    option (.google.fhir.proto.fhir_profile_base) = "http://hl7.org/fhir/StructureDefinition/code";
 
     FHIRVersionCode.Value value = 1;
 
@@ -241,16 +218,13 @@ message CapabilityStatement {
 
     repeated Extension extension = 3;
   }
-  FhirVersionCode fhir_version = 29
-      [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
+  FhirVersionCode fhir_version = 29 [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
 
   // formats supported (xml | json | ttl | mime type)
   message FormatCode {
     option (.google.fhir.proto.structure_definition_kind) = KIND_PRIMITIVE_TYPE;
-    option (.google.fhir.proto.fhir_valueset_url) =
-        "http://hl7.org/fhir/ValueSet/mimetypes";
-    option (.google.fhir.proto.fhir_profile_base) =
-        "http://hl7.org/fhir/StructureDefinition/code";
+    option (.google.fhir.proto.fhir_valueset_url) = "http://hl7.org/fhir/ValueSet/mimetypes";
+    option (.google.fhir.proto.fhir_profile_base) = "http://hl7.org/fhir/StructureDefinition/code";
 
     // Field 1 reserved to allow enumeration in the future.
     reserved 1;
@@ -262,16 +236,13 @@ message CapabilityStatement {
     // This valueset is not enumerable, and so is represented as a string.
     string value = 4;
   }
-  repeated FormatCode format = 30
-      [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
+  repeated FormatCode format = 30 [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
 
   // Patch formats supported
   message PatchFormatCode {
     option (.google.fhir.proto.structure_definition_kind) = KIND_PRIMITIVE_TYPE;
-    option (.google.fhir.proto.fhir_valueset_url) =
-        "http://hl7.org/fhir/ValueSet/mimetypes";
-    option (.google.fhir.proto.fhir_profile_base) =
-        "http://hl7.org/fhir/StructureDefinition/code";
+    option (.google.fhir.proto.fhir_valueset_url) = "http://hl7.org/fhir/ValueSet/mimetypes";
+    option (.google.fhir.proto.fhir_profile_base) = "http://hl7.org/fhir/StructureDefinition/code";
 
     // Field 1 reserved to allow enumeration in the future.
     reserved 1;
@@ -293,8 +264,7 @@ message CapabilityStatement {
 
   // If the endpoint is a RESTful one
   message Rest {
-    option (.google.fhir.proto.fhir_path_message_constraint) =
-        "resource.select(type).isDistinct()";
+    option (.google.fhir.proto.fhir_path_message_constraint) = "resource.select(type).isDistinct()";
 
     // Unique id for inter-element referencing
     String id = 1;
@@ -307,12 +277,9 @@ message CapabilityStatement {
 
     // client | server
     message ModeCode {
-      option (.google.fhir.proto.structure_definition_kind) =
-          KIND_PRIMITIVE_TYPE;
-      option (.google.fhir.proto.fhir_valueset_url) =
-          "http://hl7.org/fhir/ValueSet/restful-capability-mode";
-      option (.google.fhir.proto.fhir_profile_base) =
-          "http://hl7.org/fhir/StructureDefinition/code";
+      option (.google.fhir.proto.structure_definition_kind) = KIND_PRIMITIVE_TYPE;
+      option (.google.fhir.proto.fhir_valueset_url) = "http://hl7.org/fhir/ValueSet/restful-capability-mode";
+      option (.google.fhir.proto.fhir_profile_base) = "http://hl7.org/fhir/StructureDefinition/code";
 
       RestfulCapabilityModeCode.Value value = 1;
 
@@ -320,8 +287,7 @@ message CapabilityStatement {
 
       repeated Extension extension = 3;
     }
-    ModeCode mode = 4
-        [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
+    ModeCode mode = 4 [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
 
     // General description of implementation
     Markdown documentation = 5;
@@ -350,8 +316,7 @@ message CapabilityStatement {
 
     // Resource served on the REST interface
     message Resource {
-      option (.google.fhir.proto.fhir_path_message_constraint) =
-          "searchParam.select(name).isDistinct()";
+      option (.google.fhir.proto.fhir_path_message_constraint) = "searchParam.select(name).isDistinct()";
 
       // Unique id for inter-element referencing
       String id = 1;
@@ -364,12 +329,9 @@ message CapabilityStatement {
 
       // A resource type that is supported
       message TypeCode {
-        option (.google.fhir.proto.structure_definition_kind) =
-            KIND_PRIMITIVE_TYPE;
-        option (.google.fhir.proto.fhir_valueset_url) =
-            "http://hl7.org/fhir/ValueSet/resource-types";
-        option (.google.fhir.proto.fhir_profile_base) =
-            "http://hl7.org/fhir/StructureDefinition/code";
+        option (.google.fhir.proto.structure_definition_kind) = KIND_PRIMITIVE_TYPE;
+        option (.google.fhir.proto.fhir_valueset_url) = "http://hl7.org/fhir/ValueSet/resource-types";
+        option (.google.fhir.proto.fhir_profile_base) = "http://hl7.org/fhir/StructureDefinition/code";
 
         ResourceTypeValueSet.Value value = 1;
 
@@ -377,8 +339,7 @@ message CapabilityStatement {
 
         repeated Extension extension = 3;
       }
-      TypeCode type = 4
-          [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
+      TypeCode type = 4 [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
 
       // System-wide profile
       Canonical profile = 5;
@@ -403,12 +364,9 @@ message CapabilityStatement {
         // read | vread | update | patch | delete | history-instance |
         // history-type | create | search-type
         message CodeType {
-          option (.google.fhir.proto.structure_definition_kind) =
-              KIND_PRIMITIVE_TYPE;
-          option (.google.fhir.proto.fhir_valueset_url) =
-              "http://hl7.org/fhir/ValueSet/type-restful-interaction";
-          option (.google.fhir.proto.fhir_profile_base) =
-              "http://hl7.org/fhir/StructureDefinition/code";
+          option (.google.fhir.proto.structure_definition_kind) = KIND_PRIMITIVE_TYPE;
+          option (.google.fhir.proto.fhir_valueset_url) = "http://hl7.org/fhir/ValueSet/type-restful-interaction";
+          option (.google.fhir.proto.fhir_profile_base) = "http://hl7.org/fhir/StructureDefinition/code";
 
           TypeRestfulInteractionValueSet.Value value = 1;
 
@@ -416,8 +374,7 @@ message CapabilityStatement {
 
           repeated Extension extension = 3;
         }
-        CodeType code = 4
-            [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
+        CodeType code = 4 [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
 
         // Anything special about operation behavior
         Markdown documentation = 5;
@@ -426,12 +383,9 @@ message CapabilityStatement {
 
       // no-version | versioned | versioned-update
       message VersioningCode {
-        option (.google.fhir.proto.structure_definition_kind) =
-            KIND_PRIMITIVE_TYPE;
-        option (.google.fhir.proto.fhir_valueset_url) =
-            "http://hl7.org/fhir/ValueSet/versioning-policy";
-        option (.google.fhir.proto.fhir_profile_base) =
-            "http://hl7.org/fhir/StructureDefinition/code";
+        option (.google.fhir.proto.structure_definition_kind) = KIND_PRIMITIVE_TYPE;
+        option (.google.fhir.proto.fhir_valueset_url) = "http://hl7.org/fhir/ValueSet/versioning-policy";
+        option (.google.fhir.proto.fhir_profile_base) = "http://hl7.org/fhir/StructureDefinition/code";
 
         ResourceVersionPolicyCode.Value value = 1;
 
@@ -452,12 +406,9 @@ message CapabilityStatement {
 
       // not-supported | modified-since | not-match | full-support
       message ConditionalReadCode {
-        option (.google.fhir.proto.structure_definition_kind) =
-            KIND_PRIMITIVE_TYPE;
-        option (.google.fhir.proto.fhir_valueset_url) =
-            "http://hl7.org/fhir/ValueSet/conditional-read-status";
-        option (.google.fhir.proto.fhir_profile_base) =
-            "http://hl7.org/fhir/StructureDefinition/code";
+        option (.google.fhir.proto.structure_definition_kind) = KIND_PRIMITIVE_TYPE;
+        option (.google.fhir.proto.fhir_valueset_url) = "http://hl7.org/fhir/ValueSet/conditional-read-status";
+        option (.google.fhir.proto.fhir_profile_base) = "http://hl7.org/fhir/StructureDefinition/code";
 
         ConditionalReadStatusCode.Value value = 1;
 
@@ -475,12 +426,9 @@ message CapabilityStatement {
 
       // not-supported | single | multiple - how conditional delete is supported
       message ConditionalDeleteCode {
-        option (.google.fhir.proto.structure_definition_kind) =
-            KIND_PRIMITIVE_TYPE;
-        option (.google.fhir.proto.fhir_valueset_url) =
-            "http://hl7.org/fhir/ValueSet/conditional-delete-status";
-        option (.google.fhir.proto.fhir_profile_base) =
-            "http://hl7.org/fhir/StructureDefinition/code";
+        option (.google.fhir.proto.structure_definition_kind) = KIND_PRIMITIVE_TYPE;
+        option (.google.fhir.proto.fhir_valueset_url) = "http://hl7.org/fhir/ValueSet/conditional-delete-status";
+        option (.google.fhir.proto.fhir_profile_base) = "http://hl7.org/fhir/StructureDefinition/code";
 
         ConditionalDeleteStatusCode.Value value = 1;
 
@@ -492,12 +440,9 @@ message CapabilityStatement {
 
       // literal | logical | resolves | enforced | local
       message ReferencePolicyCode {
-        option (.google.fhir.proto.structure_definition_kind) =
-            KIND_PRIMITIVE_TYPE;
-        option (.google.fhir.proto.fhir_valueset_url) =
-            "http://hl7.org/fhir/ValueSet/reference-handling-policy";
-        option (.google.fhir.proto.fhir_profile_base) =
-            "http://hl7.org/fhir/StructureDefinition/code";
+        option (.google.fhir.proto.structure_definition_kind) = KIND_PRIMITIVE_TYPE;
+        option (.google.fhir.proto.fhir_valueset_url) = "http://hl7.org/fhir/ValueSet/reference-handling-policy";
+        option (.google.fhir.proto.fhir_profile_base) = "http://hl7.org/fhir/StructureDefinition/code";
 
         ReferenceHandlingPolicyCode.Value value = 1;
 
@@ -525,8 +470,7 @@ message CapabilityStatement {
         repeated Extension modifier_extension = 3;
 
         // Name for parameter in search url
-        String name = 4
-            [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
+        String name = 4 [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
 
         // Source of definition for parameter
         Canonical definition = 5;
@@ -534,12 +478,9 @@ message CapabilityStatement {
         // number | date | string | token | reference | composite | quantity |
         // uri | special
         message TypeCode {
-          option (.google.fhir.proto.structure_definition_kind) =
-              KIND_PRIMITIVE_TYPE;
-          option (.google.fhir.proto.fhir_valueset_url) =
-              "http://hl7.org/fhir/ValueSet/search-param-type";
-          option (.google.fhir.proto.fhir_profile_base) =
-              "http://hl7.org/fhir/StructureDefinition/code";
+          option (.google.fhir.proto.structure_definition_kind) = KIND_PRIMITIVE_TYPE;
+          option (.google.fhir.proto.fhir_valueset_url) = "http://hl7.org/fhir/ValueSet/search-param-type";
+          option (.google.fhir.proto.fhir_profile_base) = "http://hl7.org/fhir/StructureDefinition/code";
 
           SearchParamTypeCode.Value value = 1;
 
@@ -547,8 +488,7 @@ message CapabilityStatement {
 
           repeated Extension extension = 3;
         }
-        TypeCode type = 6
-            [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
+        TypeCode type = 6 [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
 
         // Server-specific usage
         Markdown documentation = 7;
@@ -567,12 +507,10 @@ message CapabilityStatement {
         repeated Extension modifier_extension = 3;
 
         // Name by which the operation/query is invoked
-        String name = 4
-            [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
+        String name = 4 [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
 
         // The defined operation/query
-        Canonical definition = 5
-            [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
+        Canonical definition = 5 [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
 
         // Specific details about operation behavior
         Markdown documentation = 6;
@@ -594,12 +532,9 @@ message CapabilityStatement {
 
       // transaction | batch | search-system | history-system
       message CodeType {
-        option (.google.fhir.proto.structure_definition_kind) =
-            KIND_PRIMITIVE_TYPE;
-        option (.google.fhir.proto.fhir_valueset_url) =
-            "http://hl7.org/fhir/ValueSet/system-restful-interaction";
-        option (.google.fhir.proto.fhir_profile_base) =
-            "http://hl7.org/fhir/StructureDefinition/code";
+        option (.google.fhir.proto.structure_definition_kind) = KIND_PRIMITIVE_TYPE;
+        option (.google.fhir.proto.fhir_valueset_url) = "http://hl7.org/fhir/ValueSet/system-restful-interaction";
+        option (.google.fhir.proto.fhir_profile_base) = "http://hl7.org/fhir/StructureDefinition/code";
 
         SystemRestfulInteractionValueSet.Value value = 1;
 
@@ -607,8 +542,7 @@ message CapabilityStatement {
 
         repeated Extension extension = 3;
       }
-      CodeType code = 4
-          [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
+      CodeType code = 4 [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
 
       // Anything special about operation behavior
       Markdown documentation = 5;
@@ -649,12 +583,10 @@ message CapabilityStatement {
       repeated Extension modifier_extension = 3;
 
       // http | ftp | mllp +
-      Coding protocol = 4
-          [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
+      Coding protocol = 4 [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
 
       // Network address or identifier of the end-point
-      Url address = 5
-          [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
+      Url address = 5 [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
     }
     repeated Endpoint endpoint = 4;
 
@@ -677,12 +609,9 @@ message CapabilityStatement {
 
       // sender | receiver
       message ModeCode {
-        option (.google.fhir.proto.structure_definition_kind) =
-            KIND_PRIMITIVE_TYPE;
-        option (.google.fhir.proto.fhir_valueset_url) =
-            "http://hl7.org/fhir/ValueSet/event-capability-mode";
-        option (.google.fhir.proto.fhir_profile_base) =
-            "http://hl7.org/fhir/StructureDefinition/code";
+        option (.google.fhir.proto.structure_definition_kind) = KIND_PRIMITIVE_TYPE;
+        option (.google.fhir.proto.fhir_valueset_url) = "http://hl7.org/fhir/ValueSet/event-capability-mode";
+        option (.google.fhir.proto.fhir_profile_base) = "http://hl7.org/fhir/StructureDefinition/code";
 
         EventCapabilityModeCode.Value value = 1;
 
@@ -690,12 +619,10 @@ message CapabilityStatement {
 
         repeated Extension extension = 3;
       }
-      ModeCode mode = 4
-          [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
+      ModeCode mode = 4 [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
 
       // Message supported by this system
-      Canonical definition = 5
-          [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
+      Canonical definition = 5 [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
     }
     repeated SupportedMessage supported_message = 7;
   }
@@ -714,12 +641,9 @@ message CapabilityStatement {
 
     // producer | consumer
     message ModeCode {
-      option (.google.fhir.proto.structure_definition_kind) =
-          KIND_PRIMITIVE_TYPE;
-      option (.google.fhir.proto.fhir_valueset_url) =
-          "http://hl7.org/fhir/ValueSet/document-mode";
-      option (.google.fhir.proto.fhir_profile_base) =
-          "http://hl7.org/fhir/StructureDefinition/code";
+      option (.google.fhir.proto.structure_definition_kind) = KIND_PRIMITIVE_TYPE;
+      option (.google.fhir.proto.fhir_valueset_url) = "http://hl7.org/fhir/ValueSet/document-mode";
+      option (.google.fhir.proto.fhir_profile_base) = "http://hl7.org/fhir/StructureDefinition/code";
 
       DocumentModeCode.Value value = 1;
 
@@ -727,15 +651,13 @@ message CapabilityStatement {
 
       repeated Extension extension = 3;
     }
-    ModeCode mode = 4
-        [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
+    ModeCode mode = 4 [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
 
     // Description of document support
     Markdown documentation = 5;
 
     // Constraint on the resources used in the document
-    Canonical profile = 6
-        [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
+    Canonical profile = 6 [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
   }
   repeated Document document = 35;
 }

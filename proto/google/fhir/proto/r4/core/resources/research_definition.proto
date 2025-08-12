@@ -21,20 +21,18 @@ import "proto/google/fhir/proto/annotations.proto";
 import "proto/google/fhir/proto/r4/core/codes.proto";
 import "proto/google/fhir/proto/r4/core/datatypes.proto";
 
+option go_package = "github.com/google/fhir/go/proto/google/fhir/proto/r4/core/resources/research_definition_go_proto";
 option java_multiple_files = true;
 option java_package = "com.google.fhir.r4.core";
 option (.google.fhir.proto.fhir_version) = R4;
-option go_package = "github.com/google/fhir/go/proto/google/fhir/proto/r4/core/resources/research_definition_go_proto";
 
 // Auto-generated from StructureDefinition for ResearchDefinition.
 // A research context or question.
 // See http://hl7.org/fhir/StructureDefinition/ResearchDefinition
 message ResearchDefinition {
   option (.google.fhir.proto.structure_definition_kind) = KIND_RESOURCE;
-  option (.google.fhir.proto.fhir_structure_definition_url) =
-      "http://hl7.org/fhir/StructureDefinition/ResearchDefinition";
-  option (.google.fhir.proto.fhir_path_message_warning_constraint) =
-      "name.matches('[A-Z]([A-Za-z0-9_]){0,254}')";
+  option (.google.fhir.proto.fhir_structure_definition_url) = "http://hl7.org/fhir/StructureDefinition/ResearchDefinition";
+  option (.google.fhir.proto.fhir_path_message_warning_constraint) = "name.matches('[A-Z]([A-Za-z0-9_]){0,254}')";
 
   // Logical id of this artifact
   Id id = 1;
@@ -89,10 +87,8 @@ message ResearchDefinition {
   // draft | active | retired | unknown
   message StatusCode {
     option (.google.fhir.proto.structure_definition_kind) = KIND_PRIMITIVE_TYPE;
-    option (.google.fhir.proto.fhir_valueset_url) =
-        "http://hl7.org/fhir/ValueSet/publication-status";
-    option (.google.fhir.proto.fhir_profile_base) =
-        "http://hl7.org/fhir/StructureDefinition/code";
+    option (.google.fhir.proto.fhir_valueset_url) = "http://hl7.org/fhir/ValueSet/publication-status";
+    option (.google.fhir.proto.fhir_profile_base) = "http://hl7.org/fhir/StructureDefinition/code";
 
     PublicationStatusCode.Value value = 1;
 
@@ -100,8 +96,7 @@ message ResearchDefinition {
 
     repeated Extension extension = 3;
   }
-  StatusCode status = 17
-      [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
+  StatusCode status = 17 [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
 
   // For testing purposes, not real usage
   Boolean experimental = 18;
@@ -112,8 +107,7 @@ message ResearchDefinition {
 
     oneof choice {
       CodeableConcept codeable_concept = 1;
-      Reference reference = 2
-          [(.google.fhir.proto.valid_reference_type) = "Group"];
+      Reference reference = 2 [(.google.fhir.proto.valid_reference_type) = "Group"];
     }
   }
   SubjectX subject = 19;
@@ -186,14 +180,11 @@ message ResearchDefinition {
   ];
 
   // What exposure?
-  Reference exposure = 41
-      [(.google.fhir.proto.valid_reference_type) = "ResearchElementDefinition"];
+  Reference exposure = 41 [(.google.fhir.proto.valid_reference_type) = "ResearchElementDefinition"];
 
   // What alternative exposure state?
-  Reference exposure_alternative = 42
-      [(.google.fhir.proto.valid_reference_type) = "ResearchElementDefinition"];
+  Reference exposure_alternative = 42 [(.google.fhir.proto.valid_reference_type) = "ResearchElementDefinition"];
 
   // What outcome?
-  Reference outcome = 43
-      [(.google.fhir.proto.valid_reference_type) = "ResearchElementDefinition"];
+  Reference outcome = 43 [(.google.fhir.proto.valid_reference_type) = "ResearchElementDefinition"];
 }

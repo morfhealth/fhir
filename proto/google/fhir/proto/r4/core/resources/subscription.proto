@@ -21,18 +21,17 @@ import "proto/google/fhir/proto/annotations.proto";
 import "proto/google/fhir/proto/r4/core/codes.proto";
 import "proto/google/fhir/proto/r4/core/datatypes.proto";
 
+option go_package = "github.com/google/fhir/go/proto/google/fhir/proto/r4/core/resources/subscription_go_proto";
 option java_multiple_files = true;
 option java_package = "com.google.fhir.r4.core";
 option (.google.fhir.proto.fhir_version) = R4;
-option go_package = "github.com/google/fhir/go/proto/google/fhir/proto/r4/core/resources/subscription_go_proto";
 
 // Auto-generated from StructureDefinition for Subscription.
 // Server push subscription criteria.
 // See http://hl7.org/fhir/StructureDefinition/Subscription
 message Subscription {
   option (.google.fhir.proto.structure_definition_kind) = KIND_RESOURCE;
-  option (.google.fhir.proto.fhir_structure_definition_url) =
-      "http://hl7.org/fhir/StructureDefinition/Subscription";
+  option (.google.fhir.proto.fhir_structure_definition_url) = "http://hl7.org/fhir/StructureDefinition/Subscription";
 
   // Logical id of this artifact
   Id id = 1;
@@ -65,10 +64,8 @@ message Subscription {
   // requested | active | error | off
   message StatusCode {
     option (.google.fhir.proto.structure_definition_kind) = KIND_PRIMITIVE_TYPE;
-    option (.google.fhir.proto.fhir_valueset_url) =
-        "http://hl7.org/fhir/ValueSet/subscription-status";
-    option (.google.fhir.proto.fhir_profile_base) =
-        "http://hl7.org/fhir/StructureDefinition/code";
+    option (.google.fhir.proto.fhir_valueset_url) = "http://hl7.org/fhir/ValueSet/subscription-status";
+    option (.google.fhir.proto.fhir_profile_base) = "http://hl7.org/fhir/StructureDefinition/code";
 
     SubscriptionStatusCode.Value value = 1;
 
@@ -76,8 +73,7 @@ message Subscription {
 
     repeated Extension extension = 3;
   }
-  StatusCode status = 10
-      [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
+  StatusCode status = 10 [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
 
   // Contact details for source (e.g. troubleshooting)
   repeated ContactPoint contact = 11;
@@ -86,12 +82,10 @@ message Subscription {
   Instant end = 12;
 
   // Description of why this subscription was created
-  String reason = 13
-      [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
+  String reason = 13 [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
 
   // Rule for server push
-  String criteria = 14
-      [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
+  String criteria = 14 [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
 
   // Latest error note
   String error = 15;
@@ -109,12 +103,9 @@ message Subscription {
 
     // rest-hook | websocket | email | sms | message
     message TypeCode {
-      option (.google.fhir.proto.structure_definition_kind) =
-          KIND_PRIMITIVE_TYPE;
-      option (.google.fhir.proto.fhir_valueset_url) =
-          "http://hl7.org/fhir/ValueSet/subscription-channel-type";
-      option (.google.fhir.proto.fhir_profile_base) =
-          "http://hl7.org/fhir/StructureDefinition/code";
+      option (.google.fhir.proto.structure_definition_kind) = KIND_PRIMITIVE_TYPE;
+      option (.google.fhir.proto.fhir_valueset_url) = "http://hl7.org/fhir/ValueSet/subscription-channel-type";
+      option (.google.fhir.proto.fhir_profile_base) = "http://hl7.org/fhir/StructureDefinition/code";
 
       SubscriptionChannelTypeCode.Value value = 1;
 
@@ -122,20 +113,16 @@ message Subscription {
 
       repeated Extension extension = 3;
     }
-    TypeCode type = 4
-        [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
+    TypeCode type = 4 [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
 
     // Where the channel points to
     Url endpoint = 5;
 
     // MIME type to send, or omit for no payload
     message PayloadCode {
-      option (.google.fhir.proto.structure_definition_kind) =
-          KIND_PRIMITIVE_TYPE;
-      option (.google.fhir.proto.fhir_valueset_url) =
-          "http://hl7.org/fhir/ValueSet/mimetypes";
-      option (.google.fhir.proto.fhir_profile_base) =
-          "http://hl7.org/fhir/StructureDefinition/code";
+      option (.google.fhir.proto.structure_definition_kind) = KIND_PRIMITIVE_TYPE;
+      option (.google.fhir.proto.fhir_valueset_url) = "http://hl7.org/fhir/ValueSet/mimetypes";
+      option (.google.fhir.proto.fhir_profile_base) = "http://hl7.org/fhir/StructureDefinition/code";
 
       // Field 1 reserved to allow enumeration in the future.
       reserved 1;
@@ -152,6 +139,5 @@ message Subscription {
     // Usage depends on the channel type
     repeated String header = 7;
   }
-  Channel channel = 16
-      [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
+  Channel channel = 16 [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
 }

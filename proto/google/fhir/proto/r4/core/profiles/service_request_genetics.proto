@@ -31,12 +31,9 @@ option (.google.fhir.proto.fhir_version) = R4;
 // See http://hl7.org/fhir/StructureDefinition/servicerequest-genetics
 message ServiceRequestGenetics {
   option (.google.fhir.proto.structure_definition_kind) = KIND_RESOURCE;
-  option (.google.fhir.proto.fhir_profile_base) =
-      "http://hl7.org/fhir/StructureDefinition/ServiceRequest";
-  option (.google.fhir.proto.fhir_structure_definition_url) =
-      "http://hl7.org/fhir/StructureDefinition/servicerequest-genetics";
-  option (.google.fhir.proto.fhir_path_message_constraint) =
-      "orderDetail.empty() or code.exists()";
+  option (.google.fhir.proto.fhir_profile_base) = "http://hl7.org/fhir/StructureDefinition/ServiceRequest";
+  option (.google.fhir.proto.fhir_structure_definition_url) = "http://hl7.org/fhir/StructureDefinition/servicerequest-genetics";
+  option (.google.fhir.proto.fhir_path_message_constraint) = "orderDetail.empty() or code.exists()";
   option (.google.fhir.proto.search_parameter) = {
     name: "authored"
     type: DATE
@@ -188,8 +185,7 @@ message ServiceRequestGenetics {
   ];
 
   // What request replaces
-  repeated Reference replaces = 14
-      [(.google.fhir.proto.valid_reference_type) = "ServiceRequest"];
+  repeated Reference replaces = 14 [(.google.fhir.proto.valid_reference_type) = "ServiceRequest"];
 
   // Composite Request ID
   Identifier requisition = 15;
@@ -197,10 +193,8 @@ message ServiceRequestGenetics {
   // draft | active | on-hold | revoked | completed | entered-in-error | unknown
   message StatusCode {
     option (.google.fhir.proto.structure_definition_kind) = KIND_PRIMITIVE_TYPE;
-    option (.google.fhir.proto.fhir_valueset_url) =
-        "http://hl7.org/fhir/ValueSet/request-status";
-    option (.google.fhir.proto.fhir_profile_base) =
-        "http://hl7.org/fhir/StructureDefinition/code";
+    option (.google.fhir.proto.fhir_valueset_url) = "http://hl7.org/fhir/ValueSet/request-status";
+    option (.google.fhir.proto.fhir_profile_base) = "http://hl7.org/fhir/StructureDefinition/code";
 
     RequestStatusCode.Value value = 1;
 
@@ -208,17 +202,14 @@ message ServiceRequestGenetics {
 
     repeated Extension extension = 3;
   }
-  StatusCode status = 16
-      [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
+  StatusCode status = 16 [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
 
   // proposal | plan | directive | order | original-order | reflex-order |
   // filler-order | instance-order | option
   message IntentCode {
     option (.google.fhir.proto.structure_definition_kind) = KIND_PRIMITIVE_TYPE;
-    option (.google.fhir.proto.fhir_valueset_url) =
-        "http://hl7.org/fhir/ValueSet/request-intent";
-    option (.google.fhir.proto.fhir_profile_base) =
-        "http://hl7.org/fhir/StructureDefinition/code";
+    option (.google.fhir.proto.fhir_valueset_url) = "http://hl7.org/fhir/ValueSet/request-intent";
+    option (.google.fhir.proto.fhir_profile_base) = "http://hl7.org/fhir/StructureDefinition/code";
 
     RequestIntentCode.Value value = 1;
 
@@ -226,8 +217,7 @@ message ServiceRequestGenetics {
 
     repeated Extension extension = 3;
   }
-  IntentCode intent = 17
-      [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
+  IntentCode intent = 17 [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
 
   // Classification of service
   repeated CodeableConcept category = 18;
@@ -235,10 +225,8 @@ message ServiceRequestGenetics {
   // routine | urgent | asap | stat
   message PriorityCode {
     option (.google.fhir.proto.structure_definition_kind) = KIND_PRIMITIVE_TYPE;
-    option (.google.fhir.proto.fhir_valueset_url) =
-        "http://hl7.org/fhir/ValueSet/request-priority";
-    option (.google.fhir.proto.fhir_profile_base) =
-        "http://hl7.org/fhir/StructureDefinition/code";
+    option (.google.fhir.proto.fhir_valueset_url) = "http://hl7.org/fhir/ValueSet/request-priority";
+    option (.google.fhir.proto.fhir_profile_base) = "http://hl7.org/fhir/StructureDefinition/code";
 
     RequestPriorityCode.Value value = 1;
 
@@ -279,8 +267,7 @@ message ServiceRequestGenetics {
   ];
 
   // Encounter in which the request was created
-  Reference encounter = 25
-      [(.google.fhir.proto.valid_reference_type) = "Encounter"];
+  Reference encounter = 25 [(.google.fhir.proto.valid_reference_type) = "Encounter"];
 
   // When service should occur
   message OccurrenceX {
@@ -337,8 +324,7 @@ message ServiceRequestGenetics {
   repeated CodeableConcept location_code = 32;
 
   // Requested location
-  repeated Reference location_reference = 33
-      [(.google.fhir.proto.valid_reference_type) = "Location"];
+  repeated Reference location_reference = 33 [(.google.fhir.proto.valid_reference_type) = "Location"];
 
   // Explanation/Justification for procedure or service
   repeated CodeableConcept reason_code = 34;
@@ -358,12 +344,10 @@ message ServiceRequestGenetics {
   ];
 
   // Additional clinical information
-  repeated Reference supporting_info = 37
-      [(.google.fhir.proto.valid_reference_type) = "Resource"];
+  repeated Reference supporting_info = 37 [(.google.fhir.proto.valid_reference_type) = "Resource"];
 
   // Procedure Samples
-  repeated Reference specimen = 38
-      [(.google.fhir.proto.valid_reference_type) = "Specimen"];
+  repeated Reference specimen = 38 [(.google.fhir.proto.valid_reference_type) = "Specimen"];
 
   // Location on Body
   repeated CodeableConcept body_site = 39;
@@ -375,13 +359,11 @@ message ServiceRequestGenetics {
   String patient_instruction = 41;
 
   // Request provenance
-  repeated Reference relevant_history = 42
-      [(.google.fhir.proto.valid_reference_type) = "Provenance"];
+  repeated Reference relevant_history = 42 [(.google.fhir.proto.valid_reference_type) = "Provenance"];
 
   // The items the orderer requested
   repeated DiagnosticReportItem item = 43 [
-    (.google.fhir.proto.fhir_inlined_extension_url) =
-        "http://hl7.org/fhir/StructureDefinition/servicerequest-geneticsItem",
+    (.google.fhir.proto.fhir_inlined_extension_url) = "http://hl7.org/fhir/StructureDefinition/servicerequest-geneticsItem",
     json_name = "Item"
   ];
 }

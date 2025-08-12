@@ -21,18 +21,17 @@ import "proto/google/fhir/proto/annotations.proto";
 import "proto/google/fhir/proto/r4/core/codes.proto";
 import "proto/google/fhir/proto/r4/core/datatypes.proto";
 
+option go_package = "github.com/google/fhir/go/proto/google/fhir/proto/r4/core/resources/medication_request_go_proto";
 option java_multiple_files = true;
 option java_package = "com.google.fhir.r4.core";
 option (.google.fhir.proto.fhir_version) = R4;
-option go_package = "github.com/google/fhir/go/proto/google/fhir/proto/r4/core/resources/medication_request_go_proto";
 
 // Auto-generated from StructureDefinition for MedicationRequest.
 // Ordering of medication for patient or group.
 // See http://hl7.org/fhir/StructureDefinition/MedicationRequest
 message MedicationRequest {
   option (.google.fhir.proto.structure_definition_kind) = KIND_RESOURCE;
-  option (.google.fhir.proto.fhir_structure_definition_url) =
-      "http://hl7.org/fhir/StructureDefinition/MedicationRequest";
+  option (.google.fhir.proto.fhir_structure_definition_url) = "http://hl7.org/fhir/StructureDefinition/MedicationRequest";
 
   // Logical id of this artifact
   Id id = 1;
@@ -69,10 +68,8 @@ message MedicationRequest {
   // draft | unknown
   message StatusCode {
     option (.google.fhir.proto.structure_definition_kind) = KIND_PRIMITIVE_TYPE;
-    option (.google.fhir.proto.fhir_valueset_url) =
-        "http://hl7.org/fhir/ValueSet/medicationrequest-status";
-    option (.google.fhir.proto.fhir_profile_base) =
-        "http://hl7.org/fhir/StructureDefinition/code";
+    option (.google.fhir.proto.fhir_valueset_url) = "http://hl7.org/fhir/ValueSet/medicationrequest-status";
+    option (.google.fhir.proto.fhir_profile_base) = "http://hl7.org/fhir/StructureDefinition/code";
 
     MedicationrequestStatusCode.Value value = 1;
 
@@ -80,8 +77,7 @@ message MedicationRequest {
 
     repeated Extension extension = 3;
   }
-  StatusCode status = 11
-      [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
+  StatusCode status = 11 [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
 
   // Reason for current status
   CodeableConcept status_reason = 12;
@@ -90,10 +86,8 @@ message MedicationRequest {
   // instance-order | option
   message IntentCode {
     option (.google.fhir.proto.structure_definition_kind) = KIND_PRIMITIVE_TYPE;
-    option (.google.fhir.proto.fhir_valueset_url) =
-        "http://hl7.org/fhir/ValueSet/medicationrequest-intent";
-    option (.google.fhir.proto.fhir_profile_base) =
-        "http://hl7.org/fhir/StructureDefinition/code";
+    option (.google.fhir.proto.fhir_valueset_url) = "http://hl7.org/fhir/ValueSet/medicationrequest-intent";
+    option (.google.fhir.proto.fhir_profile_base) = "http://hl7.org/fhir/StructureDefinition/code";
 
     MedicationRequestIntentCode.Value value = 1;
 
@@ -101,8 +95,7 @@ message MedicationRequest {
 
     repeated Extension extension = 3;
   }
-  IntentCode intent = 13
-      [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
+  IntentCode intent = 13 [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
 
   // Type of medication usage
   repeated CodeableConcept category = 14;
@@ -110,10 +103,8 @@ message MedicationRequest {
   // routine | urgent | asap | stat
   message PriorityCode {
     option (.google.fhir.proto.structure_definition_kind) = KIND_PRIMITIVE_TYPE;
-    option (.google.fhir.proto.fhir_valueset_url) =
-        "http://hl7.org/fhir/ValueSet/request-priority";
-    option (.google.fhir.proto.fhir_profile_base) =
-        "http://hl7.org/fhir/StructureDefinition/code";
+    option (.google.fhir.proto.fhir_valueset_url) = "http://hl7.org/fhir/ValueSet/request-priority";
+    option (.google.fhir.proto.fhir_profile_base) = "http://hl7.org/fhir/StructureDefinition/code";
 
     RequestPriorityCode.Value value = 1;
 
@@ -149,12 +140,10 @@ message MedicationRequest {
 
     oneof choice {
       CodeableConcept codeable_concept = 1;
-      Reference reference = 2
-          [(.google.fhir.proto.valid_reference_type) = "Medication"];
+      Reference reference = 2 [(.google.fhir.proto.valid_reference_type) = "Medication"];
     }
   }
-  MedicationX medication = 18
-      [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
+  MedicationX medication = 18 [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
 
   // Who or group medication request is for
   Reference subject = 19 [
@@ -164,12 +153,10 @@ message MedicationRequest {
   ];
 
   // Encounter created as part of encounter/admission/stay
-  Reference encounter = 20
-      [(.google.fhir.proto.valid_reference_type) = "Encounter"];
+  Reference encounter = 20 [(.google.fhir.proto.valid_reference_type) = "Encounter"];
 
   // Information to support ordering of the medication
-  repeated Reference supporting_information = 21
-      [(.google.fhir.proto.valid_reference_type) = "Resource"];
+  repeated Reference supporting_information = 21 [(.google.fhir.proto.valid_reference_type) = "Resource"];
 
   // When request was initially authored
   DateTime authored_on = 22;
@@ -292,8 +279,7 @@ message MedicationRequest {
     Duration expected_supply_duration = 9;
 
     // Intended dispenser
-    Reference performer = 10
-        [(.google.fhir.proto.valid_reference_type) = "Organization"];
+    Reference performer = 10 [(.google.fhir.proto.valid_reference_type) = "Organization"];
   }
   DispenseRequest dispense_request = 37;
 
@@ -317,8 +303,7 @@ message MedicationRequest {
         CodeableConcept codeable_concept = 2;
       }
     }
-    AllowedX allowed = 4
-        [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
+    AllowedX allowed = 4 [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
 
     // Why should (not) substitution be made
     CodeableConcept reason = 5;
@@ -326,14 +311,11 @@ message MedicationRequest {
   Substitution substitution = 38;
 
   // An order/prescription that is being replaced
-  Reference prior_prescription = 39
-      [(.google.fhir.proto.valid_reference_type) = "MedicationRequest"];
+  Reference prior_prescription = 39 [(.google.fhir.proto.valid_reference_type) = "MedicationRequest"];
 
   // Clinical Issue with action
-  repeated Reference detected_issue = 40
-      [(.google.fhir.proto.valid_reference_type) = "DetectedIssue"];
+  repeated Reference detected_issue = 40 [(.google.fhir.proto.valid_reference_type) = "DetectedIssue"];
 
   // A list of events of interest in the lifecycle
-  repeated Reference event_history = 41
-      [(.google.fhir.proto.valid_reference_type) = "Provenance"];
+  repeated Reference event_history = 41 [(.google.fhir.proto.valid_reference_type) = "Provenance"];
 }

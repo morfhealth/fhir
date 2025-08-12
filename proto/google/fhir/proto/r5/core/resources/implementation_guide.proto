@@ -22,22 +22,19 @@ import "proto/google/fhir/proto/r5/core/codes.proto";
 import "proto/google/fhir/proto/r5/core/datatypes.proto";
 import "proto/google/fhir/proto/r5/core/valuesets.proto";
 
+option go_package = "github.com/google/fhir/go/proto/google/fhir/proto/r5/core/resources/implementation_guide_go_proto";
 option java_multiple_files = true;
 option java_package = "com.google.fhir.r5.core";
 option (.google.fhir.proto.fhir_version) = R5;
-option go_package = "github.com/google/fhir/go/proto/google/fhir/proto/r5/core/resources/implementation_guide_go_proto";
 
 // Auto-generated from StructureDefinition for ImplementationGuide.
 // A set of rules about how FHIR is used.
 // See http://hl7.org/fhir/StructureDefinition/ImplementationGuide
 message ImplementationGuide {
   option (.google.fhir.proto.structure_definition_kind) = KIND_RESOURCE;
-  option (.google.fhir.proto.fhir_structure_definition_url) =
-      "http://hl7.org/fhir/StructureDefinition/ImplementationGuide";
-  option (.google.fhir.proto.fhir_path_message_constraint) =
-      "definition.resource.fhirVersion.all(%context.fhirVersion contains $this)";
-  option (.google.fhir.proto.fhir_path_message_warning_constraint) =
-      "name.exists() implies name.matches('^[A-Z]([A-Za-z0-9_]){1,254}$')";
+  option (.google.fhir.proto.fhir_structure_definition_url) = "http://hl7.org/fhir/StructureDefinition/ImplementationGuide";
+  option (.google.fhir.proto.fhir_path_message_constraint) = "definition.resource.fhirVersion.all(%context.fhirVersion contains $this)";
+  option (.google.fhir.proto.fhir_path_message_warning_constraint) = "name.exists() implies name.matches('^[A-Z]([A-Za-z0-9_]){1,254}$')";
 
   // Logical id of this artifact
   Id id = 1;
@@ -71,8 +68,7 @@ message ImplementationGuide {
   // (globally unique)
   Uri url = 10 [
     (.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR,
-    (.google.fhir.proto.fhir_path_warning_constraint) =
-        "exists() implies matches('^[^|# ]+$')"
+    (.google.fhir.proto.fhir_path_warning_constraint) = "exists() implies matches('^[^|# ]+$')"
   ];
 
   // Additional identifier for the implementation guide (business identifier)
@@ -93,8 +89,7 @@ message ImplementationGuide {
   VersionAlgorithmX version_algorithm = 31;
 
   // Name for this implementation guide (computer friendly)
-  String name = 12
-      [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
+  String name = 12 [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
 
   // Name for this implementation guide (human friendly)
   String title = 13;
@@ -102,10 +97,8 @@ message ImplementationGuide {
   // draft | active | retired | unknown
   message StatusCode {
     option (.google.fhir.proto.structure_definition_kind) = KIND_PRIMITIVE_TYPE;
-    option (.google.fhir.proto.fhir_valueset_url) =
-        "http://hl7.org/fhir/ValueSet/publication-status";
-    option (.google.fhir.proto.fhir_profile_base) =
-        "http://hl7.org/fhir/StructureDefinition/code";
+    option (.google.fhir.proto.fhir_valueset_url) = "http://hl7.org/fhir/ValueSet/publication-status";
+    option (.google.fhir.proto.fhir_profile_base) = "http://hl7.org/fhir/StructureDefinition/code";
 
     PublicationStatusCode.Value value = 1;
 
@@ -113,8 +106,7 @@ message ImplementationGuide {
 
     repeated Extension extension = 3;
   }
-  StatusCode status = 14
-      [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
+  StatusCode status = 14 [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
 
   // For testing purposes, not real usage
   Boolean experimental = 15;
@@ -147,16 +139,13 @@ message ImplementationGuide {
   String copyright_label = 33;
 
   // NPM Package name for IG
-  Id package_id = 23
-      [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
+  Id package_id = 23 [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
 
   // SPDX license code for this IG (or not-open-source)
   message LicenseCode {
     option (.google.fhir.proto.structure_definition_kind) = KIND_PRIMITIVE_TYPE;
-    option (.google.fhir.proto.fhir_valueset_url) =
-        "http://hl7.org/fhir/ValueSet/spdx-license";
-    option (.google.fhir.proto.fhir_profile_base) =
-        "http://hl7.org/fhir/StructureDefinition/code";
+    option (.google.fhir.proto.fhir_valueset_url) = "http://hl7.org/fhir/ValueSet/spdx-license";
+    option (.google.fhir.proto.fhir_profile_base) = "http://hl7.org/fhir/StructureDefinition/code";
 
     SPDXLicenseCode.Value value = 1;
 
@@ -169,10 +158,8 @@ message ImplementationGuide {
   // FHIR Version(s) this Implementation Guide targets
   message FhirVersionCode {
     option (.google.fhir.proto.structure_definition_kind) = KIND_PRIMITIVE_TYPE;
-    option (.google.fhir.proto.fhir_valueset_url) =
-        "http://hl7.org/fhir/ValueSet/FHIR-version";
-    option (.google.fhir.proto.fhir_profile_base) =
-        "http://hl7.org/fhir/StructureDefinition/code";
+    option (.google.fhir.proto.fhir_valueset_url) = "http://hl7.org/fhir/ValueSet/FHIR-version";
+    option (.google.fhir.proto.fhir_profile_base) = "http://hl7.org/fhir/StructureDefinition/code";
 
     FHIRVersionCode.Value value = 1;
 
@@ -180,8 +167,7 @@ message ImplementationGuide {
 
     repeated Extension extension = 3;
   }
-  repeated FhirVersionCode fhir_version = 25
-      [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
+  repeated FhirVersionCode fhir_version = 25 [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
 
   // Another Implementation guide this depends on
   message DependsOn {
@@ -195,8 +181,7 @@ message ImplementationGuide {
     repeated Extension modifier_extension = 3;
 
     // Identity of the IG that this depends on
-    Canonical uri = 4
-        [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
+    Canonical uri = 4 [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
 
     // NPM Package name for IG this depends on
     Id package_id = 5;
@@ -222,12 +207,9 @@ message ImplementationGuide {
 
     // Type this profile applies to
     message TypeCode {
-      option (.google.fhir.proto.structure_definition_kind) =
-          KIND_PRIMITIVE_TYPE;
-      option (.google.fhir.proto.fhir_valueset_url) =
-          "http://hl7.org/fhir/ValueSet/resource-types";
-      option (.google.fhir.proto.fhir_profile_base) =
-          "http://hl7.org/fhir/StructureDefinition/code";
+      option (.google.fhir.proto.structure_definition_kind) = KIND_PRIMITIVE_TYPE;
+      option (.google.fhir.proto.fhir_valueset_url) = "http://hl7.org/fhir/ValueSet/resource-types";
+      option (.google.fhir.proto.fhir_profile_base) = "http://hl7.org/fhir/StructureDefinition/code";
 
       ResourceTypeValueSet.Value value = 1;
 
@@ -235,19 +217,16 @@ message ImplementationGuide {
 
       repeated Extension extension = 3;
     }
-    TypeCode type = 4
-        [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
+    TypeCode type = 4 [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
 
     // Profile that all resources must conform to
-    Canonical profile = 5
-        [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
+    Canonical profile = 5 [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
   }
   repeated Global global = 27;
 
   // Information needed to build the IG
   message Definition {
-    option (.google.fhir.proto.fhir_path_message_constraint) =
-        "resource.groupingId.all(%context.grouping.id contains $this)";
+    option (.google.fhir.proto.fhir_path_message_constraint) = "resource.groupingId.all(%context.grouping.id contains $this)";
 
     // Unique id for inter-element referencing
     String id = 1;
@@ -270,8 +249,7 @@ message ImplementationGuide {
       repeated Extension modifier_extension = 3;
 
       // Descriptive name for the package
-      String name = 4
-          [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
+      String name = 4 [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
 
       // Human readable text describing the package
       Markdown description = 6;
@@ -297,12 +275,9 @@ message ImplementationGuide {
 
       // Versions this applies to (if different to IG)
       message FhirVersionCode {
-        option (.google.fhir.proto.structure_definition_kind) =
-            KIND_PRIMITIVE_TYPE;
-        option (.google.fhir.proto.fhir_valueset_url) =
-            "http://hl7.org/fhir/ValueSet/FHIR-version";
-        option (.google.fhir.proto.fhir_profile_base) =
-            "http://hl7.org/fhir/StructureDefinition/code";
+        option (.google.fhir.proto.structure_definition_kind) = KIND_PRIMITIVE_TYPE;
+        option (.google.fhir.proto.fhir_valueset_url) = "http://hl7.org/fhir/ValueSet/FHIR-version";
+        option (.google.fhir.proto.fhir_profile_base) = "http://hl7.org/fhir/StructureDefinition/code";
 
         FHIRVersionCode.Value value = 1;
 
@@ -331,8 +306,7 @@ message ImplementationGuide {
 
     // Page/Section in the Guide
     message Page {
-      option (.google.fhir.proto.fhir_path_message_constraint) =
-          "generation='generated' implies source.empty()";
+      option (.google.fhir.proto.fhir_path_message_constraint) = "generation='generated' implies source.empty()";
 
       // Unique id for inter-element referencing
       String id = 1;
@@ -356,21 +330,16 @@ message ImplementationGuide {
       SourceX source = 8;
 
       // Name of the page when published
-      Url name = 9
-          [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
+      Url name = 9 [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
 
       // Short title shown for navigational assistance
-      String title = 5
-          [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
+      String title = 5 [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
 
       // html | markdown | xml | generated
       message GenerationCode {
-        option (.google.fhir.proto.structure_definition_kind) =
-            KIND_PRIMITIVE_TYPE;
-        option (.google.fhir.proto.fhir_valueset_url) =
-            "http://hl7.org/fhir/ValueSet/guide-page-generation";
-        option (.google.fhir.proto.fhir_profile_base) =
-            "http://hl7.org/fhir/StructureDefinition/code";
+        option (.google.fhir.proto.structure_definition_kind) = KIND_PRIMITIVE_TYPE;
+        option (.google.fhir.proto.fhir_valueset_url) = "http://hl7.org/fhir/ValueSet/guide-page-generation";
+        option (.google.fhir.proto.fhir_profile_base) = "http://hl7.org/fhir/StructureDefinition/code";
 
         GuidePageGenerationCode.Value value = 1;
 
@@ -378,8 +347,7 @@ message ImplementationGuide {
 
         repeated Extension extension = 3;
       }
-      GenerationCode generation = 6
-          [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
+      GenerationCode generation = 6 [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
 
       // Nested Pages / Sections
       repeated Page page = 7;
@@ -398,12 +366,10 @@ message ImplementationGuide {
       repeated Extension modifier_extension = 3;
 
       // Code that identifies parameter
-      Coding code = 6
-          [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
+      Coding code = 6 [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
 
       // Value for named type
-      String value = 5
-          [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
+      String value = 5 [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
     }
     repeated Parameter parameter = 7;
 
@@ -419,12 +385,10 @@ message ImplementationGuide {
       repeated Extension modifier_extension = 3;
 
       // Type of template specified
-      Code code = 4
-          [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
+      Code code = 4 [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
 
       // The source location for the template
-      String source = 5
-          [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
+      String source = 5 [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
 
       // The scope in which the template applies
       String scope = 6;
@@ -473,8 +437,7 @@ message ImplementationGuide {
       // Relative path for page in IG
       Url relative_path = 6;
     }
-    repeated ManifestResource resource = 5
-        [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
+    repeated ManifestResource resource = 5 [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
 
     // HTML page within the parent IG
     message ManifestPage {
@@ -488,8 +451,7 @@ message ImplementationGuide {
       repeated Extension modifier_extension = 3;
 
       // HTML page name
-      String name = 4
-          [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
+      String name = 4 [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
 
       // Title of the page, for references
       String title = 5;

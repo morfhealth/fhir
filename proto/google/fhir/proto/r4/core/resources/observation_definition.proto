@@ -21,18 +21,17 @@ import "proto/google/fhir/proto/annotations.proto";
 import "proto/google/fhir/proto/r4/core/codes.proto";
 import "proto/google/fhir/proto/r4/core/datatypes.proto";
 
+option go_package = "github.com/google/fhir/go/proto/google/fhir/proto/r4/core/resources/observation_definition_go_proto";
 option java_multiple_files = true;
 option java_package = "com.google.fhir.r4.core";
 option (.google.fhir.proto.fhir_version) = R4;
-option go_package = "github.com/google/fhir/go/proto/google/fhir/proto/r4/core/resources/observation_definition_go_proto";
 
 // Auto-generated from StructureDefinition for ObservationDefinition.
 // Definition of an observation.
 // See http://hl7.org/fhir/StructureDefinition/ObservationDefinition
 message ObservationDefinition {
   option (.google.fhir.proto.structure_definition_kind) = KIND_RESOURCE;
-  option (.google.fhir.proto.fhir_structure_definition_url) =
-      "http://hl7.org/fhir/StructureDefinition/ObservationDefinition";
+  option (.google.fhir.proto.fhir_structure_definition_url) = "http://hl7.org/fhir/StructureDefinition/ObservationDefinition";
 
   // Logical id of this artifact
   Id id = 1;
@@ -66,8 +65,7 @@ message ObservationDefinition {
   repeated CodeableConcept category = 10;
 
   // Type of observation (code / type)
-  CodeableConcept code = 11
-      [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
+  CodeableConcept code = 11 [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
 
   // Business identifier for this ObservationDefinition instance
   repeated Identifier identifier = 12;
@@ -76,10 +74,8 @@ message ObservationDefinition {
   // SampledData | time | dateTime | Period
   message PermittedDataTypeCode {
     option (.google.fhir.proto.structure_definition_kind) = KIND_PRIMITIVE_TYPE;
-    option (.google.fhir.proto.fhir_valueset_url) =
-        "http://hl7.org/fhir/ValueSet/permitted-data-type";
-    option (.google.fhir.proto.fhir_profile_base) =
-        "http://hl7.org/fhir/StructureDefinition/code";
+    option (.google.fhir.proto.fhir_valueset_url) = "http://hl7.org/fhir/ValueSet/permitted-data-type";
+    option (.google.fhir.proto.fhir_profile_base) = "http://hl7.org/fhir/StructureDefinition/code";
 
     ObservationDataTypeCode.Value value = 1;
 
@@ -136,12 +132,9 @@ message ObservationDefinition {
 
     // reference | critical | absolute
     message CategoryCode {
-      option (.google.fhir.proto.structure_definition_kind) =
-          KIND_PRIMITIVE_TYPE;
-      option (.google.fhir.proto.fhir_valueset_url) =
-          "http://hl7.org/fhir/ValueSet/observation-range-category";
-      option (.google.fhir.proto.fhir_profile_base) =
-          "http://hl7.org/fhir/StructureDefinition/code";
+      option (.google.fhir.proto.structure_definition_kind) = KIND_PRIMITIVE_TYPE;
+      option (.google.fhir.proto.fhir_valueset_url) = "http://hl7.org/fhir/ValueSet/observation-range-category";
+      option (.google.fhir.proto.fhir_profile_base) = "http://hl7.org/fhir/StructureDefinition/code";
 
       ObservationRangeCategoryCode.Value value = 1;
 
@@ -162,12 +155,9 @@ message ObservationDefinition {
 
     // male | female | other | unknown
     message GenderCode {
-      option (.google.fhir.proto.structure_definition_kind) =
-          KIND_PRIMITIVE_TYPE;
-      option (.google.fhir.proto.fhir_valueset_url) =
-          "http://hl7.org/fhir/ValueSet/administrative-gender";
-      option (.google.fhir.proto.fhir_profile_base) =
-          "http://hl7.org/fhir/StructureDefinition/code";
+      option (.google.fhir.proto.structure_definition_kind) = KIND_PRIMITIVE_TYPE;
+      option (.google.fhir.proto.fhir_valueset_url) = "http://hl7.org/fhir/ValueSet/administrative-gender";
+      option (.google.fhir.proto.fhir_profile_base) = "http://hl7.org/fhir/StructureDefinition/code";
 
       AdministrativeGenderCode.Value value = 1;
 
@@ -190,21 +180,17 @@ message ObservationDefinition {
 
   // Value set of valid coded values for the observations conforming to this
   // ObservationDefinition
-  Reference valid_coded_value_set = 19
-      [(.google.fhir.proto.valid_reference_type) = "ValueSet"];
+  Reference valid_coded_value_set = 19 [(.google.fhir.proto.valid_reference_type) = "ValueSet"];
 
   // Value set of normal coded values for the observations conforming to this
   // ObservationDefinition
-  Reference normal_coded_value_set = 20
-      [(.google.fhir.proto.valid_reference_type) = "ValueSet"];
+  Reference normal_coded_value_set = 20 [(.google.fhir.proto.valid_reference_type) = "ValueSet"];
 
   // Value set of abnormal coded values for the observations conforming to this
   // ObservationDefinition
-  Reference abnormal_coded_value_set = 21
-      [(.google.fhir.proto.valid_reference_type) = "ValueSet"];
+  Reference abnormal_coded_value_set = 21 [(.google.fhir.proto.valid_reference_type) = "ValueSet"];
 
   // Value set of critical coded values for the observations conforming to this
   // ObservationDefinition
-  Reference critical_coded_value_set = 22
-      [(.google.fhir.proto.valid_reference_type) = "ValueSet"];
+  Reference critical_coded_value_set = 22 [(.google.fhir.proto.valid_reference_type) = "ValueSet"];
 }

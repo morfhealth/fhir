@@ -21,18 +21,17 @@ import "proto/google/fhir/proto/annotations.proto";
 import "proto/google/fhir/proto/r4/core/codes.proto";
 import "proto/google/fhir/proto/r4/core/datatypes.proto";
 
+option go_package = "github.com/google/fhir/go/proto/google/fhir/proto/r4/core/resources/payment_reconciliation_go_proto";
 option java_multiple_files = true;
 option java_package = "com.google.fhir.r4.core";
 option (.google.fhir.proto.fhir_version) = R4;
-option go_package = "github.com/google/fhir/go/proto/google/fhir/proto/r4/core/resources/payment_reconciliation_go_proto";
 
 // Auto-generated from StructureDefinition for PaymentReconciliation.
 // PaymentReconciliation resource.
 // See http://hl7.org/fhir/StructureDefinition/PaymentReconciliation
 message PaymentReconciliation {
   option (.google.fhir.proto.structure_definition_kind) = KIND_RESOURCE;
-  option (.google.fhir.proto.fhir_structure_definition_url) =
-      "http://hl7.org/fhir/StructureDefinition/PaymentReconciliation";
+  option (.google.fhir.proto.fhir_structure_definition_url) = "http://hl7.org/fhir/StructureDefinition/PaymentReconciliation";
 
   // Logical id of this artifact
   Id id = 1;
@@ -68,10 +67,8 @@ message PaymentReconciliation {
   // active | cancelled | draft | entered-in-error
   message StatusCode {
     option (.google.fhir.proto.structure_definition_kind) = KIND_PRIMITIVE_TYPE;
-    option (.google.fhir.proto.fhir_valueset_url) =
-        "http://hl7.org/fhir/ValueSet/fm-status";
-    option (.google.fhir.proto.fhir_profile_base) =
-        "http://hl7.org/fhir/StructureDefinition/code";
+    option (.google.fhir.proto.fhir_valueset_url) = "http://hl7.org/fhir/ValueSet/fm-status";
+    option (.google.fhir.proto.fhir_profile_base) = "http://hl7.org/fhir/StructureDefinition/code";
 
     FinancialResourceStatusCode.Value value = 1;
 
@@ -79,19 +76,16 @@ message PaymentReconciliation {
 
     repeated Extension extension = 3;
   }
-  StatusCode status = 11
-      [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
+  StatusCode status = 11 [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
 
   // Period covered
   Period period = 12;
 
   // Creation date
-  DateTime created = 13
-      [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
+  DateTime created = 13 [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
 
   // Party generating payment
-  Reference payment_issuer = 14
-      [(.google.fhir.proto.valid_reference_type) = "Organization"];
+  Reference payment_issuer = 14 [(.google.fhir.proto.valid_reference_type) = "Organization"];
 
   // Reference to requesting resource
   Reference request = 15 [(.google.fhir.proto.valid_reference_type) = "Task"];
@@ -106,10 +100,8 @@ message PaymentReconciliation {
   // queued | complete | error | partial
   message OutcomeCode {
     option (.google.fhir.proto.structure_definition_kind) = KIND_PRIMITIVE_TYPE;
-    option (.google.fhir.proto.fhir_valueset_url) =
-        "http://hl7.org/fhir/ValueSet/remittance-outcome";
-    option (.google.fhir.proto.fhir_profile_base) =
-        "http://hl7.org/fhir/StructureDefinition/code";
+    option (.google.fhir.proto.fhir_valueset_url) = "http://hl7.org/fhir/ValueSet/remittance-outcome";
+    option (.google.fhir.proto.fhir_profile_base) = "http://hl7.org/fhir/StructureDefinition/code";
 
     ClaimProcessingCode.Value value = 1;
 
@@ -123,12 +115,10 @@ message PaymentReconciliation {
   String disposition = 18;
 
   // When payment issued
-  Date payment_date = 19
-      [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
+  Date payment_date = 19 [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
 
   // Total amount of Payment
-  Money payment_amount = 20
-      [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
+  Money payment_amount = 20 [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
 
   // Business identifier for the payment
   Identifier payment_identifier = 21;
@@ -151,12 +141,10 @@ message PaymentReconciliation {
     Identifier predecessor = 5;
 
     // Category of payment
-    CodeableConcept type = 6
-        [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
+    CodeableConcept type = 6 [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
 
     // Request giving rise to the payment
-    Reference request = 7
-        [(.google.fhir.proto.valid_reference_type) = "Resource"];
+    Reference request = 7 [(.google.fhir.proto.valid_reference_type) = "Resource"];
 
     // Submitter of the request
     Reference submitter = 8 [
@@ -166,15 +154,13 @@ message PaymentReconciliation {
     ];
 
     // Response committing to a payment
-    Reference response = 9
-        [(.google.fhir.proto.valid_reference_type) = "Resource"];
+    Reference response = 9 [(.google.fhir.proto.valid_reference_type) = "Resource"];
 
     // Date of commitment to pay
     Date date = 10;
 
     // Contact for the response
-    Reference responsible = 11
-        [(.google.fhir.proto.valid_reference_type) = "PractitionerRole"];
+    Reference responsible = 11 [(.google.fhir.proto.valid_reference_type) = "PractitionerRole"];
 
     // Recipient of the payment
     Reference payee = 12 [
@@ -204,12 +190,9 @@ message PaymentReconciliation {
 
     // display | print | printoper
     message TypeCode {
-      option (.google.fhir.proto.structure_definition_kind) =
-          KIND_PRIMITIVE_TYPE;
-      option (.google.fhir.proto.fhir_valueset_url) =
-          "http://hl7.org/fhir/ValueSet/note-type";
-      option (.google.fhir.proto.fhir_profile_base) =
-          "http://hl7.org/fhir/StructureDefinition/code";
+      option (.google.fhir.proto.structure_definition_kind) = KIND_PRIMITIVE_TYPE;
+      option (.google.fhir.proto.fhir_valueset_url) = "http://hl7.org/fhir/ValueSet/note-type";
+      option (.google.fhir.proto.fhir_profile_base) = "http://hl7.org/fhir/StructureDefinition/code";
 
       NoteTypeCode.Value value = 1;
 

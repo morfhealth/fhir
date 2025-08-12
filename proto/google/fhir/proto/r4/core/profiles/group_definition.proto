@@ -30,12 +30,9 @@ option (.google.fhir.proto.fhir_version) = R4;
 // See http://hl7.org/fhir/StructureDefinition/groupdefinition
 message GroupDefinition {
   option (.google.fhir.proto.structure_definition_kind) = KIND_RESOURCE;
-  option (.google.fhir.proto.fhir_profile_base) =
-      "http://hl7.org/fhir/StructureDefinition/Group";
-  option (.google.fhir.proto.fhir_structure_definition_url) =
-      "http://hl7.org/fhir/StructureDefinition/groupdefinition";
-  option (.google.fhir.proto.fhir_path_message_constraint) =
-      "member.empty() or (actual = true)";
+  option (.google.fhir.proto.fhir_profile_base) = "http://hl7.org/fhir/StructureDefinition/Group";
+  option (.google.fhir.proto.fhir_structure_definition_url) = "http://hl7.org/fhir/StructureDefinition/groupdefinition";
+  option (.google.fhir.proto.fhir_path_message_constraint) = "member.empty() or (actual = true)";
   option (.google.fhir.proto.search_parameter) = {
     name: "actual"
     type: TOKEN
@@ -124,10 +121,8 @@ message GroupDefinition {
   // person | animal | practitioner | device | medication | substance
   message TypeCode {
     option (.google.fhir.proto.structure_definition_kind) = KIND_PRIMITIVE_TYPE;
-    option (.google.fhir.proto.fhir_valueset_url) =
-        "http://hl7.org/fhir/ValueSet/group-type";
-    option (.google.fhir.proto.fhir_profile_base) =
-        "http://hl7.org/fhir/StructureDefinition/code";
+    option (.google.fhir.proto.fhir_valueset_url) = "http://hl7.org/fhir/ValueSet/group-type";
+    option (.google.fhir.proto.fhir_profile_base) = "http://hl7.org/fhir/StructureDefinition/code";
 
     GroupTypeCode.Value value = 1;
 
@@ -135,12 +130,10 @@ message GroupDefinition {
 
     repeated Extension extension = 3;
   }
-  TypeCode type = 12
-      [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
+  TypeCode type = 12 [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
 
   // Descriptive or actual
-  Boolean actual = 13
-      [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
+  Boolean actual = 13 [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
 
   // Kind of Group members
   CodeableConcept code = 14;
@@ -171,8 +164,7 @@ message GroupDefinition {
     repeated Extension modifier_extension = 3;
 
     // Kind of characteristic
-    CodeableConcept code = 4
-        [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
+    CodeableConcept code = 4 [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
 
     // Value held by characteristic
     message ValueX {
@@ -186,12 +178,10 @@ message GroupDefinition {
         Reference reference = 5;
       }
     }
-    ValueX value = 5
-        [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
+    ValueX value = 5 [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
 
     // Group includes or excludes
-    Boolean exclude = 6
-        [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
+    Boolean exclude = 6 [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
 
     // Period over which characteristic is tested
     Period period = 7;

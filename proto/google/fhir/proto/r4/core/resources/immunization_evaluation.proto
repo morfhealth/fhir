@@ -21,18 +21,17 @@ import "proto/google/fhir/proto/annotations.proto";
 import "proto/google/fhir/proto/r4/core/datatypes.proto";
 import "proto/google/fhir/proto/r4/core/valuesets.proto";
 
+option go_package = "github.com/google/fhir/go/proto/google/fhir/proto/r4/core/resources/immunization_evaluation_go_proto";
 option java_multiple_files = true;
 option java_package = "com.google.fhir.r4.core";
 option (.google.fhir.proto.fhir_version) = R4;
-option go_package = "github.com/google/fhir/go/proto/google/fhir/proto/r4/core/resources/immunization_evaluation_go_proto";
 
 // Auto-generated from StructureDefinition for ImmunizationEvaluation.
 // Immunization evaluation information.
 // See http://hl7.org/fhir/StructureDefinition/ImmunizationEvaluation
 message ImmunizationEvaluation {
   option (.google.fhir.proto.structure_definition_kind) = KIND_RESOURCE;
-  option (.google.fhir.proto.fhir_structure_definition_url) =
-      "http://hl7.org/fhir/StructureDefinition/ImmunizationEvaluation";
+  option (.google.fhir.proto.fhir_structure_definition_url) = "http://hl7.org/fhir/StructureDefinition/ImmunizationEvaluation";
 
   // Logical id of this artifact
   Id id = 1;
@@ -68,10 +67,8 @@ message ImmunizationEvaluation {
   // completed | entered-in-error
   message StatusCode {
     option (.google.fhir.proto.structure_definition_kind) = KIND_PRIMITIVE_TYPE;
-    option (.google.fhir.proto.fhir_valueset_url) =
-        "http://hl7.org/fhir/ValueSet/immunization-evaluation-status";
-    option (.google.fhir.proto.fhir_profile_base) =
-        "http://hl7.org/fhir/StructureDefinition/code";
+    option (.google.fhir.proto.fhir_valueset_url) = "http://hl7.org/fhir/ValueSet/immunization-evaluation-status";
+    option (.google.fhir.proto.fhir_profile_base) = "http://hl7.org/fhir/StructureDefinition/code";
 
     ImmunizationEvaluationStatusCodesValueSet.Value value = 1;
 
@@ -79,8 +76,7 @@ message ImmunizationEvaluation {
 
     repeated Extension extension = 3;
   }
-  StatusCode status = 11
-      [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
+  StatusCode status = 11 [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
 
   // Who this evaluation is for
   Reference patient = 12 [
@@ -92,12 +88,10 @@ message ImmunizationEvaluation {
   DateTime date = 13;
 
   // Who is responsible for publishing the recommendations
-  Reference authority = 14
-      [(.google.fhir.proto.valid_reference_type) = "Organization"];
+  Reference authority = 14 [(.google.fhir.proto.valid_reference_type) = "Organization"];
 
   // Evaluation target disease
-  CodeableConcept target_disease = 15
-      [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
+  CodeableConcept target_disease = 15 [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
 
   // Immunization being evaluated
   Reference immunization_event = 16 [
@@ -106,8 +100,7 @@ message ImmunizationEvaluation {
   ];
 
   // Status of the dose relative to published recommendations
-  CodeableConcept dose_status = 17
-      [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
+  CodeableConcept dose_status = 17 [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
 
   // Reason for the dose status
   repeated CodeableConcept dose_status_reason = 18;

@@ -21,18 +21,17 @@ import "proto/google/fhir/proto/annotations.proto";
 import "proto/google/fhir/proto/r4/core/codes.proto";
 import "proto/google/fhir/proto/r4/core/datatypes.proto";
 
+option go_package = "github.com/google/fhir/go/proto/google/fhir/proto/r4/core/resources/adverse_event_go_proto";
 option java_multiple_files = true;
 option java_package = "com.google.fhir.r4.core";
 option (.google.fhir.proto.fhir_version) = R4;
-option go_package = "github.com/google/fhir/go/proto/google/fhir/proto/r4/core/resources/adverse_event_go_proto";
 
 // Auto-generated from StructureDefinition for AdverseEvent.
 // Medical care, research study or other healthcare event causing physical
 // injury. See http://hl7.org/fhir/StructureDefinition/AdverseEvent
 message AdverseEvent {
   option (.google.fhir.proto.structure_definition_kind) = KIND_RESOURCE;
-  option (.google.fhir.proto.fhir_structure_definition_url) =
-      "http://hl7.org/fhir/StructureDefinition/AdverseEvent";
+  option (.google.fhir.proto.fhir_structure_definition_url) = "http://hl7.org/fhir/StructureDefinition/AdverseEvent";
 
   // Logical id of this artifact
   Id id = 1;
@@ -68,10 +67,8 @@ message AdverseEvent {
   // actual | potential
   message ActualityCode {
     option (.google.fhir.proto.structure_definition_kind) = KIND_PRIMITIVE_TYPE;
-    option (.google.fhir.proto.fhir_valueset_url) =
-        "http://hl7.org/fhir/ValueSet/adverse-event-actuality";
-    option (.google.fhir.proto.fhir_profile_base) =
-        "http://hl7.org/fhir/StructureDefinition/code";
+    option (.google.fhir.proto.fhir_valueset_url) = "http://hl7.org/fhir/ValueSet/adverse-event-actuality";
+    option (.google.fhir.proto.fhir_profile_base) = "http://hl7.org/fhir/StructureDefinition/code";
 
     AdverseEventActualityCode.Value value = 1;
 
@@ -79,8 +76,7 @@ message AdverseEvent {
 
     repeated Extension extension = 3;
   }
-  ActualityCode actuality = 11
-      [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
+  ActualityCode actuality = 11 [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
 
   // product-problem | product-quality | product-use-error | wrong-dose |
   // incorrect-prescribing-information | wrong-technique |
@@ -102,8 +98,7 @@ message AdverseEvent {
   ];
 
   // Encounter created as part of
-  Reference encounter = 15
-      [(.google.fhir.proto.valid_reference_type) = "Encounter"];
+  Reference encounter = 15 [(.google.fhir.proto.valid_reference_type) = "Encounter"];
 
   // When the event occurred
   DateTime date = 16;
@@ -115,12 +110,10 @@ message AdverseEvent {
   DateTime recorded_date = 18;
 
   // Effect on the subject due to this event
-  repeated Reference resulting_condition = 19
-      [(.google.fhir.proto.valid_reference_type) = "Condition"];
+  repeated Reference resulting_condition = 19 [(.google.fhir.proto.valid_reference_type) = "Condition"];
 
   // Location where adverse event occurred
-  Reference location = 20
-      [(.google.fhir.proto.valid_reference_type) = "Location"];
+  Reference location = 20 [(.google.fhir.proto.valid_reference_type) = "Location"];
 
   // Seriousness of the event
   CodeableConcept seriousness = 21;
@@ -212,10 +205,8 @@ message AdverseEvent {
   ];
 
   // AdverseEvent.referenceDocument
-  repeated Reference reference_document = 28
-      [(.google.fhir.proto.valid_reference_type) = "DocumentReference"];
+  repeated Reference reference_document = 28 [(.google.fhir.proto.valid_reference_type) = "DocumentReference"];
 
   // AdverseEvent.study
-  repeated Reference study = 29
-      [(.google.fhir.proto.valid_reference_type) = "ResearchStudy"];
+  repeated Reference study = 29 [(.google.fhir.proto.valid_reference_type) = "ResearchStudy"];
 }

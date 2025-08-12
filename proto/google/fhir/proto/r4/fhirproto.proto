@@ -31,10 +31,8 @@ option (.google.fhir.proto.fhir_version) = R4;
 // https://g.co/fhir/StructureDefinition/StructureDefinition/ValidationOutcome
 message ValidationOutcome {
   option (.google.fhir.proto.structure_definition_kind) = KIND_RESOURCE;
-  option (.google.fhir.proto.fhir_profile_base) =
-      "http://hl7.org/fhir/StructureDefinition/OperationOutcome";
-  option (.google.fhir.proto.fhir_structure_definition_url) =
-      "https://g.co/fhir/StructureDefinition/StructureDefinition/ValidationOutcome";
+  option (.google.fhir.proto.fhir_profile_base) = "http://hl7.org/fhir/StructureDefinition/OperationOutcome";
+  option (.google.fhir.proto.fhir_structure_definition_url) = "https://g.co/fhir/StructureDefinition/StructureDefinition/ValidationOutcome";
 
   // Logical id of this artifact
   core.Id id = 1;
@@ -77,12 +75,9 @@ message ValidationOutcome {
 
     // fatal | error | warning | information
     message SeverityCode {
-      option (.google.fhir.proto.structure_definition_kind) =
-          KIND_PRIMITIVE_TYPE;
-      option (.google.fhir.proto.fhir_valueset_url) =
-          "http://hl7.org/fhir/ValueSet/issue-severity";
-      option (.google.fhir.proto.fhir_profile_base) =
-          "http://hl7.org/fhir/StructureDefinition/code";
+      option (.google.fhir.proto.structure_definition_kind) = KIND_PRIMITIVE_TYPE;
+      option (.google.fhir.proto.fhir_valueset_url) = "http://hl7.org/fhir/ValueSet/issue-severity";
+      option (.google.fhir.proto.fhir_profile_base) = "http://hl7.org/fhir/StructureDefinition/code";
 
       core.IssueSeverityCode.Value value = 1;
 
@@ -90,17 +85,13 @@ message ValidationOutcome {
 
       repeated core.Extension extension = 3;
     }
-    SeverityCode severity = 4
-        [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
+    SeverityCode severity = 4 [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
 
     // Error or warning code
     message CodeType {
-      option (.google.fhir.proto.structure_definition_kind) =
-          KIND_PRIMITIVE_TYPE;
-      option (.google.fhir.proto.fhir_valueset_url) =
-          "http://hl7.org/fhir/ValueSet/issue-type";
-      option (.google.fhir.proto.fhir_profile_base) =
-          "http://hl7.org/fhir/StructureDefinition/code";
+      option (.google.fhir.proto.structure_definition_kind) = KIND_PRIMITIVE_TYPE;
+      option (.google.fhir.proto.fhir_valueset_url) = "http://hl7.org/fhir/ValueSet/issue-type";
+      option (.google.fhir.proto.fhir_profile_base) = "http://hl7.org/fhir/StructureDefinition/code";
 
       core.IssueTypeCode.Value value = 1;
 
@@ -108,8 +99,7 @@ message ValidationOutcome {
 
       repeated core.Extension extension = 3;
     }
-    CodeType code = 5
-        [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
+    CodeType code = 5 [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
 
     // Additional details about the error
     core.CodeableConcept details = 6;
@@ -123,11 +113,8 @@ message ValidationOutcome {
     // FHIRPath of element(s) related to issue
     repeated core.String expression = 9;
   }
-  repeated Issue issue = 10
-      [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
+  repeated Issue issue = 10 [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
 
   // The FHIR resource this Validation is for.
-  core.Reference subject = 11
-      [(.google.fhir.proto.fhir_inlined_extension_url) =
-           "https://g.co/fhir/medicalrecords/OperationOutcomeSubject"];
+  core.Reference subject = 11 [(.google.fhir.proto.fhir_inlined_extension_url) = "https://g.co/fhir/medicalrecords/OperationOutcomeSubject"];
 }

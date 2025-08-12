@@ -21,22 +21,19 @@ import "proto/google/fhir/proto/annotations.proto";
 import "proto/google/fhir/proto/r4/core/codes.proto";
 import "proto/google/fhir/proto/r4/core/datatypes.proto";
 
+option go_package = "github.com/google/fhir/go/proto/google/fhir/proto/r4/core/resources/measure_report_go_proto";
 option java_multiple_files = true;
 option java_package = "com.google.fhir.r4.core";
 option (.google.fhir.proto.fhir_version) = R4;
-option go_package = "github.com/google/fhir/go/proto/google/fhir/proto/r4/core/resources/measure_report_go_proto";
 
 // Auto-generated from StructureDefinition for MeasureReport.
 // Results of a measure evaluation.
 // See http://hl7.org/fhir/StructureDefinition/MeasureReport
 message MeasureReport {
   option (.google.fhir.proto.structure_definition_kind) = KIND_RESOURCE;
-  option (.google.fhir.proto.fhir_structure_definition_url) =
-      "http://hl7.org/fhir/StructureDefinition/MeasureReport";
-  option (.google.fhir.proto.fhir_path_message_constraint) =
-      "(type != 'data-collection') or group.exists().not()";
-  option (.google.fhir.proto.fhir_path_message_constraint) =
-      "group.stratifier.stratum.all(value.exists() xor component.exists())";
+  option (.google.fhir.proto.fhir_structure_definition_url) = "http://hl7.org/fhir/StructureDefinition/MeasureReport";
+  option (.google.fhir.proto.fhir_path_message_constraint) = "(type != 'data-collection') or group.exists().not()";
+  option (.google.fhir.proto.fhir_path_message_constraint) = "group.stratifier.stratum.all(value.exists() xor component.exists())";
 
   // Logical id of this artifact
   Id id = 1;
@@ -72,10 +69,8 @@ message MeasureReport {
   // complete | pending | error
   message StatusCode {
     option (.google.fhir.proto.structure_definition_kind) = KIND_PRIMITIVE_TYPE;
-    option (.google.fhir.proto.fhir_valueset_url) =
-        "http://hl7.org/fhir/ValueSet/measure-report-status";
-    option (.google.fhir.proto.fhir_profile_base) =
-        "http://hl7.org/fhir/StructureDefinition/code";
+    option (.google.fhir.proto.fhir_valueset_url) = "http://hl7.org/fhir/ValueSet/measure-report-status";
+    option (.google.fhir.proto.fhir_profile_base) = "http://hl7.org/fhir/StructureDefinition/code";
 
     MeasureReportStatusCode.Value value = 1;
 
@@ -83,16 +78,13 @@ message MeasureReport {
 
     repeated Extension extension = 3;
   }
-  StatusCode status = 11
-      [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
+  StatusCode status = 11 [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
 
   // individual | subject-list | summary | data-collection
   message TypeCode {
     option (.google.fhir.proto.structure_definition_kind) = KIND_PRIMITIVE_TYPE;
-    option (.google.fhir.proto.fhir_valueset_url) =
-        "http://hl7.org/fhir/ValueSet/measure-report-type";
-    option (.google.fhir.proto.fhir_profile_base) =
-        "http://hl7.org/fhir/StructureDefinition/code";
+    option (.google.fhir.proto.fhir_valueset_url) = "http://hl7.org/fhir/ValueSet/measure-report-type";
+    option (.google.fhir.proto.fhir_profile_base) = "http://hl7.org/fhir/StructureDefinition/code";
 
     MeasureReportTypeCode.Value value = 1;
 
@@ -100,12 +92,10 @@ message MeasureReport {
 
     repeated Extension extension = 3;
   }
-  TypeCode type = 12
-      [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
+  TypeCode type = 12 [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
 
   // What measure was calculated
-  Canonical measure = 13
-      [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
+  Canonical measure = 13 [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
 
   // What individual(s) the report is for
   Reference subject = 14 [
@@ -130,8 +120,7 @@ message MeasureReport {
   ];
 
   // What period the report covers
-  Period period = 17
-      [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
+  Period period = 17 [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
 
   // increase | decrease
   CodeableConcept improvement_notation = 18;
@@ -170,8 +159,7 @@ message MeasureReport {
       Integer count = 5;
 
       // For subject-list reports, the subject results in this population
-      Reference subject_results = 6
-          [(.google.fhir.proto.valid_reference_type) = "List"];
+      Reference subject_results = 6 [(.google.fhir.proto.valid_reference_type) = "List"];
     }
     repeated Population population = 5;
 
@@ -219,12 +207,10 @@ message MeasureReport {
           repeated Extension modifier_extension = 3;
 
           // What stratifier component of the group
-          CodeableConcept code = 4
-              [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
+          CodeableConcept code = 4 [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
 
           // The stratum component value, e.g. male
-          CodeableConcept value = 5
-              [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
+          CodeableConcept value = 5 [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
         }
         repeated Component component = 5;
 
@@ -249,8 +235,7 @@ message MeasureReport {
           Integer count = 5;
 
           // For subject-list reports, the subject results in this population
-          Reference subject_results = 6
-              [(.google.fhir.proto.valid_reference_type) = "List"];
+          Reference subject_results = 6 [(.google.fhir.proto.valid_reference_type) = "List"];
         }
         repeated StratifierGroupPopulation population = 6;
 
@@ -264,6 +249,5 @@ message MeasureReport {
   repeated Group group = 19;
 
   // What data was used to calculate the measure score
-  repeated Reference evaluated_resource = 20
-      [(.google.fhir.proto.valid_reference_type) = "Resource"];
+  repeated Reference evaluated_resource = 20 [(.google.fhir.proto.valid_reference_type) = "Resource"];
 }

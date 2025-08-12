@@ -21,20 +21,18 @@ import "proto/google/fhir/proto/annotations.proto";
 import "proto/google/fhir/proto/r5/core/codes.proto";
 import "proto/google/fhir/proto/r5/core/datatypes.proto";
 
+option go_package = "github.com/google/fhir/go/proto/google/fhir/proto/r5/core/resources/medication_dispense_go_proto";
 option java_multiple_files = true;
 option java_package = "com.google.fhir.r5.core";
 option (.google.fhir.proto.fhir_version) = R5;
-option go_package = "github.com/google/fhir/go/proto/google/fhir/proto/r5/core/resources/medication_dispense_go_proto";
 
 // Auto-generated from StructureDefinition for MedicationDispense.
 // Dispensing a medication to a named patient.
 // See http://hl7.org/fhir/StructureDefinition/MedicationDispense
 message MedicationDispense {
   option (.google.fhir.proto.structure_definition_kind) = KIND_RESOURCE;
-  option (.google.fhir.proto.fhir_structure_definition_url) =
-      "http://hl7.org/fhir/StructureDefinition/MedicationDispense";
-  option (.google.fhir.proto.fhir_path_message_constraint) =
-      "whenHandedOver.empty() or whenPrepared.empty() or whenHandedOver >= whenPrepared";
+  option (.google.fhir.proto.fhir_structure_definition_url) = "http://hl7.org/fhir/StructureDefinition/MedicationDispense";
+  option (.google.fhir.proto.fhir_path_message_constraint) = "whenHandedOver.empty() or whenPrepared.empty() or whenHandedOver >= whenPrepared";
 
   // Logical id of this artifact
   Id id = 1;
@@ -68,8 +66,7 @@ message MedicationDispense {
   repeated Identifier identifier = 10;
 
   // Plan that is fulfilled by this dispense
-  repeated Reference based_on = 34
-      [(.google.fhir.proto.valid_reference_type) = "CarePlan"];
+  repeated Reference based_on = 34 [(.google.fhir.proto.valid_reference_type) = "CarePlan"];
 
   // Event that dispense is part of
   repeated Reference part_of = 11 [
@@ -81,10 +78,8 @@ message MedicationDispense {
   // entered-in-error | stopped | declined | unknown
   message StatusCode {
     option (.google.fhir.proto.structure_definition_kind) = KIND_PRIMITIVE_TYPE;
-    option (.google.fhir.proto.fhir_valueset_url) =
-        "http://hl7.org/fhir/ValueSet/medicationdispense-status";
-    option (.google.fhir.proto.fhir_profile_base) =
-        "http://hl7.org/fhir/StructureDefinition/code";
+    option (.google.fhir.proto.fhir_valueset_url) = "http://hl7.org/fhir/ValueSet/medicationdispense-status";
+    option (.google.fhir.proto.fhir_profile_base) = "http://hl7.org/fhir/StructureDefinition/code";
 
     MedicationDispenseStatusCode.Value value = 1;
 
@@ -92,8 +87,7 @@ message MedicationDispense {
 
     repeated Extension extension = 3;
   }
-  StatusCode status = 12
-      [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
+  StatusCode status = 12 [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
 
   // Why a dispense was not performed
   CodeableReference not_performed_reason = 35;
@@ -105,8 +99,7 @@ message MedicationDispense {
   repeated CodeableConcept category = 37;
 
   // What medication was supplied
-  CodeableReference medication = 38
-      [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
+  CodeableReference medication = 38 [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
 
   // Who the dispense is for
   Reference subject = 16 [
@@ -116,12 +109,10 @@ message MedicationDispense {
   ];
 
   // Encounter associated with event
-  Reference encounter = 39
-      [(.google.fhir.proto.valid_reference_type) = "Encounter"];
+  Reference encounter = 39 [(.google.fhir.proto.valid_reference_type) = "Encounter"];
 
   // Information that supports the dispensing of the medication
-  repeated Reference supporting_information = 18
-      [(.google.fhir.proto.valid_reference_type) = "Resource"];
+  repeated Reference supporting_information = 18 [(.google.fhir.proto.valid_reference_type) = "Resource"];
 
   // Who performed event
   message Performer {
@@ -152,12 +143,10 @@ message MedicationDispense {
   repeated Performer performer = 19;
 
   // Where the dispense occurred
-  Reference location = 20
-      [(.google.fhir.proto.valid_reference_type) = "Location"];
+  Reference location = 20 [(.google.fhir.proto.valid_reference_type) = "Location"];
 
   // Medication order that authorizes the dispense
-  repeated Reference authorizing_prescription = 21
-      [(.google.fhir.proto.valid_reference_type) = "MedicationRequest"];
+  repeated Reference authorizing_prescription = 21 [(.google.fhir.proto.valid_reference_type) = "MedicationRequest"];
 
   // Trial fill, partial fill, emergency fill, etc
   CodeableConcept type = 22;
@@ -178,8 +167,7 @@ message MedicationDispense {
   DateTime when_handed_over = 26;
 
   // Where the medication was/will be sent
-  Reference destination = 27
-      [(.google.fhir.proto.valid_reference_type) = "Location"];
+  Reference destination = 27 [(.google.fhir.proto.valid_reference_type) = "Location"];
 
   // Who collected the medication or where the medication was delivered
   repeated Reference receiver = 28 [
@@ -212,8 +200,7 @@ message MedicationDispense {
     repeated Extension modifier_extension = 3;
 
     // Whether a substitution was or was not performed on the dispense
-    Boolean was_substituted = 4
-        [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
+    Boolean was_substituted = 4 [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
 
     // Code signifying whether a different drug was dispensed from what was
     // prescribed
@@ -232,6 +219,5 @@ message MedicationDispense {
   Substitution substitution = 31;
 
   // A list of relevant lifecycle events
-  repeated Reference event_history = 33
-      [(.google.fhir.proto.valid_reference_type) = "Provenance"];
+  repeated Reference event_history = 33 [(.google.fhir.proto.valid_reference_type) = "Provenance"];
 }

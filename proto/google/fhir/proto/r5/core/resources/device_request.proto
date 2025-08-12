@@ -21,18 +21,17 @@ import "proto/google/fhir/proto/annotations.proto";
 import "proto/google/fhir/proto/r5/core/codes.proto";
 import "proto/google/fhir/proto/r5/core/datatypes.proto";
 
+option go_package = "github.com/google/fhir/go/proto/google/fhir/proto/r5/core/resources/device_request_go_proto";
 option java_multiple_files = true;
 option java_package = "com.google.fhir.r5.core";
 option (.google.fhir.proto.fhir_version) = R5;
-option go_package = "github.com/google/fhir/go/proto/google/fhir/proto/r5/core/resources/device_request_go_proto";
 
 // Auto-generated from StructureDefinition for DeviceRequest.
 // Medical device request.
 // See http://hl7.org/fhir/StructureDefinition/DeviceRequest
 message DeviceRequest {
   option (.google.fhir.proto.structure_definition_kind) = KIND_RESOURCE;
-  option (.google.fhir.proto.fhir_structure_definition_url) =
-      "http://hl7.org/fhir/StructureDefinition/DeviceRequest";
+  option (.google.fhir.proto.fhir_structure_definition_url) = "http://hl7.org/fhir/StructureDefinition/DeviceRequest";
 
   // Logical id of this artifact
   Id id = 1;
@@ -72,12 +71,10 @@ message DeviceRequest {
   repeated Uri instantiates_uri = 12;
 
   // What request fulfills
-  repeated Reference based_on = 13
-      [(.google.fhir.proto.valid_reference_type) = "Resource"];
+  repeated Reference based_on = 13 [(.google.fhir.proto.valid_reference_type) = "Resource"];
 
   // What request replaces
-  repeated Reference replaces = 34
-      [(.google.fhir.proto.valid_reference_type) = "DeviceRequest"];
+  repeated Reference replaces = 34 [(.google.fhir.proto.valid_reference_type) = "DeviceRequest"];
 
   // Identifier of composite request
   Identifier group_identifier = 15;
@@ -85,10 +82,8 @@ message DeviceRequest {
   // draft | active | on-hold | revoked | completed | entered-in-error | unknown
   message StatusCode {
     option (.google.fhir.proto.structure_definition_kind) = KIND_PRIMITIVE_TYPE;
-    option (.google.fhir.proto.fhir_valueset_url) =
-        "http://hl7.org/fhir/ValueSet/request-status";
-    option (.google.fhir.proto.fhir_profile_base) =
-        "http://hl7.org/fhir/StructureDefinition/code";
+    option (.google.fhir.proto.fhir_valueset_url) = "http://hl7.org/fhir/ValueSet/request-status";
+    option (.google.fhir.proto.fhir_profile_base) = "http://hl7.org/fhir/StructureDefinition/code";
 
     RequestStatusCode.Value value = 1;
 
@@ -102,10 +97,8 @@ message DeviceRequest {
   // filler-order | instance-order | option
   message IntentCode {
     option (.google.fhir.proto.structure_definition_kind) = KIND_PRIMITIVE_TYPE;
-    option (.google.fhir.proto.fhir_valueset_url) =
-        "http://hl7.org/fhir/ValueSet/request-intent";
-    option (.google.fhir.proto.fhir_profile_base) =
-        "http://hl7.org/fhir/StructureDefinition/code";
+    option (.google.fhir.proto.fhir_valueset_url) = "http://hl7.org/fhir/ValueSet/request-intent";
+    option (.google.fhir.proto.fhir_profile_base) = "http://hl7.org/fhir/StructureDefinition/code";
 
     RequestIntentCode.Value value = 1;
 
@@ -113,16 +106,13 @@ message DeviceRequest {
 
     repeated Extension extension = 3;
   }
-  IntentCode intent = 17
-      [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
+  IntentCode intent = 17 [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
 
   // routine | urgent | asap | stat
   message PriorityCode {
     option (.google.fhir.proto.structure_definition_kind) = KIND_PRIMITIVE_TYPE;
-    option (.google.fhir.proto.fhir_valueset_url) =
-        "http://hl7.org/fhir/ValueSet/request-priority";
-    option (.google.fhir.proto.fhir_profile_base) =
-        "http://hl7.org/fhir/StructureDefinition/code";
+    option (.google.fhir.proto.fhir_valueset_url) = "http://hl7.org/fhir/ValueSet/request-priority";
+    option (.google.fhir.proto.fhir_profile_base) = "http://hl7.org/fhir/StructureDefinition/code";
 
     RequestPriorityCode.Value value = 1;
 
@@ -136,8 +126,7 @@ message DeviceRequest {
   Boolean do_not_perform = 35;
 
   // Device requested
-  CodeableReference code = 36
-      [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
+  CodeableReference code = 36 [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
 
   // Quantity of devices to supply
   Integer quantity = 37;
@@ -181,8 +170,7 @@ message DeviceRequest {
   ];
 
   // Encounter motivating request
-  Reference encounter = 22
-      [(.google.fhir.proto.valid_reference_type) = "Encounter"];
+  Reference encounter = 22 [(.google.fhir.proto.valid_reference_type) = "Encounter"];
 
   // Desired time or schedule for use
   message OccurrenceX {
@@ -226,13 +214,11 @@ message DeviceRequest {
   ];
 
   // Additional clinical information
-  repeated Reference supporting_info = 31
-      [(.google.fhir.proto.valid_reference_type) = "Resource"];
+  repeated Reference supporting_info = 31 [(.google.fhir.proto.valid_reference_type) = "Resource"];
 
   // Notes or comments
   repeated Annotation note = 32;
 
   // Request provenance
-  repeated Reference relevant_history = 33
-      [(.google.fhir.proto.valid_reference_type) = "Provenance"];
+  repeated Reference relevant_history = 33 [(.google.fhir.proto.valid_reference_type) = "Provenance"];
 }

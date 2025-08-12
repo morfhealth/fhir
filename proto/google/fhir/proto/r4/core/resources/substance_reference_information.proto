@@ -20,18 +20,17 @@ import "google/protobuf/any.proto";
 import "proto/google/fhir/proto/annotations.proto";
 import "proto/google/fhir/proto/r4/core/datatypes.proto";
 
+option go_package = "github.com/google/fhir/go/proto/google/fhir/proto/r4/core/resources/substance_reference_information_go_proto";
 option java_multiple_files = true;
 option java_package = "com.google.fhir.r4.core";
 option (.google.fhir.proto.fhir_version) = R4;
-option go_package = "github.com/google/fhir/go/proto/google/fhir/proto/r4/core/resources/substance_reference_information_go_proto";
 
 // Auto-generated from StructureDefinition for SubstanceReferenceInformation.
 // Todo.
 // See http://hl7.org/fhir/StructureDefinition/SubstanceReferenceInformation
 message SubstanceReferenceInformation {
   option (.google.fhir.proto.structure_definition_kind) = KIND_RESOURCE;
-  option (.google.fhir.proto.fhir_structure_definition_url) =
-      "http://hl7.org/fhir/StructureDefinition/SubstanceReferenceInformation";
+  option (.google.fhir.proto.fhir_structure_definition_url) = "http://hl7.org/fhir/StructureDefinition/SubstanceReferenceInformation";
 
   // Logical id of this artifact
   Id id = 1;
@@ -82,8 +81,7 @@ message SubstanceReferenceInformation {
     CodeableConcept gene = 5;
 
     // Todo
-    repeated Reference source = 6
-        [(.google.fhir.proto.valid_reference_type) = "DocumentReference"];
+    repeated Reference source = 6 [(.google.fhir.proto.valid_reference_type) = "DocumentReference"];
   }
   repeated Gene gene = 11;
 
@@ -105,8 +103,7 @@ message SubstanceReferenceInformation {
     Identifier element = 5;
 
     // Todo
-    repeated Reference source = 6
-        [(.google.fhir.proto.valid_reference_type) = "DocumentReference"];
+    repeated Reference source = 6 [(.google.fhir.proto.valid_reference_type) = "DocumentReference"];
   }
   repeated GeneElement gene_element = 12;
 
@@ -131,8 +128,7 @@ message SubstanceReferenceInformation {
     repeated CodeableConcept subtype = 6;
 
     // Todo
-    repeated Reference source = 7
-        [(.google.fhir.proto.valid_reference_type) = "DocumentReference"];
+    repeated Reference source = 7 [(.google.fhir.proto.valid_reference_type) = "DocumentReference"];
   }
   repeated Classification classification = 13;
 
@@ -178,8 +174,7 @@ message SubstanceReferenceInformation {
     CodeableConcept amount_type = 10;
 
     // Todo
-    repeated Reference source = 11
-        [(.google.fhir.proto.valid_reference_type) = "DocumentReference"];
+    repeated Reference source = 11 [(.google.fhir.proto.valid_reference_type) = "DocumentReference"];
   }
   repeated Target target = 14;
 }

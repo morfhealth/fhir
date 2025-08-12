@@ -20,18 +20,17 @@ import "google/protobuf/any.proto";
 import "proto/google/fhir/proto/annotations.proto";
 import "proto/google/fhir/proto/r5/core/datatypes.proto";
 
+option go_package = "github.com/google/fhir/go/proto/google/fhir/proto/r5/core/resources/device_association_go_proto";
 option java_multiple_files = true;
 option java_package = "com.google.fhir.r5.core";
 option (.google.fhir.proto.fhir_version) = R5;
-option go_package = "github.com/google/fhir/go/proto/google/fhir/proto/r5/core/resources/device_association_go_proto";
 
 // Auto-generated from StructureDefinition for DeviceAssociation.
 // A record of association or dissociation of a device with a patient.
 // See http://hl7.org/fhir/StructureDefinition/DeviceAssociation
 message DeviceAssociation {
   option (.google.fhir.proto.structure_definition_kind) = KIND_RESOURCE;
-  option (.google.fhir.proto.fhir_structure_definition_url) =
-      "http://hl7.org/fhir/StructureDefinition/DeviceAssociation";
+  option (.google.fhir.proto.fhir_structure_definition_url) = "http://hl7.org/fhir/StructureDefinition/DeviceAssociation";
 
   // Logical id of this artifact
   Id id = 1;
@@ -74,8 +73,7 @@ message DeviceAssociation {
   repeated CodeableConcept category = 12;
 
   // implanted | explanted | attached | entered-in-error | unknown
-  CodeableConcept status = 13
-      [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
+  CodeableConcept status = 13 [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
 
   // The reasons given for the current association status
   repeated CodeableConcept status_reason = 14;
@@ -91,8 +89,7 @@ message DeviceAssociation {
   ];
 
   // Current anatomical location of the device in/on subject
-  Reference body_structure = 16
-      [(.google.fhir.proto.valid_reference_type) = "BodyStructure"];
+  Reference body_structure = 16 [(.google.fhir.proto.valid_reference_type) = "BodyStructure"];
 
   // Begin and end dates and times for the device association
   Period period = 17;
@@ -109,8 +106,7 @@ message DeviceAssociation {
     repeated Extension modifier_extension = 3;
 
     // Device operational condition
-    CodeableConcept status = 4
-        [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
+    CodeableConcept status = 4 [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
 
     // The individual performing the action enabled by the device
     repeated Reference operator = 5 [

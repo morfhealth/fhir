@@ -21,18 +21,17 @@ import "proto/google/fhir/proto/annotations.proto";
 import "proto/google/fhir/proto/r4/core/codes.proto";
 import "proto/google/fhir/proto/r4/core/datatypes.proto";
 
+option go_package = "github.com/google/fhir/go/proto/google/fhir/proto/r4/core/resources/research_subject_go_proto";
 option java_multiple_files = true;
 option java_package = "com.google.fhir.r4.core";
 option (.google.fhir.proto.fhir_version) = R4;
-option go_package = "github.com/google/fhir/go/proto/google/fhir/proto/r4/core/resources/research_subject_go_proto";
 
 // Auto-generated from StructureDefinition for ResearchSubject.
 // Physical entity which is the primary unit of interest in the study.
 // See http://hl7.org/fhir/StructureDefinition/ResearchSubject
 message ResearchSubject {
   option (.google.fhir.proto.structure_definition_kind) = KIND_RESOURCE;
-  option (.google.fhir.proto.fhir_structure_definition_url) =
-      "http://hl7.org/fhir/StructureDefinition/ResearchSubject";
+  option (.google.fhir.proto.fhir_structure_definition_url) = "http://hl7.org/fhir/StructureDefinition/ResearchSubject";
 
   // Logical id of this artifact
   Id id = 1;
@@ -70,10 +69,8 @@ message ResearchSubject {
   // pending-on-study | potential-candidate | screening | withdrawn
   message StatusCode {
     option (.google.fhir.proto.structure_definition_kind) = KIND_PRIMITIVE_TYPE;
-    option (.google.fhir.proto.fhir_valueset_url) =
-        "http://hl7.org/fhir/ValueSet/research-subject-status";
-    option (.google.fhir.proto.fhir_profile_base) =
-        "http://hl7.org/fhir/StructureDefinition/code";
+    option (.google.fhir.proto.fhir_valueset_url) = "http://hl7.org/fhir/ValueSet/research-subject-status";
+    option (.google.fhir.proto.fhir_profile_base) = "http://hl7.org/fhir/StructureDefinition/code";
 
     ResearchSubjectStatusCode.Value value = 1;
 
@@ -81,8 +78,7 @@ message ResearchSubject {
 
     repeated Extension extension = 3;
   }
-  StatusCode status = 11
-      [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
+  StatusCode status = 11 [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
 
   // Start and end of participation
   Period period = 12;
@@ -106,6 +102,5 @@ message ResearchSubject {
   String actual_arm = 16;
 
   // Agreement to participate in study
-  Reference consent = 17
-      [(.google.fhir.proto.valid_reference_type) = "Consent"];
+  Reference consent = 17 [(.google.fhir.proto.valid_reference_type) = "Consent"];
 }

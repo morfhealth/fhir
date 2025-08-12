@@ -21,18 +21,17 @@ import "proto/google/fhir/proto/annotations.proto";
 import "proto/google/fhir/proto/r4/core/codes.proto";
 import "proto/google/fhir/proto/r4/core/datatypes.proto";
 
+option go_package = "github.com/google/fhir/go/proto/google/fhir/proto/r4/core/resources/healthcare_service_go_proto";
 option java_multiple_files = true;
 option java_package = "com.google.fhir.r4.core";
 option (.google.fhir.proto.fhir_version) = R4;
-option go_package = "github.com/google/fhir/go/proto/google/fhir/proto/r4/core/resources/healthcare_service_go_proto";
 
 // Auto-generated from StructureDefinition for HealthcareService.
 // The details of a healthcare service available at a location.
 // See http://hl7.org/fhir/StructureDefinition/HealthcareService
 message HealthcareService {
   option (.google.fhir.proto.structure_definition_kind) = KIND_RESOURCE;
-  option (.google.fhir.proto.fhir_structure_definition_url) =
-      "http://hl7.org/fhir/StructureDefinition/HealthcareService";
+  option (.google.fhir.proto.fhir_structure_definition_url) = "http://hl7.org/fhir/StructureDefinition/HealthcareService";
 
   // Logical id of this artifact
   Id id = 1;
@@ -69,8 +68,7 @@ message HealthcareService {
   Boolean active = 11;
 
   // Organization that provides this service
-  Reference provided_by = 12
-      [(.google.fhir.proto.valid_reference_type) = "Organization"];
+  Reference provided_by = 12 [(.google.fhir.proto.valid_reference_type) = "Organization"];
 
   // Broad category of service being performed or delivered
   repeated CodeableConcept category = 13;
@@ -82,8 +80,7 @@ message HealthcareService {
   repeated CodeableConcept specialty = 15;
 
   // Location(s) where service may be provided
-  repeated Reference location = 16
-      [(.google.fhir.proto.valid_reference_type) = "Location"];
+  repeated Reference location = 16 [(.google.fhir.proto.valid_reference_type) = "Location"];
 
   // Description of service as presented to a consumer while searching
   String name = 17;
@@ -101,8 +98,7 @@ message HealthcareService {
   repeated ContactPoint telecom = 21;
 
   // Location(s) service is intended for/available to
-  repeated Reference coverage_area = 22
-      [(.google.fhir.proto.valid_reference_type) = "Location"];
+  repeated Reference coverage_area = 22 [(.google.fhir.proto.valid_reference_type) = "Location"];
 
   // Conditions under which service is available/offered
   repeated CodeableConcept service_provision_code = 23;
@@ -154,12 +150,9 @@ message HealthcareService {
 
     // mon | tue | wed | thu | fri | sat | sun
     message DaysOfWeekCode {
-      option (.google.fhir.proto.structure_definition_kind) =
-          KIND_PRIMITIVE_TYPE;
-      option (.google.fhir.proto.fhir_valueset_url) =
-          "http://hl7.org/fhir/ValueSet/days-of-week";
-      option (.google.fhir.proto.fhir_profile_base) =
-          "http://hl7.org/fhir/StructureDefinition/code";
+      option (.google.fhir.proto.structure_definition_kind) = KIND_PRIMITIVE_TYPE;
+      option (.google.fhir.proto.fhir_valueset_url) = "http://hl7.org/fhir/ValueSet/days-of-week";
+      option (.google.fhir.proto.fhir_profile_base) = "http://hl7.org/fhir/StructureDefinition/code";
 
       .google.fhir.r4.core.DaysOfWeekCode.Value value = 1;
 
@@ -192,8 +185,7 @@ message HealthcareService {
     repeated Extension modifier_extension = 3;
 
     // Reason presented to the user explaining why time not available
-    String description = 4
-        [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
+    String description = 4 [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
 
     // Service not available from this date
     Period during = 5;
@@ -205,6 +197,5 @@ message HealthcareService {
 
   // Technical endpoints providing access to electronic services operated for
   // the healthcare service
-  repeated Reference endpoint = 33
-      [(.google.fhir.proto.valid_reference_type) = "Endpoint"];
+  repeated Reference endpoint = 33 [(.google.fhir.proto.valid_reference_type) = "Endpoint"];
 }

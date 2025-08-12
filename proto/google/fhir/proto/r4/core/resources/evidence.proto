@@ -21,20 +21,18 @@ import "proto/google/fhir/proto/annotations.proto";
 import "proto/google/fhir/proto/r4/core/codes.proto";
 import "proto/google/fhir/proto/r4/core/datatypes.proto";
 
+option go_package = "github.com/google/fhir/go/proto/google/fhir/proto/r4/core/resources/evidence_go_proto";
 option java_multiple_files = true;
 option java_package = "com.google.fhir.r4.core";
 option (.google.fhir.proto.fhir_version) = R4;
-option go_package = "github.com/google/fhir/go/proto/google/fhir/proto/r4/core/resources/evidence_go_proto";
 
 // Auto-generated from StructureDefinition for Evidence.
 // A research context or question.
 // See http://hl7.org/fhir/StructureDefinition/Evidence
 message Evidence {
   option (.google.fhir.proto.structure_definition_kind) = KIND_RESOURCE;
-  option (.google.fhir.proto.fhir_structure_definition_url) =
-      "http://hl7.org/fhir/StructureDefinition/Evidence";
-  option (.google.fhir.proto.fhir_path_message_warning_constraint) =
-      "name.matches('[A-Z]([A-Za-z0-9_]){0,254}')";
+  option (.google.fhir.proto.fhir_structure_definition_url) = "http://hl7.org/fhir/StructureDefinition/Evidence";
+  option (.google.fhir.proto.fhir_path_message_warning_constraint) = "name.matches('[A-Z]([A-Za-z0-9_]){0,254}')";
 
   // Logical id of this artifact
   Id id = 1;
@@ -89,10 +87,8 @@ message Evidence {
   // draft | active | retired | unknown
   message StatusCode {
     option (.google.fhir.proto.structure_definition_kind) = KIND_PRIMITIVE_TYPE;
-    option (.google.fhir.proto.fhir_valueset_url) =
-        "http://hl7.org/fhir/ValueSet/publication-status";
-    option (.google.fhir.proto.fhir_profile_base) =
-        "http://hl7.org/fhir/StructureDefinition/code";
+    option (.google.fhir.proto.fhir_valueset_url) = "http://hl7.org/fhir/ValueSet/publication-status";
+    option (.google.fhir.proto.fhir_profile_base) = "http://hl7.org/fhir/StructureDefinition/code";
 
     PublicationStatusCode.Value value = 1;
 
@@ -100,8 +96,7 @@ message Evidence {
 
     repeated Extension extension = 3;
   }
-  StatusCode status = 17
-      [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
+  StatusCode status = 17 [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
 
   // Date last changed
   DateTime date = 18;
@@ -162,10 +157,8 @@ message Evidence {
   ];
 
   // What exposure?
-  repeated Reference exposure_variant = 36
-      [(.google.fhir.proto.valid_reference_type) = "EvidenceVariable"];
+  repeated Reference exposure_variant = 36 [(.google.fhir.proto.valid_reference_type) = "EvidenceVariable"];
 
   // What outcome?
-  repeated Reference outcome = 37
-      [(.google.fhir.proto.valid_reference_type) = "EvidenceVariable"];
+  repeated Reference outcome = 37 [(.google.fhir.proto.valid_reference_type) = "EvidenceVariable"];
 }

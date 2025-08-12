@@ -21,22 +21,19 @@ import "proto/google/fhir/proto/annotations.proto";
 import "proto/google/fhir/proto/r5/core/codes.proto";
 import "proto/google/fhir/proto/r5/core/datatypes.proto";
 
+option go_package = "github.com/google/fhir/go/proto/google/fhir/proto/r5/core/resources/subscription_status_go_proto";
 option java_multiple_files = true;
 option java_package = "com.google.fhir.r5.core";
 option (.google.fhir.proto.fhir_version) = R5;
-option go_package = "github.com/google/fhir/go/proto/google/fhir/proto/r5/core/resources/subscription_status_go_proto";
 
 // Auto-generated from StructureDefinition for SubscriptionStatus.
 // Status information about a Subscription provided during event notification.
 // See http://hl7.org/fhir/StructureDefinition/SubscriptionStatus
 message SubscriptionStatus {
   option (.google.fhir.proto.structure_definition_kind) = KIND_RESOURCE;
-  option (.google.fhir.proto.fhir_structure_definition_url) =
-      "http://hl7.org/fhir/StructureDefinition/SubscriptionStatus";
-  option (.google.fhir.proto.fhir_path_message_constraint) =
-      "(type = 'event-notification' or type = 'query-event') implies notificationEvent.exists()";
-  option (.google.fhir.proto.fhir_path_message_constraint) =
-      "type = 'query-status' implies status.exists()";
+  option (.google.fhir.proto.fhir_structure_definition_url) = "http://hl7.org/fhir/StructureDefinition/SubscriptionStatus";
+  option (.google.fhir.proto.fhir_path_message_constraint) = "(type = 'event-notification' or type = 'query-event') implies notificationEvent.exists()";
+  option (.google.fhir.proto.fhir_path_message_constraint) = "type = 'query-status' implies status.exists()";
 
   // Logical id of this artifact
   Id id = 1;
@@ -69,10 +66,8 @@ message SubscriptionStatus {
   // requested | active | error | off | entered-in-error
   message StatusCode {
     option (.google.fhir.proto.structure_definition_kind) = KIND_PRIMITIVE_TYPE;
-    option (.google.fhir.proto.fhir_valueset_url) =
-        "http://hl7.org/fhir/ValueSet/subscription-status";
-    option (.google.fhir.proto.fhir_profile_base) =
-        "http://hl7.org/fhir/StructureDefinition/code";
+    option (.google.fhir.proto.fhir_valueset_url) = "http://hl7.org/fhir/ValueSet/subscription-status";
+    option (.google.fhir.proto.fhir_profile_base) = "http://hl7.org/fhir/StructureDefinition/code";
 
     SubscriptionStatusCode.Value value = 1;
 
@@ -85,10 +80,8 @@ message SubscriptionStatus {
   // handshake | heartbeat | event-notification | query-status | query-event
   message TypeCode {
     option (.google.fhir.proto.structure_definition_kind) = KIND_PRIMITIVE_TYPE;
-    option (.google.fhir.proto.fhir_valueset_url) =
-        "http://hl7.org/fhir/ValueSet/subscription-notification-type";
-    option (.google.fhir.proto.fhir_profile_base) =
-        "http://hl7.org/fhir/StructureDefinition/code";
+    option (.google.fhir.proto.fhir_valueset_url) = "http://hl7.org/fhir/ValueSet/subscription-notification-type";
+    option (.google.fhir.proto.fhir_profile_base) = "http://hl7.org/fhir/StructureDefinition/code";
 
     SubscriptionNotificationTypeCode.Value value = 1;
 
@@ -96,8 +89,7 @@ message SubscriptionStatus {
 
     repeated Extension extension = 3;
   }
-  TypeCode type = 11
-      [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
+  TypeCode type = 11 [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
 
   // Events since the Subscription was created
   Integer64 events_since_subscription_start = 12;
@@ -114,19 +106,16 @@ message SubscriptionStatus {
     repeated Extension modifier_extension = 3;
 
     // Sequencing index of this event
-    Integer64 event_number = 4
-        [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
+    Integer64 event_number = 4 [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
 
     // The instant this event occurred
     Instant timestamp = 5;
 
     // Reference to the primary resource or information of this event
-    Reference focus = 6
-        [(.google.fhir.proto.valid_reference_type) = "Resource"];
+    Reference focus = 6 [(.google.fhir.proto.valid_reference_type) = "Resource"];
 
     // References related to the focus resource and/or context of this event
-    repeated Reference additional_context = 7
-        [(.google.fhir.proto.valid_reference_type) = "Resource"];
+    repeated Reference additional_context = 7 [(.google.fhir.proto.valid_reference_type) = "Resource"];
   }
   repeated NotificationEvent notification_event = 13;
 

@@ -21,18 +21,17 @@ import "proto/google/fhir/proto/annotations.proto";
 import "proto/google/fhir/proto/r5/core/codes.proto";
 import "proto/google/fhir/proto/r5/core/datatypes.proto";
 
+option go_package = "github.com/google/fhir/go/proto/google/fhir/proto/r5/core/resources/provenance_go_proto";
 option java_multiple_files = true;
 option java_package = "com.google.fhir.r5.core";
 option (.google.fhir.proto.fhir_version) = R5;
-option go_package = "github.com/google/fhir/go/proto/google/fhir/proto/r5/core/resources/provenance_go_proto";
 
 // Auto-generated from StructureDefinition for Provenance.
 // Who, What, When for a set of resources.
 // See http://hl7.org/fhir/StructureDefinition/Provenance
 message Provenance {
   option (.google.fhir.proto.structure_definition_kind) = KIND_RESOURCE;
-  option (.google.fhir.proto.fhir_structure_definition_url) =
-      "http://hl7.org/fhir/StructureDefinition/Provenance";
+  option (.google.fhir.proto.fhir_structure_definition_url) = "http://hl7.org/fhir/StructureDefinition/Provenance";
 
   // Logical id of this artifact
   Id id = 1;
@@ -86,8 +85,7 @@ message Provenance {
   repeated Uri policy = 13;
 
   // Where the activity occurred, if relevant
-  Reference location = 14
-      [(.google.fhir.proto.valid_reference_type) = "Location"];
+  Reference location = 14 [(.google.fhir.proto.valid_reference_type) = "Location"];
 
   // Authorization (purposeOfUse) related to the event
   repeated CodeableReference authorization = 20;
@@ -108,22 +106,17 @@ message Provenance {
 
   // The patient is the subject of the data created/updated (.target) by the
   // activity
-  Reference patient = 22
-      [(.google.fhir.proto.valid_reference_type) = "Patient"];
+  Reference patient = 22 [(.google.fhir.proto.valid_reference_type) = "Patient"];
 
   // Encounter within which this event occurred or which the event is tightly
   // associated
-  Reference encounter = 23
-      [(.google.fhir.proto.valid_reference_type) = "Encounter"];
+  Reference encounter = 23 [(.google.fhir.proto.valid_reference_type) = "Encounter"];
 
   // Actor involved
   message Agent {
-    option (.google.fhir.proto.fhir_path_message_constraint) =
-        "who.resolve().exists() and onBehalfOf.resolve().exists() implies who.resolve() != onBehalfOf.resolve()";
-    option (.google.fhir.proto.fhir_path_message_constraint) =
-        "who.resolve().ofType(PractitionerRole).practitioner.resolve().exists() and onBehalfOf.resolve().ofType(Practitioner).exists() implies who.resolve().practitioner.resolve() != onBehalfOf.resolve()";
-    option (.google.fhir.proto.fhir_path_message_constraint) =
-        "who.resolve().ofType(Organization).exists() and onBehalfOf.resolve().ofType(PractitionerRole).organization.resolve().exists() implies who.resolve() != onBehalfOf.resolve().organization.resolve()";
+    option (.google.fhir.proto.fhir_path_message_constraint) = "who.resolve().exists() and onBehalfOf.resolve().exists() implies who.resolve() != onBehalfOf.resolve()";
+    option (.google.fhir.proto.fhir_path_message_constraint) = "who.resolve().ofType(PractitionerRole).practitioner.resolve().exists() and onBehalfOf.resolve().ofType(Practitioner).exists() implies who.resolve().practitioner.resolve() != onBehalfOf.resolve()";
+    option (.google.fhir.proto.fhir_path_message_constraint) = "who.resolve().ofType(Organization).exists() and onBehalfOf.resolve().ofType(PractitionerRole).organization.resolve().exists() implies who.resolve() != onBehalfOf.resolve().organization.resolve()";
 
     // Unique id for inter-element referencing
     String id = 1;
@@ -161,8 +154,7 @@ message Provenance {
       (.google.fhir.proto.valid_reference_type) = "Patient"
     ];
   }
-  repeated Agent agent = 17
-      [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
+  repeated Agent agent = 17 [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
 
   // An entity used in this activity
   message Entity {
@@ -177,12 +169,9 @@ message Provenance {
 
     // revision | quotation | source | instantiates | removal
     message RoleCode {
-      option (.google.fhir.proto.structure_definition_kind) =
-          KIND_PRIMITIVE_TYPE;
-      option (.google.fhir.proto.fhir_valueset_url) =
-          "http://hl7.org/fhir/ValueSet/provenance-entity-role";
-      option (.google.fhir.proto.fhir_profile_base) =
-          "http://hl7.org/fhir/StructureDefinition/code";
+      option (.google.fhir.proto.structure_definition_kind) = KIND_PRIMITIVE_TYPE;
+      option (.google.fhir.proto.fhir_valueset_url) = "http://hl7.org/fhir/ValueSet/provenance-entity-role";
+      option (.google.fhir.proto.fhir_profile_base) = "http://hl7.org/fhir/StructureDefinition/code";
 
       ProvenanceEntityRoleCode.Value value = 1;
 
@@ -190,8 +179,7 @@ message Provenance {
 
       repeated Extension extension = 3;
     }
-    RoleCode role = 4
-        [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
+    RoleCode role = 4 [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
 
     // Identity of entity
     Reference what = 5 [

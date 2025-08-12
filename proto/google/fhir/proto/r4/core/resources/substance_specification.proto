@@ -20,10 +20,10 @@ import "google/protobuf/any.proto";
 import "proto/google/fhir/proto/annotations.proto";
 import "proto/google/fhir/proto/r4/core/datatypes.proto";
 
+option go_package = "github.com/google/fhir/go/proto/google/fhir/proto/r4/core/resources/substance_specification_go_proto";
 option java_multiple_files = true;
 option java_package = "com.google.fhir.r4.core";
 option (.google.fhir.proto.fhir_version) = R4;
-option go_package = "github.com/google/fhir/go/proto/google/fhir/proto/r4/core/resources/substance_specification_go_proto";
 
 // Auto-generated from StructureDefinition for SubstanceSpecification.
 // The detailed description of a substance, typically at a level beyond what is
@@ -31,8 +31,7 @@ option go_package = "github.com/google/fhir/go/proto/google/fhir/proto/r4/core/r
 // http://hl7.org/fhir/StructureDefinition/SubstanceSpecification
 message SubstanceSpecification {
   option (.google.fhir.proto.structure_definition_kind) = KIND_RESOURCE;
-  option (.google.fhir.proto.fhir_structure_definition_url) =
-      "http://hl7.org/fhir/StructureDefinition/SubstanceSpecification";
+  option (.google.fhir.proto.fhir_structure_definition_url) = "http://hl7.org/fhir/StructureDefinition/SubstanceSpecification";
 
   // Logical id of this artifact
   Id id = 1;
@@ -78,8 +77,7 @@ message SubstanceSpecification {
   String description = 14;
 
   // Supporting literature
-  repeated Reference source = 15
-      [(.google.fhir.proto.valid_reference_type) = "DocumentReference"];
+  repeated Reference source = 15 [(.google.fhir.proto.valid_reference_type) = "DocumentReference"];
 
   // Textual comment about this record of a substance
   String comment = 16;
@@ -177,9 +175,7 @@ message SubstanceSpecification {
   repeated Property property = 18;
 
   // General information detailing this substance
-  Reference reference_information = 19
-      [(.google.fhir.proto.valid_reference_type) =
-           "SubstanceReferenceInformation"];
+  Reference reference_information = 19 [(.google.fhir.proto.valid_reference_type) = "SubstanceReferenceInformation"];
 
   // Structural information
   message Structure {
@@ -263,8 +259,7 @@ message SubstanceSpecification {
     Isotope.MolecularWeight molecular_weight = 9;
 
     // Supporting literature
-    repeated Reference source = 10
-        [(.google.fhir.proto.valid_reference_type) = "DocumentReference"];
+    repeated Reference source = 10 [(.google.fhir.proto.valid_reference_type) = "DocumentReference"];
 
     // Molecular structural representation
     message Representation {
@@ -316,8 +311,7 @@ message SubstanceSpecification {
     String comment = 7;
 
     // Supporting literature
-    repeated Reference source = 8
-        [(.google.fhir.proto.valid_reference_type) = "DocumentReference"];
+    repeated Reference source = 8 [(.google.fhir.proto.valid_reference_type) = "DocumentReference"];
   }
   repeated CodeType code = 21;
 
@@ -333,8 +327,7 @@ message SubstanceSpecification {
     repeated Extension modifier_extension = 3;
 
     // The actual name
-    String name = 4
-        [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
+    String name = 4 [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
 
     // Name type
     CodeableConcept type = 5;
@@ -384,8 +377,7 @@ message SubstanceSpecification {
     repeated Official official = 13;
 
     // Supporting literature
-    repeated Reference source = 14
-        [(.google.fhir.proto.valid_reference_type) = "DocumentReference"];
+    repeated Reference source = 14 [(.google.fhir.proto.valid_reference_type) = "DocumentReference"];
   }
   repeated Name name = 22;
 
@@ -410,8 +402,7 @@ message SubstanceSpecification {
       option (.google.fhir.proto.is_choice_type) = true;
 
       oneof choice {
-        Reference reference = 1 [(.google.fhir.proto.valid_reference_type) =
-                                     "SubstanceSpecification"];
+        Reference reference = 1 [(.google.fhir.proto.valid_reference_type) = "SubstanceSpecification"];
         CodeableConcept codeable_concept = 2;
       }
     }
@@ -448,24 +439,19 @@ message SubstanceSpecification {
     CodeableConcept amount_type = 9;
 
     // Supporting literature
-    repeated Reference source = 10
-        [(.google.fhir.proto.valid_reference_type) = "DocumentReference"];
+    repeated Reference source = 10 [(.google.fhir.proto.valid_reference_type) = "DocumentReference"];
   }
   repeated Relationship relationship = 24;
 
   // Data items specific to nucleic acids
-  Reference nucleic_acid = 25
-      [(.google.fhir.proto.valid_reference_type) = "SubstanceNucleicAcid"];
+  Reference nucleic_acid = 25 [(.google.fhir.proto.valid_reference_type) = "SubstanceNucleicAcid"];
 
   // Data items specific to polymers
-  Reference polymer = 26
-      [(.google.fhir.proto.valid_reference_type) = "SubstancePolymer"];
+  Reference polymer = 26 [(.google.fhir.proto.valid_reference_type) = "SubstancePolymer"];
 
   // Data items specific to proteins
-  Reference protein = 27
-      [(.google.fhir.proto.valid_reference_type) = "SubstanceProtein"];
+  Reference protein = 27 [(.google.fhir.proto.valid_reference_type) = "SubstanceProtein"];
 
   // Material or taxonomic/anatomical source for the substance
-  Reference source_material = 28
-      [(.google.fhir.proto.valid_reference_type) = "SubstanceSourceMaterial"];
+  Reference source_material = 28 [(.google.fhir.proto.valid_reference_type) = "SubstanceSourceMaterial"];
 }

@@ -21,10 +21,10 @@ import "proto/google/fhir/proto/annotations.proto";
 import "proto/google/fhir/proto/r5/core/codes.proto";
 import "proto/google/fhir/proto/r5/core/datatypes.proto";
 
+option go_package = "github.com/google/fhir/go/proto/google/fhir/proto/r5/core/resources/biologically_derived_product_dispense_go_proto";
 option java_multiple_files = true;
 option java_package = "com.google.fhir.r5.core";
 option (.google.fhir.proto.fhir_version) = R5;
-option go_package = "github.com/google/fhir/go/proto/google/fhir/proto/r5/core/resources/biologically_derived_product_dispense_go_proto";
 
 // Auto-generated from StructureDefinition for
 // BiologicallyDerivedProductDispense. A record of dispensation of a
@@ -32,8 +32,7 @@ option go_package = "github.com/google/fhir/go/proto/google/fhir/proto/r5/core/r
 // http://hl7.org/fhir/StructureDefinition/BiologicallyDerivedProductDispense
 message BiologicallyDerivedProductDispense {
   option (.google.fhir.proto.structure_definition_kind) = KIND_RESOURCE;
-  option (.google.fhir.proto.fhir_structure_definition_url) =
-      "http://hl7.org/fhir/StructureDefinition/BiologicallyDerivedProductDispense";
+  option (.google.fhir.proto.fhir_structure_definition_url) = "http://hl7.org/fhir/StructureDefinition/BiologicallyDerivedProductDispense";
 
   // Logical id of this artifact
   Id id = 1;
@@ -67,21 +66,17 @@ message BiologicallyDerivedProductDispense {
   repeated Identifier identifier = 10;
 
   // The order or request that this dispense is fulfilling
-  repeated Reference based_on = 11
-      [(.google.fhir.proto.valid_reference_type) = "ServiceRequest"];
+  repeated Reference based_on = 11 [(.google.fhir.proto.valid_reference_type) = "ServiceRequest"];
 
   // Short description
-  repeated Reference part_of = 12 [(.google.fhir.proto.valid_reference_type) =
-                                       "BiologicallyDerivedProductDispense"];
+  repeated Reference part_of = 12 [(.google.fhir.proto.valid_reference_type) = "BiologicallyDerivedProductDispense"];
 
   // preparation | in-progress | allocated | issued | unfulfilled | returned |
   // entered-in-error | unknown
   message StatusCode {
     option (.google.fhir.proto.structure_definition_kind) = KIND_PRIMITIVE_TYPE;
-    option (.google.fhir.proto.fhir_valueset_url) =
-        "http://hl7.org/fhir/ValueSet/biologicallyderivedproductdispense-status";
-    option (.google.fhir.proto.fhir_profile_base) =
-        "http://hl7.org/fhir/StructureDefinition/code";
+    option (.google.fhir.proto.fhir_valueset_url) = "http://hl7.org/fhir/ValueSet/biologicallyderivedproductdispense-status";
+    option (.google.fhir.proto.fhir_profile_base) = "http://hl7.org/fhir/StructureDefinition/code";
 
     BiologicallyDerivedProductDispenseCode.Value value = 1;
 
@@ -89,8 +84,7 @@ message BiologicallyDerivedProductDispense {
 
     repeated Extension extension = 3;
   }
-  StatusCode status = 13
-      [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
+  StatusCode status = 13 [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
 
   // Relationship between the donor and intended recipient
   CodeableConcept origin_relationship_type = 14;
@@ -133,8 +127,7 @@ message BiologicallyDerivedProductDispense {
   repeated Performer performer = 18;
 
   // Where the dispense occurred
-  Reference location = 19
-      [(.google.fhir.proto.valid_reference_type) = "Location"];
+  Reference location = 19 [(.google.fhir.proto.valid_reference_type) = "Location"];
 
   // Amount dispensed
   SimpleQuantity quantity = 20;
@@ -146,8 +139,7 @@ message BiologicallyDerivedProductDispense {
   DateTime when_handed_over = 22;
 
   // Where the product was dispatched to
-  Reference destination = 23
-      [(.google.fhir.proto.valid_reference_type) = "Location"];
+  Reference destination = 23 [(.google.fhir.proto.valid_reference_type) = "Location"];
 
   // Additional notes
   repeated Annotation note = 24;

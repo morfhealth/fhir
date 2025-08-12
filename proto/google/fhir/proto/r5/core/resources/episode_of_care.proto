@@ -21,10 +21,10 @@ import "proto/google/fhir/proto/annotations.proto";
 import "proto/google/fhir/proto/r5/core/codes.proto";
 import "proto/google/fhir/proto/r5/core/datatypes.proto";
 
+option go_package = "github.com/google/fhir/go/proto/google/fhir/proto/r5/core/resources/episode_of_care_go_proto";
 option java_multiple_files = true;
 option java_package = "com.google.fhir.r5.core";
 option (.google.fhir.proto.fhir_version) = R5;
-option go_package = "github.com/google/fhir/go/proto/google/fhir/proto/r5/core/resources/episode_of_care_go_proto";
 
 // Auto-generated from StructureDefinition for EpisodeOfCare.
 // An association of a Patient with an Organization and  Healthcare Provider(s)
@@ -32,8 +32,7 @@ option go_package = "github.com/google/fhir/go/proto/google/fhir/proto/r5/core/r
 // responsibility. See http://hl7.org/fhir/StructureDefinition/EpisodeOfCare
 message EpisodeOfCare {
   option (.google.fhir.proto.structure_definition_kind) = KIND_RESOURCE;
-  option (.google.fhir.proto.fhir_structure_definition_url) =
-      "http://hl7.org/fhir/StructureDefinition/EpisodeOfCare";
+  option (.google.fhir.proto.fhir_structure_definition_url) = "http://hl7.org/fhir/StructureDefinition/EpisodeOfCare";
 
   // Logical id of this artifact
   Id id = 1;
@@ -70,10 +69,8 @@ message EpisodeOfCare {
   // entered-in-error
   message StatusCode {
     option (.google.fhir.proto.structure_definition_kind) = KIND_PRIMITIVE_TYPE;
-    option (.google.fhir.proto.fhir_valueset_url) =
-        "http://hl7.org/fhir/ValueSet/episode-of-care-status";
-    option (.google.fhir.proto.fhir_profile_base) =
-        "http://hl7.org/fhir/StructureDefinition/code";
+    option (.google.fhir.proto.fhir_valueset_url) = "http://hl7.org/fhir/ValueSet/episode-of-care-status";
+    option (.google.fhir.proto.fhir_profile_base) = "http://hl7.org/fhir/StructureDefinition/code";
 
     EpisodeOfCareStatusCode.Value value = 1;
 
@@ -81,8 +78,7 @@ message EpisodeOfCare {
 
     repeated Extension extension = 3;
   }
-  StatusCode status = 11
-      [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
+  StatusCode status = 11 [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
 
   // Past list of status codes (the current status may be included to cover the
   // start date of the status)
@@ -99,12 +95,9 @@ message EpisodeOfCare {
     // planned | waitlist | active | onhold | finished | cancelled |
     // entered-in-error
     message StatusCode {
-      option (.google.fhir.proto.structure_definition_kind) =
-          KIND_PRIMITIVE_TYPE;
-      option (.google.fhir.proto.fhir_valueset_url) =
-          "http://hl7.org/fhir/ValueSet/episode-of-care-status";
-      option (.google.fhir.proto.fhir_profile_base) =
-          "http://hl7.org/fhir/StructureDefinition/code";
+      option (.google.fhir.proto.structure_definition_kind) = KIND_PRIMITIVE_TYPE;
+      option (.google.fhir.proto.fhir_valueset_url) = "http://hl7.org/fhir/ValueSet/episode-of-care-status";
+      option (.google.fhir.proto.fhir_profile_base) = "http://hl7.org/fhir/StructureDefinition/code";
 
       EpisodeOfCareStatusCode.Value value = 1;
 
@@ -112,12 +105,10 @@ message EpisodeOfCare {
 
       repeated Extension extension = 3;
     }
-    StatusCode status = 4
-        [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
+    StatusCode status = 4 [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
 
     // Duration the EpisodeOfCare was in the specified status
-    Period period = 5
-        [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
+    Period period = 5 [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
   }
   repeated StatusHistory status_history = 12;
 
@@ -172,15 +163,13 @@ message EpisodeOfCare {
   ];
 
   // Organization that assumes responsibility for care coordination
-  Reference managing_organization = 16
-      [(.google.fhir.proto.valid_reference_type) = "Organization"];
+  Reference managing_organization = 16 [(.google.fhir.proto.valid_reference_type) = "Organization"];
 
   // Interval during responsibility is assumed
   Period period = 17;
 
   // Originating Referral Request(s)
-  repeated Reference referral_request = 18
-      [(.google.fhir.proto.valid_reference_type) = "ServiceRequest"];
+  repeated Reference referral_request = 18 [(.google.fhir.proto.valid_reference_type) = "ServiceRequest"];
 
   // Care manager/care coordinator for the patient
   Reference care_manager = 19 [
@@ -189,10 +178,8 @@ message EpisodeOfCare {
   ];
 
   // Other practitioners facilitating this episode of care
-  repeated Reference care_team = 23
-      [(.google.fhir.proto.valid_reference_type) = "CareTeam"];
+  repeated Reference care_team = 23 [(.google.fhir.proto.valid_reference_type) = "CareTeam"];
 
   // The set of accounts that may be used for billing for this EpisodeOfCare
-  repeated Reference account = 21
-      [(.google.fhir.proto.valid_reference_type) = "Account"];
+  repeated Reference account = 21 [(.google.fhir.proto.valid_reference_type) = "Account"];
 }

@@ -21,18 +21,17 @@ import "proto/google/fhir/proto/annotations.proto";
 import "proto/google/fhir/proto/r4/core/codes.proto";
 import "proto/google/fhir/proto/r4/core/datatypes.proto";
 
+option go_package = "github.com/google/fhir/go/proto/google/fhir/proto/r4/core/resources/device_metric_go_proto";
 option java_multiple_files = true;
 option java_package = "com.google.fhir.r4.core";
 option (.google.fhir.proto.fhir_version) = R4;
-option go_package = "github.com/google/fhir/go/proto/google/fhir/proto/r4/core/resources/device_metric_go_proto";
 
 // Auto-generated from StructureDefinition for DeviceMetric.
 // Measurement, calculation or setting capability of a medical device.
 // See http://hl7.org/fhir/StructureDefinition/DeviceMetric
 message DeviceMetric {
   option (.google.fhir.proto.structure_definition_kind) = KIND_RESOURCE;
-  option (.google.fhir.proto.fhir_structure_definition_url) =
-      "http://hl7.org/fhir/StructureDefinition/DeviceMetric";
+  option (.google.fhir.proto.fhir_structure_definition_url) = "http://hl7.org/fhir/StructureDefinition/DeviceMetric";
 
   // Logical id of this artifact
   Id id = 1;
@@ -66,8 +65,7 @@ message DeviceMetric {
   repeated Identifier identifier = 10;
 
   // Identity of metric, for example Heart Rate or PEEP Setting
-  CodeableConcept type = 11
-      [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
+  CodeableConcept type = 11 [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
 
   // Unit of Measure for the Metric
   CodeableConcept unit = 12;
@@ -81,10 +79,8 @@ message DeviceMetric {
   // on | off | standby | entered-in-error
   message OperationalStatusCode {
     option (.google.fhir.proto.structure_definition_kind) = KIND_PRIMITIVE_TYPE;
-    option (.google.fhir.proto.fhir_valueset_url) =
-        "http://hl7.org/fhir/ValueSet/metric-operational-status";
-    option (.google.fhir.proto.fhir_profile_base) =
-        "http://hl7.org/fhir/StructureDefinition/code";
+    option (.google.fhir.proto.fhir_valueset_url) = "http://hl7.org/fhir/ValueSet/metric-operational-status";
+    option (.google.fhir.proto.fhir_profile_base) = "http://hl7.org/fhir/StructureDefinition/code";
 
     DeviceMetricOperationalStatusCode.Value value = 1;
 
@@ -97,10 +93,8 @@ message DeviceMetric {
   // black | red | green | yellow | blue | magenta | cyan | white
   message ColorCode {
     option (.google.fhir.proto.structure_definition_kind) = KIND_PRIMITIVE_TYPE;
-    option (.google.fhir.proto.fhir_valueset_url) =
-        "http://hl7.org/fhir/ValueSet/metric-color";
-    option (.google.fhir.proto.fhir_profile_base) =
-        "http://hl7.org/fhir/StructureDefinition/code";
+    option (.google.fhir.proto.fhir_valueset_url) = "http://hl7.org/fhir/ValueSet/metric-color";
+    option (.google.fhir.proto.fhir_profile_base) = "http://hl7.org/fhir/StructureDefinition/code";
 
     DeviceMetricColorCode.Value value = 1;
 
@@ -113,10 +107,8 @@ message DeviceMetric {
   // measurement | setting | calculation | unspecified
   message CategoryCode {
     option (.google.fhir.proto.structure_definition_kind) = KIND_PRIMITIVE_TYPE;
-    option (.google.fhir.proto.fhir_valueset_url) =
-        "http://hl7.org/fhir/ValueSet/metric-category";
-    option (.google.fhir.proto.fhir_profile_base) =
-        "http://hl7.org/fhir/StructureDefinition/code";
+    option (.google.fhir.proto.fhir_valueset_url) = "http://hl7.org/fhir/ValueSet/metric-category";
+    option (.google.fhir.proto.fhir_profile_base) = "http://hl7.org/fhir/StructureDefinition/code";
 
     DeviceMetricCategoryCode.Value value = 1;
 
@@ -124,8 +116,7 @@ message DeviceMetric {
 
     repeated Extension extension = 3;
   }
-  CategoryCode category = 17
-      [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
+  CategoryCode category = 17 [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
 
   // Describes the measurement repetition time
   Timing measurement_period = 18;
@@ -144,12 +135,9 @@ message DeviceMetric {
 
     // unspecified | offset | gain | two-point
     message TypeCode {
-      option (.google.fhir.proto.structure_definition_kind) =
-          KIND_PRIMITIVE_TYPE;
-      option (.google.fhir.proto.fhir_valueset_url) =
-          "http://hl7.org/fhir/ValueSet/metric-calibration-type";
-      option (.google.fhir.proto.fhir_profile_base) =
-          "http://hl7.org/fhir/StructureDefinition/code";
+      option (.google.fhir.proto.structure_definition_kind) = KIND_PRIMITIVE_TYPE;
+      option (.google.fhir.proto.fhir_valueset_url) = "http://hl7.org/fhir/ValueSet/metric-calibration-type";
+      option (.google.fhir.proto.fhir_profile_base) = "http://hl7.org/fhir/StructureDefinition/code";
 
       DeviceMetricCalibrationTypeCode.Value value = 1;
 
@@ -161,12 +149,9 @@ message DeviceMetric {
 
     // not-calibrated | calibration-required | calibrated | unspecified
     message StateCode {
-      option (.google.fhir.proto.structure_definition_kind) =
-          KIND_PRIMITIVE_TYPE;
-      option (.google.fhir.proto.fhir_valueset_url) =
-          "http://hl7.org/fhir/ValueSet/metric-calibration-state";
-      option (.google.fhir.proto.fhir_profile_base) =
-          "http://hl7.org/fhir/StructureDefinition/code";
+      option (.google.fhir.proto.structure_definition_kind) = KIND_PRIMITIVE_TYPE;
+      option (.google.fhir.proto.fhir_valueset_url) = "http://hl7.org/fhir/ValueSet/metric-calibration-state";
+      option (.google.fhir.proto.fhir_profile_base) = "http://hl7.org/fhir/StructureDefinition/code";
 
       DeviceMetricCalibrationStateCode.Value value = 1;
 

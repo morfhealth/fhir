@@ -21,18 +21,17 @@ import "proto/google/fhir/proto/annotations.proto";
 import "proto/google/fhir/proto/r5/core/codes.proto";
 import "proto/google/fhir/proto/r5/core/datatypes.proto";
 
+option go_package = "github.com/google/fhir/go/proto/google/fhir/proto/r5/core/resources/medication_knowledge_go_proto";
 option java_multiple_files = true;
 option java_package = "com.google.fhir.r5.core";
 option (.google.fhir.proto.fhir_version) = R5;
-option go_package = "github.com/google/fhir/go/proto/google/fhir/proto/r5/core/resources/medication_knowledge_go_proto";
 
 // Auto-generated from StructureDefinition for MedicationKnowledge.
 // Definition of Medication Knowledge.
 // See http://hl7.org/fhir/StructureDefinition/MedicationKnowledge
 message MedicationKnowledge {
   option (.google.fhir.proto.structure_definition_kind) = KIND_RESOURCE;
-  option (.google.fhir.proto.fhir_structure_definition_url) =
-      "http://hl7.org/fhir/StructureDefinition/MedicationKnowledge";
+  option (.google.fhir.proto.fhir_structure_definition_url) = "http://hl7.org/fhir/StructureDefinition/MedicationKnowledge";
 
   // Logical id of this artifact
   Id id = 1;
@@ -71,10 +70,8 @@ message MedicationKnowledge {
   // active | entered-in-error | inactive
   message StatusCode {
     option (.google.fhir.proto.structure_definition_kind) = KIND_PRIMITIVE_TYPE;
-    option (.google.fhir.proto.fhir_valueset_url) =
-        "http://hl7.org/fhir/ValueSet/medicationknowledge-status";
-    option (.google.fhir.proto.fhir_profile_base) =
-        "http://hl7.org/fhir/StructureDefinition/code";
+    option (.google.fhir.proto.fhir_valueset_url) = "http://hl7.org/fhir/ValueSet/medicationknowledge-status";
+    option (.google.fhir.proto.fhir_profile_base) = "http://hl7.org/fhir/StructureDefinition/code";
 
     MedicationKnowledgeStatusCode.Value value = 1;
 
@@ -85,8 +82,7 @@ message MedicationKnowledge {
   StatusCode status = 11;
 
   // Creator or owner of the knowledge or information about the medication
-  Reference author = 33
-      [(.google.fhir.proto.valid_reference_type) = "Organization"];
+  Reference author = 33 [(.google.fhir.proto.valid_reference_type) = "Organization"];
 
   // Codes that identify the different jurisdictions for which the information
   // of this resource was created
@@ -107,8 +103,7 @@ message MedicationKnowledge {
     repeated Extension modifier_extension = 3;
 
     // Category of medicationKnowledge
-    CodeableConcept type = 4
-        [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
+    CodeableConcept type = 4 [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
 
     // Associated documentation about the associated medication knowledge
     repeated Reference reference = 5 [
@@ -119,8 +114,7 @@ message MedicationKnowledge {
   repeated RelatedMedicationKnowledge related_medication_knowledge = 16;
 
   // The set of medication resources that are associated with this medication
-  repeated Reference associated_medication = 17
-      [(.google.fhir.proto.valid_reference_type) = "Medication"];
+  repeated Reference associated_medication = 17 [(.google.fhir.proto.valid_reference_type) = "Medication"];
 
   // Category of the medication or product
   repeated CodeableConcept product_type = 18;
@@ -140,8 +134,7 @@ message MedicationKnowledge {
     CodeableConcept type = 4;
 
     // Associated documentation about the medication
-    Reference source = 5
-        [(.google.fhir.proto.valid_reference_type) = "DocumentReference"];
+    Reference source = 5 [(.google.fhir.proto.valid_reference_type) = "DocumentReference"];
   }
   repeated Monograph monograph = 19;
 
@@ -163,8 +156,7 @@ message MedicationKnowledge {
     repeated Period effective_date = 7;
 
     // The category of the cost information
-    CodeableConcept type = 4
-        [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
+    CodeableConcept type = 4 [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
 
     // The source or owner for the price information
     String source = 5;
@@ -178,8 +170,7 @@ message MedicationKnowledge {
         CodeableConcept codeable_concept = 2;
       }
     }
-    CostX cost = 8
-        [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
+    CostX cost = 8 [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
   }
   repeated Cost cost = 23;
 
@@ -243,12 +234,10 @@ message MedicationKnowledge {
         repeated Extension modifier_extension = 3;
 
         // Category of dosage for a medication
-        CodeableConcept type = 4
-            [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
+        CodeableConcept type = 4 [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
 
         // Dosage for the medication for the specific guidelines
-        repeated .google.fhir.r5.core.Dosage dosage = 5
-            [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
+        repeated .google.fhir.r5.core.Dosage dosage = 5 [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
       }
       repeated Dosage dosage = 5;
 
@@ -269,8 +258,7 @@ message MedicationKnowledge {
 
         // Categorization of specific characteristic that is relevant to the
         // administration guideline
-        CodeableConcept type = 4
-            [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
+        CodeableConcept type = 4 [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
 
         // The specific characteristic
         message ValueX {
@@ -304,8 +292,7 @@ message MedicationKnowledge {
 
     // The type of category for the medication (for example, therapeutic
     // classification, therapeutic sub-classification)
-    CodeableConcept type = 4
-        [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
+    CodeableConcept type = 4 [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
 
     // The source of the classification
     message SourceX {
@@ -338,14 +325,12 @@ message MedicationKnowledge {
     repeated Cost cost = 6;
 
     // The packaged medication that is being priced
-    Reference packaged_product = 7 [(.google.fhir.proto.valid_reference_type) =
-                                        "PackagedProductDefinition"];
+    Reference packaged_product = 7 [(.google.fhir.proto.valid_reference_type) = "PackagedProductDefinition"];
   }
   repeated Packaging packaging = 37;
 
   // Potential clinical issue with or between medication(s)
-  repeated Reference clinical_use_issue = 38
-      [(.google.fhir.proto.valid_reference_type) = "ClinicalUseDefinition"];
+  repeated Reference clinical_use_issue = 38 [(.google.fhir.proto.valid_reference_type) = "ClinicalUseDefinition"];
 
   // How the medication should be stored
   message StorageGuideline {
@@ -379,8 +364,7 @@ message MedicationKnowledge {
       repeated Extension modifier_extension = 3;
 
       // Categorization of the setting
-      CodeableConcept type = 4
-          [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
+      CodeableConcept type = 4 [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
 
       // Value of the setting
       message ValueX {
@@ -392,8 +376,7 @@ message MedicationKnowledge {
           CodeableConcept codeable_concept = 3;
         }
       }
-      ValueX value = 5
-          [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
+      ValueX value = 5 [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
     }
     repeated EnvironmentalSetting environmental_setting = 7;
   }
@@ -429,13 +412,11 @@ message MedicationKnowledge {
       repeated Extension modifier_extension = 3;
 
       // Specifies the type of substitution allowed
-      CodeableConcept type = 4
-          [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
+      CodeableConcept type = 4 [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
 
       // Specifies if regulation allows for changes in the medication when
       // dispensing
-      Boolean allowed = 5
-          [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
+      Boolean allowed = 5 [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
     }
     repeated Substitution substitution = 5;
 
@@ -455,8 +436,7 @@ message MedicationKnowledge {
       repeated Extension modifier_extension = 3;
 
       // The maximum number of units of the medication that can be dispensed
-      SimpleQuantity quantity = 4
-          [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
+      SimpleQuantity quantity = 4 [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
 
       // The period that applies to the maximum number of units
       Duration period = 5;
@@ -478,9 +458,7 @@ message MedicationKnowledge {
 
     // Definitional resources that provide more information about this
     // medication
-    repeated Reference definition = 4
-        [(.google.fhir.proto.valid_reference_type) =
-             "MedicinalProductDefinition"];
+    repeated Reference definition = 4 [(.google.fhir.proto.valid_reference_type) = "MedicinalProductDefinition"];
 
     // powder | tablets | capsule +
     CodeableConcept dose_form = 5;
@@ -500,8 +478,7 @@ message MedicationKnowledge {
       repeated Extension modifier_extension = 3;
 
       // Substances contained in the medication
-      CodeableReference item = 4
-          [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
+      CodeableReference item = 4 [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
 
       // A code that defines the type of ingredient, active, base, etc
       CodeableConcept type = 5;

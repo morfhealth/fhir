@@ -21,18 +21,17 @@ import "proto/google/fhir/proto/annotations.proto";
 import "proto/google/fhir/proto/r5/core/codes.proto";
 import "proto/google/fhir/proto/r5/core/datatypes.proto";
 
+option go_package = "github.com/google/fhir/go/proto/google/fhir/proto/r5/core/resources/research_subject_go_proto";
 option java_multiple_files = true;
 option java_package = "com.google.fhir.r5.core";
 option (.google.fhir.proto.fhir_version) = R5;
-option go_package = "github.com/google/fhir/go/proto/google/fhir/proto/r5/core/resources/research_subject_go_proto";
 
 // Auto-generated from StructureDefinition for ResearchSubject.
 // Participant or object which is the recipient of investigative activities in a
 // study. See http://hl7.org/fhir/StructureDefinition/ResearchSubject
 message ResearchSubject {
   option (.google.fhir.proto.structure_definition_kind) = KIND_RESOURCE;
-  option (.google.fhir.proto.fhir_structure_definition_url) =
-      "http://hl7.org/fhir/StructureDefinition/ResearchSubject";
+  option (.google.fhir.proto.fhir_structure_definition_url) = "http://hl7.org/fhir/StructureDefinition/ResearchSubject";
 
   // Logical id of this artifact
   Id id = 1;
@@ -68,10 +67,8 @@ message ResearchSubject {
   // draft | active | retired | unknown
   message StatusCode {
     option (.google.fhir.proto.structure_definition_kind) = KIND_PRIMITIVE_TYPE;
-    option (.google.fhir.proto.fhir_valueset_url) =
-        "http://hl7.org/fhir/ValueSet/publication-status";
-    option (.google.fhir.proto.fhir_profile_base) =
-        "http://hl7.org/fhir/StructureDefinition/code";
+    option (.google.fhir.proto.fhir_valueset_url) = "http://hl7.org/fhir/ValueSet/publication-status";
+    option (.google.fhir.proto.fhir_profile_base) = "http://hl7.org/fhir/StructureDefinition/code";
 
     PublicationStatusCode.Value value = 1;
 
@@ -79,8 +76,7 @@ message ResearchSubject {
 
     repeated Extension extension = 3;
   }
-  StatusCode status = 18
-      [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
+  StatusCode status = 18 [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
 
   // Subject status
   message Progress {
@@ -143,6 +139,5 @@ message ResearchSubject {
   Id actual_comparison_group = 22;
 
   // Agreement to participate in study
-  repeated Reference consent = 23
-      [(.google.fhir.proto.valid_reference_type) = "Consent"];
+  repeated Reference consent = 23 [(.google.fhir.proto.valid_reference_type) = "Consent"];
 }

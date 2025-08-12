@@ -21,24 +21,20 @@ import "proto/google/fhir/proto/annotations.proto";
 import "proto/google/fhir/proto/r4/core/codes.proto";
 import "proto/google/fhir/proto/r4/core/datatypes.proto";
 
+option go_package = "github.com/google/fhir/go/proto/google/fhir/proto/r4/core/resources/list_go_proto";
 option java_multiple_files = true;
 option java_package = "com.google.fhir.r4.core";
 option (.google.fhir.proto.fhir_version) = R4;
-option go_package = "github.com/google/fhir/go/proto/google/fhir/proto/r4/core/resources/list_go_proto";
 
 // Auto-generated from StructureDefinition for List.
 // A list is a curated collection of resources.
 // See http://hl7.org/fhir/StructureDefinition/List
 message List {
   option (.google.fhir.proto.structure_definition_kind) = KIND_RESOURCE;
-  option (.google.fhir.proto.fhir_structure_definition_url) =
-      "http://hl7.org/fhir/StructureDefinition/List";
-  option (.google.fhir.proto.fhir_path_message_constraint) =
-      "emptyReason.empty() or entry.empty()";
-  option (.google.fhir.proto.fhir_path_message_constraint) =
-      "mode = 'changes' or entry.deleted.empty()";
-  option (.google.fhir.proto.fhir_path_message_constraint) =
-      "mode = 'working' or entry.date.empty()";
+  option (.google.fhir.proto.fhir_structure_definition_url) = "http://hl7.org/fhir/StructureDefinition/List";
+  option (.google.fhir.proto.fhir_path_message_constraint) = "emptyReason.empty() or entry.empty()";
+  option (.google.fhir.proto.fhir_path_message_constraint) = "mode = 'changes' or entry.deleted.empty()";
+  option (.google.fhir.proto.fhir_path_message_constraint) = "mode = 'working' or entry.date.empty()";
 
   // Logical id of this artifact
   Id id = 1;
@@ -74,10 +70,8 @@ message List {
   // current | retired | entered-in-error
   message StatusCode {
     option (.google.fhir.proto.structure_definition_kind) = KIND_PRIMITIVE_TYPE;
-    option (.google.fhir.proto.fhir_valueset_url) =
-        "http://hl7.org/fhir/ValueSet/list-status";
-    option (.google.fhir.proto.fhir_profile_base) =
-        "http://hl7.org/fhir/StructureDefinition/code";
+    option (.google.fhir.proto.fhir_valueset_url) = "http://hl7.org/fhir/ValueSet/list-status";
+    option (.google.fhir.proto.fhir_profile_base) = "http://hl7.org/fhir/StructureDefinition/code";
 
     ListStatusCode.Value value = 1;
 
@@ -85,16 +79,13 @@ message List {
 
     repeated Extension extension = 3;
   }
-  StatusCode status = 11
-      [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
+  StatusCode status = 11 [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
 
   // working | snapshot | changes
   message ModeCode {
     option (.google.fhir.proto.structure_definition_kind) = KIND_PRIMITIVE_TYPE;
-    option (.google.fhir.proto.fhir_valueset_url) =
-        "http://hl7.org/fhir/ValueSet/list-mode";
-    option (.google.fhir.proto.fhir_profile_base) =
-        "http://hl7.org/fhir/StructureDefinition/code";
+    option (.google.fhir.proto.fhir_valueset_url) = "http://hl7.org/fhir/ValueSet/list-mode";
+    option (.google.fhir.proto.fhir_profile_base) = "http://hl7.org/fhir/StructureDefinition/code";
 
     ListModeCode.Value value = 1;
 
@@ -102,8 +93,7 @@ message List {
 
     repeated Extension extension = 3;
   }
-  ModeCode mode = 12
-      [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
+  ModeCode mode = 12 [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
 
   // Descriptive name for the list
   String title = 13;
@@ -120,8 +110,7 @@ message List {
   ];
 
   // Context in which list created
-  Reference encounter = 16
-      [(.google.fhir.proto.valid_reference_type) = "Encounter"];
+  Reference encounter = 16 [(.google.fhir.proto.valid_reference_type) = "Encounter"];
 
   // When the list was prepared
   DateTime date = 17;

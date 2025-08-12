@@ -21,10 +21,10 @@ import "proto/google/fhir/proto/annotations.proto";
 import "proto/google/fhir/proto/r5/core/codes.proto";
 import "proto/google/fhir/proto/r5/core/datatypes.proto";
 
+option go_package = "github.com/google/fhir/go/proto/google/fhir/proto/r5/core/resources/consent_go_proto";
 option java_multiple_files = true;
 option java_package = "com.google.fhir.r5.core";
 option (.google.fhir.proto.fhir_version) = R5;
-option go_package = "github.com/google/fhir/go/proto/google/fhir/proto/r5/core/resources/consent_go_proto";
 
 // Auto-generated from StructureDefinition for Consent.
 // A healthcare consumer's  or third party's choices to permit or deny
@@ -32,8 +32,7 @@ option go_package = "github.com/google/fhir/go/proto/google/fhir/proto/r5/core/r
 // time. See http://hl7.org/fhir/StructureDefinition/Consent
 message Consent {
   option (.google.fhir.proto.structure_definition_kind) = KIND_RESOURCE;
-  option (.google.fhir.proto.fhir_structure_definition_url) =
-      "http://hl7.org/fhir/StructureDefinition/Consent";
+  option (.google.fhir.proto.fhir_structure_definition_url) = "http://hl7.org/fhir/StructureDefinition/Consent";
 
   // Logical id of this artifact
   Id id = 1;
@@ -69,10 +68,8 @@ message Consent {
   // draft | active | inactive | not-done | entered-in-error | unknown
   message StatusCode {
     option (.google.fhir.proto.structure_definition_kind) = KIND_PRIMITIVE_TYPE;
-    option (.google.fhir.proto.fhir_valueset_url) =
-        "http://hl7.org/fhir/ValueSet/consent-state-codes";
-    option (.google.fhir.proto.fhir_profile_base) =
-        "http://hl7.org/fhir/StructureDefinition/code";
+    option (.google.fhir.proto.fhir_valueset_url) = "http://hl7.org/fhir/ValueSet/consent-state-codes";
+    option (.google.fhir.proto.fhir_profile_base) = "http://hl7.org/fhir/StructureDefinition/code";
 
     ConsentStateCode.Value value = 1;
 
@@ -80,8 +77,7 @@ message Consent {
 
     repeated Extension extension = 3;
   }
-  StatusCode status = 11
-      [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
+  StatusCode status = 11 [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
 
   // Classification of the consent statement - for indexing/retrieval
   repeated CodeableConcept category = 13;
@@ -163,8 +159,7 @@ message Consent {
     repeated Extension modifier_extension = 3;
 
     // Reference backing policy resource
-    Reference reference = 4
-        [(.google.fhir.proto.valid_reference_type) = "Resource"];
+    Reference reference = 4 [(.google.fhir.proto.valid_reference_type) = "Resource"];
 
     // URL to a computable backing policy
     Url url = 5;
@@ -172,8 +167,7 @@ message Consent {
   PolicyBasis policy_basis = 33;
 
   // Human Readable Policy
-  repeated Reference policy_text = 34
-      [(.google.fhir.proto.valid_reference_type) = "DocumentReference"];
+  repeated Reference policy_text = 34 [(.google.fhir.proto.valid_reference_type) = "DocumentReference"];
 
   // Consent Verified by patient or family
   message Verification {
@@ -187,8 +181,7 @@ message Consent {
     repeated Extension modifier_extension = 3;
 
     // Has been verified
-    Boolean verified = 4
-        [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
+    Boolean verified = 4 [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
 
     // Business case of verification
     CodeableConcept verification_type = 7;
@@ -214,10 +207,8 @@ message Consent {
   // deny | permit
   message DecisionCode {
     option (.google.fhir.proto.structure_definition_kind) = KIND_PRIMITIVE_TYPE;
-    option (.google.fhir.proto.fhir_valueset_url) =
-        "http://hl7.org/fhir/ValueSet/consent-provision-type";
-    option (.google.fhir.proto.fhir_profile_base) =
-        "http://hl7.org/fhir/StructureDefinition/code";
+    option (.google.fhir.proto.fhir_valueset_url) = "http://hl7.org/fhir/ValueSet/consent-provision-type";
+    option (.google.fhir.proto.fhir_profile_base) = "http://hl7.org/fhir/StructureDefinition/code";
 
     ConsentProvisionTypeCode.Value value = 1;
 
@@ -303,12 +294,9 @@ message Consent {
 
       // instance | related | dependents | authoredby
       message MeaningCode {
-        option (.google.fhir.proto.structure_definition_kind) =
-            KIND_PRIMITIVE_TYPE;
-        option (.google.fhir.proto.fhir_valueset_url) =
-            "http://hl7.org/fhir/ValueSet/consent-data-meaning";
-        option (.google.fhir.proto.fhir_profile_base) =
-            "http://hl7.org/fhir/StructureDefinition/code";
+        option (.google.fhir.proto.structure_definition_kind) = KIND_PRIMITIVE_TYPE;
+        option (.google.fhir.proto.fhir_valueset_url) = "http://hl7.org/fhir/ValueSet/consent-data-meaning";
+        option (.google.fhir.proto.fhir_profile_base) = "http://hl7.org/fhir/StructureDefinition/code";
 
         ConsentDataMeaningCode.Value value = 1;
 
@@ -316,8 +304,7 @@ message Consent {
 
         repeated Extension extension = 3;
       }
-      MeaningCode meaning = 4
-          [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
+      MeaningCode meaning = 4 [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
 
       // The actual data reference
       Reference reference = 5 [

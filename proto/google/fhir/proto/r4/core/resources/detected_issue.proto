@@ -21,18 +21,17 @@ import "proto/google/fhir/proto/annotations.proto";
 import "proto/google/fhir/proto/r4/core/codes.proto";
 import "proto/google/fhir/proto/r4/core/datatypes.proto";
 
+option go_package = "github.com/google/fhir/go/proto/google/fhir/proto/r4/core/resources/detected_issue_go_proto";
 option java_multiple_files = true;
 option java_package = "com.google.fhir.r4.core";
 option (.google.fhir.proto.fhir_version) = R4;
-option go_package = "github.com/google/fhir/go/proto/google/fhir/proto/r4/core/resources/detected_issue_go_proto";
 
 // Auto-generated from StructureDefinition for DetectedIssue.
 // Clinical issue with action.
 // See http://hl7.org/fhir/StructureDefinition/DetectedIssue
 message DetectedIssue {
   option (.google.fhir.proto.structure_definition_kind) = KIND_RESOURCE;
-  option (.google.fhir.proto.fhir_structure_definition_url) =
-      "http://hl7.org/fhir/StructureDefinition/DetectedIssue";
+  option (.google.fhir.proto.fhir_structure_definition_url) = "http://hl7.org/fhir/StructureDefinition/DetectedIssue";
 
   // Logical id of this artifact
   Id id = 1;
@@ -68,10 +67,8 @@ message DetectedIssue {
   // registered | preliminary | final | amended +
   message StatusCode {
     option (.google.fhir.proto.structure_definition_kind) = KIND_PRIMITIVE_TYPE;
-    option (.google.fhir.proto.fhir_valueset_url) =
-        "http://hl7.org/fhir/ValueSet/observation-status";
-    option (.google.fhir.proto.fhir_profile_base) =
-        "http://hl7.org/fhir/StructureDefinition/code";
+    option (.google.fhir.proto.fhir_valueset_url) = "http://hl7.org/fhir/ValueSet/observation-status";
+    option (.google.fhir.proto.fhir_profile_base) = "http://hl7.org/fhir/StructureDefinition/code";
 
     ObservationStatusCode.Value value = 1;
 
@@ -79,8 +76,7 @@ message DetectedIssue {
 
     repeated Extension extension = 3;
   }
-  StatusCode status = 11
-      [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
+  StatusCode status = 11 [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
 
   // Issue Category, e.g. drug-drug, duplicate therapy, etc.
   CodeableConcept code = 12;
@@ -88,10 +84,8 @@ message DetectedIssue {
   // high | moderate | low
   message SeverityCode {
     option (.google.fhir.proto.structure_definition_kind) = KIND_PRIMITIVE_TYPE;
-    option (.google.fhir.proto.fhir_valueset_url) =
-        "http://hl7.org/fhir/ValueSet/detectedissue-severity";
-    option (.google.fhir.proto.fhir_profile_base) =
-        "http://hl7.org/fhir/StructureDefinition/code";
+    option (.google.fhir.proto.fhir_valueset_url) = "http://hl7.org/fhir/ValueSet/detectedissue-severity";
+    option (.google.fhir.proto.fhir_profile_base) = "http://hl7.org/fhir/StructureDefinition/code";
 
     DetectedIssueSeverityCode.Value value = 1;
 
@@ -102,8 +96,7 @@ message DetectedIssue {
   SeverityCode severity = 13;
 
   // Associated patient
-  Reference patient = 14
-      [(.google.fhir.proto.valid_reference_type) = "Patient"];
+  Reference patient = 14 [(.google.fhir.proto.valid_reference_type) = "Patient"];
 
   // When identified
   message IdentifiedX {
@@ -124,8 +117,7 @@ message DetectedIssue {
   ];
 
   // Problem resource
-  repeated Reference implicated = 17
-      [(.google.fhir.proto.valid_reference_type) = "Resource"];
+  repeated Reference implicated = 17 [(.google.fhir.proto.valid_reference_type) = "Resource"];
 
   // Supporting evidence
   message Evidence {
@@ -142,8 +134,7 @@ message DetectedIssue {
     repeated CodeableConcept code = 4;
 
     // Supporting information
-    repeated Reference detail = 5
-        [(.google.fhir.proto.valid_reference_type) = "Resource"];
+    repeated Reference detail = 5 [(.google.fhir.proto.valid_reference_type) = "Resource"];
   }
   repeated Evidence evidence = 18;
 
@@ -165,8 +156,7 @@ message DetectedIssue {
     repeated Extension modifier_extension = 3;
 
     // What mitigation?
-    CodeableConcept action = 4
-        [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
+    CodeableConcept action = 4 [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
 
     // Date committed
     DateTime date = 5;

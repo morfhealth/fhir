@@ -21,20 +21,18 @@ import "proto/google/fhir/proto/annotations.proto";
 import "proto/google/fhir/proto/r5/core/codes.proto";
 import "proto/google/fhir/proto/r5/core/datatypes.proto";
 
+option go_package = "github.com/google/fhir/go/proto/google/fhir/proto/r5/core/resources/device_go_proto";
 option java_multiple_files = true;
 option java_package = "com.google.fhir.r5.core";
 option (.google.fhir.proto.fhir_version) = R5;
-option go_package = "github.com/google/fhir/go/proto/google/fhir/proto/r5/core/resources/device_go_proto";
 
 // Auto-generated from StructureDefinition for Device.
 // Item used in healthcare.
 // See http://hl7.org/fhir/StructureDefinition/Device
 message Device {
   option (.google.fhir.proto.structure_definition_kind) = KIND_RESOURCE;
-  option (.google.fhir.proto.fhir_structure_definition_url) =
-      "http://hl7.org/fhir/StructureDefinition/Device";
-  option (.google.fhir.proto.fhir_path_message_constraint) =
-      "name.where(display=true).count() <= 1";
+  option (.google.fhir.proto.fhir_structure_definition_url) = "http://hl7.org/fhir/StructureDefinition/Device";
+  option (.google.fhir.proto.fhir_path_message_constraint) = "name.where(display=true).count() <= 1";
 
   // Logical id of this artifact
   Id id = 1;
@@ -85,12 +83,10 @@ message Device {
     repeated Extension modifier_extension = 3;
 
     // Mandatory fixed portion of UDI
-    String device_identifier = 4
-        [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
+    String device_identifier = 4 [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
 
     // UDI Issuing Organization
-    Uri issuer = 5
-        [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
+    Uri issuer = 5 [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
 
     // Regional UDI authority
     Uri jurisdiction = 6;
@@ -104,12 +100,9 @@ message Device {
     // barcode | rfid | manual | card | self-reported | electronic-transmission
     // | unknown
     message EntryTypeCode {
-      option (.google.fhir.proto.structure_definition_kind) =
-          KIND_PRIMITIVE_TYPE;
-      option (.google.fhir.proto.fhir_valueset_url) =
-          "http://hl7.org/fhir/ValueSet/udi-entry-type";
-      option (.google.fhir.proto.fhir_profile_base) =
-          "http://hl7.org/fhir/StructureDefinition/code";
+      option (.google.fhir.proto.structure_definition_kind) = KIND_PRIMITIVE_TYPE;
+      option (.google.fhir.proto.fhir_valueset_url) = "http://hl7.org/fhir/ValueSet/udi-entry-type";
+      option (.google.fhir.proto.fhir_profile_base) = "http://hl7.org/fhir/StructureDefinition/code";
 
       UDIEntryTypeCode.Value value = 1;
 
@@ -124,10 +117,8 @@ message Device {
   // active | inactive | entered-in-error
   message StatusCode {
     option (.google.fhir.proto.structure_definition_kind) = KIND_PRIMITIVE_TYPE;
-    option (.google.fhir.proto.fhir_valueset_url) =
-        "http://hl7.org/fhir/ValueSet/device-status";
-    option (.google.fhir.proto.fhir_profile_base) =
-        "http://hl7.org/fhir/StructureDefinition/code";
+    option (.google.fhir.proto.fhir_valueset_url) = "http://hl7.org/fhir/ValueSet/device-status";
+    option (.google.fhir.proto.fhir_profile_base) = "http://hl7.org/fhir/StructureDefinition/code";
 
     FHIRDeviceStatusCode.Value value = 1;
 
@@ -171,17 +162,13 @@ message Device {
     repeated Extension modifier_extension = 3;
 
     // The term that names the device
-    String value = 4
-        [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
+    String value = 4 [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
 
     // registered-name | user-friendly-name | patient-reported-name
     message TypeCode {
-      option (.google.fhir.proto.structure_definition_kind) =
-          KIND_PRIMITIVE_TYPE;
-      option (.google.fhir.proto.fhir_valueset_url) =
-          "http://hl7.org/fhir/ValueSet/device-nametype";
-      option (.google.fhir.proto.fhir_profile_base) =
-          "http://hl7.org/fhir/StructureDefinition/code";
+      option (.google.fhir.proto.structure_definition_kind) = KIND_PRIMITIVE_TYPE;
+      option (.google.fhir.proto.fhir_valueset_url) = "http://hl7.org/fhir/ValueSet/device-nametype";
+      option (.google.fhir.proto.fhir_profile_base) = "http://hl7.org/fhir/StructureDefinition/code";
 
       DeviceNameTypeCode.Value value = 1;
 
@@ -189,8 +176,7 @@ message Device {
 
       repeated Extension extension = 3;
     }
-    TypeCode type = 5
-        [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
+    TypeCode type = 5 [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
 
     // The preferred device name
     Boolean display = 6;
@@ -231,8 +217,7 @@ message Device {
     DateTime install_date = 7;
 
     // The version text
-    String value = 6
-        [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
+    String value = 6 [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
   }
   repeated Version version = 26;
 
@@ -254,8 +239,7 @@ message Device {
 
     // Identifies the standard, specification, or formal guidance that the
     // device adheres to
-    CodeableConcept specification = 5
-        [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
+    CodeableConcept specification = 5 [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
 
     // Specific form or variant of the standard
     String version = 6;
@@ -275,8 +259,7 @@ message Device {
     repeated Extension modifier_extension = 3;
 
     // Code that specifies the property being represented
-    CodeableConcept type = 4
-        [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
+    CodeableConcept type = 4 [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
 
     // Value of the property
     message ValueX {
@@ -292,8 +275,7 @@ message Device {
         Attachment attachment = 7;
       }
     }
-    ValueX value = 7
-        [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
+    ValueX value = 7 [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
   }
   repeated Property property = 27;
 
@@ -308,23 +290,20 @@ message Device {
   Duration duration = 46;
 
   // Organization responsible for device
-  Reference owner = 29
-      [(.google.fhir.proto.valid_reference_type) = "Organization"];
+  Reference owner = 29 [(.google.fhir.proto.valid_reference_type) = "Organization"];
 
   // Details for human/organization for support
   repeated ContactPoint contact = 30;
 
   // Where the device is found
-  Reference location = 31
-      [(.google.fhir.proto.valid_reference_type) = "Location"];
+  Reference location = 31 [(.google.fhir.proto.valid_reference_type) = "Location"];
 
   // Network address to contact device
   Uri url = 32;
 
   // Technical endpoints providing access to electronic services provided by the
   // device
-  repeated Reference endpoint = 47
-      [(.google.fhir.proto.valid_reference_type) = "Endpoint"];
+  repeated Reference endpoint = 47 [(.google.fhir.proto.valid_reference_type) = "Endpoint"];
 
   // Linked device acting as a communication/data collector, translator or
   // controller

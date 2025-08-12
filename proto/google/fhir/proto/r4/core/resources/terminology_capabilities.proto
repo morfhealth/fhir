@@ -21,28 +21,22 @@ import "proto/google/fhir/proto/annotations.proto";
 import "proto/google/fhir/proto/r4/core/codes.proto";
 import "proto/google/fhir/proto/r4/core/datatypes.proto";
 
+option go_package = "github.com/google/fhir/go/proto/google/fhir/proto/r4/core/resources/terminology_capabilities_go_proto";
 option java_multiple_files = true;
 option java_package = "com.google.fhir.r4.core";
 option (.google.fhir.proto.fhir_version) = R4;
-option go_package = "github.com/google/fhir/go/proto/google/fhir/proto/r4/core/resources/terminology_capabilities_go_proto";
 
 // Auto-generated from StructureDefinition for TerminologyCapabilities.
 // A statement of system capabilities.
 // See http://hl7.org/fhir/StructureDefinition/TerminologyCapabilities
 message TerminologyCapabilities {
   option (.google.fhir.proto.structure_definition_kind) = KIND_RESOURCE;
-  option (.google.fhir.proto.fhir_structure_definition_url) =
-      "http://hl7.org/fhir/StructureDefinition/TerminologyCapabilities";
-  option (.google.fhir.proto.fhir_path_message_constraint) =
-      "(description.count() + software.count() + implementation.count()) > 0";
-  option (.google.fhir.proto.fhir_path_message_constraint) =
-      "(kind != 'instance') or implementation.exists()";
-  option (.google.fhir.proto.fhir_path_message_constraint) =
-      "(kind != 'capability') or (implementation.exists().not() and software.exists())";
-  option (.google.fhir.proto.fhir_path_message_constraint) =
-      "(kind!='requirements') or (implementation.exists().not() and software.exists().not())";
-  option (.google.fhir.proto.fhir_path_message_warning_constraint) =
-      "name.matches('[A-Z]([A-Za-z0-9_]){0,254}')";
+  option (.google.fhir.proto.fhir_structure_definition_url) = "http://hl7.org/fhir/StructureDefinition/TerminologyCapabilities";
+  option (.google.fhir.proto.fhir_path_message_constraint) = "(description.count() + software.count() + implementation.count()) > 0";
+  option (.google.fhir.proto.fhir_path_message_constraint) = "(kind != 'instance') or implementation.exists()";
+  option (.google.fhir.proto.fhir_path_message_constraint) = "(kind != 'capability') or (implementation.exists().not() and software.exists())";
+  option (.google.fhir.proto.fhir_path_message_constraint) = "(kind!='requirements') or (implementation.exists().not() and software.exists().not())";
+  option (.google.fhir.proto.fhir_path_message_warning_constraint) = "name.matches('[A-Z]([A-Za-z0-9_]){0,254}')";
 
   // Logical id of this artifact
   Id id = 1;
@@ -88,10 +82,8 @@ message TerminologyCapabilities {
   // draft | active | retired | unknown
   message StatusCode {
     option (.google.fhir.proto.structure_definition_kind) = KIND_PRIMITIVE_TYPE;
-    option (.google.fhir.proto.fhir_valueset_url) =
-        "http://hl7.org/fhir/ValueSet/publication-status";
-    option (.google.fhir.proto.fhir_profile_base) =
-        "http://hl7.org/fhir/StructureDefinition/code";
+    option (.google.fhir.proto.fhir_valueset_url) = "http://hl7.org/fhir/ValueSet/publication-status";
+    option (.google.fhir.proto.fhir_profile_base) = "http://hl7.org/fhir/StructureDefinition/code";
 
     PublicationStatusCode.Value value = 1;
 
@@ -99,15 +91,13 @@ message TerminologyCapabilities {
 
     repeated Extension extension = 3;
   }
-  StatusCode status = 14
-      [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
+  StatusCode status = 14 [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
 
   // For testing purposes, not real usage
   Boolean experimental = 15;
 
   // Date last changed
-  DateTime date = 16
-      [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
+  DateTime date = 16 [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
 
   // Name of the publisher (organization or individual)
   String publisher = 17;
@@ -133,10 +123,8 @@ message TerminologyCapabilities {
   // instance | capability | requirements
   message KindCode {
     option (.google.fhir.proto.structure_definition_kind) = KIND_PRIMITIVE_TYPE;
-    option (.google.fhir.proto.fhir_valueset_url) =
-        "http://hl7.org/fhir/ValueSet/capability-statement-kind";
-    option (.google.fhir.proto.fhir_profile_base) =
-        "http://hl7.org/fhir/StructureDefinition/code";
+    option (.google.fhir.proto.fhir_valueset_url) = "http://hl7.org/fhir/ValueSet/capability-statement-kind";
+    option (.google.fhir.proto.fhir_profile_base) = "http://hl7.org/fhir/StructureDefinition/code";
 
     CapabilityStatementKindCode.Value value = 1;
 
@@ -144,8 +132,7 @@ message TerminologyCapabilities {
 
     repeated Extension extension = 3;
   }
-  KindCode kind = 24
-      [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
+  KindCode kind = 24 [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
 
   // Software that is covered by this terminology capability statement
   message Software {
@@ -159,8 +146,7 @@ message TerminologyCapabilities {
     repeated Extension modifier_extension = 3;
 
     // A name the software is known by
-    String name = 4
-        [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
+    String name = 4 [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
 
     // Version covered by this statement
     String version = 5;
@@ -179,8 +165,7 @@ message TerminologyCapabilities {
     repeated Extension modifier_extension = 3;
 
     // Describes this specific instance
-    String description = 4
-        [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
+    String description = 4 [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
 
     // Base URL for the implementation
     Url url = 5;
@@ -192,8 +177,7 @@ message TerminologyCapabilities {
 
   // A code system supported by the server
   message CodeSystem {
-    option (.google.fhir.proto.fhir_path_message_constraint) =
-        "version.count() > 1 implies version.all(code.exists())";
+    option (.google.fhir.proto.fhir_path_message_constraint) = "version.count() > 1 implies version.all(code.exists())";
 
     // Unique id for inter-element referencing
     String id = 1;
@@ -242,12 +226,10 @@ message TerminologyCapabilities {
         repeated Extension modifier_extension = 3;
 
         // Code of the property supported
-        Code code = 4
-            [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
+        Code code = 4 [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
 
         // Operations supported for the property
-        repeated Code op = 5
-            [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
+        repeated Code op = 5 [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
       }
       repeated Filter filter = 8;
 
@@ -294,8 +276,7 @@ message TerminologyCapabilities {
       repeated Extension modifier_extension = 3;
 
       // Expansion Parameter name
-      Code name = 4
-          [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
+      Code name = 4 [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
 
       // Description of support for parameter
       String documentation = 5;
@@ -310,10 +291,8 @@ message TerminologyCapabilities {
   // explicit | all
   message CodeSearchCode {
     option (.google.fhir.proto.structure_definition_kind) = KIND_PRIMITIVE_TYPE;
-    option (.google.fhir.proto.fhir_valueset_url) =
-        "http://hl7.org/fhir/ValueSet/code-search-support";
-    option (.google.fhir.proto.fhir_profile_base) =
-        "http://hl7.org/fhir/StructureDefinition/code";
+    option (.google.fhir.proto.fhir_valueset_url) = "http://hl7.org/fhir/ValueSet/code-search-support";
+    option (.google.fhir.proto.fhir_profile_base) = "http://hl7.org/fhir/StructureDefinition/code";
 
     CodeSearchSupportCode.Value value = 1;
 
@@ -336,8 +315,7 @@ message TerminologyCapabilities {
     repeated Extension modifier_extension = 3;
 
     // Whether translations are validated
-    Boolean translations = 4
-        [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
+    Boolean translations = 4 [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
   }
   ValidateCode validate_code = 31;
 
@@ -354,8 +332,7 @@ message TerminologyCapabilities {
     repeated Extension modifier_extension = 3;
 
     // Whether the client must identify the map
-    Boolean needs_map = 4
-        [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
+    Boolean needs_map = 4 [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
   }
   Translation translation = 32;
 

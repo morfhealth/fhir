@@ -30,12 +30,9 @@ option (.google.fhir.proto.fhir_version) = R4;
 // See http://hl7.org/fhir/StructureDefinition/shareablelibrary
 message ShareableLibrary {
   option (.google.fhir.proto.structure_definition_kind) = KIND_RESOURCE;
-  option (.google.fhir.proto.fhir_profile_base) =
-      "http://hl7.org/fhir/StructureDefinition/Library";
-  option (.google.fhir.proto.fhir_structure_definition_url) =
-      "http://hl7.org/fhir/StructureDefinition/shareablelibrary";
-  option (.google.fhir.proto.fhir_path_message_warning_constraint) =
-      "name.matches('[A-Z]([A-Za-z0-9_]){0,254}')";
+  option (.google.fhir.proto.fhir_profile_base) = "http://hl7.org/fhir/StructureDefinition/Library";
+  option (.google.fhir.proto.fhir_structure_definition_url) = "http://hl7.org/fhir/StructureDefinition/shareablelibrary";
+  option (.google.fhir.proto.fhir_path_message_warning_constraint) = "name.matches('[A-Z]([A-Za-z0-9_]){0,254}')";
   option (.google.fhir.proto.search_parameter) = {
     name: "composed-of"
     type: REFERENCE
@@ -193,12 +190,10 @@ message ShareableLibrary {
   repeated Identifier identifier = 11;
 
   // Business version of the library
-  String version = 12
-      [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
+  String version = 12 [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
 
   // Name for this library (computer friendly)
-  String name = 13
-      [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
+  String name = 13 [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
 
   // Name for this library (human friendly)
   String title = 14;
@@ -209,10 +204,8 @@ message ShareableLibrary {
   // draft | active | retired | unknown
   message StatusCode {
     option (.google.fhir.proto.structure_definition_kind) = KIND_PRIMITIVE_TYPE;
-    option (.google.fhir.proto.fhir_valueset_url) =
-        "http://hl7.org/fhir/ValueSet/publication-status";
-    option (.google.fhir.proto.fhir_profile_base) =
-        "http://hl7.org/fhir/StructureDefinition/code";
+    option (.google.fhir.proto.fhir_valueset_url) = "http://hl7.org/fhir/ValueSet/publication-status";
+    option (.google.fhir.proto.fhir_profile_base) = "http://hl7.org/fhir/StructureDefinition/code";
 
     PublicationStatusCode.Value value = 1;
 
@@ -220,16 +213,13 @@ message ShareableLibrary {
 
     repeated Extension extension = 3;
   }
-  StatusCode status = 16
-      [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
+  StatusCode status = 16 [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
 
   // For testing purposes, not real usage
-  Boolean experimental = 17
-      [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
+  Boolean experimental = 17 [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
 
   // logic-library | model-definition | asset-collection | module-definition
-  CodeableConcept type = 18
-      [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
+  CodeableConcept type = 18 [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
 
   // Type of individual the library content is focused on
   message SubjectX {
@@ -237,8 +227,7 @@ message ShareableLibrary {
 
     oneof choice {
       CodeableConcept codeable_concept = 1;
-      Reference reference = 2
-          [(.google.fhir.proto.valid_reference_type) = "Group"];
+      Reference reference = 2 [(.google.fhir.proto.valid_reference_type) = "Group"];
     }
   }
   SubjectX subject = 19;
@@ -247,15 +236,13 @@ message ShareableLibrary {
   DateTime date = 20;
 
   // Name of the publisher (organization or individual)
-  String publisher = 21
-      [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
+  String publisher = 21 [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
 
   // Contact details for the publisher
   repeated ContactDetail contact = 22;
 
   // Natural language description of the library
-  Markdown description = 23
-      [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
+  Markdown description = 23 [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
 
   // The context that the content is intended to support
   repeated UsageContext use_context = 24;

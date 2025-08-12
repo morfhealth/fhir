@@ -21,18 +21,17 @@ import "proto/google/fhir/proto/annotations.proto";
 import "proto/google/fhir/proto/r5/core/codes.proto";
 import "proto/google/fhir/proto/r5/core/datatypes.proto";
 
+option go_package = "github.com/google/fhir/go/proto/google/fhir/proto/r5/core/resources/device_usage_go_proto";
 option java_multiple_files = true;
 option java_package = "com.google.fhir.r5.core";
 option (.google.fhir.proto.fhir_version) = R5;
-option go_package = "github.com/google/fhir/go/proto/google/fhir/proto/r5/core/resources/device_usage_go_proto";
 
 // Auto-generated from StructureDefinition for DeviceUsage.
 // Record of use of a device.
 // See http://hl7.org/fhir/StructureDefinition/DeviceUsage
 message DeviceUsage {
   option (.google.fhir.proto.structure_definition_kind) = KIND_RESOURCE;
-  option (.google.fhir.proto.fhir_structure_definition_url) =
-      "http://hl7.org/fhir/StructureDefinition/DeviceUsage";
+  option (.google.fhir.proto.fhir_structure_definition_url) = "http://hl7.org/fhir/StructureDefinition/DeviceUsage";
 
   // Logical id of this artifact
   Id id = 1;
@@ -66,16 +65,13 @@ message DeviceUsage {
   repeated Identifier identifier = 10;
 
   // Fulfills plan, proposal or order
-  repeated Reference based_on = 11
-      [(.google.fhir.proto.valid_reference_type) = "ServiceRequest"];
+  repeated Reference based_on = 11 [(.google.fhir.proto.valid_reference_type) = "ServiceRequest"];
 
   // active | completed | not-done | entered-in-error +
   message StatusCode {
     option (.google.fhir.proto.structure_definition_kind) = KIND_PRIMITIVE_TYPE;
-    option (.google.fhir.proto.fhir_valueset_url) =
-        "http://hl7.org/fhir/ValueSet/deviceusage-status";
-    option (.google.fhir.proto.fhir_profile_base) =
-        "http://hl7.org/fhir/StructureDefinition/code";
+    option (.google.fhir.proto.fhir_valueset_url) = "http://hl7.org/fhir/ValueSet/deviceusage-status";
+    option (.google.fhir.proto.fhir_profile_base) = "http://hl7.org/fhir/StructureDefinition/code";
 
     DeviceUsageStatusCode.Value value = 1;
 
@@ -83,8 +79,7 @@ message DeviceUsage {
 
     repeated Extension extension = 3;
   }
-  StatusCode status = 12
-      [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
+  StatusCode status = 12 [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
 
   // The category of the statement - classifying how the statement is made
   repeated CodeableConcept category = 13;
@@ -147,12 +142,10 @@ message DeviceUsage {
     repeated Extension modifier_extension = 3;
 
     // always | never | sometimes
-    CodeableConcept code = 4
-        [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
+    CodeableConcept code = 4 [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
 
     // lost | stolen | prescribed | broken | burned | forgot
-    repeated CodeableConcept reason = 5
-        [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
+    repeated CodeableConcept reason = 5 [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
   }
   Adherence adherence = 21;
 
@@ -166,8 +159,7 @@ message DeviceUsage {
   ];
 
   // Code or Reference to device used
-  CodeableReference device = 23
-      [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
+  CodeableReference device = 23 [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
 
   // Why device was used
   repeated CodeableReference reason = 24;

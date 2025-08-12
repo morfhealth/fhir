@@ -30,10 +30,8 @@ option (.google.fhir.proto.fhir_version) = R4;
 // See http://hl7.org/fhir/StructureDefinition/lipidprofile
 message LipidProfile {
   option (.google.fhir.proto.structure_definition_kind) = KIND_RESOURCE;
-  option (.google.fhir.proto.fhir_profile_base) =
-      "http://hl7.org/fhir/StructureDefinition/DiagnosticReport";
-  option (.google.fhir.proto.fhir_structure_definition_url) =
-      "http://hl7.org/fhir/StructureDefinition/lipidprofile";
+  option (.google.fhir.proto.fhir_profile_base) = "http://hl7.org/fhir/StructureDefinition/DiagnosticReport";
+  option (.google.fhir.proto.fhir_structure_definition_url) = "http://hl7.org/fhir/StructureDefinition/lipidprofile";
   option (.google.fhir.proto.search_parameter) = {
     name: "assessed-condition"
     type: REFERENCE
@@ -163,10 +161,8 @@ message LipidProfile {
   // registered | partial | preliminary | final +
   message StatusCode {
     option (.google.fhir.proto.structure_definition_kind) = KIND_PRIMITIVE_TYPE;
-    option (.google.fhir.proto.fhir_valueset_url) =
-        "http://hl7.org/fhir/ValueSet/diagnostic-report-status";
-    option (.google.fhir.proto.fhir_profile_base) =
-        "http://hl7.org/fhir/StructureDefinition/code";
+    option (.google.fhir.proto.fhir_valueset_url) = "http://hl7.org/fhir/ValueSet/diagnostic-report-status";
+    option (.google.fhir.proto.fhir_profile_base) = "http://hl7.org/fhir/StructureDefinition/code";
 
     DiagnosticReportStatusCode.Value value = 1;
 
@@ -174,15 +170,13 @@ message LipidProfile {
 
     repeated Extension extension = 3;
   }
-  StatusCode status = 12
-      [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
+  StatusCode status = 12 [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
 
   // Service category
   repeated CodeableConcept category = 13;
 
   // LOINC Code for Lipid Panel with LDL
-  CodeableConcept code = 14
-      [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
+  CodeableConcept code = 14 [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
 
   // The subject of the report - usually, but not always, the patient
   Reference subject = 15 [
@@ -193,8 +187,7 @@ message LipidProfile {
   ];
 
   // Health care event when test ordered
-  Reference encounter = 16
-      [(.google.fhir.proto.valid_reference_type) = "Encounter"];
+  Reference encounter = 16 [(.google.fhir.proto.valid_reference_type) = "Encounter"];
 
   // Clinically relevant time/time-period for report
   message EffectiveX {
@@ -227,16 +220,13 @@ message LipidProfile {
   ];
 
   // Specimens this report is based on
-  repeated Reference specimen = 21
-      [(.google.fhir.proto.valid_reference_type) = "Specimen"];
+  repeated Reference specimen = 21 [(.google.fhir.proto.valid_reference_type) = "Specimen"];
 
   // Observations
-  repeated Reference result = 22
-      [(.google.fhir.proto.valid_reference_type) = "Observation"];
+  repeated Reference result = 22 [(.google.fhir.proto.valid_reference_type) = "Observation"];
 
   // Reference to full details of imaging associated with the diagnostic report
-  repeated Reference imaging_study = 23
-      [(.google.fhir.proto.valid_reference_type) = "ImagingStudy"];
+  repeated Reference imaging_study = 23 [(.google.fhir.proto.valid_reference_type) = "ImagingStudy"];
 
   // Key images associated with this report
   message Media {

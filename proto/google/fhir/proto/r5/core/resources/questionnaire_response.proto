@@ -21,18 +21,17 @@ import "proto/google/fhir/proto/annotations.proto";
 import "proto/google/fhir/proto/r5/core/codes.proto";
 import "proto/google/fhir/proto/r5/core/datatypes.proto";
 
+option go_package = "github.com/google/fhir/go/proto/google/fhir/proto/r5/core/resources/questionnaire_response_go_proto";
 option java_multiple_files = true;
 option java_package = "com.google.fhir.r5.core";
 option (.google.fhir.proto.fhir_version) = R5;
-option go_package = "github.com/google/fhir/go/proto/google/fhir/proto/r5/core/resources/questionnaire_response_go_proto";
 
 // Auto-generated from StructureDefinition for QuestionnaireResponse.
 // A structured set of questions and their answers.
 // See http://hl7.org/fhir/StructureDefinition/QuestionnaireResponse
 message QuestionnaireResponse {
   option (.google.fhir.proto.structure_definition_kind) = KIND_RESOURCE;
-  option (.google.fhir.proto.fhir_structure_definition_url) =
-      "http://hl7.org/fhir/StructureDefinition/QuestionnaireResponse";
+  option (.google.fhir.proto.fhir_structure_definition_url) = "http://hl7.org/fhir/StructureDefinition/QuestionnaireResponse";
 
   // Logical id of this artifact
   Id id = 1;
@@ -78,16 +77,13 @@ message QuestionnaireResponse {
   ];
 
   // Canonical URL of Questionnaire being answered
-  Canonical questionnaire = 13
-      [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
+  Canonical questionnaire = 13 [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
 
   // in-progress | completed | amended | entered-in-error | stopped
   message StatusCode {
     option (.google.fhir.proto.structure_definition_kind) = KIND_PRIMITIVE_TYPE;
-    option (.google.fhir.proto.fhir_valueset_url) =
-        "http://hl7.org/fhir/ValueSet/questionnaire-answers-status";
-    option (.google.fhir.proto.fhir_profile_base) =
-        "http://hl7.org/fhir/StructureDefinition/code";
+    option (.google.fhir.proto.fhir_valueset_url) = "http://hl7.org/fhir/ValueSet/questionnaire-answers-status";
+    option (.google.fhir.proto.fhir_profile_base) = "http://hl7.org/fhir/StructureDefinition/code";
 
     QuestionnaireResponseStatusCode.Value value = 1;
 
@@ -95,16 +91,13 @@ message QuestionnaireResponse {
 
     repeated Extension extension = 3;
   }
-  StatusCode status = 14
-      [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
+  StatusCode status = 14 [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
 
   // The subject of the questions
-  Reference subject = 15
-      [(.google.fhir.proto.valid_reference_type) = "Resource"];
+  Reference subject = 15 [(.google.fhir.proto.valid_reference_type) = "Resource"];
 
   // Encounter the questionnaire response is part of
-  Reference encounter = 16
-      [(.google.fhir.proto.valid_reference_type) = "Encounter"];
+  Reference encounter = 16 [(.google.fhir.proto.valid_reference_type) = "Encounter"];
 
   // Date the answers were gathered
   DateTime authored = 17;
@@ -131,10 +124,8 @@ message QuestionnaireResponse {
 
   // Groups and questions
   message Item {
-    option (.google.fhir.proto.fhir_path_message_constraint) =
-        "(answer.exists() and item.exists()).not()";
-    option (.google.fhir.proto.fhir_path_message_constraint) =
-        "repeat(answer|item).select(item.where(answer.value.exists()).linkId.isDistinct()).allTrue()";
+    option (.google.fhir.proto.fhir_path_message_constraint) = "(answer.exists() and item.exists()).not()";
+    option (.google.fhir.proto.fhir_path_message_constraint) = "repeat(answer|item).select(item.where(answer.value.exists()).linkId.isDistinct()).allTrue()";
 
     // Unique id for inter-element referencing
     String id = 1;
@@ -146,8 +137,7 @@ message QuestionnaireResponse {
     repeated Extension modifier_extension = 3;
 
     // Pointer to specific item from Questionnaire
-    String link_id = 4
-        [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
+    String link_id = 4 [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
 
     // ElementDefinition - details for the item
     Uri definition = 5;
@@ -182,12 +172,10 @@ message QuestionnaireResponse {
           Attachment attachment = 9;
           Coding coding = 10;
           SimpleQuantity quantity = 13;
-          Reference reference = 12
-              [(.google.fhir.proto.valid_reference_type) = "Resource"];
+          Reference reference = 12 [(.google.fhir.proto.valid_reference_type) = "Resource"];
         }
       }
-      ValueX value = 4
-          [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
+      ValueX value = 4 [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
 
       // Child items of question
       repeated Item item = 5;

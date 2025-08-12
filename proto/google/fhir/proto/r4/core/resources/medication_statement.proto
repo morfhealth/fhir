@@ -21,18 +21,17 @@ import "proto/google/fhir/proto/annotations.proto";
 import "proto/google/fhir/proto/r4/core/codes.proto";
 import "proto/google/fhir/proto/r4/core/datatypes.proto";
 
+option go_package = "github.com/google/fhir/go/proto/google/fhir/proto/r4/core/resources/medication_statement_go_proto";
 option java_multiple_files = true;
 option java_package = "com.google.fhir.r4.core";
 option (.google.fhir.proto.fhir_version) = R4;
-option go_package = "github.com/google/fhir/go/proto/google/fhir/proto/r4/core/resources/medication_statement_go_proto";
 
 // Auto-generated from StructureDefinition for MedicationStatement.
 // Record of medication being taken by a patient.
 // See http://hl7.org/fhir/StructureDefinition/MedicationStatement
 message MedicationStatement {
   option (.google.fhir.proto.structure_definition_kind) = KIND_RESOURCE;
-  option (.google.fhir.proto.fhir_structure_definition_url) =
-      "http://hl7.org/fhir/StructureDefinition/MedicationStatement";
+  option (.google.fhir.proto.fhir_structure_definition_url) = "http://hl7.org/fhir/StructureDefinition/MedicationStatement";
 
   // Logical id of this artifact
   Id id = 1;
@@ -85,10 +84,8 @@ message MedicationStatement {
   // unknown | not-taken
   message StatusCode {
     option (.google.fhir.proto.structure_definition_kind) = KIND_PRIMITIVE_TYPE;
-    option (.google.fhir.proto.fhir_valueset_url) =
-        "http://hl7.org/fhir/ValueSet/medication-statement-status";
-    option (.google.fhir.proto.fhir_profile_base) =
-        "http://hl7.org/fhir/StructureDefinition/code";
+    option (.google.fhir.proto.fhir_valueset_url) = "http://hl7.org/fhir/ValueSet/medication-statement-status";
+    option (.google.fhir.proto.fhir_profile_base) = "http://hl7.org/fhir/StructureDefinition/code";
 
     MedicationStatementStatusCodes.Value value = 1;
 
@@ -96,8 +93,7 @@ message MedicationStatement {
 
     repeated Extension extension = 3;
   }
-  StatusCode status = 13
-      [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
+  StatusCode status = 13 [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
 
   // Reason for current status
   repeated CodeableConcept status_reason = 14;
@@ -111,12 +107,10 @@ message MedicationStatement {
 
     oneof choice {
       CodeableConcept codeable_concept = 1;
-      Reference reference = 2
-          [(.google.fhir.proto.valid_reference_type) = "Medication"];
+      Reference reference = 2 [(.google.fhir.proto.valid_reference_type) = "Medication"];
     }
   }
-  MedicationX medication = 16
-      [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
+  MedicationX medication = 16 [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
 
   // Who is/was taking  the medication
   Reference subject = 17 [
@@ -156,8 +150,7 @@ message MedicationStatement {
   ];
 
   // Additional supporting information
-  repeated Reference derived_from = 22
-      [(.google.fhir.proto.valid_reference_type) = "Resource"];
+  repeated Reference derived_from = 22 [(.google.fhir.proto.valid_reference_type) = "Resource"];
 
   // Reason for why the medication is being/was taken
   repeated CodeableConcept reason_code = 23;

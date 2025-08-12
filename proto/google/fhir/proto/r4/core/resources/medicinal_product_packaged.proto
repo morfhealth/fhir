@@ -20,18 +20,17 @@ import "google/protobuf/any.proto";
 import "proto/google/fhir/proto/annotations.proto";
 import "proto/google/fhir/proto/r4/core/datatypes.proto";
 
+option go_package = "github.com/google/fhir/go/proto/google/fhir/proto/r4/core/resources/medicinal_product_packaged_go_proto";
 option java_multiple_files = true;
 option java_package = "com.google.fhir.r4.core";
 option (.google.fhir.proto.fhir_version) = R4;
-option go_package = "github.com/google/fhir/go/proto/google/fhir/proto/r4/core/resources/medicinal_product_packaged_go_proto";
 
 // Auto-generated from StructureDefinition for MedicinalProductPackaged.
 // A medicinal product in a container or package.
 // See http://hl7.org/fhir/StructureDefinition/MedicinalProductPackaged
 message MedicinalProductPackaged {
   option (.google.fhir.proto.structure_definition_kind) = KIND_RESOURCE;
-  option (.google.fhir.proto.fhir_structure_definition_url) =
-      "http://hl7.org/fhir/StructureDefinition/MedicinalProductPackaged";
+  option (.google.fhir.proto.fhir_structure_definition_url) = "http://hl7.org/fhir/StructureDefinition/MedicinalProductPackaged";
 
   // Logical id of this artifact
   Id id = 1;
@@ -65,8 +64,7 @@ message MedicinalProductPackaged {
   repeated Identifier identifier = 10;
 
   // The product with this is a pack for
-  repeated Reference subject = 11
-      [(.google.fhir.proto.valid_reference_type) = "MedicinalProduct"];
+  repeated Reference subject = 11 [(.google.fhir.proto.valid_reference_type) = "MedicinalProduct"];
 
   // Textual description
   String description = 12;
@@ -79,13 +77,10 @@ message MedicinalProductPackaged {
   repeated MarketingStatus marketing_status = 14;
 
   // Manufacturer of this Package Item
-  Reference marketing_authorization = 15
-      [(.google.fhir.proto.valid_reference_type) =
-           "MedicinalProductAuthorization"];
+  Reference marketing_authorization = 15 [(.google.fhir.proto.valid_reference_type) = "MedicinalProductAuthorization"];
 
   // Manufacturer of this Package Item
-  repeated Reference manufacturer = 16
-      [(.google.fhir.proto.valid_reference_type) = "Organization"];
+  repeated Reference manufacturer = 16 [(.google.fhir.proto.valid_reference_type) = "Organization"];
 
   // Batch numbering
   message BatchIdentifier {
@@ -99,8 +94,7 @@ message MedicinalProductPackaged {
     repeated Extension modifier_extension = 3;
 
     // A number appearing on the outer packaging of a specific batch
-    Identifier outer_packaging = 4
-        [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
+    Identifier outer_packaging = 4 [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
 
     // A number appearing on the immediate packaging (and not the outer
     // packaging)
@@ -124,13 +118,11 @@ message MedicinalProductPackaged {
     repeated Identifier identifier = 4;
 
     // The physical type of the container of the medicine
-    CodeableConcept type = 5
-        [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
+    CodeableConcept type = 5 [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
 
     // The quantity of this package in the medicinal product, at the current
     // level of packaging. The outermost is always 1
-    Quantity quantity = 6
-        [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
+    Quantity quantity = 6 [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
 
     // Material type of the package item
     repeated CodeableConcept material = 7;
@@ -139,13 +131,10 @@ message MedicinalProductPackaged {
     repeated CodeableConcept alternate_material = 8;
 
     // A device accompanying a medicinal product
-    repeated Reference device = 9
-        [(.google.fhir.proto.valid_reference_type) = "DeviceDefinition"];
+    repeated Reference device = 9 [(.google.fhir.proto.valid_reference_type) = "DeviceDefinition"];
 
     // The manufactured item as contained in the packaged medicinal product
-    repeated Reference manufactured_item = 10
-        [(.google.fhir.proto.valid_reference_type) =
-             "MedicinalProductManufactured"];
+    repeated Reference manufactured_item = 10 [(.google.fhir.proto.valid_reference_type) = "MedicinalProductManufactured"];
 
     // Allows containers within containers
     repeated PackageItem package_item = 11;
@@ -160,9 +149,7 @@ message MedicinalProductPackaged {
     repeated ProductShelfLife shelf_life_storage = 14;
 
     // Manufacturer of this Package Item
-    repeated Reference manufacturer = 15
-        [(.google.fhir.proto.valid_reference_type) = "Organization"];
+    repeated Reference manufacturer = 15 [(.google.fhir.proto.valid_reference_type) = "Organization"];
   }
-  repeated PackageItem package_item = 18
-      [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
+  repeated PackageItem package_item = 18 [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
 }

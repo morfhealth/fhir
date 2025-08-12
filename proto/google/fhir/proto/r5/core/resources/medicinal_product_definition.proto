@@ -20,18 +20,17 @@ import "google/protobuf/any.proto";
 import "proto/google/fhir/proto/annotations.proto";
 import "proto/google/fhir/proto/r5/core/datatypes.proto";
 
+option go_package = "github.com/google/fhir/go/proto/google/fhir/proto/r5/core/resources/medicinal_product_definition_go_proto";
 option java_multiple_files = true;
 option java_package = "com.google.fhir.r5.core";
 option (.google.fhir.proto.fhir_version) = R5;
-option go_package = "github.com/google/fhir/go/proto/google/fhir/proto/r5/core/resources/medicinal_product_definition_go_proto";
 
 // Auto-generated from StructureDefinition for MedicinalProductDefinition.
 // Detailed definition of a medicinal product.
 // See http://hl7.org/fhir/StructureDefinition/MedicinalProductDefinition
 message MedicinalProductDefinition {
   option (.google.fhir.proto.structure_definition_kind) = KIND_RESOURCE;
-  option (.google.fhir.proto.fhir_structure_definition_url) =
-      "http://hl7.org/fhir/StructureDefinition/MedicinalProductDefinition";
+  option (.google.fhir.proto.fhir_structure_definition_url) = "http://hl7.org/fhir/StructureDefinition/MedicinalProductDefinition";
 
   // Logical id of this artifact
   Id id = 1;
@@ -134,13 +133,11 @@ message MedicinalProductDefinition {
   repeated CodeableReference impurity = 29;
 
   // Additional documentation about the medicinal product
-  repeated Reference attached_document = 30
-      [(.google.fhir.proto.valid_reference_type) = "DocumentReference"];
+  repeated Reference attached_document = 30 [(.google.fhir.proto.valid_reference_type) = "DocumentReference"];
 
   // A master file for the medicinal product (e.g. Pharmacovigilance System
   // Master File)
-  repeated Reference master_file = 31
-      [(.google.fhir.proto.valid_reference_type) = "DocumentReference"];
+  repeated Reference master_file = 31 [(.google.fhir.proto.valid_reference_type) = "DocumentReference"];
 
   // A product specific contact, person (in a role), or an organization
   message Contact {
@@ -167,8 +164,7 @@ message MedicinalProductDefinition {
   repeated Contact contact = 32;
 
   // Clinical trials or studies that this product is involved in
-  repeated Reference clinical_trial = 33
-      [(.google.fhir.proto.valid_reference_type) = "ResearchStudy"];
+  repeated Reference clinical_trial = 33 [(.google.fhir.proto.valid_reference_type) = "ResearchStudy"];
 
   // A code that this product is known by, within some formal terminology
   repeated Coding code = 34;
@@ -185,8 +181,7 @@ message MedicinalProductDefinition {
     repeated Extension modifier_extension = 3;
 
     // The full product name
-    String product_name = 4
-        [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
+    String product_name = 4 [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
 
     // Type of product name, such as rINN, BAN, Proprietary, Non-Proprietary
     CodeableConcept type = 5;
@@ -203,12 +198,10 @@ message MedicinalProductDefinition {
       repeated Extension modifier_extension = 3;
 
       // A fragment of a product name
-      String part = 4
-          [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
+      String part = 4 [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
 
       // Identifying type for this part of the name (e.g. strength part)
-      CodeableConcept type = 5
-          [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
+      CodeableConcept type = 5 [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
     }
     repeated Part part = 6;
 
@@ -224,20 +217,17 @@ message MedicinalProductDefinition {
       repeated Extension modifier_extension = 3;
 
       // Country code for where this name applies
-      CodeableConcept country = 4
-          [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
+      CodeableConcept country = 4 [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
 
       // Jurisdiction code for where this name applies
       CodeableConcept jurisdiction = 5;
 
       // Language code for this name
-      CodeableConcept language = 6
-          [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
+      CodeableConcept language = 6 [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
     }
     repeated Usage usage = 7;
   }
-  repeated Name name = 35
-      [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
+  repeated Name name = 35 [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
 
   // Reference to another product, e.g. for linking authorised to
   // investigational product
@@ -253,8 +243,7 @@ message MedicinalProductDefinition {
 
     // Reference to another product, e.g. for linking authorised to
     // investigational product
-    CodeableReference product = 4
-        [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
+    CodeableReference product = 4 [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
 
     // The type of relationship, for instance branded to generic or virtual to
     // actual product
@@ -282,8 +271,7 @@ message MedicinalProductDefinition {
 
     // The organization responsible for the particular process, e.g. the
     // manufacturer or importer
-    repeated Reference organization = 6
-        [(.google.fhir.proto.valid_reference_type) = "Organization"];
+    repeated Reference organization = 6 [(.google.fhir.proto.valid_reference_type) = "Organization"];
 
     // Specifies whether this process is considered proprietary or confidential
     CodeableConcept confidentiality_indicator = 7;
@@ -302,8 +290,7 @@ message MedicinalProductDefinition {
     repeated Extension modifier_extension = 3;
 
     // A code expressing the type of characteristic
-    CodeableConcept type = 4
-        [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
+    CodeableConcept type = 4 [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
 
     // A value for the characteristic
     message ValueX {

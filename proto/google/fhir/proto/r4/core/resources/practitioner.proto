@@ -21,18 +21,17 @@ import "proto/google/fhir/proto/annotations.proto";
 import "proto/google/fhir/proto/r4/core/codes.proto";
 import "proto/google/fhir/proto/r4/core/datatypes.proto";
 
+option go_package = "github.com/google/fhir/go/proto/google/fhir/proto/r4/core/resources/practitioner_go_proto";
 option java_multiple_files = true;
 option java_package = "com.google.fhir.r4.core";
 option (.google.fhir.proto.fhir_version) = R4;
-option go_package = "github.com/google/fhir/go/proto/google/fhir/proto/r4/core/resources/practitioner_go_proto";
 
 // Auto-generated from StructureDefinition for Practitioner.
 // A person with a  formal responsibility in the provisioning of healthcare or
 // related services. See http://hl7.org/fhir/StructureDefinition/Practitioner
 message Practitioner {
   option (.google.fhir.proto.structure_definition_kind) = KIND_RESOURCE;
-  option (.google.fhir.proto.fhir_structure_definition_url) =
-      "http://hl7.org/fhir/StructureDefinition/Practitioner";
+  option (.google.fhir.proto.fhir_structure_definition_url) = "http://hl7.org/fhir/StructureDefinition/Practitioner";
 
   // Logical id of this artifact
   Id id = 1;
@@ -81,10 +80,8 @@ message Practitioner {
   // male | female | other | unknown
   message GenderCode {
     option (.google.fhir.proto.structure_definition_kind) = KIND_PRIMITIVE_TYPE;
-    option (.google.fhir.proto.fhir_valueset_url) =
-        "http://hl7.org/fhir/ValueSet/administrative-gender";
-    option (.google.fhir.proto.fhir_profile_base) =
-        "http://hl7.org/fhir/StructureDefinition/code";
+    option (.google.fhir.proto.fhir_valueset_url) = "http://hl7.org/fhir/ValueSet/administrative-gender";
+    option (.google.fhir.proto.fhir_profile_base) = "http://hl7.org/fhir/StructureDefinition/code";
 
     AdministrativeGenderCode.Value value = 1;
 
@@ -115,15 +112,13 @@ message Practitioner {
     repeated Identifier identifier = 4;
 
     // Coded representation of the qualification
-    CodeableConcept code = 5
-        [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
+    CodeableConcept code = 5 [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
 
     // Period during which the qualification is valid
     Period period = 6;
 
     // Organization that regulates and issues the qualification
-    Reference issuer = 7
-        [(.google.fhir.proto.valid_reference_type) = "Organization"];
+    Reference issuer = 7 [(.google.fhir.proto.valid_reference_type) = "Organization"];
   }
   repeated Qualification qualification = 18;
 

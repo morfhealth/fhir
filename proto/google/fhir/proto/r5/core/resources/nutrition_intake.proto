@@ -21,18 +21,17 @@ import "proto/google/fhir/proto/annotations.proto";
 import "proto/google/fhir/proto/r5/core/codes.proto";
 import "proto/google/fhir/proto/r5/core/datatypes.proto";
 
+option go_package = "github.com/google/fhir/go/proto/google/fhir/proto/r5/core/resources/nutrition_intake_go_proto";
 option java_multiple_files = true;
 option java_package = "com.google.fhir.r5.core";
 option (.google.fhir.proto.fhir_version) = R5;
-option go_package = "github.com/google/fhir/go/proto/google/fhir/proto/r5/core/resources/nutrition_intake_go_proto";
 
 // Auto-generated from StructureDefinition for NutritionIntake.
 // Record of food or fluid being taken by a patient.
 // See http://hl7.org/fhir/StructureDefinition/NutritionIntake
 message NutritionIntake {
   option (.google.fhir.proto.structure_definition_kind) = KIND_RESOURCE;
-  option (.google.fhir.proto.fhir_structure_definition_url) =
-      "http://hl7.org/fhir/StructureDefinition/NutritionIntake";
+  option (.google.fhir.proto.fhir_structure_definition_url) = "http://hl7.org/fhir/StructureDefinition/NutritionIntake";
 
   // Logical id of this artifact
   Id id = 1;
@@ -89,10 +88,8 @@ message NutritionIntake {
   // entered-in-error | unknown
   message StatusCode {
     option (.google.fhir.proto.structure_definition_kind) = KIND_PRIMITIVE_TYPE;
-    option (.google.fhir.proto.fhir_valueset_url) =
-        "http://hl7.org/fhir/ValueSet/event-status";
-    option (.google.fhir.proto.fhir_profile_base) =
-        "http://hl7.org/fhir/StructureDefinition/code";
+    option (.google.fhir.proto.fhir_valueset_url) = "http://hl7.org/fhir/ValueSet/event-status";
+    option (.google.fhir.proto.fhir_profile_base) = "http://hl7.org/fhir/StructureDefinition/code";
 
     EventStatusCode.Value value = 1;
 
@@ -100,8 +97,7 @@ message NutritionIntake {
 
     repeated Extension extension = 3;
   }
-  StatusCode status = 15
-      [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
+  StatusCode status = 15 [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
 
   // Reason for current status
   repeated CodeableConcept status_reason = 16;
@@ -117,8 +113,7 @@ message NutritionIntake {
   ];
 
   // Encounter associated with NutritionIntake
-  Reference encounter = 19
-      [(.google.fhir.proto.valid_reference_type) = "Encounter"];
+  Reference encounter = 19 [(.google.fhir.proto.valid_reference_type) = "Encounter"];
 
   // The date/time or interval when the food or fluid is/was consumed
   message OccurrenceX {
@@ -164,12 +159,10 @@ message NutritionIntake {
     repeated Extension modifier_extension = 3;
 
     // The type of food or fluid product
-    CodeableConcept type = 4
-        [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
+    CodeableConcept type = 4 [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
 
     // Code that identifies the food or fluid product that was consumed
-    CodeableReference nutrition_product = 5
-        [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
+    CodeableReference nutrition_product = 5 [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
 
     // Scheduled frequency of consumption
     Timing schedule = 6;
@@ -187,8 +180,7 @@ message NutritionIntake {
     // Reason food or fluid was not consumed
     CodeableConcept not_consumed_reason = 10;
   }
-  repeated ConsumedItem consumed_item = 23
-      [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
+  repeated ConsumedItem consumed_item = 23 [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
 
   // Total nutrient for the whole meal, product, serving
   message IngredientLabel {
@@ -202,12 +194,10 @@ message NutritionIntake {
     repeated Extension modifier_extension = 3;
 
     // Total nutrient consumed
-    CodeableReference nutrient = 4
-        [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
+    CodeableReference nutrient = 4 [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
 
     // Total amount of nutrient consumed
-    SimpleQuantity amount = 5
-        [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
+    SimpleQuantity amount = 5 [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
   }
   repeated IngredientLabel ingredient_label = 24;
 
@@ -240,12 +230,10 @@ message NutritionIntake {
   repeated Performer performer = 25;
 
   // Where the intake occurred
-  Reference location = 26
-      [(.google.fhir.proto.valid_reference_type) = "Location"];
+  Reference location = 26 [(.google.fhir.proto.valid_reference_type) = "Location"];
 
   // Additional supporting information
-  repeated Reference derived_from = 27
-      [(.google.fhir.proto.valid_reference_type) = "Resource"];
+  repeated Reference derived_from = 27 [(.google.fhir.proto.valid_reference_type) = "Resource"];
 
   // Reason for why the food or fluid is /was consumed
   repeated CodeableReference reason = 28;

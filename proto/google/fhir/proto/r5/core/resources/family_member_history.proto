@@ -21,24 +21,20 @@ import "proto/google/fhir/proto/annotations.proto";
 import "proto/google/fhir/proto/r5/core/codes.proto";
 import "proto/google/fhir/proto/r5/core/datatypes.proto";
 
+option go_package = "github.com/google/fhir/go/proto/google/fhir/proto/r5/core/resources/family_member_history_go_proto";
 option java_multiple_files = true;
 option java_package = "com.google.fhir.r5.core";
 option (.google.fhir.proto.fhir_version) = R5;
-option go_package = "github.com/google/fhir/go/proto/google/fhir/proto/r5/core/resources/family_member_history_go_proto";
 
 // Auto-generated from StructureDefinition for FamilyMemberHistory.
 // Information about patient's relatives, relevant for patient.
 // See http://hl7.org/fhir/StructureDefinition/FamilyMemberHistory
 message FamilyMemberHistory {
   option (.google.fhir.proto.structure_definition_kind) = KIND_RESOURCE;
-  option (.google.fhir.proto.fhir_structure_definition_url) =
-      "http://hl7.org/fhir/StructureDefinition/FamilyMemberHistory";
-  option (.google.fhir.proto.fhir_path_message_constraint) =
-      "age.empty() or born.empty()";
-  option (.google.fhir.proto.fhir_path_message_constraint) =
-      "age.exists() or estimatedAge.empty()";
-  option (.google.fhir.proto.fhir_path_message_constraint) =
-      "age.empty() or deceased.empty()";
+  option (.google.fhir.proto.fhir_structure_definition_url) = "http://hl7.org/fhir/StructureDefinition/FamilyMemberHistory";
+  option (.google.fhir.proto.fhir_path_message_constraint) = "age.empty() or born.empty()";
+  option (.google.fhir.proto.fhir_path_message_constraint) = "age.exists() or estimatedAge.empty()";
+  option (.google.fhir.proto.fhir_path_message_constraint) = "age.empty() or deceased.empty()";
 
   // Logical id of this artifact
   Id id = 1;
@@ -80,10 +76,8 @@ message FamilyMemberHistory {
   // partial | completed | entered-in-error | health-unknown
   message StatusCode {
     option (.google.fhir.proto.structure_definition_kind) = KIND_PRIMITIVE_TYPE;
-    option (.google.fhir.proto.fhir_valueset_url) =
-        "http://hl7.org/fhir/ValueSet/history-status";
-    option (.google.fhir.proto.fhir_profile_base) =
-        "http://hl7.org/fhir/StructureDefinition/code";
+    option (.google.fhir.proto.fhir_valueset_url) = "http://hl7.org/fhir/ValueSet/history-status";
+    option (.google.fhir.proto.fhir_profile_base) = "http://hl7.org/fhir/StructureDefinition/code";
 
     FamilyHistoryStatusCode.Value value = 1;
 
@@ -91,8 +85,7 @@ message FamilyMemberHistory {
 
     repeated Extension extension = 3;
   }
-  StatusCode status = 13
-      [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
+  StatusCode status = 13 [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
 
   // subject-unknown | withheld | unable-to-obtain | deferred
   CodeableConcept data_absent_reason = 14;
@@ -140,8 +133,7 @@ message FamilyMemberHistory {
   String name = 17;
 
   // Relationship to the subject
-  CodeableConcept relationship = 18
-      [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
+  CodeableConcept relationship = 18 [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
 
   // male | female | other | unknown
   CodeableConcept sex = 19;
@@ -205,8 +197,7 @@ message FamilyMemberHistory {
     repeated Extension modifier_extension = 3;
 
     // Condition suffered by relation
-    CodeableConcept code = 4
-        [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
+    CodeableConcept code = 4 [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
 
     // deceased | permanent disability | etc
     CodeableConcept outcome = 5;
@@ -244,8 +235,7 @@ message FamilyMemberHistory {
     repeated Extension modifier_extension = 3;
 
     // Procedures performed on the related person
-    CodeableConcept code = 4
-        [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
+    CodeableConcept code = 4 [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
 
     // What happened following the procedure
     CodeableConcept outcome = 5;

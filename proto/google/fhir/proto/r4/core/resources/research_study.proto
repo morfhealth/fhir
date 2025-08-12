@@ -21,18 +21,17 @@ import "proto/google/fhir/proto/annotations.proto";
 import "proto/google/fhir/proto/r4/core/codes.proto";
 import "proto/google/fhir/proto/r4/core/datatypes.proto";
 
+option go_package = "github.com/google/fhir/go/proto/google/fhir/proto/r4/core/resources/research_study_go_proto";
 option java_multiple_files = true;
 option java_package = "com.google.fhir.r4.core";
 option (.google.fhir.proto.fhir_version) = R4;
-option go_package = "github.com/google/fhir/go/proto/google/fhir/proto/r4/core/resources/research_study_go_proto";
 
 // Auto-generated from StructureDefinition for ResearchStudy.
 // Investigation to increase healthcare-related patient-independent knowledge.
 // See http://hl7.org/fhir/StructureDefinition/ResearchStudy
 message ResearchStudy {
   option (.google.fhir.proto.structure_definition_kind) = KIND_RESOURCE;
-  option (.google.fhir.proto.fhir_structure_definition_url) =
-      "http://hl7.org/fhir/StructureDefinition/ResearchStudy";
+  option (.google.fhir.proto.fhir_structure_definition_url) = "http://hl7.org/fhir/StructureDefinition/ResearchStudy";
 
   // Logical id of this artifact
   Id id = 1;
@@ -69,12 +68,10 @@ message ResearchStudy {
   String title = 11;
 
   // Steps followed in executing study
-  repeated Reference protocol = 12
-      [(.google.fhir.proto.valid_reference_type) = "PlanDefinition"];
+  repeated Reference protocol = 12 [(.google.fhir.proto.valid_reference_type) = "PlanDefinition"];
 
   // Part of larger study
-  repeated Reference part_of = 13
-      [(.google.fhir.proto.valid_reference_type) = "ResearchStudy"];
+  repeated Reference part_of = 13 [(.google.fhir.proto.valid_reference_type) = "ResearchStudy"];
 
   // active | administratively-completed | approved | closed-to-accrual |
   // closed-to-accrual-and-intervention | completed | disapproved | in-review |
@@ -82,10 +79,8 @@ message ResearchStudy {
   // temporarily-closed-to-accrual-and-intervention | withdrawn
   message StatusCode {
     option (.google.fhir.proto.structure_definition_kind) = KIND_PRIMITIVE_TYPE;
-    option (.google.fhir.proto.fhir_valueset_url) =
-        "http://hl7.org/fhir/ValueSet/research-study-status";
-    option (.google.fhir.proto.fhir_profile_base) =
-        "http://hl7.org/fhir/StructureDefinition/code";
+    option (.google.fhir.proto.fhir_valueset_url) = "http://hl7.org/fhir/ValueSet/research-study-status";
+    option (.google.fhir.proto.fhir_profile_base) = "http://hl7.org/fhir/StructureDefinition/code";
 
     ResearchStudyStatusCode.Value value = 1;
 
@@ -93,8 +88,7 @@ message ResearchStudy {
 
     repeated Extension extension = 3;
   }
-  StatusCode status = 14
-      [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
+  StatusCode status = 14 [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
 
   // treatment | prevention | diagnostic | supportive-care | screening |
   // health-services-research | basic-science | device-feasibility
@@ -129,15 +123,13 @@ message ResearchStudy {
   Markdown description = 24;
 
   // Inclusion & exclusion criteria
-  repeated Reference enrollment = 25
-      [(.google.fhir.proto.valid_reference_type) = "Group"];
+  repeated Reference enrollment = 25 [(.google.fhir.proto.valid_reference_type) = "Group"];
 
   // When the study began and ended
   Period period = 26;
 
   // Organization that initiates and is legally responsible for the study
-  Reference sponsor = 27
-      [(.google.fhir.proto.valid_reference_type) = "Organization"];
+  Reference sponsor = 27 [(.google.fhir.proto.valid_reference_type) = "Organization"];
 
   // Researcher who oversees multiple aspects of the study
   Reference principal_investigator = 28 [
@@ -146,8 +138,7 @@ message ResearchStudy {
   ];
 
   // Facility where study activities are conducted
-  repeated Reference site = 29
-      [(.google.fhir.proto.valid_reference_type) = "Location"];
+  repeated Reference site = 29 [(.google.fhir.proto.valid_reference_type) = "Location"];
 
   // accrual-goal-met | closed-due-to-toxicity |
   // closed-due-to-lack-of-study-progress | temporarily-closed-per-study-design
@@ -168,8 +159,7 @@ message ResearchStudy {
     repeated Extension modifier_extension = 3;
 
     // Label for study arm
-    String name = 4
-        [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
+    String name = 4 [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
 
     // Categorization of study arm
     CodeableConcept type = 5;

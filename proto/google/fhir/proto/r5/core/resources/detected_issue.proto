@@ -22,18 +22,17 @@ import "proto/google/fhir/proto/r5/core/codes.proto";
 import "proto/google/fhir/proto/r5/core/datatypes.proto";
 import "proto/google/fhir/proto/r5/core/valuesets.proto";
 
+option go_package = "github.com/google/fhir/go/proto/google/fhir/proto/r5/core/resources/detected_issue_go_proto";
 option java_multiple_files = true;
 option java_package = "com.google.fhir.r5.core";
 option (.google.fhir.proto.fhir_version) = R5;
-option go_package = "github.com/google/fhir/go/proto/google/fhir/proto/r5/core/resources/detected_issue_go_proto";
 
 // Auto-generated from StructureDefinition for DetectedIssue.
 // Clinical issue with action.
 // See http://hl7.org/fhir/StructureDefinition/DetectedIssue
 message DetectedIssue {
   option (.google.fhir.proto.structure_definition_kind) = KIND_RESOURCE;
-  option (.google.fhir.proto.fhir_structure_definition_url) =
-      "http://hl7.org/fhir/StructureDefinition/DetectedIssue";
+  option (.google.fhir.proto.fhir_structure_definition_url) = "http://hl7.org/fhir/StructureDefinition/DetectedIssue";
 
   // Logical id of this artifact
   Id id = 1;
@@ -69,10 +68,8 @@ message DetectedIssue {
   // preliminary | final | entered-in-error | mitigated
   message StatusCode {
     option (.google.fhir.proto.structure_definition_kind) = KIND_PRIMITIVE_TYPE;
-    option (.google.fhir.proto.fhir_valueset_url) =
-        "http://hl7.org/fhir/ValueSet/detectedissue-status";
-    option (.google.fhir.proto.fhir_profile_base) =
-        "http://hl7.org/fhir/StructureDefinition/code";
+    option (.google.fhir.proto.fhir_valueset_url) = "http://hl7.org/fhir/ValueSet/detectedissue-status";
+    option (.google.fhir.proto.fhir_profile_base) = "http://hl7.org/fhir/StructureDefinition/code";
 
     DetectedIssueStatusValueSet.Value value = 1;
 
@@ -80,8 +77,7 @@ message DetectedIssue {
 
     repeated Extension extension = 3;
   }
-  StatusCode status = 22
-      [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
+  StatusCode status = 22 [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
 
   // Type of detected issue, e.g. drug-drug, duplicate therapy, etc
   repeated CodeableConcept category = 23;
@@ -92,10 +88,8 @@ message DetectedIssue {
   // high | moderate | low
   message SeverityCode {
     option (.google.fhir.proto.structure_definition_kind) = KIND_PRIMITIVE_TYPE;
-    option (.google.fhir.proto.fhir_valueset_url) =
-        "http://hl7.org/fhir/ValueSet/detectedissue-severity";
-    option (.google.fhir.proto.fhir_profile_base) =
-        "http://hl7.org/fhir/StructureDefinition/code";
+    option (.google.fhir.proto.fhir_valueset_url) = "http://hl7.org/fhir/ValueSet/detectedissue-severity";
+    option (.google.fhir.proto.fhir_profile_base) = "http://hl7.org/fhir/StructureDefinition/code";
 
     DetectedIssueSeverityCode.Value value = 1;
 
@@ -121,8 +115,7 @@ message DetectedIssue {
   ];
 
   // Encounter detected issue is part of
-  Reference encounter = 25
-      [(.google.fhir.proto.valid_reference_type) = "Encounter"];
+  Reference encounter = 25 [(.google.fhir.proto.valid_reference_type) = "Encounter"];
 
   // When identified
   message IdentifiedX {
@@ -145,8 +138,7 @@ message DetectedIssue {
   ];
 
   // Problem resource
-  repeated Reference implicated = 17
-      [(.google.fhir.proto.valid_reference_type) = "Resource"];
+  repeated Reference implicated = 17 [(.google.fhir.proto.valid_reference_type) = "Resource"];
 
   // Supporting evidence
   message Evidence {
@@ -163,8 +155,7 @@ message DetectedIssue {
     repeated CodeableConcept code = 4;
 
     // Supporting information
-    repeated Reference detail = 5
-        [(.google.fhir.proto.valid_reference_type) = "Resource"];
+    repeated Reference detail = 5 [(.google.fhir.proto.valid_reference_type) = "Resource"];
   }
   repeated Evidence evidence = 18;
 
@@ -186,8 +177,7 @@ message DetectedIssue {
     repeated Extension modifier_extension = 3;
 
     // What mitigation?
-    CodeableConcept action = 4
-        [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
+    CodeableConcept action = 4 [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
 
     // Date committed
     DateTime date = 5;

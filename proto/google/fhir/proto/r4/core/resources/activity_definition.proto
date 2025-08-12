@@ -21,10 +21,10 @@ import "proto/google/fhir/proto/annotations.proto";
 import "proto/google/fhir/proto/r4/core/codes.proto";
 import "proto/google/fhir/proto/r4/core/datatypes.proto";
 
+option go_package = "github.com/google/fhir/go/proto/google/fhir/proto/r4/core/resources/activity_definition_go_proto";
 option java_multiple_files = true;
 option java_package = "com.google.fhir.r4.core";
 option (.google.fhir.proto.fhir_version) = R4;
-option go_package = "github.com/google/fhir/go/proto/google/fhir/proto/r4/core/resources/activity_definition_go_proto";
 
 // Auto-generated from StructureDefinition for ActivityDefinition.
 // The definition of a specific activity to be taken, independent of any
@@ -32,10 +32,8 @@ option go_package = "github.com/google/fhir/go/proto/google/fhir/proto/r4/core/r
 // http://hl7.org/fhir/StructureDefinition/ActivityDefinition
 message ActivityDefinition {
   option (.google.fhir.proto.structure_definition_kind) = KIND_RESOURCE;
-  option (.google.fhir.proto.fhir_structure_definition_url) =
-      "http://hl7.org/fhir/StructureDefinition/ActivityDefinition";
-  option (.google.fhir.proto.fhir_path_message_warning_constraint) =
-      "name.matches('[A-Z]([A-Za-z0-9_]){0,254}')";
+  option (.google.fhir.proto.fhir_structure_definition_url) = "http://hl7.org/fhir/StructureDefinition/ActivityDefinition";
+  option (.google.fhir.proto.fhir_path_message_warning_constraint) = "name.matches('[A-Z]([A-Za-z0-9_]){0,254}')";
 
   // Logical id of this artifact
   Id id = 1;
@@ -87,10 +85,8 @@ message ActivityDefinition {
   // draft | active | retired | unknown
   message StatusCode {
     option (.google.fhir.proto.structure_definition_kind) = KIND_PRIMITIVE_TYPE;
-    option (.google.fhir.proto.fhir_valueset_url) =
-        "http://hl7.org/fhir/ValueSet/publication-status";
-    option (.google.fhir.proto.fhir_profile_base) =
-        "http://hl7.org/fhir/StructureDefinition/code";
+    option (.google.fhir.proto.fhir_valueset_url) = "http://hl7.org/fhir/ValueSet/publication-status";
+    option (.google.fhir.proto.fhir_profile_base) = "http://hl7.org/fhir/StructureDefinition/code";
 
     PublicationStatusCode.Value value = 1;
 
@@ -98,8 +94,7 @@ message ActivityDefinition {
 
     repeated Extension extension = 3;
   }
-  StatusCode status = 16
-      [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
+  StatusCode status = 16 [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
 
   // For testing purposes, not real usage
   Boolean experimental = 17;
@@ -110,8 +105,7 @@ message ActivityDefinition {
 
     oneof choice {
       CodeableConcept codeable_concept = 1;
-      Reference reference = 2
-          [(.google.fhir.proto.valid_reference_type) = "Group"];
+      Reference reference = 2 [(.google.fhir.proto.valid_reference_type) = "Group"];
     }
   }
   SubjectX subject = 18;
@@ -176,10 +170,8 @@ message ActivityDefinition {
   // Kind of resource
   message KindCode {
     option (.google.fhir.proto.structure_definition_kind) = KIND_PRIMITIVE_TYPE;
-    option (.google.fhir.proto.fhir_valueset_url) =
-        "http://hl7.org/fhir/ValueSet/request-resource-types";
-    option (.google.fhir.proto.fhir_profile_base) =
-        "http://hl7.org/fhir/StructureDefinition/code";
+    option (.google.fhir.proto.fhir_valueset_url) = "http://hl7.org/fhir/ValueSet/request-resource-types";
+    option (.google.fhir.proto.fhir_profile_base) = "http://hl7.org/fhir/StructureDefinition/code";
 
     RequestResourceTypeCode.Value value = 1;
 
@@ -199,10 +191,8 @@ message ActivityDefinition {
   // filler-order | instance-order | option
   message IntentCode {
     option (.google.fhir.proto.structure_definition_kind) = KIND_PRIMITIVE_TYPE;
-    option (.google.fhir.proto.fhir_valueset_url) =
-        "http://hl7.org/fhir/ValueSet/request-intent";
-    option (.google.fhir.proto.fhir_profile_base) =
-        "http://hl7.org/fhir/StructureDefinition/code";
+    option (.google.fhir.proto.fhir_valueset_url) = "http://hl7.org/fhir/ValueSet/request-intent";
+    option (.google.fhir.proto.fhir_profile_base) = "http://hl7.org/fhir/StructureDefinition/code";
 
     RequestIntentCode.Value value = 1;
 
@@ -215,10 +205,8 @@ message ActivityDefinition {
   // routine | urgent | asap | stat
   message PriorityCode {
     option (.google.fhir.proto.structure_definition_kind) = KIND_PRIMITIVE_TYPE;
-    option (.google.fhir.proto.fhir_valueset_url) =
-        "http://hl7.org/fhir/ValueSet/request-priority";
-    option (.google.fhir.proto.fhir_profile_base) =
-        "http://hl7.org/fhir/StructureDefinition/code";
+    option (.google.fhir.proto.fhir_valueset_url) = "http://hl7.org/fhir/ValueSet/request-priority";
+    option (.google.fhir.proto.fhir_profile_base) = "http://hl7.org/fhir/StructureDefinition/code";
 
     RequestPriorityCode.Value value = 1;
 
@@ -247,8 +235,7 @@ message ActivityDefinition {
   TimingX timing = 44;
 
   // Where it should happen
-  Reference location = 45
-      [(.google.fhir.proto.valid_reference_type) = "Location"];
+  Reference location = 45 [(.google.fhir.proto.valid_reference_type) = "Location"];
 
   // Who should participate in the action
   message Participant {
@@ -263,12 +250,9 @@ message ActivityDefinition {
 
     // patient | practitioner | related-person | device
     message TypeCode {
-      option (.google.fhir.proto.structure_definition_kind) =
-          KIND_PRIMITIVE_TYPE;
-      option (.google.fhir.proto.fhir_valueset_url) =
-          "http://hl7.org/fhir/ValueSet/action-participant-type";
-      option (.google.fhir.proto.fhir_profile_base) =
-          "http://hl7.org/fhir/StructureDefinition/code";
+      option (.google.fhir.proto.structure_definition_kind) = KIND_PRIMITIVE_TYPE;
+      option (.google.fhir.proto.fhir_valueset_url) = "http://hl7.org/fhir/ValueSet/action-participant-type";
+      option (.google.fhir.proto.fhir_profile_base) = "http://hl7.org/fhir/StructureDefinition/code";
 
       ActionParticipantTypeCode.Value value = 1;
 
@@ -276,8 +260,7 @@ message ActivityDefinition {
 
       repeated Extension extension = 3;
     }
-    TypeCode type = 4
-        [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
+    TypeCode type = 4 [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
 
     // E.g. Nurse, Surgeon, Parent, etc.
     CodeableConcept role = 5;
@@ -308,16 +291,13 @@ message ActivityDefinition {
   repeated CodeableConcept body_site = 50;
 
   // What specimens are required to perform this action
-  repeated Reference specimen_requirement = 51
-      [(.google.fhir.proto.valid_reference_type) = "SpecimenDefinition"];
+  repeated Reference specimen_requirement = 51 [(.google.fhir.proto.valid_reference_type) = "SpecimenDefinition"];
 
   // What observations are required to perform this action
-  repeated Reference observation_requirement = 52
-      [(.google.fhir.proto.valid_reference_type) = "ObservationDefinition"];
+  repeated Reference observation_requirement = 52 [(.google.fhir.proto.valid_reference_type) = "ObservationDefinition"];
 
   // What observations must be produced by this action
-  repeated Reference observation_result_requirement = 53
-      [(.google.fhir.proto.valid_reference_type) = "ObservationDefinition"];
+  repeated Reference observation_result_requirement = 53 [(.google.fhir.proto.valid_reference_type) = "ObservationDefinition"];
 
   // Transform to apply the template
   Canonical transform = 54;
@@ -334,12 +314,10 @@ message ActivityDefinition {
     repeated Extension modifier_extension = 3;
 
     // The path to the element to be set dynamically
-    String path = 4
-        [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
+    String path = 4 [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
 
     // An expression that provides the dynamic value for the customization
-    Expression expression = 5
-        [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
+    Expression expression = 5 [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
   }
   repeated DynamicValue dynamic_value = 55;
 }

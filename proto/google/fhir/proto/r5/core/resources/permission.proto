@@ -21,18 +21,17 @@ import "proto/google/fhir/proto/annotations.proto";
 import "proto/google/fhir/proto/r5/core/codes.proto";
 import "proto/google/fhir/proto/r5/core/datatypes.proto";
 
+option go_package = "github.com/google/fhir/go/proto/google/fhir/proto/r5/core/resources/permission_go_proto";
 option java_multiple_files = true;
 option java_package = "com.google.fhir.r5.core";
 option (.google.fhir.proto.fhir_version) = R5;
-option go_package = "github.com/google/fhir/go/proto/google/fhir/proto/r5/core/resources/permission_go_proto";
 
 // Auto-generated from StructureDefinition for Permission.
 // Access Rules.
 // See http://hl7.org/fhir/StructureDefinition/Permission
 message Permission {
   option (.google.fhir.proto.structure_definition_kind) = KIND_RESOURCE;
-  option (.google.fhir.proto.fhir_structure_definition_url) =
-      "http://hl7.org/fhir/StructureDefinition/Permission";
+  option (.google.fhir.proto.fhir_structure_definition_url) = "http://hl7.org/fhir/StructureDefinition/Permission";
 
   // Logical id of this artifact
   Id id = 1;
@@ -65,10 +64,8 @@ message Permission {
   // active | entered-in-error | draft | rejected
   message StatusCode {
     option (.google.fhir.proto.structure_definition_kind) = KIND_PRIMITIVE_TYPE;
-    option (.google.fhir.proto.fhir_valueset_url) =
-        "http://hl7.org/fhir/ValueSet/permission-status";
-    option (.google.fhir.proto.fhir_profile_base) =
-        "http://hl7.org/fhir/StructureDefinition/code";
+    option (.google.fhir.proto.fhir_valueset_url) = "http://hl7.org/fhir/ValueSet/permission-status";
+    option (.google.fhir.proto.fhir_profile_base) = "http://hl7.org/fhir/StructureDefinition/code";
 
     PermissionStatusCode.Value value = 1;
 
@@ -76,8 +73,7 @@ message Permission {
 
     repeated Extension extension = 3;
   }
-  StatusCode status = 10
-      [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
+  StatusCode status = 10 [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
 
   // The person or entity that asserts the permission
   Reference asserter = 11 [
@@ -111,8 +107,7 @@ message Permission {
     repeated CodeableConcept basis = 4;
 
     // Justifing rational
-    repeated Reference evidence = 5
-        [(.google.fhir.proto.valid_reference_type) = "Resource"];
+    repeated Reference evidence = 5 [(.google.fhir.proto.valid_reference_type) = "Resource"];
   }
   Justification justification = 14;
 
@@ -120,10 +115,8 @@ message Permission {
   // ordered-permit-overrides | deny-unless-permit | permit-unless-deny
   message CombiningCode {
     option (.google.fhir.proto.structure_definition_kind) = KIND_PRIMITIVE_TYPE;
-    option (.google.fhir.proto.fhir_valueset_url) =
-        "http://hl7.org/fhir/ValueSet/permission-rule-combining";
-    option (.google.fhir.proto.fhir_profile_base) =
-        "http://hl7.org/fhir/StructureDefinition/code";
+    option (.google.fhir.proto.fhir_valueset_url) = "http://hl7.org/fhir/ValueSet/permission-rule-combining";
+    option (.google.fhir.proto.fhir_profile_base) = "http://hl7.org/fhir/StructureDefinition/code";
 
     PermissionRuleCombiningCode.Value value = 1;
 
@@ -131,8 +124,7 @@ message Permission {
 
     repeated Extension extension = 3;
   }
-  CombiningCode combining = 15
-      [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
+  CombiningCode combining = 15 [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
 
   // Constraints to the Permission
   message Rule {
@@ -147,12 +139,9 @@ message Permission {
 
     // deny | permit
     message TypeCode {
-      option (.google.fhir.proto.structure_definition_kind) =
-          KIND_PRIMITIVE_TYPE;
-      option (.google.fhir.proto.fhir_valueset_url) =
-          "http://hl7.org/fhir/ValueSet/consent-provision-type";
-      option (.google.fhir.proto.fhir_profile_base) =
-          "http://hl7.org/fhir/StructureDefinition/code";
+      option (.google.fhir.proto.structure_definition_kind) = KIND_PRIMITIVE_TYPE;
+      option (.google.fhir.proto.fhir_valueset_url) = "http://hl7.org/fhir/ValueSet/consent-provision-type";
+      option (.google.fhir.proto.fhir_profile_base) = "http://hl7.org/fhir/StructureDefinition/code";
 
       ConsentProvisionTypeCode.Value value = 1;
 
@@ -187,12 +176,9 @@ message Permission {
 
         // instance | related | dependents | authoredby
         message MeaningCode {
-          option (.google.fhir.proto.structure_definition_kind) =
-              KIND_PRIMITIVE_TYPE;
-          option (.google.fhir.proto.fhir_valueset_url) =
-              "http://hl7.org/fhir/ValueSet/consent-data-meaning";
-          option (.google.fhir.proto.fhir_profile_base) =
-              "http://hl7.org/fhir/StructureDefinition/code";
+          option (.google.fhir.proto.structure_definition_kind) = KIND_PRIMITIVE_TYPE;
+          option (.google.fhir.proto.fhir_valueset_url) = "http://hl7.org/fhir/ValueSet/consent-data-meaning";
+          option (.google.fhir.proto.fhir_profile_base) = "http://hl7.org/fhir/StructureDefinition/code";
 
           ConsentDataMeaningCode.Value value = 1;
 
@@ -200,8 +186,7 @@ message Permission {
 
           repeated Extension extension = 3;
         }
-        MeaningCode meaning = 4
-            [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
+        MeaningCode meaning = 4 [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
 
         // The actual data reference
         Reference reference = 5 [

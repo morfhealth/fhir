@@ -20,10 +20,10 @@ import "google/protobuf/any.proto";
 import "proto/google/fhir/proto/annotations.proto";
 import "proto/google/fhir/proto/r5/core/datatypes.proto";
 
+option go_package = "github.com/google/fhir/go/proto/google/fhir/proto/r5/core/resources/substance_protein_go_proto";
 option java_multiple_files = true;
 option java_package = "com.google.fhir.r5.core";
 option (.google.fhir.proto.fhir_version) = R5;
-option go_package = "github.com/google/fhir/go/proto/google/fhir/proto/r5/core/resources/substance_protein_go_proto";
 
 // Auto-generated from StructureDefinition for SubstanceProtein.
 // A SubstanceProtein is defined as a single unit of a linear amino acid
@@ -37,8 +37,7 @@ option go_package = "github.com/google/fhir/go/proto/google/fhir/proto/r5/core/r
 // http://hl7.org/fhir/StructureDefinition/SubstanceProtein
 message SubstanceProtein {
   option (.google.fhir.proto.structure_definition_kind) = KIND_RESOURCE;
-  option (.google.fhir.proto.fhir_structure_definition_url) =
-      "http://hl7.org/fhir/StructureDefinition/SubstanceProtein";
+  option (.google.fhir.proto.fhir_structure_definition_url) = "http://hl7.org/fhir/StructureDefinition/SubstanceProtein";
 
   // Logical id of this artifact
   Id id = 1;

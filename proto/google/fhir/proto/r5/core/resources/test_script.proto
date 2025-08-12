@@ -21,20 +21,18 @@ import "proto/google/fhir/proto/annotations.proto";
 import "proto/google/fhir/proto/r5/core/codes.proto";
 import "proto/google/fhir/proto/r5/core/datatypes.proto";
 
+option go_package = "github.com/google/fhir/go/proto/google/fhir/proto/r5/core/resources/test_script_go_proto";
 option java_multiple_files = true;
 option java_package = "com.google.fhir.r5.core";
 option (.google.fhir.proto.fhir_version) = R5;
-option go_package = "github.com/google/fhir/go/proto/google/fhir/proto/r5/core/resources/test_script_go_proto";
 
 // Auto-generated from StructureDefinition for TestScript.
 // Describes a set of tests.
 // See http://hl7.org/fhir/StructureDefinition/TestScript
 message TestScript {
   option (.google.fhir.proto.structure_definition_kind) = KIND_RESOURCE;
-  option (.google.fhir.proto.fhir_structure_definition_url) =
-      "http://hl7.org/fhir/StructureDefinition/TestScript";
-  option (.google.fhir.proto.fhir_path_message_warning_constraint) =
-      "name.exists() implies name.matches('^[A-Z]([A-Za-z0-9_]){1,254}$')";
+  option (.google.fhir.proto.fhir_structure_definition_url) = "http://hl7.org/fhir/StructureDefinition/TestScript";
+  option (.google.fhir.proto.fhir_path_message_warning_constraint) = "name.exists() implies name.matches('^[A-Z]([A-Za-z0-9_]){1,254}$')";
 
   // Logical id of this artifact
   Id id = 1;
@@ -66,8 +64,7 @@ message TestScript {
 
   // Canonical identifier for this test script, represented as a URI (globally
   // unique)
-  Uri url = 10 [(.google.fhir.proto.fhir_path_warning_constraint) =
-                    "exists() implies matches('^[^|# ]+$')"];
+  Uri url = 10 [(.google.fhir.proto.fhir_path_warning_constraint) = "exists() implies matches('^[^|# ]+$')"];
 
   // Additional identifier for the test script
   repeated Identifier identifier = 34;
@@ -87,8 +84,7 @@ message TestScript {
   VersionAlgorithmX version_algorithm = 35;
 
   // Name for this test script (computer friendly)
-  String name = 13
-      [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
+  String name = 13 [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
 
   // Name for this test script (human friendly)
   String title = 14;
@@ -96,10 +92,8 @@ message TestScript {
   // draft | active | retired | unknown
   message StatusCode {
     option (.google.fhir.proto.structure_definition_kind) = KIND_PRIMITIVE_TYPE;
-    option (.google.fhir.proto.fhir_valueset_url) =
-        "http://hl7.org/fhir/ValueSet/publication-status";
-    option (.google.fhir.proto.fhir_profile_base) =
-        "http://hl7.org/fhir/StructureDefinition/code";
+    option (.google.fhir.proto.fhir_valueset_url) = "http://hl7.org/fhir/ValueSet/publication-status";
+    option (.google.fhir.proto.fhir_profile_base) = "http://hl7.org/fhir/StructureDefinition/code";
 
     PublicationStatusCode.Value value = 1;
 
@@ -107,8 +101,7 @@ message TestScript {
 
     repeated Extension extension = 3;
   }
-  StatusCode status = 15
-      [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
+  StatusCode status = 15 [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
 
   // For testing purposes, not real usage
   Boolean experimental = 16;
@@ -152,12 +145,10 @@ message TestScript {
     repeated Extension modifier_extension = 3;
 
     // The index of the abstract origin server starting at 1
-    Integer index = 4
-        [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
+    Integer index = 4 [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
 
     // FHIR-Client | FHIR-SDC-FormFiller
-    Coding profile = 5
-        [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
+    Coding profile = 5 [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
 
     // The url path of the origin server
     Url url = 6;
@@ -177,13 +168,11 @@ message TestScript {
     repeated Extension modifier_extension = 3;
 
     // The index of the abstract destination server starting at 1
-    Integer index = 4
-        [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
+    Integer index = 4 [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
 
     // FHIR-Server | FHIR-SDC-FormManager | FHIR-SDC-FormReceiver |
     // FHIR-SDC-FormProcessor
-    Coding profile = 5
-        [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
+    Coding profile = 5 [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
 
     // The url path of the destination server
     Url url = 6;
@@ -193,8 +182,7 @@ message TestScript {
   // Required capability that is assumed to function correctly on the FHIR
   // server being tested
   message Metadata {
-    option (.google.fhir.proto.fhir_path_message_constraint) =
-        "capability.required.exists() or capability.validated.exists()";
+    option (.google.fhir.proto.fhir_path_message_constraint) = "capability.required.exists() or capability.validated.exists()";
 
     // Unique id for inter-element referencing
     String id = 1;
@@ -217,8 +205,7 @@ message TestScript {
       repeated Extension modifier_extension = 3;
 
       // URL to the specification
-      Uri url = 4
-          [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
+      Uri url = 4 [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
 
       // Short description
       String description = 5;
@@ -238,12 +225,10 @@ message TestScript {
       repeated Extension modifier_extension = 3;
 
       // Are the capabilities required?
-      Boolean required = 4
-          [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
+      Boolean required = 4 [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
 
       // Are the capabilities validated?
-      Boolean validated = 5
-          [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
+      Boolean validated = 5 [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
 
       // The expected capabilities of the server
       String description = 6;
@@ -258,11 +243,9 @@ message TestScript {
       repeated Uri link = 9;
 
       // Required Capability Statement
-      Canonical capabilities = 10
-          [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
+      Canonical capabilities = 10 [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
     }
-    repeated Capability capability = 5
-        [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
+    repeated Capability capability = 5 [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
   }
   Metadata metadata = 27;
 
@@ -278,8 +261,7 @@ message TestScript {
     repeated Extension modifier_extension = 3;
 
     // The specific conformance artifact being tested
-    Canonical artifact = 4
-        [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
+    Canonical artifact = 4 [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
 
     // required | optional | strict
     CodeableConcept conformance = 5;
@@ -301,16 +283,13 @@ message TestScript {
     repeated Extension modifier_extension = 3;
 
     // Whether or not to implicitly create the fixture during setup
-    Boolean autocreate = 4
-        [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
+    Boolean autocreate = 4 [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
 
     // Whether or not to implicitly delete the fixture during teardown
-    Boolean autodelete = 5
-        [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
+    Boolean autodelete = 5 [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
 
     // Reference of the resource
-    Reference resource = 6
-        [(.google.fhir.proto.valid_reference_type) = "Resource"];
+    Reference resource = 6 [(.google.fhir.proto.valid_reference_type) = "Resource"];
   }
   repeated Fixture fixture = 28;
 
@@ -319,8 +298,7 @@ message TestScript {
 
   // Placeholder for evaluated elements
   message Variable {
-    option (.google.fhir.proto.fhir_path_message_constraint) =
-        "expression.empty() or headerField.empty() or path.empty()";
+    option (.google.fhir.proto.fhir_path_message_constraint) = "expression.empty() or headerField.empty() or path.empty()";
 
     // Unique id for inter-element referencing
     String id = 1;
@@ -332,8 +310,7 @@ message TestScript {
     repeated Extension modifier_extension = 3;
 
     // Descriptive name for this variable
-    String name = 4
-        [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
+    String name = 4 [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
 
     // Default, hard-coded, or user-defined value for this variable
     String default_value = 5;
@@ -371,8 +348,7 @@ message TestScript {
 
     // A setup operation or assert to perform
     message SetupAction {
-      option (.google.fhir.proto.fhir_path_message_constraint) =
-          "operation.exists() xor assert.exists()";
+      option (.google.fhir.proto.fhir_path_message_constraint) = "operation.exists() xor assert.exists()";
 
       // Unique id for inter-element referencing
       String id = 1;
@@ -385,8 +361,7 @@ message TestScript {
 
       // The setup operation to perform
       message Operation {
-        option (.google.fhir.proto.fhir_path_message_constraint) =
-            "sourceId.exists() or (targetId.count() + url.count() + params.count() = 1) or (type.code in ('capabilities' |'search' | 'transaction' | 'history'))";
+        option (.google.fhir.proto.fhir_path_message_constraint) = "sourceId.exists() or (targetId.count() + url.count() + params.count() = 1) or (type.code in ('capabilities' |'search' | 'transaction' | 'history'))";
 
         // Unique id for inter-element referencing
         String id = 1;
@@ -411,12 +386,9 @@ message TestScript {
 
         // Mime type to accept in the payload of the response, with charset etc
         message AcceptCode {
-          option (.google.fhir.proto.structure_definition_kind) =
-              KIND_PRIMITIVE_TYPE;
-          option (.google.fhir.proto.fhir_valueset_url) =
-              "http://hl7.org/fhir/ValueSet/mimetypes";
-          option (.google.fhir.proto.fhir_profile_base) =
-              "http://hl7.org/fhir/StructureDefinition/code";
+          option (.google.fhir.proto.structure_definition_kind) = KIND_PRIMITIVE_TYPE;
+          option (.google.fhir.proto.fhir_valueset_url) = "http://hl7.org/fhir/ValueSet/mimetypes";
+          option (.google.fhir.proto.fhir_profile_base) = "http://hl7.org/fhir/StructureDefinition/code";
 
           // Field 1 reserved to allow enumeration in the future.
           reserved 1;
@@ -432,12 +404,9 @@ message TestScript {
 
         // Mime type of the request payload contents, with charset etc
         message ContentTypeCode {
-          option (.google.fhir.proto.structure_definition_kind) =
-              KIND_PRIMITIVE_TYPE;
-          option (.google.fhir.proto.fhir_valueset_url) =
-              "http://hl7.org/fhir/ValueSet/mimetypes";
-          option (.google.fhir.proto.fhir_profile_base) =
-              "http://hl7.org/fhir/StructureDefinition/code";
+          option (.google.fhir.proto.structure_definition_kind) = KIND_PRIMITIVE_TYPE;
+          option (.google.fhir.proto.fhir_valueset_url) = "http://hl7.org/fhir/ValueSet/mimetypes";
+          option (.google.fhir.proto.fhir_profile_base) = "http://hl7.org/fhir/StructureDefinition/code";
 
           // Field 1 reserved to allow enumeration in the future.
           reserved 1;
@@ -455,17 +424,13 @@ message TestScript {
         Integer destination = 10;
 
         // Whether or not to send the request url in encoded format
-        Boolean encode_request_url = 11
-            [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
+        Boolean encode_request_url = 11 [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
 
         // delete | get | options | patch | post | put | head
         message MethodCode {
-          option (.google.fhir.proto.structure_definition_kind) =
-              KIND_PRIMITIVE_TYPE;
-          option (.google.fhir.proto.fhir_valueset_url) =
-              "http://hl7.org/fhir/ValueSet/http-operations";
-          option (.google.fhir.proto.fhir_profile_base) =
-              "http://hl7.org/fhir/StructureDefinition/code";
+          option (.google.fhir.proto.structure_definition_kind) = KIND_PRIMITIVE_TYPE;
+          option (.google.fhir.proto.fhir_valueset_url) = "http://hl7.org/fhir/ValueSet/http-operations";
+          option (.google.fhir.proto.fhir_profile_base) = "http://hl7.org/fhir/StructureDefinition/code";
 
           TestScriptRequestMethodCode.Value value = 1;
 
@@ -493,12 +458,10 @@ message TestScript {
           repeated Extension modifier_extension = 3;
 
           // HTTP header field name
-          String field = 4
-              [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
+          String field = 4 [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
 
           // HTTP headerfield value
-          String value = 5
-              [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
+          String value = 5 [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
         }
         repeated RequestHeader request_header = 15;
 
@@ -522,12 +485,9 @@ message TestScript {
 
       // The assertion to perform
       message Assert {
-        option (.google.fhir.proto.fhir_path_message_constraint) =
-            "extension.exists() or (contentType.count() + expression.count() + headerField.count() + minimumId.count() + navigationLinks.count() + path.count() + requestMethod.count() + resource.count() + responseCode.count() + response.count() + validateProfileId.count() <=1) or (((expression.count() + minimumId.count() <=2) or (expression.count() + validateProfileId.count() <=2)) and (expression.count() + path.count() <=1) and (minimumId.count() + validateProfileId.count() <=1)) or (((path.count() + minimumId.count() <=2) or (path.count() + validateProfileId.count() <=2)) and (expression.count() + path.count() <=1) and (minimumId.count() + validateProfileId.count() <=1))";
-        option (.google.fhir.proto.fhir_path_message_constraint) =
-            "compareToSourceId.empty() xor (compareToSourceExpression.exists() or compareToSourcePath.exists())";
-        option (.google.fhir.proto.fhir_path_message_constraint) =
-            "(response.empty() and responseCode.empty() and direction = 'request') or direction.empty() or direction = 'response'";
+        option (.google.fhir.proto.fhir_path_message_constraint) = "extension.exists() or (contentType.count() + expression.count() + headerField.count() + minimumId.count() + navigationLinks.count() + path.count() + requestMethod.count() + resource.count() + responseCode.count() + response.count() + validateProfileId.count() <=1) or (((expression.count() + minimumId.count() <=2) or (expression.count() + validateProfileId.count() <=2)) and (expression.count() + path.count() <=1) and (minimumId.count() + validateProfileId.count() <=1)) or (((path.count() + minimumId.count() <=2) or (path.count() + validateProfileId.count() <=2)) and (expression.count() + path.count() <=1) and (minimumId.count() + validateProfileId.count() <=1))";
+        option (.google.fhir.proto.fhir_path_message_constraint) = "compareToSourceId.empty() xor (compareToSourceExpression.exists() or compareToSourcePath.exists())";
+        option (.google.fhir.proto.fhir_path_message_constraint) = "(response.empty() and responseCode.empty() and direction = 'request') or direction.empty() or direction = 'response'";
 
         // Unique id for inter-element referencing
         String id = 1;
@@ -546,12 +506,9 @@ message TestScript {
 
         // response | request
         message DirectionCode {
-          option (.google.fhir.proto.structure_definition_kind) =
-              KIND_PRIMITIVE_TYPE;
-          option (.google.fhir.proto.fhir_valueset_url) =
-              "http://hl7.org/fhir/ValueSet/assert-direction-codes";
-          option (.google.fhir.proto.fhir_profile_base) =
-              "http://hl7.org/fhir/StructureDefinition/code";
+          option (.google.fhir.proto.structure_definition_kind) = KIND_PRIMITIVE_TYPE;
+          option (.google.fhir.proto.fhir_valueset_url) = "http://hl7.org/fhir/ValueSet/assert-direction-codes";
+          option (.google.fhir.proto.fhir_profile_base) = "http://hl7.org/fhir/StructureDefinition/code";
 
           AssertionDirectionTypeCode.Value value = 1;
 
@@ -572,12 +529,9 @@ message TestScript {
 
         // Mime type to compare against the 'Content-Type' header
         message ContentTypeCode {
-          option (.google.fhir.proto.structure_definition_kind) =
-              KIND_PRIMITIVE_TYPE;
-          option (.google.fhir.proto.fhir_valueset_url) =
-              "http://hl7.org/fhir/ValueSet/mimetypes";
-          option (.google.fhir.proto.fhir_profile_base) =
-              "http://hl7.org/fhir/StructureDefinition/code";
+          option (.google.fhir.proto.structure_definition_kind) = KIND_PRIMITIVE_TYPE;
+          option (.google.fhir.proto.fhir_valueset_url) = "http://hl7.org/fhir/ValueSet/mimetypes";
+          option (.google.fhir.proto.fhir_profile_base) = "http://hl7.org/fhir/StructureDefinition/code";
 
           // Field 1 reserved to allow enumeration in the future.
           reserved 1;
@@ -593,12 +547,9 @@ message TestScript {
 
         // fail | pass | skip | stop
         message DefaultManualCompletionCode {
-          option (.google.fhir.proto.structure_definition_kind) =
-              KIND_PRIMITIVE_TYPE;
-          option (.google.fhir.proto.fhir_valueset_url) =
-              "http://hl7.org/fhir/ValueSet/assert-manual-completion-codes";
-          option (.google.fhir.proto.fhir_profile_base) =
-              "http://hl7.org/fhir/StructureDefinition/code";
+          option (.google.fhir.proto.structure_definition_kind) = KIND_PRIMITIVE_TYPE;
+          option (.google.fhir.proto.fhir_valueset_url) = "http://hl7.org/fhir/ValueSet/assert-manual-completion-codes";
+          option (.google.fhir.proto.fhir_profile_base) = "http://hl7.org/fhir/StructureDefinition/code";
 
           AssertionManualCompletionTypeCode.Value value = 1;
 
@@ -623,12 +574,9 @@ message TestScript {
         // equals | notEquals | in | notIn | greaterThan | lessThan | empty |
         // notEmpty | contains | notContains | eval | manualEval
         message OperatorCode {
-          option (.google.fhir.proto.structure_definition_kind) =
-              KIND_PRIMITIVE_TYPE;
-          option (.google.fhir.proto.fhir_valueset_url) =
-              "http://hl7.org/fhir/ValueSet/assert-operator-codes";
-          option (.google.fhir.proto.fhir_profile_base) =
-              "http://hl7.org/fhir/StructureDefinition/code";
+          option (.google.fhir.proto.structure_definition_kind) = KIND_PRIMITIVE_TYPE;
+          option (.google.fhir.proto.fhir_valueset_url) = "http://hl7.org/fhir/ValueSet/assert-operator-codes";
+          option (.google.fhir.proto.fhir_profile_base) = "http://hl7.org/fhir/StructureDefinition/code";
 
           AssertionOperatorTypeCode.Value value = 1;
 
@@ -643,12 +591,9 @@ message TestScript {
 
         // delete | get | options | patch | post | put | head
         message RequestMethodCode {
-          option (.google.fhir.proto.structure_definition_kind) =
-              KIND_PRIMITIVE_TYPE;
-          option (.google.fhir.proto.fhir_valueset_url) =
-              "http://hl7.org/fhir/ValueSet/http-operations";
-          option (.google.fhir.proto.fhir_profile_base) =
-              "http://hl7.org/fhir/StructureDefinition/code";
+          option (.google.fhir.proto.structure_definition_kind) = KIND_PRIMITIVE_TYPE;
+          option (.google.fhir.proto.fhir_valueset_url) = "http://hl7.org/fhir/ValueSet/http-operations";
+          option (.google.fhir.proto.fhir_profile_base) = "http://hl7.org/fhir/StructureDefinition/code";
 
           TestScriptRequestMethodCode.Value value = 1;
 
@@ -677,12 +622,9 @@ message TestScript {
         // internalServerError | notImplemented | badGateway |
         // serviceUnavailable | gatewayTimeout | httpVersionNotSupported
         message ResponseCode {
-          option (.google.fhir.proto.structure_definition_kind) =
-              KIND_PRIMITIVE_TYPE;
-          option (.google.fhir.proto.fhir_valueset_url) =
-              "http://hl7.org/fhir/ValueSet/assert-response-code-types";
-          option (.google.fhir.proto.fhir_profile_base) =
-              "http://hl7.org/fhir/StructureDefinition/code";
+          option (.google.fhir.proto.structure_definition_kind) = KIND_PRIMITIVE_TYPE;
+          option (.google.fhir.proto.fhir_valueset_url) = "http://hl7.org/fhir/ValueSet/assert-response-code-types";
+          option (.google.fhir.proto.fhir_profile_base) = "http://hl7.org/fhir/StructureDefinition/code";
 
           AssertionResponseTypesCode.Value value = 1;
 
@@ -699,8 +641,7 @@ message TestScript {
         Id source_id = 22;
 
         // If this assert fails, will the current test execution stop?
-        Boolean stop_test_on_fail = 28
-            [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
+        Boolean stop_test_on_fail = 28 [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
 
         // Profile Id of validation profile reference
         Id validate_profile_id = 23;
@@ -709,8 +650,7 @@ message TestScript {
         String value = 24;
 
         // Will this assert produce a warning only on error?
-        Boolean warning_only = 25
-            [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
+        Boolean warning_only = 25 [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
 
         // Links or references to the testing requirements
         message Requirement {
@@ -738,8 +678,7 @@ message TestScript {
       }
       Assert assert_value = 5 [json_name = "assert"];
     }
-    repeated SetupAction action = 4
-        [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
+    repeated SetupAction action = 4 [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
   }
   Setup setup = 31;
 
@@ -762,8 +701,7 @@ message TestScript {
 
     // A test operation or assert to perform
     message TestAction {
-      option (.google.fhir.proto.fhir_path_message_constraint) =
-          "operation.exists() xor assert.exists()";
+      option (.google.fhir.proto.fhir_path_message_constraint) = "operation.exists() xor assert.exists()";
 
       // Unique id for inter-element referencing
       String id = 1;
@@ -775,24 +713,17 @@ message TestScript {
       repeated Extension modifier_extension = 3;
 
       // The setup operation to perform
-      Setup.SetupAction.Operation operation = 4 [
-        (.google.fhir.proto.fhir_path_constraint) =
-            "sourceId.exists() or (targetId.count() + url.count() + params.count() = 1) or (type.code in ('capabilities' | 'search' | 'transaction' | 'history'))"
-      ];
+      Setup.SetupAction.Operation operation = 4 [(.google.fhir.proto.fhir_path_constraint) = "sourceId.exists() or (targetId.count() + url.count() + params.count() = 1) or (type.code in ('capabilities' | 'search' | 'transaction' | 'history'))"];
 
       // The setup assertion to perform
       Setup.SetupAction.Assert assert_value = 5 [
         json_name = "assert",
-        (.google.fhir.proto.fhir_path_constraint) =
-            "extension.exists() or (contentType.count() + expression.count() + headerField.count() + minimumId.count() + navigationLinks.count() + path.count() + requestMethod.count() + resource.count() + responseCode.count() + response.count() + validateProfileId.count() <=1) or (((expression.count() + minimumId.count() <=2) or (expression.count() + validateProfileId.count() <=2)) and (expression.count() + path.count() <=1) and (minimumId.count() + validateProfileId.count() <=1)) or (((path.count() + minimumId.count() <=2) or (path.count() + validateProfileId.count() <=2)) and (expression.count() + path.count() <=1) and (minimumId.count() + validateProfileId.count() <=1))",
-        (.google.fhir.proto.fhir_path_constraint) =
-            "compareToSourceId.empty() xor (compareToSourceExpression.exists() or compareToSourcePath.exists())",
-        (.google.fhir.proto.fhir_path_constraint) =
-            "(response.empty() and responseCode.empty() and direction = 'request') or direction.empty() or direction = 'response'"
+        (.google.fhir.proto.fhir_path_constraint) = "extension.exists() or (contentType.count() + expression.count() + headerField.count() + minimumId.count() + navigationLinks.count() + path.count() + requestMethod.count() + resource.count() + responseCode.count() + response.count() + validateProfileId.count() <=1) or (((expression.count() + minimumId.count() <=2) or (expression.count() + validateProfileId.count() <=2)) and (expression.count() + path.count() <=1) and (minimumId.count() + validateProfileId.count() <=1)) or (((path.count() + minimumId.count() <=2) or (path.count() + validateProfileId.count() <=2)) and (expression.count() + path.count() <=1) and (minimumId.count() + validateProfileId.count() <=1))",
+        (.google.fhir.proto.fhir_path_constraint) = "compareToSourceId.empty() xor (compareToSourceExpression.exists() or compareToSourcePath.exists())",
+        (.google.fhir.proto.fhir_path_constraint) = "(response.empty() and responseCode.empty() and direction = 'request') or direction.empty() or direction = 'response'"
       ];
     }
-    repeated TestAction action = 6
-        [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
+    repeated TestAction action = 6 [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
   }
   repeated Test test = 32;
 
@@ -821,12 +752,10 @@ message TestScript {
       // The teardown operation to perform
       Setup.SetupAction.Operation operation = 4 [
         (.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR,
-        (.google.fhir.proto.fhir_path_constraint) =
-            "sourceId.exists() or (targetId.count() + url.count() + params.count() = 1) or (type.code in ('capabilities' | 'search' | 'transaction' | 'history'))"
+        (.google.fhir.proto.fhir_path_constraint) = "sourceId.exists() or (targetId.count() + url.count() + params.count() = 1) or (type.code in ('capabilities' | 'search' | 'transaction' | 'history'))"
       ];
     }
-    repeated TeardownAction action = 4
-        [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
+    repeated TeardownAction action = 4 [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
   }
   Teardown teardown = 33;
 }

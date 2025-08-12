@@ -21,18 +21,17 @@ import "proto/google/fhir/proto/annotations.proto";
 import "proto/google/fhir/proto/r5/core/codes.proto";
 import "proto/google/fhir/proto/r5/core/datatypes.proto";
 
+option go_package = "github.com/google/fhir/go/proto/google/fhir/proto/r5/core/resources/nutrition_product_go_proto";
 option java_multiple_files = true;
 option java_package = "com.google.fhir.r5.core";
 option (.google.fhir.proto.fhir_version) = R5;
-option go_package = "github.com/google/fhir/go/proto/google/fhir/proto/r5/core/resources/nutrition_product_go_proto";
 
 // Auto-generated from StructureDefinition for NutritionProduct.
 // A product used for nutritional purposes (i.e. food or supplement).
 // See http://hl7.org/fhir/StructureDefinition/NutritionProduct
 message NutritionProduct {
   option (.google.fhir.proto.structure_definition_kind) = KIND_RESOURCE;
-  option (.google.fhir.proto.fhir_structure_definition_url) =
-      "http://hl7.org/fhir/StructureDefinition/NutritionProduct";
+  option (.google.fhir.proto.fhir_structure_definition_url) = "http://hl7.org/fhir/StructureDefinition/NutritionProduct";
 
   // Logical id of this artifact
   Id id = 1;
@@ -69,10 +68,8 @@ message NutritionProduct {
   // active | inactive | entered-in-error
   message StatusCode {
     option (.google.fhir.proto.structure_definition_kind) = KIND_PRIMITIVE_TYPE;
-    option (.google.fhir.proto.fhir_valueset_url) =
-        "http://hl7.org/fhir/ValueSet/nutritionproduct-status";
-    option (.google.fhir.proto.fhir_profile_base) =
-        "http://hl7.org/fhir/StructureDefinition/code";
+    option (.google.fhir.proto.fhir_valueset_url) = "http://hl7.org/fhir/ValueSet/nutritionproduct-status";
+    option (.google.fhir.proto.fhir_profile_base) = "http://hl7.org/fhir/StructureDefinition/code";
 
     NutritionProductStatusCode.Value value = 1;
 
@@ -80,16 +77,14 @@ message NutritionProduct {
 
     repeated Extension extension = 3;
   }
-  StatusCode status = 11
-      [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
+  StatusCode status = 11 [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
 
   // Broad product groups or categories used to classify the product, such as
   // Legume and Legume Products, Beverages, or Beef Products
   repeated CodeableConcept category = 12;
 
   // Manufacturer, representative or officially responsible for the product
-  repeated Reference manufacturer = 13
-      [(.google.fhir.proto.valid_reference_type) = "Organization"];
+  repeated Reference manufacturer = 13 [(.google.fhir.proto.valid_reference_type) = "Organization"];
 
   // The product's nutritional information expressed by the nutrients
   message Nutrient {
@@ -123,8 +118,7 @@ message NutritionProduct {
     repeated Extension modifier_extension = 3;
 
     // The ingredient contained in the product
-    CodeableReference item = 4
-        [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
+    CodeableReference item = 4 [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
 
     // The amount of ingredient that is in the product
     repeated Ratio amount = 5;
@@ -146,8 +140,7 @@ message NutritionProduct {
     repeated Extension modifier_extension = 3;
 
     // Code specifying the type of characteristic
-    CodeableConcept type = 4
-        [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
+    CodeableConcept type = 4 [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
 
     // The value of the characteristic
     message ValueX {
@@ -162,8 +155,7 @@ message NutritionProduct {
         Boolean boolean = 6;
       }
     }
-    ValueX value = 5
-        [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
+    ValueX value = 5 [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
   }
   repeated Characteristic characteristic = 17;
 

@@ -21,18 +21,17 @@ import "proto/google/fhir/proto/annotations.proto";
 import "proto/google/fhir/proto/r4/core/codes.proto";
 import "proto/google/fhir/proto/r4/core/datatypes.proto";
 
+option go_package = "github.com/google/fhir/go/proto/google/fhir/proto/r4/core/resources/device_definition_go_proto";
 option java_multiple_files = true;
 option java_package = "com.google.fhir.r4.core";
 option (.google.fhir.proto.fhir_version) = R4;
-option go_package = "github.com/google/fhir/go/proto/google/fhir/proto/r4/core/resources/device_definition_go_proto";
 
 // Auto-generated from StructureDefinition for DeviceDefinition.
 // An instance of a medical-related component of a medical device.
 // See http://hl7.org/fhir/StructureDefinition/DeviceDefinition
 message DeviceDefinition {
   option (.google.fhir.proto.structure_definition_kind) = KIND_RESOURCE;
-  option (.google.fhir.proto.fhir_structure_definition_url) =
-      "http://hl7.org/fhir/StructureDefinition/DeviceDefinition";
+  option (.google.fhir.proto.fhir_structure_definition_url) = "http://hl7.org/fhir/StructureDefinition/DeviceDefinition";
 
   // Logical id of this artifact
   Id id = 1;
@@ -79,16 +78,13 @@ message DeviceDefinition {
     // The identifier that is to be associated with every Device that references
     // this DeviceDefintiion for the issuer and jurisdication porvided in the
     // DeviceDefinition.udiDeviceIdentifier
-    String device_identifier = 4
-        [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
+    String device_identifier = 4 [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
 
     // The organization that assigns the identifier algorithm
-    Uri issuer = 5
-        [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
+    Uri issuer = 5 [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
 
     // The jurisdiction to which the deviceIdentifier applies
-    Uri jurisdiction = 6
-        [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
+    Uri jurisdiction = 6 [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
   }
   repeated UdiDeviceIdentifier udi_device_identifier = 11;
 
@@ -98,8 +94,7 @@ message DeviceDefinition {
 
     oneof choice {
       String string_value = 1 [json_name = "string"];
-      Reference reference = 2
-          [(.google.fhir.proto.valid_reference_type) = "Organization"];
+      Reference reference = 2 [(.google.fhir.proto.valid_reference_type) = "Organization"];
     }
   }
   ManufacturerX manufacturer = 12;
@@ -116,18 +111,14 @@ message DeviceDefinition {
     repeated Extension modifier_extension = 3;
 
     // The name of the device
-    String name = 4
-        [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
+    String name = 4 [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
 
     // udi-label-name | user-friendly-name | patient-reported-name |
     // manufacturer-name | model-name | other
     message TypeCode {
-      option (.google.fhir.proto.structure_definition_kind) =
-          KIND_PRIMITIVE_TYPE;
-      option (.google.fhir.proto.fhir_valueset_url) =
-          "http://hl7.org/fhir/ValueSet/device-nametype";
-      option (.google.fhir.proto.fhir_profile_base) =
-          "http://hl7.org/fhir/StructureDefinition/code";
+      option (.google.fhir.proto.structure_definition_kind) = KIND_PRIMITIVE_TYPE;
+      option (.google.fhir.proto.fhir_valueset_url) = "http://hl7.org/fhir/ValueSet/device-nametype";
+      option (.google.fhir.proto.fhir_profile_base) = "http://hl7.org/fhir/StructureDefinition/code";
 
       DeviceNameTypeCode.Value value = 1;
 
@@ -135,8 +126,7 @@ message DeviceDefinition {
 
       repeated Extension extension = 3;
     }
-    TypeCode type = 5
-        [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
+    TypeCode type = 5 [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
   }
   repeated DeviceName device_name = 13;
 
@@ -159,8 +149,7 @@ message DeviceDefinition {
     repeated Extension modifier_extension = 3;
 
     // The standard that is used to operate and communicate
-    String system_type = 4
-        [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
+    String system_type = 4 [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
 
     // The version of the standard that is used to operate and communicate
     String version = 5;
@@ -195,8 +184,7 @@ message DeviceDefinition {
     repeated Extension modifier_extension = 3;
 
     // Type of capability
-    CodeableConcept type = 4
-        [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
+    CodeableConcept type = 4 [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
 
     // Description of capability
     repeated CodeableConcept description = 5;
@@ -216,8 +204,7 @@ message DeviceDefinition {
     repeated Extension modifier_extension = 3;
 
     // Code that specifies the property DeviceDefinitionPropetyCode (Extensible)
-    CodeableConcept type = 4
-        [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
+    CodeableConcept type = 4 [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
 
     // Property value as a quantity
     repeated Quantity value_quantity = 5;
@@ -228,8 +215,7 @@ message DeviceDefinition {
   repeated Property property = 23;
 
   // Organization responsible for device
-  Reference owner = 24
-      [(.google.fhir.proto.valid_reference_type) = "Organization"];
+  Reference owner = 24 [(.google.fhir.proto.valid_reference_type) = "Organization"];
 
   // Details for human/organization for support
   repeated ContactPoint contact = 25;
@@ -249,8 +235,7 @@ message DeviceDefinition {
   Quantity quantity = 29;
 
   // The parent device it can be part of
-  Reference parent_device = 30
-      [(.google.fhir.proto.valid_reference_type) = "DeviceDefinition"];
+  Reference parent_device = 30 [(.google.fhir.proto.valid_reference_type) = "DeviceDefinition"];
 
   // A substance used to create the material(s) of which the device is made
   message Material {
@@ -264,8 +249,7 @@ message DeviceDefinition {
     repeated Extension modifier_extension = 3;
 
     // The substance
-    CodeableConcept substance = 4
-        [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
+    CodeableConcept substance = 4 [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
 
     // Indicates an alternative material of the device
     Boolean alternate = 5;

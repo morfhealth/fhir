@@ -20,18 +20,17 @@ import "google/protobuf/any.proto";
 import "proto/google/fhir/proto/annotations.proto";
 import "proto/google/fhir/proto/r4/core/datatypes.proto";
 
+option go_package = "github.com/google/fhir/go/proto/google/fhir/proto/r4/core/resources/basic_go_proto";
 option java_multiple_files = true;
 option java_package = "com.google.fhir.r4.core";
 option (.google.fhir.proto.fhir_version) = R4;
-option go_package = "github.com/google/fhir/go/proto/google/fhir/proto/r4/core/resources/basic_go_proto";
 
 // Auto-generated from StructureDefinition for Basic.
 // Resource for non-supported content.
 // See http://hl7.org/fhir/StructureDefinition/Basic
 message Basic {
   option (.google.fhir.proto.structure_definition_kind) = KIND_RESOURCE;
-  option (.google.fhir.proto.fhir_structure_definition_url) =
-      "http://hl7.org/fhir/StructureDefinition/Basic";
+  option (.google.fhir.proto.fhir_structure_definition_url) = "http://hl7.org/fhir/StructureDefinition/Basic";
 
   // Logical id of this artifact
   Id id = 1;
@@ -65,12 +64,10 @@ message Basic {
   repeated Identifier identifier = 10;
 
   // Kind of Resource
-  CodeableConcept code = 11
-      [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
+  CodeableConcept code = 11 [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
 
   // Identifies the focus of this resource
-  Reference subject = 12
-      [(.google.fhir.proto.valid_reference_type) = "Resource"];
+  Reference subject = 12 [(.google.fhir.proto.valid_reference_type) = "Resource"];
 
   // When created
   Date created = 13;

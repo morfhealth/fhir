@@ -21,34 +21,25 @@ import "proto/google/fhir/proto/annotations.proto";
 import "proto/google/fhir/proto/r5/core/codes.proto";
 import "proto/google/fhir/proto/r5/core/datatypes.proto";
 
+option go_package = "github.com/google/fhir/go/proto/google/fhir/proto/r5/core/resources/example_scenario_go_proto";
 option java_multiple_files = true;
 option java_package = "com.google.fhir.r5.core";
 option (.google.fhir.proto.fhir_version) = R5;
-option go_package = "github.com/google/fhir/go/proto/google/fhir/proto/r5/core/resources/example_scenario_go_proto";
 
 // Auto-generated from StructureDefinition for ExampleScenario.
 // Example of workflow instance.
 // See http://hl7.org/fhir/StructureDefinition/ExampleScenario
 message ExampleScenario {
   option (.google.fhir.proto.structure_definition_kind) = KIND_RESOURCE;
-  option (.google.fhir.proto.fhir_structure_definition_url) =
-      "http://hl7.org/fhir/StructureDefinition/ExampleScenario";
-  option (.google.fhir.proto.fhir_path_message_constraint) =
-      "status='active' or status='retired' implies actor.exists()";
-  option (.google.fhir.proto.fhir_path_message_constraint) =
-      "status='active' or status='retired' implies process.exists()";
-  option (.google.fhir.proto.fhir_path_message_constraint) =
-      "actor.key.count() = actor.key.distinct().count()";
-  option (.google.fhir.proto.fhir_path_message_constraint) =
-      "actor.title.count() = actor.title.distinct().count()";
-  option (.google.fhir.proto.fhir_path_message_constraint) =
-      "instance.key.count() = instance.key.distinct().count()";
-  option (.google.fhir.proto.fhir_path_message_constraint) =
-      "instance.title.count() = instance.title.distinct().count()";
-  option (.google.fhir.proto.fhir_path_message_constraint) =
-      "process.title.count() = process.title.distinct().count()";
-  option (.google.fhir.proto.fhir_path_message_warning_constraint) =
-      "name.exists() implies name.matches('^[A-Z]([A-Za-z0-9_]){1,254}$')";
+  option (.google.fhir.proto.fhir_structure_definition_url) = "http://hl7.org/fhir/StructureDefinition/ExampleScenario";
+  option (.google.fhir.proto.fhir_path_message_constraint) = "status='active' or status='retired' implies actor.exists()";
+  option (.google.fhir.proto.fhir_path_message_constraint) = "status='active' or status='retired' implies process.exists()";
+  option (.google.fhir.proto.fhir_path_message_constraint) = "actor.key.count() = actor.key.distinct().count()";
+  option (.google.fhir.proto.fhir_path_message_constraint) = "actor.title.count() = actor.title.distinct().count()";
+  option (.google.fhir.proto.fhir_path_message_constraint) = "instance.key.count() = instance.key.distinct().count()";
+  option (.google.fhir.proto.fhir_path_message_constraint) = "instance.title.count() = instance.title.distinct().count()";
+  option (.google.fhir.proto.fhir_path_message_constraint) = "process.title.count() = process.title.distinct().count()";
+  option (.google.fhir.proto.fhir_path_message_warning_constraint) = "name.exists() implies name.matches('^[A-Z]([A-Za-z0-9_]){1,254}$')";
 
   // Logical id of this artifact
   Id id = 1;
@@ -80,8 +71,7 @@ message ExampleScenario {
 
   // Canonical identifier for this example scenario, represented as a URI
   // (globally unique)
-  Uri url = 10 [(.google.fhir.proto.fhir_path_warning_constraint) =
-                    "exists() implies matches('^[^|# ]+$')"];
+  Uri url = 10 [(.google.fhir.proto.fhir_path_warning_constraint) = "exists() implies matches('^[^|# ]+$')"];
 
   // Additional identifier for the example scenario
   repeated Identifier identifier = 11;
@@ -109,10 +99,8 @@ message ExampleScenario {
   // draft | active | retired | unknown
   message StatusCode {
     option (.google.fhir.proto.structure_definition_kind) = KIND_PRIMITIVE_TYPE;
-    option (.google.fhir.proto.fhir_valueset_url) =
-        "http://hl7.org/fhir/ValueSet/publication-status";
-    option (.google.fhir.proto.fhir_profile_base) =
-        "http://hl7.org/fhir/StructureDefinition/code";
+    option (.google.fhir.proto.fhir_valueset_url) = "http://hl7.org/fhir/ValueSet/publication-status";
+    option (.google.fhir.proto.fhir_profile_base) = "http://hl7.org/fhir/StructureDefinition/code";
 
     PublicationStatusCode.Value value = 1;
 
@@ -120,8 +108,7 @@ message ExampleScenario {
 
     repeated Extension extension = 3;
   }
-  StatusCode status = 14
-      [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
+  StatusCode status = 14 [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
 
   // For testing purposes, not real usage
   Boolean experimental = 15;
@@ -156,8 +143,7 @@ message ExampleScenario {
   // Individual involved in exchange
   message Actor {
     option (.google.fhir.proto.fhir_path_message_constraint) = "key != 'OTHER'";
-    option (.google.fhir.proto.fhir_path_message_warning_constraint) =
-        "%resource.process.descendants().select(operation).where(initiator=%context.key or receiver=%context.key).exists()";
+    option (.google.fhir.proto.fhir_path_message_warning_constraint) = "%resource.process.descendants().select(operation).where(initiator=%context.key or receiver=%context.key).exists()";
 
     // Unique id for inter-element referencing
     String id = 1;
@@ -169,17 +155,13 @@ message ExampleScenario {
     repeated Extension modifier_extension = 3;
 
     // ID or acronym of the actor
-    String key = 8
-        [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
+    String key = 8 [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
 
     // person | system
     message TypeCode {
-      option (.google.fhir.proto.structure_definition_kind) =
-          KIND_PRIMITIVE_TYPE;
-      option (.google.fhir.proto.fhir_valueset_url) =
-          "http://hl7.org/fhir/ValueSet/examplescenario-actor-type";
-      option (.google.fhir.proto.fhir_profile_base) =
-          "http://hl7.org/fhir/StructureDefinition/code";
+      option (.google.fhir.proto.structure_definition_kind) = KIND_PRIMITIVE_TYPE;
+      option (.google.fhir.proto.fhir_valueset_url) = "http://hl7.org/fhir/ValueSet/examplescenario-actor-type";
+      option (.google.fhir.proto.fhir_profile_base) = "http://hl7.org/fhir/StructureDefinition/code";
 
       ExampleScenarioActorTypeCode.Value value = 1;
 
@@ -187,12 +169,10 @@ message ExampleScenario {
 
       repeated Extension extension = 3;
     }
-    TypeCode type = 5
-        [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
+    TypeCode type = 5 [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
 
     // Label for actor when rendering
-    String title = 9
-        [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
+    String title = 9 [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
 
     // Details about actor
     Markdown description = 7;
@@ -201,18 +181,12 @@ message ExampleScenario {
 
   // Data used in the scenario
   message Instance {
-    option (.google.fhir.proto.fhir_path_message_constraint) =
-        "structureType.exists() and structureType.memberOf('http://hl7.org/fhir/ValueSet/resource-types').not() implies structureVersion.exists()";
-    option (.google.fhir.proto.fhir_path_message_constraint) =
-        "content.exists() implies version.empty()";
-    option (.google.fhir.proto.fhir_path_message_constraint) =
-        "version.key.count() = version.key.distinct().count()";
-    option (.google.fhir.proto.fhir_path_message_constraint) =
-        "version.title.count() = version.title.distinct().count()";
-    option (.google.fhir.proto.fhir_path_message_warning_constraint) =
-        "%resource.process.descendants().select(instanceReference).where($this=%context.key).exists()";
-    option (.google.fhir.proto.fhir_path_message_warning_constraint) =
-        "version.exists() implies version.key.intersect(%resource.process.descendants().where(instanceReference = %context.key).versionReference).exists()";
+    option (.google.fhir.proto.fhir_path_message_constraint) = "structureType.exists() and structureType.memberOf('http://hl7.org/fhir/ValueSet/resource-types').not() implies structureVersion.exists()";
+    option (.google.fhir.proto.fhir_path_message_constraint) = "content.exists() implies version.empty()";
+    option (.google.fhir.proto.fhir_path_message_constraint) = "version.key.count() = version.key.distinct().count()";
+    option (.google.fhir.proto.fhir_path_message_constraint) = "version.title.count() = version.title.distinct().count()";
+    option (.google.fhir.proto.fhir_path_message_warning_constraint) = "%resource.process.descendants().select(instanceReference).where($this=%context.key).exists()";
+    option (.google.fhir.proto.fhir_path_message_warning_constraint) = "version.exists() implies version.key.intersect(%resource.process.descendants().where(instanceReference = %context.key).versionReference).exists()";
 
     // Unique id for inter-element referencing
     String id = 1;
@@ -224,12 +198,10 @@ message ExampleScenario {
     repeated Extension modifier_extension = 3;
 
     // ID or acronym of the instance
-    String key = 10
-        [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
+    String key = 10 [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
 
     // Data structure for example
-    Coding structure_type = 11
-        [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
+    Coding structure_type = 11 [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
 
     // E.g. 4.0.1
     String structure_version = 12;
@@ -246,8 +218,7 @@ message ExampleScenario {
     StructureProfileX structure_profile = 13;
 
     // Label for instance
-    String title = 14
-        [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
+    String title = 14 [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
 
     // Human-friendly description of the instance
     Markdown description = 7;
@@ -267,12 +238,10 @@ message ExampleScenario {
       repeated Extension modifier_extension = 3;
 
       // ID or acronym of the version
-      String key = 6
-          [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
+      String key = 6 [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
 
       // Label for instance version
-      String title = 7
-          [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
+      String title = 7 [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
 
       // Details about version
       Markdown description = 5;
@@ -284,12 +253,9 @@ message ExampleScenario {
 
     // Resources contained in the instance
     message ContainedInstance {
-      option (.google.fhir.proto.fhir_path_message_constraint) =
-          "%resource.instance.where(key=%context.instanceReference).exists()";
-      option (.google.fhir.proto.fhir_path_message_constraint) =
-          "versionReference.empty() implies %resource.instance.where(key=%context.instanceReference).version.empty()";
-      option (.google.fhir.proto.fhir_path_message_constraint) =
-          "versionReference.exists() implies %resource.instance.where(key=%context.instanceReference).version.where(key=%context.versionReference).exists()";
+      option (.google.fhir.proto.fhir_path_message_constraint) = "%resource.instance.where(key=%context.instanceReference).exists()";
+      option (.google.fhir.proto.fhir_path_message_constraint) = "versionReference.empty() implies %resource.instance.where(key=%context.instanceReference).version.empty()";
+      option (.google.fhir.proto.fhir_path_message_constraint) = "versionReference.exists() implies %resource.instance.where(key=%context.instanceReference).version.where(key=%context.versionReference).exists()";
 
       // Unique id for inter-element referencing
       String id = 1;
@@ -301,8 +267,7 @@ message ExampleScenario {
       repeated Extension modifier_extension = 3;
 
       // Key of contained instance
-      String instance_reference = 6
-          [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
+      String instance_reference = 6 [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
 
       // Key of contained instance version
       String version_reference = 7;
@@ -313,8 +278,7 @@ message ExampleScenario {
 
   // Major process within scenario
   message Process {
-    option (.google.fhir.proto.fhir_path_message_constraint) =
-        "%resource.status='active' or %resource.status='retired' implies step.exists()";
+    option (.google.fhir.proto.fhir_path_message_constraint) = "%resource.status='active' or %resource.status='retired' implies step.exists()";
 
     // Unique id for inter-element referencing
     String id = 1;
@@ -326,8 +290,7 @@ message ExampleScenario {
     repeated Extension modifier_extension = 3;
 
     // Label for procss
-    String title = 4
-        [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
+    String title = 4 [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
 
     // Human-friendly description of the process
     Markdown description = 5;
@@ -340,10 +303,8 @@ message ExampleScenario {
 
     // Event within of the process
     message Step {
-      option (.google.fhir.proto.fhir_path_message_constraint) =
-          "alternative.title.count() = alternative.title.distinct().count()";
-      option (.google.fhir.proto.fhir_path_message_constraint) =
-          "(process.exists() implies workflow.empty() and operation.empty()) and (workflow.exists() implies operation.empty())";
+      option (.google.fhir.proto.fhir_path_message_constraint) = "alternative.title.count() = alternative.title.distinct().count()";
+      option (.google.fhir.proto.fhir_path_message_constraint) = "(process.exists() implies workflow.empty() and operation.empty()) and (workflow.exists() implies operation.empty())";
 
       // Unique id for inter-element referencing
       String id = 1;
@@ -365,10 +326,8 @@ message ExampleScenario {
 
       // Step is simple action
       message Operation {
-        option (.google.fhir.proto.fhir_path_message_constraint) =
-            "initiator.exists() implies initiator = 'OTHER' or %resource.actor.where(key=%context.initiator).exists()";
-        option (.google.fhir.proto.fhir_path_message_constraint) =
-            "receiver.exists() implies receiver = 'OTHER' or %resource.actor.where(key=%context.receiver).exists()";
+        option (.google.fhir.proto.fhir_path_message_constraint) = "initiator.exists() implies initiator = 'OTHER' or %resource.actor.where(key=%context.initiator).exists()";
+        option (.google.fhir.proto.fhir_path_message_constraint) = "receiver.exists() implies receiver = 'OTHER' or %resource.actor.where(key=%context.receiver).exists()";
 
         // Unique id for inter-element referencing
         String id = 1;
@@ -383,8 +342,7 @@ message ExampleScenario {
         Coding type = 14;
 
         // Label for step
-        String title = 15
-            [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
+        String title = 15 [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
 
         // Who starts the operation
         String initiator = 7;
@@ -421,8 +379,7 @@ message ExampleScenario {
         repeated Extension modifier_extension = 3;
 
         // Label for alternative
-        String title = 4
-            [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
+        String title = 4 [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
 
         // Human-readable description of option
         Markdown description = 5;

@@ -21,10 +21,10 @@ import "proto/google/fhir/proto/annotations.proto";
 import "proto/google/fhir/proto/r5/core/codes.proto";
 import "proto/google/fhir/proto/r5/core/datatypes.proto";
 
+option go_package = "github.com/google/fhir/go/proto/google/fhir/proto/r5/core/resources/clinical_impression_go_proto";
 option java_multiple_files = true;
 option java_package = "com.google.fhir.r5.core";
 option (.google.fhir.proto.fhir_version) = R5;
-option go_package = "github.com/google/fhir/go/proto/google/fhir/proto/r5/core/resources/clinical_impression_go_proto";
 
 // Auto-generated from StructureDefinition for ClinicalImpression.
 // A clinical assessment performed when planning treatments and management
@@ -32,8 +32,7 @@ option go_package = "github.com/google/fhir/go/proto/google/fhir/proto/r5/core/r
 // http://hl7.org/fhir/StructureDefinition/ClinicalImpression
 message ClinicalImpression {
   option (.google.fhir.proto.structure_definition_kind) = KIND_RESOURCE;
-  option (.google.fhir.proto.fhir_structure_definition_url) =
-      "http://hl7.org/fhir/StructureDefinition/ClinicalImpression";
+  option (.google.fhir.proto.fhir_structure_definition_url) = "http://hl7.org/fhir/StructureDefinition/ClinicalImpression";
 
   // Logical id of this artifact
   Id id = 1;
@@ -70,10 +69,8 @@ message ClinicalImpression {
   // entered-in-error | unknown
   message StatusCode {
     option (.google.fhir.proto.structure_definition_kind) = KIND_PRIMITIVE_TYPE;
-    option (.google.fhir.proto.fhir_valueset_url) =
-        "http://hl7.org/fhir/ValueSet/event-status";
-    option (.google.fhir.proto.fhir_profile_base) =
-        "http://hl7.org/fhir/StructureDefinition/code";
+    option (.google.fhir.proto.fhir_valueset_url) = "http://hl7.org/fhir/ValueSet/event-status";
+    option (.google.fhir.proto.fhir_profile_base) = "http://hl7.org/fhir/StructureDefinition/code";
 
     EventStatusCode.Value value = 1;
 
@@ -81,8 +78,7 @@ message ClinicalImpression {
 
     repeated Extension extension = 3;
   }
-  StatusCode status = 30
-      [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
+  StatusCode status = 30 [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
 
   // Reason for current status
   CodeableConcept status_reason = 12;
@@ -98,8 +94,7 @@ message ClinicalImpression {
   ];
 
   // The Encounter during which this ClinicalImpression was created
-  Reference encounter = 16
-      [(.google.fhir.proto.valid_reference_type) = "Encounter"];
+  Reference encounter = 16 [(.google.fhir.proto.valid_reference_type) = "Encounter"];
 
   // Time of assessment
   message EffectiveX {
@@ -122,8 +117,7 @@ message ClinicalImpression {
   ];
 
   // Reference to last assessment
-  Reference previous = 20
-      [(.google.fhir.proto.valid_reference_type) = "ClinicalImpression"];
+  Reference previous = 20 [(.google.fhir.proto.valid_reference_type) = "ClinicalImpression"];
 
   // Relevant impressions of patient state
   repeated Reference problem = 21 [
@@ -164,12 +158,10 @@ message ClinicalImpression {
   repeated CodeableConcept prognosis_codeable_concept = 26;
 
   // RiskAssessment expressing likely outcome
-  repeated Reference prognosis_reference = 27
-      [(.google.fhir.proto.valid_reference_type) = "RiskAssessment"];
+  repeated Reference prognosis_reference = 27 [(.google.fhir.proto.valid_reference_type) = "RiskAssessment"];
 
   // Information supporting the clinical impression
-  repeated Reference supporting_info = 28
-      [(.google.fhir.proto.valid_reference_type) = "Resource"];
+  repeated Reference supporting_info = 28 [(.google.fhir.proto.valid_reference_type) = "Resource"];
 
   // Comments made about the ClinicalImpression
   repeated Annotation note = 29;

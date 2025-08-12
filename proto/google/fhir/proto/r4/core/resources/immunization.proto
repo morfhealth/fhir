@@ -21,18 +21,17 @@ import "proto/google/fhir/proto/annotations.proto";
 import "proto/google/fhir/proto/r4/core/datatypes.proto";
 import "proto/google/fhir/proto/r4/core/valuesets.proto";
 
+option go_package = "github.com/google/fhir/go/proto/google/fhir/proto/r4/core/resources/immunization_go_proto";
 option java_multiple_files = true;
 option java_package = "com.google.fhir.r4.core";
 option (.google.fhir.proto.fhir_version) = R4;
-option go_package = "github.com/google/fhir/go/proto/google/fhir/proto/r4/core/resources/immunization_go_proto";
 
 // Auto-generated from StructureDefinition for Immunization.
 // Immunization event information.
 // See http://hl7.org/fhir/StructureDefinition/Immunization
 message Immunization {
   option (.google.fhir.proto.structure_definition_kind) = KIND_RESOURCE;
-  option (.google.fhir.proto.fhir_structure_definition_url) =
-      "http://hl7.org/fhir/StructureDefinition/Immunization";
+  option (.google.fhir.proto.fhir_structure_definition_url) = "http://hl7.org/fhir/StructureDefinition/Immunization";
 
   // Logical id of this artifact
   Id id = 1;
@@ -68,10 +67,8 @@ message Immunization {
   // completed | entered-in-error | not-done
   message StatusCode {
     option (.google.fhir.proto.structure_definition_kind) = KIND_PRIMITIVE_TYPE;
-    option (.google.fhir.proto.fhir_valueset_url) =
-        "http://hl7.org/fhir/ValueSet/immunization-status";
-    option (.google.fhir.proto.fhir_profile_base) =
-        "http://hl7.org/fhir/StructureDefinition/code";
+    option (.google.fhir.proto.fhir_valueset_url) = "http://hl7.org/fhir/ValueSet/immunization-status";
+    option (.google.fhir.proto.fhir_profile_base) = "http://hl7.org/fhir/StructureDefinition/code";
 
     ImmunizationStatusCodesValueSet.Value value = 1;
 
@@ -79,15 +76,13 @@ message Immunization {
 
     repeated Extension extension = 3;
   }
-  StatusCode status = 11
-      [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
+  StatusCode status = 11 [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
 
   // Reason not done
   CodeableConcept status_reason = 12;
 
   // Vaccine product administered
-  CodeableConcept vaccine_code = 13
-      [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
+  CodeableConcept vaccine_code = 13 [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
 
   // Who was immunized
   Reference patient = 14 [
@@ -96,8 +91,7 @@ message Immunization {
   ];
 
   // Encounter immunization was part of
-  Reference encounter = 15
-      [(.google.fhir.proto.valid_reference_type) = "Encounter"];
+  Reference encounter = 15 [(.google.fhir.proto.valid_reference_type) = "Encounter"];
 
   // Vaccine administration date
   message OccurrenceX {
@@ -108,8 +102,7 @@ message Immunization {
       String string_value = 2 [json_name = "string"];
     }
   }
-  OccurrenceX occurrence = 16
-      [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
+  OccurrenceX occurrence = 16 [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
 
   // When the immunization was first captured in the subject's record
   DateTime recorded = 17;
@@ -121,12 +114,10 @@ message Immunization {
   CodeableConcept report_origin = 19;
 
   // Where immunization occurred
-  Reference location = 20
-      [(.google.fhir.proto.valid_reference_type) = "Location"];
+  Reference location = 20 [(.google.fhir.proto.valid_reference_type) = "Location"];
 
   // Vaccine manufacturer
-  Reference manufacturer = 21
-      [(.google.fhir.proto.valid_reference_type) = "Organization"];
+  Reference manufacturer = 21 [(.google.fhir.proto.valid_reference_type) = "Organization"];
 
   // Vaccine lot number
   String lot_number = 22;
@@ -188,8 +179,7 @@ message Immunization {
 
   // Educational material presented to patient
   message Education {
-    option (.google.fhir.proto.fhir_path_message_constraint) =
-        "documentType.exists() or reference.exists()";
+    option (.google.fhir.proto.fhir_path_message_constraint) = "documentType.exists() or reference.exists()";
 
     // Unique id for inter-element referencing
     String id = 1;
@@ -235,8 +225,7 @@ message Immunization {
     DateTime date = 4;
 
     // Additional information on reaction
-    Reference detail = 5
-        [(.google.fhir.proto.valid_reference_type) = "Observation"];
+    Reference detail = 5 [(.google.fhir.proto.valid_reference_type) = "Observation"];
 
     // Indicates self-reported reaction
     Boolean reported = 6;
@@ -258,8 +247,7 @@ message Immunization {
     String series = 4;
 
     // Who is responsible for publishing the recommendations
-    Reference authority = 5
-        [(.google.fhir.proto.valid_reference_type) = "Organization"];
+    Reference authority = 5 [(.google.fhir.proto.valid_reference_type) = "Organization"];
 
     // Vaccine preventatable disease being targetted
     repeated CodeableConcept target_disease = 6;
@@ -273,8 +261,7 @@ message Immunization {
         String string_value = 2 [json_name = "string"];
       }
     }
-    DoseNumberX dose_number = 7
-        [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
+    DoseNumberX dose_number = 7 [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
 
     // Recommended number of doses for immunity
     message SeriesDosesX {

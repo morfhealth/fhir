@@ -21,10 +21,10 @@ import "proto/google/fhir/proto/annotations.proto";
 import "proto/google/fhir/proto/r5/core/codes.proto";
 import "proto/google/fhir/proto/r5/core/datatypes.proto";
 
+option go_package = "github.com/google/fhir/go/proto/google/fhir/proto/r5/core/resources/manufactured_item_definition_go_proto";
 option java_multiple_files = true;
 option java_package = "com.google.fhir.r5.core";
 option (.google.fhir.proto.fhir_version) = R5;
-option go_package = "github.com/google/fhir/go/proto/google/fhir/proto/r5/core/resources/manufactured_item_definition_go_proto";
 
 // Auto-generated from StructureDefinition for ManufacturedItemDefinition.
 // The definition and characteristics of a medicinal manufactured item, such as
@@ -32,8 +32,7 @@ option go_package = "github.com/google/fhir/go/proto/google/fhir/proto/r5/core/r
 // http://hl7.org/fhir/StructureDefinition/ManufacturedItemDefinition
 message ManufacturedItemDefinition {
   option (.google.fhir.proto.structure_definition_kind) = KIND_RESOURCE;
-  option (.google.fhir.proto.fhir_structure_definition_url) =
-      "http://hl7.org/fhir/StructureDefinition/ManufacturedItemDefinition";
+  option (.google.fhir.proto.fhir_structure_definition_url) = "http://hl7.org/fhir/StructureDefinition/ManufacturedItemDefinition";
 
   // Logical id of this artifact
   Id id = 1;
@@ -69,10 +68,8 @@ message ManufacturedItemDefinition {
   // draft | active | retired | unknown
   message StatusCode {
     option (.google.fhir.proto.structure_definition_kind) = KIND_PRIMITIVE_TYPE;
-    option (.google.fhir.proto.fhir_valueset_url) =
-        "http://hl7.org/fhir/ValueSet/publication-status";
-    option (.google.fhir.proto.fhir_profile_base) =
-        "http://hl7.org/fhir/StructureDefinition/code";
+    option (.google.fhir.proto.fhir_valueset_url) = "http://hl7.org/fhir/ValueSet/publication-status";
+    option (.google.fhir.proto.fhir_profile_base) = "http://hl7.org/fhir/StructureDefinition/code";
 
     PublicationStatusCode.Value value = 1;
 
@@ -80,22 +77,19 @@ message ManufacturedItemDefinition {
 
     repeated Extension extension = 3;
   }
-  StatusCode status = 11
-      [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
+  StatusCode status = 11 [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
 
   // A descriptive name applied to this item
   String name = 12;
 
   // Dose form as manufactured (before any necessary transformation)
-  CodeableConcept manufactured_dose_form = 13
-      [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
+  CodeableConcept manufactured_dose_form = 13 [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
 
   // The “real-world” units in which the quantity of the item is described
   CodeableConcept unit_of_presentation = 14;
 
   // Manufacturer of the item, one of several possible
-  repeated Reference manufacturer = 15
-      [(.google.fhir.proto.valid_reference_type) = "Organization"];
+  repeated Reference manufacturer = 15 [(.google.fhir.proto.valid_reference_type) = "Organization"];
 
   // Allows specifying that an item is on the market for sale, or that it is not
   // available, and the dates and locations associated
@@ -117,8 +111,7 @@ message ManufacturedItemDefinition {
     repeated Extension modifier_extension = 3;
 
     // A code expressing the type of characteristic
-    CodeableConcept type = 4
-        [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
+    CodeableConcept type = 4 [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
 
     // A value for the characteristic
     message ValueX {
@@ -131,8 +124,7 @@ message ManufacturedItemDefinition {
         Boolean boolean = 4;
         Markdown markdown = 5;
         Attachment attachment = 6;
-        Reference reference = 7
-            [(.google.fhir.proto.valid_reference_type) = "Binary"];
+        Reference reference = 7 [(.google.fhir.proto.valid_reference_type) = "Binary"];
       }
     }
     ValueX value = 5;
@@ -152,8 +144,7 @@ message ManufacturedItemDefinition {
     repeated Extension modifier_extension = 3;
 
     // Defining type of the component e.g. shell, layer, ink
-    CodeableConcept type = 4
-        [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
+    CodeableConcept type = 4 [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
 
     // The function of this component within the item e.g. delivers active
     // ingredient, masks taste

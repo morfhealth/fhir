@@ -21,18 +21,17 @@ import "proto/google/fhir/proto/annotations.proto";
 import "proto/google/fhir/proto/r4/core/codes.proto";
 import "proto/google/fhir/proto/r4/core/datatypes.proto";
 
+option go_package = "github.com/google/fhir/go/proto/google/fhir/proto/r4/core/resources/claim_response_go_proto";
 option java_multiple_files = true;
 option java_package = "com.google.fhir.r4.core";
 option (.google.fhir.proto.fhir_version) = R4;
-option go_package = "github.com/google/fhir/go/proto/google/fhir/proto/r4/core/resources/claim_response_go_proto";
 
 // Auto-generated from StructureDefinition for ClaimResponse.
 // Response to a claim predetermination or preauthorization.
 // See http://hl7.org/fhir/StructureDefinition/ClaimResponse
 message ClaimResponse {
   option (.google.fhir.proto.structure_definition_kind) = KIND_RESOURCE;
-  option (.google.fhir.proto.fhir_structure_definition_url) =
-      "http://hl7.org/fhir/StructureDefinition/ClaimResponse";
+  option (.google.fhir.proto.fhir_structure_definition_url) = "http://hl7.org/fhir/StructureDefinition/ClaimResponse";
 
   // Logical id of this artifact
   Id id = 1;
@@ -68,10 +67,8 @@ message ClaimResponse {
   // active | cancelled | draft | entered-in-error
   message StatusCode {
     option (.google.fhir.proto.structure_definition_kind) = KIND_PRIMITIVE_TYPE;
-    option (.google.fhir.proto.fhir_valueset_url) =
-        "http://hl7.org/fhir/ValueSet/fm-status";
-    option (.google.fhir.proto.fhir_profile_base) =
-        "http://hl7.org/fhir/StructureDefinition/code";
+    option (.google.fhir.proto.fhir_valueset_url) = "http://hl7.org/fhir/ValueSet/fm-status";
+    option (.google.fhir.proto.fhir_profile_base) = "http://hl7.org/fhir/StructureDefinition/code";
 
     FinancialResourceStatusCode.Value value = 1;
 
@@ -79,12 +76,10 @@ message ClaimResponse {
 
     repeated Extension extension = 3;
   }
-  StatusCode status = 11
-      [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
+  StatusCode status = 11 [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
 
   // More granular claim type
-  CodeableConcept type = 12
-      [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
+  CodeableConcept type = 12 [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
 
   // More granular claim type
   CodeableConcept sub_type = 13;
@@ -92,10 +87,8 @@ message ClaimResponse {
   // claim | preauthorization | predetermination
   message UseCode {
     option (.google.fhir.proto.structure_definition_kind) = KIND_PRIMITIVE_TYPE;
-    option (.google.fhir.proto.fhir_valueset_url) =
-        "http://hl7.org/fhir/ValueSet/claim-use";
-    option (.google.fhir.proto.fhir_profile_base) =
-        "http://hl7.org/fhir/StructureDefinition/code";
+    option (.google.fhir.proto.fhir_valueset_url) = "http://hl7.org/fhir/ValueSet/claim-use";
+    option (.google.fhir.proto.fhir_profile_base) = "http://hl7.org/fhir/StructureDefinition/code";
 
     .google.fhir.r4.core.UseCode.Value value = 1;
 
@@ -103,8 +96,7 @@ message ClaimResponse {
 
     repeated Extension extension = 3;
   }
-  UseCode use = 14
-      [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
+  UseCode use = 14 [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
 
   // The recipient of the products and services
   Reference patient = 15 [
@@ -113,8 +105,7 @@ message ClaimResponse {
   ];
 
   // Response creation date
-  DateTime created = 16
-      [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
+  DateTime created = 16 [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
 
   // Party responsible for reimbursement
   Reference insurer = 17 [
@@ -135,10 +126,8 @@ message ClaimResponse {
   // queued | complete | error | partial
   message OutcomeCode {
     option (.google.fhir.proto.structure_definition_kind) = KIND_PRIMITIVE_TYPE;
-    option (.google.fhir.proto.fhir_valueset_url) =
-        "http://hl7.org/fhir/ValueSet/remittance-outcome";
-    option (.google.fhir.proto.fhir_profile_base) =
-        "http://hl7.org/fhir/StructureDefinition/code";
+    option (.google.fhir.proto.fhir_valueset_url) = "http://hl7.org/fhir/ValueSet/remittance-outcome";
+    option (.google.fhir.proto.fhir_profile_base) = "http://hl7.org/fhir/StructureDefinition/code";
 
     ClaimProcessingCode.Value value = 1;
 
@@ -146,8 +135,7 @@ message ClaimResponse {
 
     repeated Extension extension = 3;
   }
-  OutcomeCode outcome = 20
-      [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
+  OutcomeCode outcome = 20 [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
 
   // Disposition Message
   String disposition = 21;
@@ -173,8 +161,7 @@ message ClaimResponse {
     repeated Extension modifier_extension = 3;
 
     // Claim item instance identifier
-    PositiveInt item_sequence = 4
-        [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
+    PositiveInt item_sequence = 4 [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
 
     // Applicable note numbers
     repeated PositiveInt note_number = 5;
@@ -191,8 +178,7 @@ message ClaimResponse {
       repeated Extension modifier_extension = 3;
 
       // Type of adjudication information
-      CodeableConcept category = 4
-          [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
+      CodeableConcept category = 4 [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
 
       // Explanation of adjudication outcome
       CodeableConcept reason = 5;
@@ -203,8 +189,7 @@ message ClaimResponse {
       // Non-monetary value
       Decimal value = 7;
     }
-    repeated Adjudication adjudication = 6
-        [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
+    repeated Adjudication adjudication = 6 [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
 
     // Adjudication for claim details
     message ItemDetail {
@@ -218,15 +203,13 @@ message ClaimResponse {
       repeated Extension modifier_extension = 3;
 
       // Claim detail instance identifier
-      PositiveInt detail_sequence = 4
-          [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
+      PositiveInt detail_sequence = 4 [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
 
       // Applicable note numbers
       repeated PositiveInt note_number = 5;
 
       // Detail level adjudication details
-      repeated Adjudication adjudication = 6
-          [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
+      repeated Adjudication adjudication = 6 [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
 
       // Adjudication for claim sub-details
       message SubDetail {
@@ -240,8 +223,7 @@ message ClaimResponse {
         repeated Extension modifier_extension = 3;
 
         // Claim sub-detail instance identifier
-        PositiveInt sub_detail_sequence = 4
-            [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
+        PositiveInt sub_detail_sequence = 4 [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
 
         // Applicable note numbers
         repeated PositiveInt note_number = 5;
@@ -283,8 +265,7 @@ message ClaimResponse {
     ];
 
     // Billing, service, product, or drug code
-    CodeableConcept product_or_service = 8
-        [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
+    CodeableConcept product_or_service = 8 [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
 
     // Service/Product billing modifiers
     repeated CodeableConcept modifier = 9;
@@ -310,8 +291,7 @@ message ClaimResponse {
       oneof choice {
         CodeableConcept codeable_concept = 1;
         Address address = 2;
-        Reference reference = 3
-            [(.google.fhir.proto.valid_reference_type) = "Location"];
+        Reference reference = 3 [(.google.fhir.proto.valid_reference_type) = "Location"];
       }
     }
     LocationX location = 12;
@@ -338,8 +318,7 @@ message ClaimResponse {
     repeated PositiveInt note_number = 19;
 
     // Added items adjudication
-    repeated Item.Adjudication adjudication = 20
-        [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
+    repeated Item.Adjudication adjudication = 20 [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
 
     // Insurer added line details
     message AddedItemDetail {
@@ -353,8 +332,7 @@ message ClaimResponse {
       repeated Extension modifier_extension = 3;
 
       // Billing, service, product, or drug code
-      CodeableConcept product_or_service = 4
-          [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
+      CodeableConcept product_or_service = 4 [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
 
       // Service/Product billing modifiers
       repeated CodeableConcept modifier = 5;
@@ -375,8 +353,7 @@ message ClaimResponse {
       repeated PositiveInt note_number = 10;
 
       // Added items detail adjudication
-      repeated Item.Adjudication adjudication = 11
-          [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
+      repeated Item.Adjudication adjudication = 11 [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
 
       // Insurer added line items
       message AddedItemSubDetail {
@@ -390,8 +367,7 @@ message ClaimResponse {
         repeated Extension modifier_extension = 3;
 
         // Billing, service, product, or drug code
-        CodeableConcept product_or_service = 4
-            [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
+        CodeableConcept product_or_service = 4 [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
 
         // Service/Product billing modifiers
         repeated CodeableConcept modifier = 5;
@@ -412,8 +388,7 @@ message ClaimResponse {
         repeated PositiveInt note_number = 10;
 
         // Added items detail adjudication
-        repeated Item.Adjudication adjudication = 11
-            [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
+        repeated Item.Adjudication adjudication = 11 [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
       }
       repeated AddedItemSubDetail sub_detail = 12;
     }
@@ -436,12 +411,10 @@ message ClaimResponse {
     repeated Extension modifier_extension = 3;
 
     // Type of adjudication information
-    CodeableConcept category = 4
-        [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
+    CodeableConcept category = 4 [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
 
     // Financial total for the category
-    Money amount = 5
-        [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
+    Money amount = 5 [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
   }
   repeated Total total = 28;
 
@@ -457,8 +430,7 @@ message ClaimResponse {
     repeated Extension modifier_extension = 3;
 
     // Partial or complete payment
-    CodeableConcept type = 4
-        [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
+    CodeableConcept type = 4 [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
 
     // Payment adjustment for non-claim issues
     Money adjustment = 5;
@@ -470,8 +442,7 @@ message ClaimResponse {
     Date date = 7;
 
     // Payable amount after adjustment
-    Money amount = 8
-        [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
+    Money amount = 8 [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
 
     // Business identifier for the payment
     Identifier identifier = 9;
@@ -503,12 +474,9 @@ message ClaimResponse {
 
     // display | print | printoper
     message TypeCode {
-      option (.google.fhir.proto.structure_definition_kind) =
-          KIND_PRIMITIVE_TYPE;
-      option (.google.fhir.proto.fhir_valueset_url) =
-          "http://hl7.org/fhir/ValueSet/note-type";
-      option (.google.fhir.proto.fhir_profile_base) =
-          "http://hl7.org/fhir/StructureDefinition/code";
+      option (.google.fhir.proto.structure_definition_kind) = KIND_PRIMITIVE_TYPE;
+      option (.google.fhir.proto.fhir_valueset_url) = "http://hl7.org/fhir/ValueSet/note-type";
+      option (.google.fhir.proto.fhir_profile_base) = "http://hl7.org/fhir/StructureDefinition/code";
 
       NoteTypeCode.Value value = 1;
 
@@ -519,8 +487,7 @@ message ClaimResponse {
     TypeCode type = 5;
 
     // Note explanatory text
-    String text = 6
-        [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
+    String text = 6 [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
 
     // Language of the text
     CodeableConcept language = 7;
@@ -528,8 +495,7 @@ message ClaimResponse {
   repeated Note process_note = 33;
 
   // Request for additional information
-  repeated Reference communication_request = 34
-      [(.google.fhir.proto.valid_reference_type) = "CommunicationRequest"];
+  repeated Reference communication_request = 34 [(.google.fhir.proto.valid_reference_type) = "CommunicationRequest"];
 
   // Patient insurance information
   message Insurance {
@@ -543,12 +509,10 @@ message ClaimResponse {
     repeated Extension modifier_extension = 3;
 
     // Insurance instance identifier
-    PositiveInt sequence = 4
-        [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
+    PositiveInt sequence = 4 [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
 
     // Coverage to be used for adjudication
-    Boolean focal = 5
-        [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
+    Boolean focal = 5 [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
 
     // Insurance information
     Reference coverage = 6 [
@@ -560,8 +524,7 @@ message ClaimResponse {
     String business_arrangement = 7;
 
     // Adjudication results
-    Reference claim_response = 8
-        [(.google.fhir.proto.valid_reference_type) = "ClaimResponse"];
+    Reference claim_response = 8 [(.google.fhir.proto.valid_reference_type) = "ClaimResponse"];
   }
   repeated Insurance insurance = 35;
 
@@ -586,8 +549,7 @@ message ClaimResponse {
     PositiveInt sub_detail_sequence = 6;
 
     // Error code detailing processing issues
-    CodeableConcept code = 7
-        [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
+    CodeableConcept code = 7 [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
   }
   repeated Error error = 36;
 }

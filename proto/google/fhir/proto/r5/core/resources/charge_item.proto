@@ -21,18 +21,17 @@ import "proto/google/fhir/proto/annotations.proto";
 import "proto/google/fhir/proto/r5/core/codes.proto";
 import "proto/google/fhir/proto/r5/core/datatypes.proto";
 
+option go_package = "github.com/google/fhir/go/proto/google/fhir/proto/r5/core/resources/charge_item_go_proto";
 option java_multiple_files = true;
 option java_package = "com.google.fhir.r5.core";
 option (.google.fhir.proto.fhir_version) = R5;
-option go_package = "github.com/google/fhir/go/proto/google/fhir/proto/r5/core/resources/charge_item_go_proto";
 
 // Auto-generated from StructureDefinition for ChargeItem.
 // Item containing charge code(s) associated with the provision of healthcare
 // provider products. See http://hl7.org/fhir/StructureDefinition/ChargeItem
 message ChargeItem {
   option (.google.fhir.proto.structure_definition_kind) = KIND_RESOURCE;
-  option (.google.fhir.proto.fhir_structure_definition_url) =
-      "http://hl7.org/fhir/StructureDefinition/ChargeItem";
+  option (.google.fhir.proto.fhir_structure_definition_url) = "http://hl7.org/fhir/StructureDefinition/ChargeItem";
 
   // Logical id of this artifact
   Id id = 1;
@@ -75,10 +74,8 @@ message ChargeItem {
   // unknown
   message StatusCode {
     option (.google.fhir.proto.structure_definition_kind) = KIND_PRIMITIVE_TYPE;
-    option (.google.fhir.proto.fhir_valueset_url) =
-        "http://hl7.org/fhir/ValueSet/chargeitem-status";
-    option (.google.fhir.proto.fhir_profile_base) =
-        "http://hl7.org/fhir/StructureDefinition/code";
+    option (.google.fhir.proto.fhir_valueset_url) = "http://hl7.org/fhir/ValueSet/chargeitem-status";
+    option (.google.fhir.proto.fhir_profile_base) = "http://hl7.org/fhir/StructureDefinition/code";
 
     ChargeItemStatusCode.Value value = 1;
 
@@ -86,16 +83,13 @@ message ChargeItem {
 
     repeated Extension extension = 3;
   }
-  StatusCode status = 13
-      [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
+  StatusCode status = 13 [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
 
   // Part of referenced ChargeItem
-  repeated Reference part_of = 14
-      [(.google.fhir.proto.valid_reference_type) = "ChargeItem"];
+  repeated Reference part_of = 14 [(.google.fhir.proto.valid_reference_type) = "ChargeItem"];
 
   // A code that identifies the charge, like a billing code
-  CodeableConcept code = 15
-      [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
+  CodeableConcept code = 15 [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
 
   // Individual service was done for/to
   Reference subject = 16 [
@@ -105,8 +99,7 @@ message ChargeItem {
   ];
 
   // Encounter associated with this ChargeItem
-  Reference encounter = 36
-      [(.google.fhir.proto.valid_reference_type) = "Encounter"];
+  Reference encounter = 36 [(.google.fhir.proto.valid_reference_type) = "Encounter"];
 
   // When the charged service was applied
   message OccurrenceX {
@@ -150,16 +143,13 @@ message ChargeItem {
   repeated Performer performer = 19;
 
   // Organization providing the charged service
-  Reference performing_organization = 20
-      [(.google.fhir.proto.valid_reference_type) = "Organization"];
+  Reference performing_organization = 20 [(.google.fhir.proto.valid_reference_type) = "Organization"];
 
   // Organization requesting the charged service
-  Reference requesting_organization = 21
-      [(.google.fhir.proto.valid_reference_type) = "Organization"];
+  Reference requesting_organization = 21 [(.google.fhir.proto.valid_reference_type) = "Organization"];
 
   // Organization that has ownership of the (potential, future) revenue
-  Reference cost_center = 22
-      [(.google.fhir.proto.valid_reference_type) = "Organization"];
+  Reference cost_center = 22 [(.google.fhir.proto.valid_reference_type) = "Organization"];
 
   // Quantity of which the charge item has been serviced
   Quantity quantity = 23;
@@ -199,13 +189,11 @@ message ChargeItem {
   repeated CodeableReference product = 41;
 
   // Account to place this charge
-  repeated Reference account = 33
-      [(.google.fhir.proto.valid_reference_type) = "Account"];
+  repeated Reference account = 33 [(.google.fhir.proto.valid_reference_type) = "Account"];
 
   // Comments made about the ChargeItem
   repeated Annotation note = 34;
 
   // Further information supporting this charge
-  repeated Reference supporting_information = 35
-      [(.google.fhir.proto.valid_reference_type) = "Resource"];
+  repeated Reference supporting_information = 35 [(.google.fhir.proto.valid_reference_type) = "Resource"];
 }

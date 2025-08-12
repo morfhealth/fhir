@@ -20,18 +20,17 @@ import "google/protobuf/any.proto";
 import "proto/google/fhir/proto/annotations.proto";
 import "proto/google/fhir/proto/r4/core/datatypes.proto";
 
+option go_package = "github.com/google/fhir/go/proto/google/fhir/proto/r4/core/resources/medicinal_product_contraindication_go_proto";
 option java_multiple_files = true;
 option java_package = "com.google.fhir.r4.core";
 option (.google.fhir.proto.fhir_version) = R4;
-option go_package = "github.com/google/fhir/go/proto/google/fhir/proto/r4/core/resources/medicinal_product_contraindication_go_proto";
 
 // Auto-generated from StructureDefinition for MedicinalProductContraindication.
 // MedicinalProductContraindication.
 // See http://hl7.org/fhir/StructureDefinition/MedicinalProductContraindication
 message MedicinalProductContraindication {
   option (.google.fhir.proto.structure_definition_kind) = KIND_RESOURCE;
-  option (.google.fhir.proto.fhir_structure_definition_url) =
-      "http://hl7.org/fhir/StructureDefinition/MedicinalProductContraindication";
+  option (.google.fhir.proto.fhir_structure_definition_url) = "http://hl7.org/fhir/StructureDefinition/MedicinalProductContraindication";
 
   // Logical id of this artifact
   Id id = 1;
@@ -78,9 +77,7 @@ message MedicinalProductContraindication {
 
   // Information about the use of the medicinal product in relation to other
   // therapies as part of the indication
-  repeated Reference therapeutic_indication = 14
-      [(.google.fhir.proto.valid_reference_type) =
-           "MedicinalProductIndication"];
+  repeated Reference therapeutic_indication = 14 [(.google.fhir.proto.valid_reference_type) = "MedicinalProductIndication"];
 
   // Information about the use of the medicinal product in relation to other
   // therapies described as part of the indication
@@ -96,8 +93,7 @@ message MedicinalProductContraindication {
 
     // The type of relationship between the medicinal product indication or
     // contraindication and another therapy
-    CodeableConcept therapy_relationship_type = 4
-        [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
+    CodeableConcept therapy_relationship_type = 4 [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
 
     // Reference to a specific medication (active substance, medicinal product
     // or class of products) as part of an indication or contraindication
@@ -114,8 +110,7 @@ message MedicinalProductContraindication {
         ];
       }
     }
-    MedicationX medication = 5
-        [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
+    MedicationX medication = 5 [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
   }
   repeated OtherTherapy other_therapy = 15;
 

@@ -22,18 +22,17 @@ import "proto/google/fhir/proto/r4/core/codes.proto";
 import "proto/google/fhir/proto/r4/core/datatypes.proto";
 import "proto/google/fhir/proto/r4/core/valuesets.proto";
 
+option go_package = "github.com/google/fhir/go/proto/google/fhir/proto/r4/core/resources/composition_go_proto";
 option java_multiple_files = true;
 option java_package = "com.google.fhir.r4.core";
 option (.google.fhir.proto.fhir_version) = R4;
-option go_package = "github.com/google/fhir/go/proto/google/fhir/proto/r4/core/resources/composition_go_proto";
 
 // Auto-generated from StructureDefinition for Composition.
 // A set of resources composed into a single coherent clinical statement with
 // clinical attestation. See http://hl7.org/fhir/StructureDefinition/Composition
 message Composition {
   option (.google.fhir.proto.structure_definition_kind) = KIND_RESOURCE;
-  option (.google.fhir.proto.fhir_structure_definition_url) =
-      "http://hl7.org/fhir/StructureDefinition/Composition";
+  option (.google.fhir.proto.fhir_structure_definition_url) = "http://hl7.org/fhir/StructureDefinition/Composition";
 
   // Logical id of this artifact
   Id id = 1;
@@ -69,10 +68,8 @@ message Composition {
   // preliminary | final | amended | entered-in-error
   message StatusCode {
     option (.google.fhir.proto.structure_definition_kind) = KIND_PRIMITIVE_TYPE;
-    option (.google.fhir.proto.fhir_valueset_url) =
-        "http://hl7.org/fhir/ValueSet/composition-status";
-    option (.google.fhir.proto.fhir_profile_base) =
-        "http://hl7.org/fhir/StructureDefinition/code";
+    option (.google.fhir.proto.fhir_valueset_url) = "http://hl7.org/fhir/ValueSet/composition-status";
+    option (.google.fhir.proto.fhir_profile_base) = "http://hl7.org/fhir/StructureDefinition/code";
 
     CompositionStatusCode.Value value = 1;
 
@@ -80,27 +77,22 @@ message Composition {
 
     repeated Extension extension = 3;
   }
-  StatusCode status = 11
-      [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
+  StatusCode status = 11 [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
 
   // Kind of composition (LOINC if possible)
-  CodeableConcept type = 12
-      [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
+  CodeableConcept type = 12 [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
 
   // Categorization of Composition
   repeated CodeableConcept category = 13;
 
   // Who and/or what the composition is about
-  Reference subject = 14
-      [(.google.fhir.proto.valid_reference_type) = "Resource"];
+  Reference subject = 14 [(.google.fhir.proto.valid_reference_type) = "Resource"];
 
   // Context of the Composition
-  Reference encounter = 15
-      [(.google.fhir.proto.valid_reference_type) = "Encounter"];
+  Reference encounter = 15 [(.google.fhir.proto.valid_reference_type) = "Encounter"];
 
   // Composition editing time
-  DateTime date = 16
-      [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
+  DateTime date = 16 [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
 
   // Who and/or what authored the composition
   repeated Reference author = 17 [
@@ -114,16 +106,13 @@ message Composition {
   ];
 
   // Human Readable name/title
-  String title = 18
-      [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
+  String title = 18 [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
 
   // As defined by affinity domain
   message ConfidentialityCode {
     option (.google.fhir.proto.structure_definition_kind) = KIND_PRIMITIVE_TYPE;
-    option (.google.fhir.proto.fhir_valueset_url) =
-        "http://terminology.hl7.org/ValueSet/v3-ConfidentialityClassification";
-    option (.google.fhir.proto.fhir_profile_base) =
-        "http://hl7.org/fhir/StructureDefinition/code";
+    option (.google.fhir.proto.fhir_valueset_url) = "http://terminology.hl7.org/ValueSet/v3-ConfidentialityClassification";
+    option (.google.fhir.proto.fhir_profile_base) = "http://hl7.org/fhir/StructureDefinition/code";
 
     V3ConfidentialityClassificationValueSet.Value value = 1;
 
@@ -146,12 +135,9 @@ message Composition {
 
     // personal | professional | legal | official
     message ModeCode {
-      option (.google.fhir.proto.structure_definition_kind) =
-          KIND_PRIMITIVE_TYPE;
-      option (.google.fhir.proto.fhir_valueset_url) =
-          "http://hl7.org/fhir/ValueSet/composition-attestation-mode";
-      option (.google.fhir.proto.fhir_profile_base) =
-          "http://hl7.org/fhir/StructureDefinition/code";
+      option (.google.fhir.proto.structure_definition_kind) = KIND_PRIMITIVE_TYPE;
+      option (.google.fhir.proto.fhir_valueset_url) = "http://hl7.org/fhir/ValueSet/composition-attestation-mode";
+      option (.google.fhir.proto.fhir_profile_base) = "http://hl7.org/fhir/StructureDefinition/code";
 
       CompositionAttestationModeCode.Value value = 1;
 
@@ -159,8 +145,7 @@ message Composition {
 
       repeated Extension extension = 3;
     }
-    ModeCode mode = 4
-        [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
+    ModeCode mode = 4 [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
 
     // When the composition was attested
     DateTime time = 5;
@@ -177,8 +162,7 @@ message Composition {
   repeated Attester attester = 20;
 
   // Organization which maintains the composition
-  Reference custodian = 21
-      [(.google.fhir.proto.valid_reference_type) = "Organization"];
+  Reference custodian = 21 [(.google.fhir.proto.valid_reference_type) = "Organization"];
 
   // Relationships to other compositions/documents
   message RelatesTo {
@@ -193,12 +177,9 @@ message Composition {
 
     // replaces | transforms | signs | appends
     message CodeType {
-      option (.google.fhir.proto.structure_definition_kind) =
-          KIND_PRIMITIVE_TYPE;
-      option (.google.fhir.proto.fhir_valueset_url) =
-          "http://hl7.org/fhir/ValueSet/document-relationship-type";
-      option (.google.fhir.proto.fhir_profile_base) =
-          "http://hl7.org/fhir/StructureDefinition/code";
+      option (.google.fhir.proto.structure_definition_kind) = KIND_PRIMITIVE_TYPE;
+      option (.google.fhir.proto.fhir_valueset_url) = "http://hl7.org/fhir/ValueSet/document-relationship-type";
+      option (.google.fhir.proto.fhir_profile_base) = "http://hl7.org/fhir/StructureDefinition/code";
 
       DocumentRelationshipTypeCode.Value value = 1;
 
@@ -206,8 +187,7 @@ message Composition {
 
       repeated Extension extension = 3;
     }
-    CodeType code = 4
-        [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
+    CodeType code = 4 [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
 
     // Target of the relationship
     message TargetX {
@@ -215,12 +195,10 @@ message Composition {
 
       oneof choice {
         Identifier identifier = 1;
-        Reference reference = 2
-            [(.google.fhir.proto.valid_reference_type) = "Composition"];
+        Reference reference = 2 [(.google.fhir.proto.valid_reference_type) = "Composition"];
       }
     }
-    TargetX target = 5
-        [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
+    TargetX target = 5 [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
   }
   repeated RelatesTo relates_to = 22;
 
@@ -242,17 +220,14 @@ message Composition {
     Period period = 5;
 
     // The event(s) being documented
-    repeated Reference detail = 6
-        [(.google.fhir.proto.valid_reference_type) = "Resource"];
+    repeated Reference detail = 6 [(.google.fhir.proto.valid_reference_type) = "Resource"];
   }
   repeated Event event = 23;
 
   // Composition is broken into sections
   message Section {
-    option (.google.fhir.proto.fhir_path_message_constraint) =
-        "text.exists() or entry.exists() or section.exists()";
-    option (.google.fhir.proto.fhir_path_message_constraint) =
-        "emptyReason.empty() or entry.empty()";
+    option (.google.fhir.proto.fhir_path_message_constraint) = "text.exists() or entry.exists() or section.exists()";
+    option (.google.fhir.proto.fhir_path_message_constraint) = "emptyReason.empty() or entry.empty()";
 
     // Unique id for inter-element referencing
     String id = 1;
@@ -281,20 +256,16 @@ message Composition {
 
     // Who/what the section is about, when it is not about the subject of
     // composition
-    Reference focus = 7
-        [(.google.fhir.proto.valid_reference_type) = "Resource"];
+    Reference focus = 7 [(.google.fhir.proto.valid_reference_type) = "Resource"];
 
     // Text summary of the section, for human interpretation
     Narrative text = 8;
 
     // working | snapshot | changes
     message ModeCode {
-      option (.google.fhir.proto.structure_definition_kind) =
-          KIND_PRIMITIVE_TYPE;
-      option (.google.fhir.proto.fhir_valueset_url) =
-          "http://hl7.org/fhir/ValueSet/list-mode";
-      option (.google.fhir.proto.fhir_profile_base) =
-          "http://hl7.org/fhir/StructureDefinition/code";
+      option (.google.fhir.proto.structure_definition_kind) = KIND_PRIMITIVE_TYPE;
+      option (.google.fhir.proto.fhir_valueset_url) = "http://hl7.org/fhir/ValueSet/list-mode";
+      option (.google.fhir.proto.fhir_profile_base) = "http://hl7.org/fhir/StructureDefinition/code";
 
       ListModeCode.Value value = 1;
 
@@ -308,8 +279,7 @@ message Composition {
     CodeableConcept ordered_by = 10;
 
     // A reference to data that supports this section
-    repeated Reference entry = 11
-        [(.google.fhir.proto.valid_reference_type) = "Resource"];
+    repeated Reference entry = 11 [(.google.fhir.proto.valid_reference_type) = "Resource"];
 
     // Why the section is empty
     CodeableConcept empty_reason = 12;

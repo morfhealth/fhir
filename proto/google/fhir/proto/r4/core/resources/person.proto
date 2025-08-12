@@ -21,18 +21,17 @@ import "proto/google/fhir/proto/annotations.proto";
 import "proto/google/fhir/proto/r4/core/codes.proto";
 import "proto/google/fhir/proto/r4/core/datatypes.proto";
 
+option go_package = "github.com/google/fhir/go/proto/google/fhir/proto/r4/core/resources/person_go_proto";
 option java_multiple_files = true;
 option java_package = "com.google.fhir.r4.core";
 option (.google.fhir.proto.fhir_version) = R4;
-option go_package = "github.com/google/fhir/go/proto/google/fhir/proto/r4/core/resources/person_go_proto";
 
 // Auto-generated from StructureDefinition for Person.
 // A generic person record.
 // See http://hl7.org/fhir/StructureDefinition/Person
 message Person {
   option (.google.fhir.proto.structure_definition_kind) = KIND_RESOURCE;
-  option (.google.fhir.proto.fhir_structure_definition_url) =
-      "http://hl7.org/fhir/StructureDefinition/Person";
+  option (.google.fhir.proto.fhir_structure_definition_url) = "http://hl7.org/fhir/StructureDefinition/Person";
 
   // Logical id of this artifact
   Id id = 1;
@@ -74,10 +73,8 @@ message Person {
   // male | female | other | unknown
   message GenderCode {
     option (.google.fhir.proto.structure_definition_kind) = KIND_PRIMITIVE_TYPE;
-    option (.google.fhir.proto.fhir_valueset_url) =
-        "http://hl7.org/fhir/ValueSet/administrative-gender";
-    option (.google.fhir.proto.fhir_profile_base) =
-        "http://hl7.org/fhir/StructureDefinition/code";
+    option (.google.fhir.proto.fhir_valueset_url) = "http://hl7.org/fhir/ValueSet/administrative-gender";
+    option (.google.fhir.proto.fhir_profile_base) = "http://hl7.org/fhir/StructureDefinition/code";
 
     AdministrativeGenderCode.Value value = 1;
 
@@ -97,8 +94,7 @@ message Person {
   Attachment photo = 16;
 
   // The organization that is the custodian of the person record
-  Reference managing_organization = 17
-      [(.google.fhir.proto.valid_reference_type) = "Organization"];
+  Reference managing_organization = 17 [(.google.fhir.proto.valid_reference_type) = "Organization"];
 
   // This person's record is in active use
   Boolean active = 18;
@@ -125,12 +121,9 @@ message Person {
 
     // level1 | level2 | level3 | level4
     message AssuranceCode {
-      option (.google.fhir.proto.structure_definition_kind) =
-          KIND_PRIMITIVE_TYPE;
-      option (.google.fhir.proto.fhir_valueset_url) =
-          "http://hl7.org/fhir/ValueSet/identity-assuranceLevel";
-      option (.google.fhir.proto.fhir_profile_base) =
-          "http://hl7.org/fhir/StructureDefinition/code";
+      option (.google.fhir.proto.structure_definition_kind) = KIND_PRIMITIVE_TYPE;
+      option (.google.fhir.proto.fhir_valueset_url) = "http://hl7.org/fhir/ValueSet/identity-assuranceLevel";
+      option (.google.fhir.proto.fhir_profile_base) = "http://hl7.org/fhir/StructureDefinition/code";
 
       IdentityAssuranceLevelCode.Value value = 1;
 

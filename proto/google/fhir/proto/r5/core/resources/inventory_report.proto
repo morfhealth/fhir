@@ -21,18 +21,17 @@ import "proto/google/fhir/proto/annotations.proto";
 import "proto/google/fhir/proto/r5/core/codes.proto";
 import "proto/google/fhir/proto/r5/core/datatypes.proto";
 
+option go_package = "github.com/google/fhir/go/proto/google/fhir/proto/r5/core/resources/inventory_report_go_proto";
 option java_multiple_files = true;
 option java_package = "com.google.fhir.r5.core";
 option (.google.fhir.proto.fhir_version) = R5;
-option go_package = "github.com/google/fhir/go/proto/google/fhir/proto/r5/core/resources/inventory_report_go_proto";
 
 // Auto-generated from StructureDefinition for InventoryReport.
 // A report of inventory or stock items.
 // See http://hl7.org/fhir/StructureDefinition/InventoryReport
 message InventoryReport {
   option (.google.fhir.proto.structure_definition_kind) = KIND_RESOURCE;
-  option (.google.fhir.proto.fhir_structure_definition_url) =
-      "http://hl7.org/fhir/StructureDefinition/InventoryReport";
+  option (.google.fhir.proto.fhir_structure_definition_url) = "http://hl7.org/fhir/StructureDefinition/InventoryReport";
 
   // Logical id of this artifact
   Id id = 1;
@@ -68,10 +67,8 @@ message InventoryReport {
   // draft | requested | active | entered-in-error
   message StatusCode {
     option (.google.fhir.proto.structure_definition_kind) = KIND_PRIMITIVE_TYPE;
-    option (.google.fhir.proto.fhir_valueset_url) =
-        "http://hl7.org/fhir/ValueSet/inventoryreport-status";
-    option (.google.fhir.proto.fhir_profile_base) =
-        "http://hl7.org/fhir/StructureDefinition/code";
+    option (.google.fhir.proto.fhir_valueset_url) = "http://hl7.org/fhir/ValueSet/inventoryreport-status";
+    option (.google.fhir.proto.fhir_profile_base) = "http://hl7.org/fhir/StructureDefinition/code";
 
     InventoryReportStatusCode.Value value = 1;
 
@@ -79,16 +76,13 @@ message InventoryReport {
 
     repeated Extension extension = 3;
   }
-  StatusCode status = 11
-      [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
+  StatusCode status = 11 [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
 
   // snapshot | difference
   message CountTypeCode {
     option (.google.fhir.proto.structure_definition_kind) = KIND_PRIMITIVE_TYPE;
-    option (.google.fhir.proto.fhir_valueset_url) =
-        "http://hl7.org/fhir/ValueSet/inventoryreport-counttype";
-    option (.google.fhir.proto.fhir_profile_base) =
-        "http://hl7.org/fhir/StructureDefinition/code";
+    option (.google.fhir.proto.fhir_valueset_url) = "http://hl7.org/fhir/ValueSet/inventoryreport-counttype";
+    option (.google.fhir.proto.fhir_profile_base) = "http://hl7.org/fhir/StructureDefinition/code";
 
     InventoryCountTypeCode.Value value = 1;
 
@@ -96,8 +90,7 @@ message InventoryReport {
 
     repeated Extension extension = 3;
   }
-  CountTypeCode count_type = 12
-      [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
+  CountTypeCode count_type = 12 [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
 
   // addition | subtraction
   CodeableConcept operation_type = 13;
@@ -106,8 +99,7 @@ message InventoryReport {
   CodeableConcept operation_type_reason = 14;
 
   // When the report has been submitted
-  DateTime reported_date_time = 15
-      [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
+  DateTime reported_date_time = 15 [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
 
   // Who submits the report
   Reference reporter = 16 [
@@ -132,8 +124,7 @@ message InventoryReport {
     repeated Extension modifier_extension = 3;
 
     // Location of the inventory items
-    Reference location = 4
-        [(.google.fhir.proto.valid_reference_type) = "Location"];
+    Reference location = 4 [(.google.fhir.proto.valid_reference_type) = "Location"];
 
     // The status of the items that are being reported
     CodeableConcept item_status = 5;
@@ -156,12 +147,10 @@ message InventoryReport {
       CodeableConcept category = 4;
 
       // The quantity of the item or items being reported
-      Quantity quantity = 5
-          [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
+      Quantity quantity = 5 [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
 
       // The code or reference to the item type
-      CodeableReference item = 6
-          [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
+      CodeableReference item = 6 [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
     }
     repeated Item item = 7;
   }

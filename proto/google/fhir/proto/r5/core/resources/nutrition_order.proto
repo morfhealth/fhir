@@ -21,20 +21,18 @@ import "proto/google/fhir/proto/annotations.proto";
 import "proto/google/fhir/proto/r5/core/codes.proto";
 import "proto/google/fhir/proto/r5/core/datatypes.proto";
 
+option go_package = "github.com/google/fhir/go/proto/google/fhir/proto/r5/core/resources/nutrition_order_go_proto";
 option java_multiple_files = true;
 option java_package = "com.google.fhir.r5.core";
 option (.google.fhir.proto.fhir_version) = R5;
-option go_package = "github.com/google/fhir/go/proto/google/fhir/proto/r5/core/resources/nutrition_order_go_proto";
 
 // Auto-generated from StructureDefinition for NutritionOrder.
 // Diet, formula or nutritional supplement request.
 // See http://hl7.org/fhir/StructureDefinition/NutritionOrder
 message NutritionOrder {
   option (.google.fhir.proto.structure_definition_kind) = KIND_RESOURCE;
-  option (.google.fhir.proto.fhir_structure_definition_url) =
-      "http://hl7.org/fhir/StructureDefinition/NutritionOrder";
-  option (.google.fhir.proto.fhir_path_message_warning_constraint) =
-      "oralDiet.exists() or supplement.exists() or enteralFormula.exists()";
+  option (.google.fhir.proto.fhir_structure_definition_url) = "http://hl7.org/fhir/StructureDefinition/NutritionOrder";
+  option (.google.fhir.proto.fhir_path_message_warning_constraint) = "oralDiet.exists() or supplement.exists() or enteralFormula.exists()";
 
   // Logical id of this artifact
   Id id = 1;
@@ -89,10 +87,8 @@ message NutritionOrder {
   // draft | active | on-hold | revoked | completed | entered-in-error | unknown
   message StatusCode {
     option (.google.fhir.proto.structure_definition_kind) = KIND_PRIMITIVE_TYPE;
-    option (.google.fhir.proto.fhir_valueset_url) =
-        "http://hl7.org/fhir/ValueSet/request-status";
-    option (.google.fhir.proto.fhir_profile_base) =
-        "http://hl7.org/fhir/StructureDefinition/code";
+    option (.google.fhir.proto.fhir_valueset_url) = "http://hl7.org/fhir/ValueSet/request-status";
+    option (.google.fhir.proto.fhir_profile_base) = "http://hl7.org/fhir/StructureDefinition/code";
 
     RequestStatusCode.Value value = 1;
 
@@ -100,17 +96,14 @@ message NutritionOrder {
 
     repeated Extension extension = 3;
   }
-  StatusCode status = 14
-      [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
+  StatusCode status = 14 [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
 
   // proposal | plan | directive | order | original-order | reflex-order |
   // filler-order | instance-order | option
   message IntentCode {
     option (.google.fhir.proto.structure_definition_kind) = KIND_PRIMITIVE_TYPE;
-    option (.google.fhir.proto.fhir_valueset_url) =
-        "http://hl7.org/fhir/ValueSet/request-intent";
-    option (.google.fhir.proto.fhir_profile_base) =
-        "http://hl7.org/fhir/StructureDefinition/code";
+    option (.google.fhir.proto.fhir_valueset_url) = "http://hl7.org/fhir/ValueSet/request-intent";
+    option (.google.fhir.proto.fhir_profile_base) = "http://hl7.org/fhir/StructureDefinition/code";
 
     RequestIntentCode.Value value = 1;
 
@@ -118,16 +111,13 @@ message NutritionOrder {
 
     repeated Extension extension = 3;
   }
-  IntentCode intent = 15
-      [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
+  IntentCode intent = 15 [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
 
   // routine | urgent | asap | stat
   message PriorityCode {
     option (.google.fhir.proto.structure_definition_kind) = KIND_PRIMITIVE_TYPE;
-    option (.google.fhir.proto.fhir_valueset_url) =
-        "http://hl7.org/fhir/ValueSet/request-priority";
-    option (.google.fhir.proto.fhir_profile_base) =
-        "http://hl7.org/fhir/StructureDefinition/code";
+    option (.google.fhir.proto.fhir_valueset_url) = "http://hl7.org/fhir/ValueSet/request-priority";
+    option (.google.fhir.proto.fhir_profile_base) = "http://hl7.org/fhir/StructureDefinition/code";
 
     RequestPriorityCode.Value value = 1;
 
@@ -145,16 +135,13 @@ message NutritionOrder {
   ];
 
   // The encounter associated with this nutrition order
-  Reference encounter = 17
-      [(.google.fhir.proto.valid_reference_type) = "Encounter"];
+  Reference encounter = 17 [(.google.fhir.proto.valid_reference_type) = "Encounter"];
 
   // Information to support fulfilling of the nutrition order
-  repeated Reference supporting_information = 31
-      [(.google.fhir.proto.valid_reference_type) = "Resource"];
+  repeated Reference supporting_information = 31 [(.google.fhir.proto.valid_reference_type) = "Resource"];
 
   // Date and time the nutrition order was requested
-  DateTime date_time = 18
-      [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
+  DateTime date_time = 18 [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
 
   // Who ordered the diet, formula or nutritional supplement
   Reference orderer = 19 [
@@ -166,8 +153,7 @@ message NutritionOrder {
   repeated CodeableReference performer = 32;
 
   // List of the patient's food and nutrition-related allergies and intolerances
-  repeated Reference allergy_intolerance = 20
-      [(.google.fhir.proto.valid_reference_type) = "AllergyIntolerance"];
+  repeated Reference allergy_intolerance = 20 [(.google.fhir.proto.valid_reference_type) = "AllergyIntolerance"];
 
   // Order-specific modifier about the type of food that should be given
   repeated CodeableConcept food_preference_modifier = 21;

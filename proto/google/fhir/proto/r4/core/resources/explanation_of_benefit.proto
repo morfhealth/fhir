@@ -21,18 +21,17 @@ import "proto/google/fhir/proto/annotations.proto";
 import "proto/google/fhir/proto/r4/core/codes.proto";
 import "proto/google/fhir/proto/r4/core/datatypes.proto";
 
+option go_package = "github.com/google/fhir/go/proto/google/fhir/proto/r4/core/resources/explanation_of_benefit_go_proto";
 option java_multiple_files = true;
 option java_package = "com.google.fhir.r4.core";
 option (.google.fhir.proto.fhir_version) = R4;
-option go_package = "github.com/google/fhir/go/proto/google/fhir/proto/r4/core/resources/explanation_of_benefit_go_proto";
 
 // Auto-generated from StructureDefinition for ExplanationOfBenefit.
 // Explanation of Benefit resource.
 // See http://hl7.org/fhir/StructureDefinition/ExplanationOfBenefit
 message ExplanationOfBenefit {
   option (.google.fhir.proto.structure_definition_kind) = KIND_RESOURCE;
-  option (.google.fhir.proto.fhir_structure_definition_url) =
-      "http://hl7.org/fhir/StructureDefinition/ExplanationOfBenefit";
+  option (.google.fhir.proto.fhir_structure_definition_url) = "http://hl7.org/fhir/StructureDefinition/ExplanationOfBenefit";
 
   // Logical id of this artifact
   Id id = 1;
@@ -68,10 +67,8 @@ message ExplanationOfBenefit {
   // active | cancelled | draft | entered-in-error
   message StatusCode {
     option (.google.fhir.proto.structure_definition_kind) = KIND_PRIMITIVE_TYPE;
-    option (.google.fhir.proto.fhir_valueset_url) =
-        "http://hl7.org/fhir/ValueSet/explanationofbenefit-status";
-    option (.google.fhir.proto.fhir_profile_base) =
-        "http://hl7.org/fhir/StructureDefinition/code";
+    option (.google.fhir.proto.fhir_valueset_url) = "http://hl7.org/fhir/ValueSet/explanationofbenefit-status";
+    option (.google.fhir.proto.fhir_profile_base) = "http://hl7.org/fhir/StructureDefinition/code";
 
     ExplanationOfBenefitStatusCode.Value value = 1;
 
@@ -79,12 +76,10 @@ message ExplanationOfBenefit {
 
     repeated Extension extension = 3;
   }
-  StatusCode status = 11
-      [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
+  StatusCode status = 11 [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
 
   // Category or discipline
-  CodeableConcept type = 12
-      [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
+  CodeableConcept type = 12 [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
 
   // More granular claim type
   CodeableConcept sub_type = 13;
@@ -92,10 +87,8 @@ message ExplanationOfBenefit {
   // claim | preauthorization | predetermination
   message UseCode {
     option (.google.fhir.proto.structure_definition_kind) = KIND_PRIMITIVE_TYPE;
-    option (.google.fhir.proto.fhir_valueset_url) =
-        "http://hl7.org/fhir/ValueSet/claim-use";
-    option (.google.fhir.proto.fhir_profile_base) =
-        "http://hl7.org/fhir/StructureDefinition/code";
+    option (.google.fhir.proto.fhir_valueset_url) = "http://hl7.org/fhir/ValueSet/claim-use";
+    option (.google.fhir.proto.fhir_profile_base) = "http://hl7.org/fhir/StructureDefinition/code";
 
     .google.fhir.r4.core.UseCode.Value value = 1;
 
@@ -103,8 +96,7 @@ message ExplanationOfBenefit {
 
     repeated Extension extension = 3;
   }
-  UseCode use = 14
-      [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
+  UseCode use = 14 [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
 
   // The recipient of the products and services
   Reference patient = 15 [
@@ -116,8 +108,7 @@ message ExplanationOfBenefit {
   Period billable_period = 16;
 
   // Response creation date
-  DateTime created = 17
-      [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
+  DateTime created = 17 [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
 
   // Author of the claim
   Reference enterer = 18 [
@@ -177,8 +168,7 @@ message ExplanationOfBenefit {
   ];
 
   // Original prescription if superceded by fulfiller
-  Reference original_prescription = 26
-      [(.google.fhir.proto.valid_reference_type) = "MedicationRequest"];
+  Reference original_prescription = 26 [(.google.fhir.proto.valid_reference_type) = "MedicationRequest"];
 
   // Recipient of benefits payable
   message Payee {
@@ -206,27 +196,22 @@ message ExplanationOfBenefit {
   Payee payee = 27;
 
   // Treatment Referral
-  Reference referral = 28
-      [(.google.fhir.proto.valid_reference_type) = "ServiceRequest"];
+  Reference referral = 28 [(.google.fhir.proto.valid_reference_type) = "ServiceRequest"];
 
   // Servicing Facility
-  Reference facility = 29
-      [(.google.fhir.proto.valid_reference_type) = "Location"];
+  Reference facility = 29 [(.google.fhir.proto.valid_reference_type) = "Location"];
 
   // Claim reference
   Reference claim = 30 [(.google.fhir.proto.valid_reference_type) = "Claim"];
 
   // Claim response reference
-  Reference claim_response = 31
-      [(.google.fhir.proto.valid_reference_type) = "ClaimResponse"];
+  Reference claim_response = 31 [(.google.fhir.proto.valid_reference_type) = "ClaimResponse"];
 
   // queued | complete | error | partial
   message OutcomeCode {
     option (.google.fhir.proto.structure_definition_kind) = KIND_PRIMITIVE_TYPE;
-    option (.google.fhir.proto.fhir_valueset_url) =
-        "http://hl7.org/fhir/ValueSet/remittance-outcome";
-    option (.google.fhir.proto.fhir_profile_base) =
-        "http://hl7.org/fhir/StructureDefinition/code";
+    option (.google.fhir.proto.fhir_valueset_url) = "http://hl7.org/fhir/ValueSet/remittance-outcome";
+    option (.google.fhir.proto.fhir_profile_base) = "http://hl7.org/fhir/StructureDefinition/code";
 
     ClaimProcessingCode.Value value = 1;
 
@@ -234,8 +219,7 @@ message ExplanationOfBenefit {
 
     repeated Extension extension = 3;
   }
-  OutcomeCode outcome = 32
-      [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
+  OutcomeCode outcome = 32 [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
 
   // Disposition Message
   String disposition = 33;
@@ -258,8 +242,7 @@ message ExplanationOfBenefit {
     repeated Extension modifier_extension = 3;
 
     // Order of care team
-    PositiveInt sequence = 4
-        [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
+    PositiveInt sequence = 4 [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
 
     // Practitioner or organization
     Reference provider = 5 [
@@ -292,12 +275,10 @@ message ExplanationOfBenefit {
     repeated Extension modifier_extension = 3;
 
     // Information instance identifier
-    PositiveInt sequence = 4
-        [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
+    PositiveInt sequence = 4 [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
 
     // Classification of the supplied information
-    CodeableConcept category = 5
-        [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
+    CodeableConcept category = 5 [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
 
     // Type of information
     CodeableConcept code = 6;
@@ -322,8 +303,7 @@ message ExplanationOfBenefit {
         String string_value = 2 [json_name = "string"];
         Quantity quantity = 3;
         Attachment attachment = 4;
-        Reference reference = 5
-            [(.google.fhir.proto.valid_reference_type) = "Resource"];
+        Reference reference = 5 [(.google.fhir.proto.valid_reference_type) = "Resource"];
       }
     }
     ValueX value = 8;
@@ -345,8 +325,7 @@ message ExplanationOfBenefit {
     repeated Extension modifier_extension = 3;
 
     // Diagnosis instance identifier
-    PositiveInt sequence = 4
-        [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
+    PositiveInt sequence = 4 [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
 
     // Nature of illness or problem
     message DiagnosisX {
@@ -354,12 +333,10 @@ message ExplanationOfBenefit {
 
       oneof choice {
         CodeableConcept codeable_concept = 1;
-        Reference reference = 2
-            [(.google.fhir.proto.valid_reference_type) = "Condition"];
+        Reference reference = 2 [(.google.fhir.proto.valid_reference_type) = "Condition"];
       }
     }
-    DiagnosisX diagnosis = 5
-        [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
+    DiagnosisX diagnosis = 5 [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
 
     // Timing or nature of the diagnosis
     repeated CodeableConcept type = 6;
@@ -384,8 +361,7 @@ message ExplanationOfBenefit {
     repeated Extension modifier_extension = 3;
 
     // Procedure instance identifier
-    PositiveInt sequence = 4
-        [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
+    PositiveInt sequence = 4 [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
 
     // Category of Procedure
     repeated CodeableConcept type = 5;
@@ -399,16 +375,13 @@ message ExplanationOfBenefit {
 
       oneof choice {
         CodeableConcept codeable_concept = 1;
-        Reference reference = 2
-            [(.google.fhir.proto.valid_reference_type) = "Procedure"];
+        Reference reference = 2 [(.google.fhir.proto.valid_reference_type) = "Procedure"];
       }
     }
-    ProcedureX procedure = 7
-        [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
+    ProcedureX procedure = 7 [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
 
     // Unique device identifier
-    repeated Reference udi = 8
-        [(.google.fhir.proto.valid_reference_type) = "Device"];
+    repeated Reference udi = 8 [(.google.fhir.proto.valid_reference_type) = "Device"];
   }
   repeated Procedure procedure = 39;
 
@@ -427,8 +400,7 @@ message ExplanationOfBenefit {
     repeated Extension modifier_extension = 3;
 
     // Coverage to be used for adjudication
-    Boolean focal = 4
-        [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
+    Boolean focal = 4 [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
 
     // Insurance information
     Reference coverage = 5 [
@@ -439,8 +411,7 @@ message ExplanationOfBenefit {
     // Prior authorization reference number
     repeated String pre_auth_ref = 6;
   }
-  repeated Insurance insurance = 41
-      [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
+  repeated Insurance insurance = 41 [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
 
   // Details of the event
   message Accident {
@@ -465,8 +436,7 @@ message ExplanationOfBenefit {
 
       oneof choice {
         Address address = 1;
-        Reference reference = 2
-            [(.google.fhir.proto.valid_reference_type) = "Location"];
+        Reference reference = 2 [(.google.fhir.proto.valid_reference_type) = "Location"];
       }
     }
     LocationX location = 6;
@@ -485,8 +455,7 @@ message ExplanationOfBenefit {
     repeated Extension modifier_extension = 3;
 
     // Item instance identifier
-    PositiveInt sequence = 4
-        [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
+    PositiveInt sequence = 4 [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
 
     // Applicable care team members
     repeated PositiveInt care_team_sequence = 5;
@@ -507,8 +476,7 @@ message ExplanationOfBenefit {
     CodeableConcept category = 10;
 
     // Billing, service, product, or drug code
-    CodeableConcept product_or_service = 11
-        [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
+    CodeableConcept product_or_service = 11 [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
 
     // Product or service billing modifiers
     repeated CodeableConcept modifier = 12;
@@ -534,8 +502,7 @@ message ExplanationOfBenefit {
       oneof choice {
         CodeableConcept codeable_concept = 1;
         Address address = 2;
-        Reference reference = 3
-            [(.google.fhir.proto.valid_reference_type) = "Location"];
+        Reference reference = 3 [(.google.fhir.proto.valid_reference_type) = "Location"];
       }
     }
     LocationX location = 15;
@@ -553,8 +520,7 @@ message ExplanationOfBenefit {
     Money net = 19;
 
     // Unique device identifier
-    repeated Reference udi = 20
-        [(.google.fhir.proto.valid_reference_type) = "Device"];
+    repeated Reference udi = 20 [(.google.fhir.proto.valid_reference_type) = "Device"];
 
     // Anatomical location
     CodeableConcept body_site = 21;
@@ -563,8 +529,7 @@ message ExplanationOfBenefit {
     repeated CodeableConcept sub_site = 22;
 
     // Encounters related to this billed item
-    repeated Reference encounter = 23
-        [(.google.fhir.proto.valid_reference_type) = "Encounter"];
+    repeated Reference encounter = 23 [(.google.fhir.proto.valid_reference_type) = "Encounter"];
 
     // Applicable note numbers
     repeated PositiveInt note_number = 24;
@@ -581,8 +546,7 @@ message ExplanationOfBenefit {
       repeated Extension modifier_extension = 3;
 
       // Type of adjudication information
-      CodeableConcept category = 4
-          [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
+      CodeableConcept category = 4 [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
 
       // Explanation of adjudication outcome
       CodeableConcept reason = 5;
@@ -607,8 +571,7 @@ message ExplanationOfBenefit {
       repeated Extension modifier_extension = 3;
 
       // Product or service provided
-      PositiveInt sequence = 4
-          [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
+      PositiveInt sequence = 4 [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
 
       // Revenue or cost center code
       CodeableConcept revenue = 5;
@@ -617,8 +580,7 @@ message ExplanationOfBenefit {
       CodeableConcept category = 6;
 
       // Billing, service, product, or drug code
-      CodeableConcept product_or_service = 7
-          [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
+      CodeableConcept product_or_service = 7 [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
 
       // Service/Product billing modifiers
       repeated CodeableConcept modifier = 8;
@@ -639,8 +601,7 @@ message ExplanationOfBenefit {
       Money net = 13;
 
       // Unique device identifier
-      repeated Reference udi = 14
-          [(.google.fhir.proto.valid_reference_type) = "Device"];
+      repeated Reference udi = 14 [(.google.fhir.proto.valid_reference_type) = "Device"];
 
       // Applicable note numbers
       repeated PositiveInt note_number = 15;
@@ -660,8 +621,7 @@ message ExplanationOfBenefit {
         repeated Extension modifier_extension = 3;
 
         // Product or service provided
-        PositiveInt sequence = 4
-            [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
+        PositiveInt sequence = 4 [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
 
         // Revenue or cost center code
         CodeableConcept revenue = 5;
@@ -670,8 +630,7 @@ message ExplanationOfBenefit {
         CodeableConcept category = 6;
 
         // Billing, service, product, or drug code
-        CodeableConcept product_or_service = 7
-            [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
+        CodeableConcept product_or_service = 7 [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
 
         // Service/Product billing modifiers
         repeated CodeableConcept modifier = 8;
@@ -692,8 +651,7 @@ message ExplanationOfBenefit {
         Money net = 13;
 
         // Unique device identifier
-        repeated Reference udi = 14
-            [(.google.fhir.proto.valid_reference_type) = "Device"];
+        repeated Reference udi = 14 [(.google.fhir.proto.valid_reference_type) = "Device"];
 
         // Applicable note numbers
         repeated PositiveInt note_number = 15;
@@ -735,8 +693,7 @@ message ExplanationOfBenefit {
     ];
 
     // Billing, service, product, or drug code
-    CodeableConcept product_or_service = 8
-        [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
+    CodeableConcept product_or_service = 8 [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
 
     // Service/Product billing modifiers
     repeated CodeableConcept modifier = 9;
@@ -762,8 +719,7 @@ message ExplanationOfBenefit {
       oneof choice {
         CodeableConcept codeable_concept = 1;
         Address address = 2;
-        Reference reference = 3
-            [(.google.fhir.proto.valid_reference_type) = "Location"];
+        Reference reference = 3 [(.google.fhir.proto.valid_reference_type) = "Location"];
       }
     }
     LocationX location = 12;
@@ -804,8 +760,7 @@ message ExplanationOfBenefit {
       repeated Extension modifier_extension = 3;
 
       // Billing, service, product, or drug code
-      CodeableConcept product_or_service = 4
-          [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
+      CodeableConcept product_or_service = 4 [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
 
       // Service/Product billing modifiers
       repeated CodeableConcept modifier = 5;
@@ -840,8 +795,7 @@ message ExplanationOfBenefit {
         repeated Extension modifier_extension = 3;
 
         // Billing, service, product, or drug code
-        CodeableConcept product_or_service = 4
-            [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
+        CodeableConcept product_or_service = 4 [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
 
         // Service/Product billing modifiers
         repeated CodeableConcept modifier = 5;
@@ -885,12 +839,10 @@ message ExplanationOfBenefit {
     repeated Extension modifier_extension = 3;
 
     // Type of adjudication information
-    CodeableConcept category = 4
-        [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
+    CodeableConcept category = 4 [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
 
     // Financial total for the category
-    Money amount = 5
-        [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
+    Money amount = 5 [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
   }
   repeated Total total = 46;
 
@@ -947,12 +899,9 @@ message ExplanationOfBenefit {
 
     // display | print | printoper
     message TypeCode {
-      option (.google.fhir.proto.structure_definition_kind) =
-          KIND_PRIMITIVE_TYPE;
-      option (.google.fhir.proto.fhir_valueset_url) =
-          "http://hl7.org/fhir/ValueSet/note-type";
-      option (.google.fhir.proto.fhir_profile_base) =
-          "http://hl7.org/fhir/StructureDefinition/code";
+      option (.google.fhir.proto.structure_definition_kind) = KIND_PRIMITIVE_TYPE;
+      option (.google.fhir.proto.fhir_valueset_url) = "http://hl7.org/fhir/ValueSet/note-type";
+      option (.google.fhir.proto.fhir_profile_base) = "http://hl7.org/fhir/StructureDefinition/code";
 
       NoteTypeCode.Value value = 1;
 
@@ -985,8 +934,7 @@ message ExplanationOfBenefit {
     repeated Extension modifier_extension = 3;
 
     // Benefit classification
-    CodeableConcept category = 4
-        [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
+    CodeableConcept category = 4 [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
 
     // Excluded from the plan
     Boolean excluded = 5;
@@ -1018,8 +966,7 @@ message ExplanationOfBenefit {
       repeated Extension modifier_extension = 3;
 
       // Benefit classification
-      CodeableConcept type = 4
-          [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
+      CodeableConcept type = 4 [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
 
       // Benefits allowed
       message AllowedX {

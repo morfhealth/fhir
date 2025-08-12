@@ -21,18 +21,17 @@ import "proto/google/fhir/proto/annotations.proto";
 import "proto/google/fhir/proto/r5/core/codes.proto";
 import "proto/google/fhir/proto/r5/core/datatypes.proto";
 
+option go_package = "github.com/google/fhir/go/proto/google/fhir/proto/r5/core/resources/medication_administration_go_proto";
 option java_multiple_files = true;
 option java_package = "com.google.fhir.r5.core";
 option (.google.fhir.proto.fhir_version) = R5;
-option go_package = "github.com/google/fhir/go/proto/google/fhir/proto/r5/core/resources/medication_administration_go_proto";
 
 // Auto-generated from StructureDefinition for MedicationAdministration.
 // Administration of medication to a patient.
 // See http://hl7.org/fhir/StructureDefinition/MedicationAdministration
 message MedicationAdministration {
   option (.google.fhir.proto.structure_definition_kind) = KIND_RESOURCE;
-  option (.google.fhir.proto.fhir_structure_definition_url) =
-      "http://hl7.org/fhir/StructureDefinition/MedicationAdministration";
+  option (.google.fhir.proto.fhir_structure_definition_url) = "http://hl7.org/fhir/StructureDefinition/MedicationAdministration";
 
   // Logical id of this artifact
   Id id = 1;
@@ -66,8 +65,7 @@ message MedicationAdministration {
   repeated Identifier identifier = 10;
 
   // Plan this is fulfilled by this administration
-  repeated Reference based_on = 29
-      [(.google.fhir.proto.valid_reference_type) = "CarePlan"];
+  repeated Reference based_on = 29 [(.google.fhir.proto.valid_reference_type) = "CarePlan"];
 
   // Part of referenced event
   repeated Reference part_of = 12 [
@@ -80,10 +78,8 @@ message MedicationAdministration {
   // unknown
   message StatusCode {
     option (.google.fhir.proto.structure_definition_kind) = KIND_PRIMITIVE_TYPE;
-    option (.google.fhir.proto.fhir_valueset_url) =
-        "http://hl7.org/fhir/ValueSet/medication-admin-status";
-    option (.google.fhir.proto.fhir_profile_base) =
-        "http://hl7.org/fhir/StructureDefinition/code";
+    option (.google.fhir.proto.fhir_valueset_url) = "http://hl7.org/fhir/ValueSet/medication-admin-status";
+    option (.google.fhir.proto.fhir_profile_base) = "http://hl7.org/fhir/StructureDefinition/code";
 
     MedicationAdministrationStatusCode.Value value = 1;
 
@@ -91,8 +87,7 @@ message MedicationAdministration {
 
     repeated Extension extension = 3;
   }
-  StatusCode status = 13
-      [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
+  StatusCode status = 13 [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
 
   // Reason administration not performed
   repeated CodeableConcept status_reason = 14;
@@ -101,8 +96,7 @@ message MedicationAdministration {
   repeated CodeableConcept category = 30;
 
   // What was administered
-  CodeableReference medication = 31
-      [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
+  CodeableReference medication = 31 [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
 
   // Who received medication
   Reference subject = 17 [
@@ -112,12 +106,10 @@ message MedicationAdministration {
   ];
 
   // Encounter administered as part of
-  Reference encounter = 32
-      [(.google.fhir.proto.valid_reference_type) = "Encounter"];
+  Reference encounter = 32 [(.google.fhir.proto.valid_reference_type) = "Encounter"];
 
   // Additional information to support administration
-  repeated Reference supporting_information = 19
-      [(.google.fhir.proto.valid_reference_type) = "Resource"];
+  repeated Reference supporting_information = 19 [(.google.fhir.proto.valid_reference_type) = "Resource"];
 
   // Specific date/time or interval of time during which the administration took
   // place (or did not take place)
@@ -130,8 +122,7 @@ message MedicationAdministration {
       Timing timing = 3;
     }
   }
-  OccurenceX occurence = 33
-      [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
+  OccurenceX occurence = 33 [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
 
   // When the MedicationAdministration was first captured in the subject's
   // record
@@ -159,8 +150,7 @@ message MedicationAdministration {
     CodeableConcept function = 4;
 
     // Who or what performed the medication administration
-    CodeableReference actor = 6
-        [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
+    CodeableReference actor = 6 [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
   }
   repeated Performer performer = 21;
 
@@ -169,8 +159,7 @@ message MedicationAdministration {
   repeated CodeableReference reason = 37;
 
   // Request administration performed against
-  Reference request = 24
-      [(.google.fhir.proto.valid_reference_type) = "MedicationRequest"];
+  Reference request = 24 [(.google.fhir.proto.valid_reference_type) = "MedicationRequest"];
 
   // Device used to administer
   repeated CodeableReference device = 38;
@@ -180,8 +169,7 @@ message MedicationAdministration {
 
   // Details of how medication was taken
   message Dosage {
-    option (.google.fhir.proto.fhir_path_message_constraint) =
-        "(dose.exists() or rate.exists() or text.exists())";
+    option (.google.fhir.proto.fhir_path_message_constraint) = "(dose.exists() or rate.exists() or text.exists())";
 
     // Unique id for inter-element referencing
     String id = 1;
@@ -221,6 +209,5 @@ message MedicationAdministration {
   Dosage dosage = 27;
 
   // A list of events of interest in the lifecycle
-  repeated Reference event_history = 28
-      [(.google.fhir.proto.valid_reference_type) = "Provenance"];
+  repeated Reference event_history = 28 [(.google.fhir.proto.valid_reference_type) = "Provenance"];
 }

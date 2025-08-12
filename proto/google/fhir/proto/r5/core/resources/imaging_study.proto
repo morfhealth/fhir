@@ -21,18 +21,17 @@ import "proto/google/fhir/proto/annotations.proto";
 import "proto/google/fhir/proto/r5/core/codes.proto";
 import "proto/google/fhir/proto/r5/core/datatypes.proto";
 
+option go_package = "github.com/google/fhir/go/proto/google/fhir/proto/r5/core/resources/imaging_study_go_proto";
 option java_multiple_files = true;
 option java_package = "com.google.fhir.r5.core";
 option (.google.fhir.proto.fhir_version) = R5;
-option go_package = "github.com/google/fhir/go/proto/google/fhir/proto/r5/core/resources/imaging_study_go_proto";
 
 // Auto-generated from StructureDefinition for ImagingStudy.
 // A set of images produced in single study (one or more series of references
 // images). See http://hl7.org/fhir/StructureDefinition/ImagingStudy
 message ImagingStudy {
   option (.google.fhir.proto.structure_definition_kind) = KIND_RESOURCE;
-  option (.google.fhir.proto.fhir_structure_definition_url) =
-      "http://hl7.org/fhir/StructureDefinition/ImagingStudy";
+  option (.google.fhir.proto.fhir_structure_definition_url) = "http://hl7.org/fhir/StructureDefinition/ImagingStudy";
 
   // Logical id of this artifact
   Id id = 1;
@@ -68,10 +67,8 @@ message ImagingStudy {
   // registered | available | cancelled | entered-in-error | unknown
   message StatusCode {
     option (.google.fhir.proto.structure_definition_kind) = KIND_PRIMITIVE_TYPE;
-    option (.google.fhir.proto.fhir_valueset_url) =
-        "http://hl7.org/fhir/ValueSet/imagingstudy-status";
-    option (.google.fhir.proto.fhir_profile_base) =
-        "http://hl7.org/fhir/StructureDefinition/code";
+    option (.google.fhir.proto.fhir_valueset_url) = "http://hl7.org/fhir/ValueSet/imagingstudy-status";
+    option (.google.fhir.proto.fhir_profile_base) = "http://hl7.org/fhir/StructureDefinition/code";
 
     ImagingStudyStatusCode.Value value = 1;
 
@@ -79,8 +76,7 @@ message ImagingStudy {
 
     repeated Extension extension = 3;
   }
-  StatusCode status = 11
-      [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
+  StatusCode status = 11 [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
 
   // All of the distinct values for series' modalities
   repeated CodeableConcept modality = 30;
@@ -94,8 +90,7 @@ message ImagingStudy {
   ];
 
   // Encounter with which this imaging study is associated
-  Reference encounter = 14
-      [(.google.fhir.proto.valid_reference_type) = "Encounter"];
+  Reference encounter = 14 [(.google.fhir.proto.valid_reference_type) = "Encounter"];
 
   // When the study was started
   DateTime started = 15;
@@ -110,8 +105,7 @@ message ImagingStudy {
   ];
 
   // Part of referenced event
-  repeated Reference part_of = 31
-      [(.google.fhir.proto.valid_reference_type) = "Procedure"];
+  repeated Reference part_of = 31 [(.google.fhir.proto.valid_reference_type) = "Procedure"];
 
   // Referring physician
   Reference referrer = 17 [
@@ -120,8 +114,7 @@ message ImagingStudy {
   ];
 
   // Study access endpoint
-  repeated Reference endpoint = 19
-      [(.google.fhir.proto.valid_reference_type) = "Endpoint"];
+  repeated Reference endpoint = 19 [(.google.fhir.proto.valid_reference_type) = "Endpoint"];
 
   // Number of Study Related Series
   UnsignedInt number_of_series = 20;
@@ -133,8 +126,7 @@ message ImagingStudy {
   repeated CodeableReference procedure = 32;
 
   // Where ImagingStudy occurred
-  Reference location = 24
-      [(.google.fhir.proto.valid_reference_type) = "Location"];
+  Reference location = 24 [(.google.fhir.proto.valid_reference_type) = "Location"];
 
   // Why the study was requested / performed
   repeated CodeableReference reason = 33;
@@ -163,8 +155,7 @@ message ImagingStudy {
     UnsignedInt number = 5;
 
     // The modality used for this series
-    CodeableConcept modality = 16
-        [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
+    CodeableConcept modality = 16 [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
 
     // A short human readable summary of the series
     String description = 7;
@@ -173,8 +164,7 @@ message ImagingStudy {
     UnsignedInt number_of_instances = 8;
 
     // Series access endpoint
-    repeated Reference endpoint = 9
-        [(.google.fhir.proto.valid_reference_type) = "Endpoint"];
+    repeated Reference endpoint = 9 [(.google.fhir.proto.valid_reference_type) = "Endpoint"];
 
     // Body part examined
     CodeableReference body_site = 17;
@@ -183,8 +173,7 @@ message ImagingStudy {
     CodeableConcept laterality = 18;
 
     // Specimen imaged
-    repeated Reference specimen = 12
-        [(.google.fhir.proto.valid_reference_type) = "Specimen"];
+    repeated Reference specimen = 12 [(.google.fhir.proto.valid_reference_type) = "Specimen"];
 
     // When the series started
     DateTime started = 13;
@@ -230,12 +219,10 @@ message ImagingStudy {
       repeated Extension modifier_extension = 3;
 
       // DICOM SOP Instance UID
-      Id uid = 4
-          [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
+      Id uid = 4 [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
 
       // DICOM class type
-      Coding sop_class = 5
-          [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
+      Coding sop_class = 5 [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
 
       // The number of this instance in the series
       UnsignedInt number = 6;

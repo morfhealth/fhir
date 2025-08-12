@@ -21,18 +21,17 @@ import "proto/google/fhir/proto/annotations.proto";
 import "proto/google/fhir/proto/r5/core/codes.proto";
 import "proto/google/fhir/proto/r5/core/datatypes.proto";
 
+option go_package = "github.com/google/fhir/go/proto/google/fhir/proto/r5/core/resources/artifact_assessment_go_proto";
 option java_multiple_files = true;
 option java_package = "com.google.fhir.r5.core";
 option (.google.fhir.proto.fhir_version) = R5;
-option go_package = "github.com/google/fhir/go/proto/google/fhir/proto/r5/core/resources/artifact_assessment_go_proto";
 
 // Auto-generated from StructureDefinition for ArtifactAssessment.
 // Adds metadata-supported comments, classifiers or ratings related to a
 // Resource. See http://hl7.org/fhir/StructureDefinition/ArtifactAssessment
 message ArtifactAssessment {
   option (.google.fhir.proto.structure_definition_kind) = KIND_RESOURCE;
-  option (.google.fhir.proto.fhir_structure_definition_url) =
-      "http://hl7.org/fhir/StructureDefinition/ArtifactAssessment";
+  option (.google.fhir.proto.fhir_structure_definition_url) = "http://hl7.org/fhir/StructureDefinition/ArtifactAssessment";
 
   // Logical id of this artifact
   Id id = 1;
@@ -73,8 +72,7 @@ message ArtifactAssessment {
     option (.google.fhir.proto.is_choice_type) = true;
 
     oneof choice {
-      Reference reference = 1
-          [(.google.fhir.proto.valid_reference_type) = "Citation"];
+      Reference reference = 1 [(.google.fhir.proto.valid_reference_type) = "Citation"];
       Markdown markdown = 2;
     }
   }
@@ -97,14 +95,12 @@ message ArtifactAssessment {
     option (.google.fhir.proto.is_choice_type) = true;
 
     oneof choice {
-      Reference reference = 1
-          [(.google.fhir.proto.valid_reference_type) = "Resource"];
+      Reference reference = 1 [(.google.fhir.proto.valid_reference_type) = "Resource"];
       Canonical canonical = 2;
       Uri uri = 3;
     }
   }
-  ArtifactX artifact = 17
-      [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
+  ArtifactX artifact = 17 [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
 
   // Comment, classifier, or rating content
   message Content {
@@ -119,12 +115,9 @@ message ArtifactAssessment {
 
     // comment | classifier | rating | container | response | change-request
     message InformationTypeCode {
-      option (.google.fhir.proto.structure_definition_kind) =
-          KIND_PRIMITIVE_TYPE;
-      option (.google.fhir.proto.fhir_valueset_url) =
-          "http://hl7.org/fhir/ValueSet/artifactassessment-information-type";
-      option (.google.fhir.proto.fhir_profile_base) =
-          "http://hl7.org/fhir/StructureDefinition/code";
+      option (.google.fhir.proto.structure_definition_kind) = KIND_PRIMITIVE_TYPE;
+      option (.google.fhir.proto.fhir_valueset_url) = "http://hl7.org/fhir/ValueSet/artifactassessment-information-type";
+      option (.google.fhir.proto.fhir_profile_base) = "http://hl7.org/fhir/StructureDefinition/code";
 
       ArtifactAssessmentInformationTypeCode.Value value = 1;
 
@@ -174,10 +167,8 @@ message ArtifactAssessment {
   // entered-in-error
   message WorkflowStatusCode {
     option (.google.fhir.proto.structure_definition_kind) = KIND_PRIMITIVE_TYPE;
-    option (.google.fhir.proto.fhir_valueset_url) =
-        "http://hl7.org/fhir/ValueSet/artifactassessment-workflow-status";
-    option (.google.fhir.proto.fhir_profile_base) =
-        "http://hl7.org/fhir/StructureDefinition/code";
+    option (.google.fhir.proto.fhir_valueset_url) = "http://hl7.org/fhir/ValueSet/artifactassessment-workflow-status";
+    option (.google.fhir.proto.fhir_profile_base) = "http://hl7.org/fhir/StructureDefinition/code";
 
     ArtifactAssessmentWorkflowStatusCode.Value value = 1;
 
@@ -191,10 +182,8 @@ message ArtifactAssessment {
   // not-persuasive-with-modification
   message DispositionCode {
     option (.google.fhir.proto.structure_definition_kind) = KIND_PRIMITIVE_TYPE;
-    option (.google.fhir.proto.fhir_valueset_url) =
-        "http://hl7.org/fhir/ValueSet/artifactassessment-disposition";
-    option (.google.fhir.proto.fhir_profile_base) =
-        "http://hl7.org/fhir/StructureDefinition/code";
+    option (.google.fhir.proto.fhir_valueset_url) = "http://hl7.org/fhir/ValueSet/artifactassessment-disposition";
+    option (.google.fhir.proto.fhir_profile_base) = "http://hl7.org/fhir/StructureDefinition/code";
 
     ArtifactAssessmentDispositionCode.Value value = 1;
 

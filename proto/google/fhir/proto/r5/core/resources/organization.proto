@@ -20,20 +20,18 @@ import "google/protobuf/any.proto";
 import "proto/google/fhir/proto/annotations.proto";
 import "proto/google/fhir/proto/r5/core/datatypes.proto";
 
+option go_package = "github.com/google/fhir/go/proto/google/fhir/proto/r5/core/resources/organization_go_proto";
 option java_multiple_files = true;
 option java_package = "com.google.fhir.r5.core";
 option (.google.fhir.proto.fhir_version) = R5;
-option go_package = "github.com/google/fhir/go/proto/google/fhir/proto/r5/core/resources/organization_go_proto";
 
 // Auto-generated from StructureDefinition for Organization.
 // A grouping of people or organizations with a common purpose.
 // See http://hl7.org/fhir/StructureDefinition/Organization
 message Organization {
   option (.google.fhir.proto.structure_definition_kind) = KIND_RESOURCE;
-  option (.google.fhir.proto.fhir_structure_definition_url) =
-      "http://hl7.org/fhir/StructureDefinition/Organization";
-  option (.google.fhir.proto.fhir_path_message_constraint) =
-      "(identifier.count() + name.count()) > 0";
+  option (.google.fhir.proto.fhir_structure_definition_url) = "http://hl7.org/fhir/StructureDefinition/Organization";
+  option (.google.fhir.proto.fhir_path_message_constraint) = "(identifier.count() + name.count()) > 0";
 
   // Logical id of this artifact
   Id id = 1;
@@ -85,20 +83,16 @@ message Organization {
 
   // Official contact details for the Organization
   repeated ExtendedContactDetail contact = 21 [
-    (.google.fhir.proto.fhir_path_constraint) =
-        "telecom.where(use = 'home').empty()",
-    (.google.fhir.proto.fhir_path_constraint) =
-        "address.where(use = 'home').empty()"
+    (.google.fhir.proto.fhir_path_constraint) = "telecom.where(use = 'home').empty()",
+    (.google.fhir.proto.fhir_path_constraint) = "address.where(use = 'home').empty()"
   ];
 
   // The organization of which this organization forms a part
-  Reference part_of = 17
-      [(.google.fhir.proto.valid_reference_type) = "Organization"];
+  Reference part_of = 17 [(.google.fhir.proto.valid_reference_type) = "Organization"];
 
   // Technical endpoints providing access to services operated for the
   // organization
-  repeated Reference endpoint = 19
-      [(.google.fhir.proto.valid_reference_type) = "Endpoint"];
+  repeated Reference endpoint = 19 [(.google.fhir.proto.valid_reference_type) = "Endpoint"];
 
   // Qualifications, certifications, accreditations, licenses, training, etc.
   // pertaining to the provision of care
@@ -116,15 +110,13 @@ message Organization {
     repeated Identifier identifier = 4;
 
     // Coded representation of the qualification
-    CodeableConcept code = 5
-        [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
+    CodeableConcept code = 5 [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
 
     // Period during which the qualification is valid
     Period period = 6;
 
     // Organization that regulates and issues the qualification
-    Reference issuer = 7
-        [(.google.fhir.proto.valid_reference_type) = "Organization"];
+    Reference issuer = 7 [(.google.fhir.proto.valid_reference_type) = "Organization"];
   }
   repeated Qualification qualification = 22;
 }

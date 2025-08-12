@@ -21,20 +21,18 @@ import "proto/google/fhir/proto/annotations.proto";
 import "proto/google/fhir/proto/r5/core/codes.proto";
 import "proto/google/fhir/proto/r5/core/datatypes.proto";
 
+option go_package = "github.com/google/fhir/go/proto/google/fhir/proto/r5/core/resources/insurance_plan_go_proto";
 option java_multiple_files = true;
 option java_package = "com.google.fhir.r5.core";
 option (.google.fhir.proto.fhir_version) = R5;
-option go_package = "github.com/google/fhir/go/proto/google/fhir/proto/r5/core/resources/insurance_plan_go_proto";
 
 // Auto-generated from StructureDefinition for InsurancePlan.
 // Details of a Health Insurance product/plan provided by an organization.
 // See http://hl7.org/fhir/StructureDefinition/InsurancePlan
 message InsurancePlan {
   option (.google.fhir.proto.structure_definition_kind) = KIND_RESOURCE;
-  option (.google.fhir.proto.fhir_structure_definition_url) =
-      "http://hl7.org/fhir/StructureDefinition/InsurancePlan";
-  option (.google.fhir.proto.fhir_path_message_constraint) =
-      "(identifier.count() + name.count()) > 0";
+  option (.google.fhir.proto.fhir_structure_definition_url) = "http://hl7.org/fhir/StructureDefinition/InsurancePlan";
+  option (.google.fhir.proto.fhir_path_message_constraint) = "(identifier.count() + name.count()) > 0";
 
   // Logical id of this artifact
   Id id = 1;
@@ -70,10 +68,8 @@ message InsurancePlan {
   // draft | active | retired | unknown
   message StatusCode {
     option (.google.fhir.proto.structure_definition_kind) = KIND_PRIMITIVE_TYPE;
-    option (.google.fhir.proto.fhir_valueset_url) =
-        "http://hl7.org/fhir/ValueSet/publication-status";
-    option (.google.fhir.proto.fhir_profile_base) =
-        "http://hl7.org/fhir/StructureDefinition/code";
+    option (.google.fhir.proto.fhir_valueset_url) = "http://hl7.org/fhir/ValueSet/publication-status";
+    option (.google.fhir.proto.fhir_profile_base) = "http://hl7.org/fhir/StructureDefinition/code";
 
     PublicationStatusCode.Value value = 1;
 
@@ -96,27 +92,22 @@ message InsurancePlan {
   Period period = 15;
 
   // Product issuer
-  Reference owned_by = 16
-      [(.google.fhir.proto.valid_reference_type) = "Organization"];
+  Reference owned_by = 16 [(.google.fhir.proto.valid_reference_type) = "Organization"];
 
   // Product administrator
-  Reference administered_by = 17
-      [(.google.fhir.proto.valid_reference_type) = "Organization"];
+  Reference administered_by = 17 [(.google.fhir.proto.valid_reference_type) = "Organization"];
 
   // Where product applies
-  repeated Reference coverage_area = 18
-      [(.google.fhir.proto.valid_reference_type) = "Location"];
+  repeated Reference coverage_area = 18 [(.google.fhir.proto.valid_reference_type) = "Location"];
 
   // Official contact details relevant to the health insurance plan/product
   repeated ExtendedContactDetail contact = 24;
 
   // Technical endpoint
-  repeated Reference endpoint = 20
-      [(.google.fhir.proto.valid_reference_type) = "Endpoint"];
+  repeated Reference endpoint = 20 [(.google.fhir.proto.valid_reference_type) = "Endpoint"];
 
   // What networks are Included
-  repeated Reference network = 21
-      [(.google.fhir.proto.valid_reference_type) = "Organization"];
+  repeated Reference network = 21 [(.google.fhir.proto.valid_reference_type) = "Organization"];
 
   // Coverage details
   message Coverage {
@@ -130,12 +121,10 @@ message InsurancePlan {
     repeated Extension modifier_extension = 3;
 
     // Type of coverage
-    CodeableConcept type = 4
-        [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
+    CodeableConcept type = 4 [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
 
     // What networks provide coverage
-    repeated Reference network = 5
-        [(.google.fhir.proto.valid_reference_type) = "Organization"];
+    repeated Reference network = 5 [(.google.fhir.proto.valid_reference_type) = "Organization"];
 
     // List of benefits
     message CoverageBenefit {
@@ -149,8 +138,7 @@ message InsurancePlan {
       repeated Extension modifier_extension = 3;
 
       // Type of benefit
-      CodeableConcept type = 4
-          [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
+      CodeableConcept type = 4 [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
 
       // Referral requirements
       String requirement = 5;
@@ -174,8 +162,7 @@ message InsurancePlan {
       }
       repeated Limit limit = 6;
     }
-    repeated CoverageBenefit benefit = 6
-        [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
+    repeated CoverageBenefit benefit = 6 [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
   }
   repeated Coverage coverage = 22;
 
@@ -197,12 +184,10 @@ message InsurancePlan {
     CodeableConcept type = 5;
 
     // Where product applies
-    repeated Reference coverage_area = 6
-        [(.google.fhir.proto.valid_reference_type) = "Location"];
+    repeated Reference coverage_area = 6 [(.google.fhir.proto.valid_reference_type) = "Location"];
 
     // What networks provide coverage
-    repeated Reference network = 7
-        [(.google.fhir.proto.valid_reference_type) = "Organization"];
+    repeated Reference network = 7 [(.google.fhir.proto.valid_reference_type) = "Organization"];
 
     // Overall costs
     message GeneralCost {
@@ -241,8 +226,7 @@ message InsurancePlan {
       repeated Extension modifier_extension = 3;
 
       // General category of benefit
-      CodeableConcept category = 4
-          [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
+      CodeableConcept category = 4 [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
 
       // Benefits list
       message PlanBenefit {
@@ -256,8 +240,7 @@ message InsurancePlan {
         repeated Extension modifier_extension = 3;
 
         // Type of specific benefit
-        CodeableConcept type = 4
-            [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
+        CodeableConcept type = 4 [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
 
         // List of the costs
         message Cost {
@@ -271,8 +254,7 @@ message InsurancePlan {
           repeated Extension modifier_extension = 3;
 
           // Type of cost
-          CodeableConcept type = 4
-              [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
+          CodeableConcept type = 4 [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
 
           // in-network | out-of-network | other
           CodeableConcept applicability = 5;

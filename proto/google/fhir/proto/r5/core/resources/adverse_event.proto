@@ -22,18 +22,17 @@ import "proto/google/fhir/proto/r5/core/codes.proto";
 import "proto/google/fhir/proto/r5/core/datatypes.proto";
 import "proto/google/fhir/proto/r5/core/valuesets.proto";
 
+option go_package = "github.com/google/fhir/go/proto/google/fhir/proto/r5/core/resources/adverse_event_go_proto";
 option java_multiple_files = true;
 option java_package = "com.google.fhir.r5.core";
 option (.google.fhir.proto.fhir_version) = R5;
-option go_package = "github.com/google/fhir/go/proto/google/fhir/proto/r5/core/resources/adverse_event_go_proto";
 
 // Auto-generated from StructureDefinition for AdverseEvent.
 // An event that may be related to unintended effects on a patient or research
 // participant. See http://hl7.org/fhir/StructureDefinition/AdverseEvent
 message AdverseEvent {
   option (.google.fhir.proto.structure_definition_kind) = KIND_RESOURCE;
-  option (.google.fhir.proto.fhir_structure_definition_url) =
-      "http://hl7.org/fhir/StructureDefinition/AdverseEvent";
+  option (.google.fhir.proto.fhir_structure_definition_url) = "http://hl7.org/fhir/StructureDefinition/AdverseEvent";
 
   // Logical id of this artifact
   Id id = 1;
@@ -69,10 +68,8 @@ message AdverseEvent {
   // in-progress | completed | entered-in-error | unknown
   message StatusCode {
     option (.google.fhir.proto.structure_definition_kind) = KIND_PRIMITIVE_TYPE;
-    option (.google.fhir.proto.fhir_valueset_url) =
-        "http://hl7.org/fhir/ValueSet/adverse-event-status";
-    option (.google.fhir.proto.fhir_profile_base) =
-        "http://hl7.org/fhir/StructureDefinition/code";
+    option (.google.fhir.proto.fhir_valueset_url) = "http://hl7.org/fhir/ValueSet/adverse-event-status";
+    option (.google.fhir.proto.fhir_profile_base) = "http://hl7.org/fhir/StructureDefinition/code";
 
     AdverseEventStatusValueSet.Value value = 1;
 
@@ -80,16 +77,13 @@ message AdverseEvent {
 
     repeated Extension extension = 3;
   }
-  StatusCode status = 31
-      [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
+  StatusCode status = 31 [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
 
   // actual | potential
   message ActualityCode {
     option (.google.fhir.proto.structure_definition_kind) = KIND_PRIMITIVE_TYPE;
-    option (.google.fhir.proto.fhir_valueset_url) =
-        "http://hl7.org/fhir/ValueSet/adverse-event-actuality";
-    option (.google.fhir.proto.fhir_profile_base) =
-        "http://hl7.org/fhir/StructureDefinition/code";
+    option (.google.fhir.proto.fhir_valueset_url) = "http://hl7.org/fhir/ValueSet/adverse-event-actuality";
+    option (.google.fhir.proto.fhir_profile_base) = "http://hl7.org/fhir/StructureDefinition/code";
 
     AdverseEventActualityCode.Value value = 1;
 
@@ -97,8 +91,7 @@ message AdverseEvent {
 
     repeated Extension extension = 3;
   }
-  ActualityCode actuality = 11
-      [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
+  ActualityCode actuality = 11 [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
 
   // wrong-patient | procedure-mishap | medication-mishap | device |
   // unsafe-physical-environment | hospital-aquired-infection | wrong-body-site
@@ -118,8 +111,7 @@ message AdverseEvent {
   ];
 
   // The Encounter associated with the start of the AdverseEvent
-  Reference encounter = 15
-      [(.google.fhir.proto.valid_reference_type) = "Encounter"];
+  Reference encounter = 15 [(.google.fhir.proto.valid_reference_type) = "Encounter"];
 
   // When the event occurred
   message OccurrenceX {
@@ -146,8 +138,7 @@ message AdverseEvent {
   ];
 
   // Location where adverse event occurred
-  Reference location = 20
-      [(.google.fhir.proto.valid_reference_type) = "Location"];
+  Reference location = 20 [(.google.fhir.proto.valid_reference_type) = "Location"];
 
   // Seriousness or gravity of the event
   CodeableConcept seriousness = 21;
@@ -195,8 +186,7 @@ message AdverseEvent {
   repeated Participant participant = 36;
 
   // Research study that the subject is enrolled in
-  repeated Reference study = 29
-      [(.google.fhir.proto.valid_reference_type) = "ResearchStudy"];
+  repeated Reference study = 29 [(.google.fhir.proto.valid_reference_type) = "ResearchStudy"];
 
   // Considered likely or probable or anticipated in the research study
   Boolean expected_in_research_study = 37;
@@ -223,18 +213,15 @@ message AdverseEvent {
           (.google.fhir.proto.valid_reference_type) = "Procedure",
           (.google.fhir.proto.valid_reference_type) = "Substance",
           (.google.fhir.proto.valid_reference_type) = "Medication",
-          (.google.fhir.proto.valid_reference_type) =
-              "MedicationAdministration",
+          (.google.fhir.proto.valid_reference_type) = "MedicationAdministration",
           (.google.fhir.proto.valid_reference_type) = "MedicationStatement",
           (.google.fhir.proto.valid_reference_type) = "Device",
-          (.google.fhir.proto.valid_reference_type) =
-              "BiologicallyDerivedProduct",
+          (.google.fhir.proto.valid_reference_type) = "BiologicallyDerivedProduct",
           (.google.fhir.proto.valid_reference_type) = "ResearchStudy"
         ];
       }
     }
-    InstanceX instance = 6
-        [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
+    InstanceX instance = 6 [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
 
     // Information on the possible cause of the event
     message Causality {
@@ -296,15 +283,13 @@ message AdverseEvent {
           (.google.fhir.proto.valid_reference_type) = "Device",
           (.google.fhir.proto.valid_reference_type) = "DeviceUsage",
           (.google.fhir.proto.valid_reference_type) = "DocumentReference",
-          (.google.fhir.proto.valid_reference_type) =
-              "MedicationAdministration",
+          (.google.fhir.proto.valid_reference_type) = "MedicationAdministration",
           (.google.fhir.proto.valid_reference_type) = "MedicationStatement"
         ];
         CodeableConcept codeable_concept = 2;
       }
     }
-    ItemX item = 4
-        [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
+    ItemX item = 4 [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
   }
   repeated ContributingFactor contributing_factor = 38;
 
@@ -328,15 +313,13 @@ message AdverseEvent {
           (.google.fhir.proto.valid_reference_type) = "Immunization",
           (.google.fhir.proto.valid_reference_type) = "Procedure",
           (.google.fhir.proto.valid_reference_type) = "DocumentReference",
-          (.google.fhir.proto.valid_reference_type) =
-              "MedicationAdministration",
+          (.google.fhir.proto.valid_reference_type) = "MedicationAdministration",
           (.google.fhir.proto.valid_reference_type) = "MedicationRequest"
         ];
         CodeableConcept codeable_concept = 2;
       }
     }
-    ItemX item = 4
-        [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
+    ItemX item = 4 [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
   }
   repeated PreventiveAction preventive_action = 39;
 
@@ -361,15 +344,13 @@ message AdverseEvent {
         Reference reference = 1 [
           (.google.fhir.proto.valid_reference_type) = "Procedure",
           (.google.fhir.proto.valid_reference_type) = "DocumentReference",
-          (.google.fhir.proto.valid_reference_type) =
-              "MedicationAdministration",
+          (.google.fhir.proto.valid_reference_type) = "MedicationAdministration",
           (.google.fhir.proto.valid_reference_type) = "MedicationRequest"
         ];
         CodeableConcept codeable_concept = 2;
       }
     }
-    ItemX item = 4
-        [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
+    ItemX item = 4 [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
   }
   repeated MitigatingAction mitigating_action = 40;
 
@@ -397,16 +378,14 @@ message AdverseEvent {
           (.google.fhir.proto.valid_reference_type) = "Immunization",
           (.google.fhir.proto.valid_reference_type) = "Procedure",
           (.google.fhir.proto.valid_reference_type) = "DocumentReference",
-          (.google.fhir.proto.valid_reference_type) =
-              "MedicationAdministration",
+          (.google.fhir.proto.valid_reference_type) = "MedicationAdministration",
           (.google.fhir.proto.valid_reference_type) = "MedicationStatement",
           (.google.fhir.proto.valid_reference_type) = "QuestionnaireResponse"
         ];
         CodeableConcept codeable_concept = 2;
       }
     }
-    ItemX item = 4
-        [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
+    ItemX item = 4 [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
   }
   repeated SupportingInfo supporting_info = 41;
 

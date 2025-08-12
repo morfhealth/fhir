@@ -21,18 +21,17 @@ import "proto/google/fhir/proto/annotations.proto";
 import "proto/google/fhir/proto/r5/core/codes.proto";
 import "proto/google/fhir/proto/r5/core/datatypes.proto";
 
+option go_package = "github.com/google/fhir/go/proto/google/fhir/proto/r5/core/resources/research_study_go_proto";
 option java_multiple_files = true;
 option java_package = "com.google.fhir.r5.core";
 option (.google.fhir.proto.fhir_version) = R5;
-option go_package = "github.com/google/fhir/go/proto/google/fhir/proto/r5/core/resources/research_study_go_proto";
 
 // Auto-generated from StructureDefinition for ResearchStudy.
 // Investigation to increase healthcare-related patient-independent knowledge.
 // See http://hl7.org/fhir/StructureDefinition/ResearchStudy
 message ResearchStudy {
   option (.google.fhir.proto.structure_definition_kind) = KIND_RESOURCE;
-  option (.google.fhir.proto.fhir_structure_definition_url) =
-      "http://hl7.org/fhir/StructureDefinition/ResearchStudy";
+  option (.google.fhir.proto.fhir_structure_definition_url) = "http://hl7.org/fhir/StructureDefinition/ResearchStudy";
 
   // Logical id of this artifact
   Id id = 1;
@@ -99,12 +98,10 @@ message ResearchStudy {
   repeated Label label = 37;
 
   // Steps followed in executing study
-  repeated Reference protocol = 12
-      [(.google.fhir.proto.valid_reference_type) = "PlanDefinition"];
+  repeated Reference protocol = 12 [(.google.fhir.proto.valid_reference_type) = "PlanDefinition"];
 
   // Part of larger study
-  repeated Reference part_of = 13
-      [(.google.fhir.proto.valid_reference_type) = "ResearchStudy"];
+  repeated Reference part_of = 13 [(.google.fhir.proto.valid_reference_type) = "ResearchStudy"];
 
   // References, URLs, and attachments
   repeated RelatedArtifact related_artifact = 21;
@@ -115,10 +112,8 @@ message ResearchStudy {
   // draft | active | retired | unknown
   message StatusCode {
     option (.google.fhir.proto.structure_definition_kind) = KIND_PRIMITIVE_TYPE;
-    option (.google.fhir.proto.fhir_valueset_url) =
-        "http://hl7.org/fhir/ValueSet/publication-status";
-    option (.google.fhir.proto.fhir_profile_base) =
-        "http://hl7.org/fhir/StructureDefinition/code";
+    option (.google.fhir.proto.fhir_valueset_url) = "http://hl7.org/fhir/ValueSet/publication-status";
+    option (.google.fhir.proto.fhir_profile_base) = "http://hl7.org/fhir/StructureDefinition/code";
 
     PublicationStatusCode.Value value = 1;
 
@@ -126,8 +121,7 @@ message ResearchStudy {
 
     repeated Extension extension = 3;
   }
-  StatusCode status = 39
-      [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
+  StatusCode status = 39 [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
 
   // treatment | prevention | diagnostic | supportive-care | screening |
   // health-services-research | basic-science | device-feasibility
@@ -191,8 +185,7 @@ message ResearchStudy {
     // sponsor | lead-sponsor | sponsor-investigator | primary-investigator |
     // collaborator | funding-source | general-contact | recruitment-contact |
     // sub-investigator | study-director | study-chair
-    CodeableConcept role = 5
-        [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
+    CodeableConcept role = 5 [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
 
     // When active in the role
     repeated Period period = 6;
@@ -222,8 +215,7 @@ message ResearchStudy {
     repeated Extension modifier_extension = 3;
 
     // Label for status or state (e.g. recruitment status)
-    CodeableConcept state = 4
-        [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
+    CodeableConcept state = 4 [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
 
     // Actual if true else anticipated
     Boolean actual = 5;
@@ -261,8 +253,7 @@ message ResearchStudy {
     ];
 
     // Group of participants who were enrolled in study
-    Reference actual_group = 7
-        [(.google.fhir.proto.valid_reference_type) = "Group"];
+    Reference actual_group = 7 [(.google.fhir.proto.valid_reference_type) = "Group"];
   }
   Recruitment recruitment = 48;
 
@@ -282,8 +273,7 @@ message ResearchStudy {
     Id link_id = 4;
 
     // Label for study comparisonGroup
-    String name = 5
-        [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
+    String name = 5 [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
 
     // Categorization of study comparisonGroup
     CodeableConcept type = 6;
@@ -292,12 +282,10 @@ message ResearchStudy {
     Markdown description = 7;
 
     // Interventions or exposures in this comparisonGroup or cohort
-    repeated Reference intended_exposure = 8
-        [(.google.fhir.proto.valid_reference_type) = "EvidenceVariable"];
+    repeated Reference intended_exposure = 8 [(.google.fhir.proto.valid_reference_type) = "EvidenceVariable"];
 
     // Group of participants who were enrolled in study comparisonGroup
-    Reference observed_group = 9
-        [(.google.fhir.proto.valid_reference_type) = "Group"];
+    Reference observed_group = 9 [(.google.fhir.proto.valid_reference_type) = "Group"];
   }
   repeated ComparisonGroup comparison_group = 49;
 
@@ -344,8 +332,7 @@ message ResearchStudy {
     Markdown description = 6;
 
     // Structured outcome definition
-    Reference reference = 7
-        [(.google.fhir.proto.valid_reference_type) = "EvidenceVariable"];
+    Reference reference = 7 [(.google.fhir.proto.valid_reference_type) = "EvidenceVariable"];
   }
   repeated OutcomeMeasure outcome_measure = 50;
 
